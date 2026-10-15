@@ -205,10 +205,10 @@ class DiverseMultiStreamPacker:
         ]
 
         self.streams = [
-            ("STEM/Textbooks", MemoryEfficientStream(stem_files), 0.35),
-            ("Claude CoT/Reasoning", MemoryEfficientStream(reasoning_files), 0.30),
-            ("Philosophy/Lit", MemoryEfficientStream(phil_files), 0.20),
-            ("Fluency/Grounding", MemoryEfficientStream(fluency_files), 0.15)
+            ("Claude CoT/Reasoning", MemoryEfficientStream(reasoning_files), 0.35),
+            ("STEM/Textbooks", MemoryEfficientStream(stem_files), 0.25),
+            ("Fluency/Grounding", MemoryEfficientStream(fluency_files), 0.25),
+            ("Philosophy/Lit", MemoryEfficientStream(phil_files), 0.15)
         ]
         self.stream_iters = [s[1].doc_generator() for s in self.streams]
         self.weights = [s[2] for s in self.streams]
@@ -289,7 +289,7 @@ def main():
     parser.add_argument("--steps", type=int, default=5000, help="Number of training steps to run (default: 5,000)")
     parser.add_argument("--batch-size", type=int, default=4, help="Batch size (default: 4)")
     parser.add_argument("--seq-len", type=int, default=128, help="Context sequence length (default: 128)")
-    parser.add_argument("--lr", type=float, default=1e-4, help="Learning rate (default: 1e-4)")
+    parser.add_argument("--lr", type=float, default=2.5e-5, help="Learning rate (default: 2.5e-5)")
     parser.add_argument("--save-every", type=int, default=250, help="Checkpoint interval (default: 250 steps)")
     parser.add_argument("--probe-every", type=int, default=500, help="Generation probe interval (default: 500 steps)")
     args = parser.parse_args()
@@ -349,7 +349,7 @@ def main():
     packer = DiverseMultiStreamPacker(tokenizer=tokenizer, max_seq_len=args.seq_len)
     print(f"[Data] Multi-Stream Stratified Packer initialized successfully.")
 
-    # Optimizer
+    # Optimizer & Scheduler
     optimizer = PCEINexus.build_physics_optimizer(nexus, base_lr=args.lr, weight_decay=0.01)
     if "optimizer_state_dict" in ckpt:
         try:
@@ -357,6 +357,14 @@ def main():
             print("[Optimizer] Restored optimizer state from checkpoint.")
         except Exception:
             print("[Optimizer] Initialized fresh optimizer state.")
+
+    # Explicitly enforce target LR and attach Cosine Annealing to eliminate ternary dithering
+    for param_group in optimizer.param_groups:
+        param_group['lr'] = args.lr
+        param_group['initial_lr'] = args.lr
+
+    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=25000, eta_min=5e-6)
+    print(f"[Scheduler] Active: CosineAnnealingLR (base_lr={args.lr:.2e} -> eta_min=5e-6)")
 
     start_step = ckpt.get("global_step", 0)
     current_step = start_step
@@ -406,6 +414,7 @@ def main():
         total_loss.backward()
         torch.nn.utils.clip_grad_norm_(nexus.parameters(), max_norm=1.0)
         optimizer.step()
+        scheduler.step()
 
         # Ambient Consolidation Tick
         nexus.ambient_field.tick_consolidation()
@@ -421,8 +430,9 @@ def main():
             ppl = math.exp(min(20, avg_loss))
             tok_per_sec = (args.batch_size * args.seq_len) / max(step_duration, 1e-4)
             elapsed = time.time() - start_time
+            curr_lr = optimizer.param_groups[0]['lr']
             print(f"  Step {current_step:,} | Loss: {avg_loss:.4f} | PPL: {ppl:8.2f} | "
-                  f"Speed: {tok_per_sec:6.1f} tok/s | Elapsed: {elapsed/60:.1f}m", flush=True)
+                  f"LR: {curr_lr:.2e} | Speed: {tok_per_sec:6.1f} tok/s | Elapsed: {elapsed/60:.1f}m", flush=True)
 
             try:
                 with open(telemetry_file, "a") as tf:
@@ -430,6 +440,7 @@ def main():
                         "step": current_step,
                         "loss": round(avg_loss, 4),
                         "ppl": round(ppl, 2),
+                        "lr": round(curr_lr, 7),
                         "tok_per_sec": round(tok_per_sec, 1),
                         "elapsed_seconds": round(elapsed, 1),
                         "timestamp": time.time()
