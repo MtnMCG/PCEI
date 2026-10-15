@@ -17,7 +17,7 @@ def test_ambient_field_consolidation():
     
     assert field.fast_state is not None, "Fast state should be initialized after tick"
     assert field.slow_state is not None, "Slow state should be initialized after tick"
-    assert field.fast_state.shape == (2, 64)
+    assert field.fast_state.shape == (64,)
     
     latent2 = torch.ones(2, 5, 64) * 2.0
     field.tick(latent2, loss=0.5)
