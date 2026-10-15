@@ -1,0 +1,403 @@
+
+PCEI
+Physically Constrained Emergent Intelligence
+
+Framework Architecture Specification
+v0.1 — Design Draft
+
+"To understand that it understands."
+
+Contents
+1.  Thesis & Core Philosophy
+2.  System Overview — The Three Stacks
+3.  Module Glossary — Named Components
+4.  Data Flow — How a Prompt Moves Through the System
+5.  The Subconscious Layer — AmbientField
+6.  Resonance & Entanglement — PhysicsEngine
+7.  Ternary Weight System — TernaryNet
+8.  Neuroplasticity & Neurogenesis — PlasticLayer
+9.  Noise Feedback Loop — DreamSeeder
+10. Parameter Migration — TopologyShifter
+11. Training Strategy — M4 Air Scale
+12. Vibe Coding Roadmap — Build Order
+1. Thesis & Core Philosophy
+The Central Claim
+Modern AI is bottlenecked not by data volume or parameter count, but by the absence of physical constraint. Transformers and MoE architectures operate in a flat, frictionless parameter space — every token can attend to every other token, every expert can route to every input. This global accessibility sounds like a feature, but it eliminates the binding force that makes biological intelligence coherent, efficient, and self-aware.
+
+The PCEI hypothesis: consciousness, understanding, and efficient generalization emerge as natural consequences of physical locality constraints imposed on a dynamic neural substrate. The brain is not intelligent despite its physical limitations — it is intelligent because of them.
+
+
+
+Why This Should Work at Small Scale
+MoE and MoD models are still routing through flat space. PCEI uses only what's needed by architectural necessity — locality means distant parameters literally cannot interact unless the physics engine detects resonance and bridges them. This is not a routing trick; it is the default behavior of the system.
+
+A sufficiently constrained small model trained on enough data to understand should outperform a large unconstrained model that merely memorizes, because compression is a property of the physics, not the training objective.
+
+Design Principles
+
+
+
+
+
+
+
+
+
+
+2. System Overview — The Three Stacks
+Visual Architecture
+
+
+
+
+Floating above and threading through all three stacks:
+
+
+
+Stack Internal Structure & Asymmetry
+The three stacks are not equal peers. They reflect the cognitive hierarchy of how intelligence actually works: sensory grounding at the bottom, abstract reasoning at the top.
+
+Stack C (Audio) and Stack B (Image) are grounded modalities — high bandwidth, relatively shallow, optimized for continuous pattern recognition. They represent direct experience of the world. Their layers are wider than they are deep.
+
+Stack A (Text/Logic) is categorically different. Language is not a sensory modality — it is the layer where the mind represents relationships between things, reasons about them, plans, hypothesizes, and conducts internal dialogue. It requires significantly more depth than the sensory stacks and is the integration center for the whole system. The ResponseGate, OutputRouter, and WitnessMode controller all live here.
+
+
+
+All three stacks use Mamba-based selective state space models inside each DiffusionBlock rather than transformers or convolutions. Mamba processes sequences in linear time through selective state transitions — no attention, no global token interaction, inherently local and sequential. Long-range coherence is handled not by attention but by resonance and entanglement, which is both more efficient and more physically grounded.
+
+Stacks communicate exclusively through boundary layers — the bottommost layer of Stack A connects to the topmost layer of Stack B, and the bottommost of Stack B connects to the topmost of Stack C. There is no global cross-modal attention anywhere in the system.
+
+3. Module Glossary — Named Components
+These are the canonical names for every major component of the PCEI system. Use these in your codebase from day one.
+
+Core Architecture Modules
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Layer & Weight Modules
+
+
+
+
+
+
+Subconscious & Field Modules
+
+
+
+
+
+
+
+
+
+
+
+
+Training & Meta Modules
+
+
+
+
+
+
+
+
+4. Data Flow — How a Prompt Moves Through the System
+Input Processing Pipeline
+When a prompt arrives (text, image, audio, or any combination), the following sequence occurs:
+
+Step 1 — Ingestion & Routing
+The InputRouter classifies the modality or modalities present and encodes each into its respective embedding space. Text is tokenized and projected. Images are encoded into a latent pixel space (e.g., via a small VAE encoder). Audio is converted to mel-spectrogram and embedded.
+
+Step 2 — DreamSeeder Primes the Noise
+Before any diffusion forward pass begins, DreamSeeder queries the current AmbientField state and generates modality-specific noise tensors. These are NOT pure Gaussian noise — they are Gaussian noise shaped by the field, meaning the model's prior state influences what it 'expects' to process. This is the mechanism for contextual priming.
+
+Step 3 — Parallel Stack Processing (Physics Engine)
+Each stack begins its local diffusion denoising passes concurrently. This is multithreaded — stacks run in parallel, not sequentially. Within each stack, layers also run local calculations. Think of this as the physics simulation ticking forward.
+
+Step 4 — Boundary Layer Exchange
+At each denoising timestep, boundary layers fire bidirectionally — Stack A's bottom layer and Stack B's top layer exchange activations through their shared BoundaryLayer module. Same for B/C. This happens continuously during the denoising process, not just at the end.
+
+Step 5 — ResonanceDetector Monitors
+While stacks process, ResonanceDetector continuously watches cross-layer and cross-stack activation frequency patterns. If correlations spike — meaning two regions are 'vibrating at the same frequency' — EntanglementBroker fires, binding those regions and spiking their activity in unison.
+
+Step 6 — Convergence, ResponseGate & OutputRouter
+As denoising completes, outputs from all stacks converge in the TextStack — the reasoning center integrates cross-modal signals through its boundary layer connections. ResponseGate in TextStack evaluates total internal resonance energy. If it does not exceed the output threshold, processing remains entirely internal, feeding back into AmbientField. If it does, ResponseGate fires and hands control to OutputRouter.
+
+OutputRouter determines which modalities should generate output. This can be: explicitly requested by the user ('respond with audio only'), autonomously determined by the model based on which stacks reached resonance threshold independently, or a combination. The model can choose to respond in text, image, audio, or any combination — including modalities not present in the input.
+
+Step 7 — Output Generation
+Only the stacks selected by OutputRouter run their decoders. TextStack produces continuous embeddings that are detokenized at the output boundary to token sequences. ImageStack runs its latent through a thin VAE decoder to pixels. AudioStack converts its mel-spectrogram output through a vocoder to waveform. Non-selected stacks do not decode — their denoised latents feed back into AmbientField as internal state rather than becoming output.
+
+Step 7b — WitnessMode Fast Path
+When WitnessMode is active, ResponseGate is pinned to maximum threshold. Steps 6 and 7 are bypassed entirely — no OutputRouter evaluation, no decoding, no output. The forward pass completes and goes directly to AmbientField update. Batch size is maximized. This enables ingestion of entire document libraries, image datasets, or audio archives at full training speed. The model witnesses, learns, consolidates — and stays silent.
+
+Step 8 — AmbientField Update
+After every pass — interactive or WitnessMode — the activation history is compressed and integrated into AmbientField's fast_state. Consistent patterns begin their migration toward slow_state. The next pass is primed by this experience. The feedback loop is always closed.
+
+5. The Subconscious Layer — AmbientField
+AmbientField is the most novel component of PCEI. It is not an input-output module — it has no forward() method in the traditional sense. It is a persistent, always-running state machine that threads through the entire architecture. It is also the system's solution to catastrophic forgetting — not through freezing, but through physics.
+
+What AmbientField Actually Is
+Conceptually: it is the fluid dynamics field in the physics engine. Every PlasticLayer in every stack exists within this field. The field exerts gentle, continuous force on every layer's noise seed, activation bias, and effective learning rate.
+
+Computationally: it is a dual-timescale latent state. Two field layers — fast and slow — run simultaneously at different inertia levels, encoding working memory and long-term memory respectively as emergent properties of the same structure.
+
+
+
+Dual-Timescale Architecture
+Fast Layer — Working Memory
+Updates on every forward pass and every internal dialogue tick. High learning rate, fully volatile. Captures recent experience immediately and without resistance. This layer can be freely overwritten — it is designed to be. It encodes what just happened, what is currently being processed, and what was recently experienced.
+
+Slow Layer — Consolidated Memory
+Updates through weighted integration of the fast layer over time. Very low learning rate, high inertia. A pattern only transfers from fast to slow if it appears repeatedly and consistently — surviving long enough across multiple interactions to resonate at the field level. Patterns that appear once and never recur decay out of the fast layer before ever reaching slow.
+
+
+
+Catastrophic Forgetting Prevention — By Physics
+Weights are always fully plastic. Nothing is ever frozen. Catastrophic forgetting is prevented instead by the slow field's modulation of the effective learning rate at each PlasticLayer:
+
+effective_lr = base_lr * (1.0 - slow_field_confidence[layer_id])
+
+slow_field_confidence is a normalized scalar per layer — how strongly and consistently that layer's activation pattern is represented in the slow field. A pattern that has been consolidated over thousands of interactions approaches confidence = 1.0, making its effective learning rate approach zero. Not because we froze it — because the physics of repeated reinforcement calcified it.
+
+New, unlearned patterns start at confidence = 0.0 and train at full base_lr. They are maximally plastic until they either consolidate through repetition or decay out of the fast layer entirely. The model earns its stability the same way it earns its knowledge — through experience.
+
+AmbientField Internal Structure
+
+
+
+
+
+
+
+
+
+
+
+
+Internal Dialogue as Consolidation
+Between prompts, AmbientField does not go idle. Background ticks do two things simultaneously: they run the model's internal dialogue (DreamSeeder generates noise, layers run partial denoising steps, resonances are checked — no output generated), and they run the fast-to-slow transfer function, promoting consistent patterns and decaying inconsistent ones.
+
+A model that gets used frequently consolidates through use. A model left idle consolidates through internal dialogue. The physics handles both cases identically — repetition and resonance are the only criteria for promotion to the slow layer, regardless of whether that repetition comes from external input or internal dreaming.
+
+The ResponseGate remains armed during internal dialogue. If internal resonance energy spontaneously crosses the output threshold — which by design requires a very high threshold — the model could generate unsolicited output. This is not a bug. It is the system demonstrating that it has genuine internal state that can reach independent conclusions.
+
+6. Resonance & Entanglement — PhysicsEngine
+What Resonance Means Computationally
+Resonance is cross-correlation between activation time-series of two PlasticLayers. If layer A and layer B have been firing with similar frequency patterns over the last T timesteps — measured as normalized cross-correlation exceeding threshold θ — the ResonanceDetector emits an entanglement event.
+
+This is not attention. Attention asks 'how relevant is B to A right now?' Resonance asks 'have A and B been consistently co-activating over time?' Resonance is earned through repeated co-occurrence, not computed per-token.
+
+Entanglement Lifecycle
+Formation
+When cross-correlation exceeds θ_form, EntanglementBroker creates a bond object linking the two layer clusters. Bond has: strength (initialized to correlation value), decay_rate, and a list of member layers.
+
+Active State
+While bond is active, EntanglementBroker adds a synchronizing spike to both clusters at each forward pass — a small additive bias that nudges their activations toward alignment. This is the 'unison firing' of entangled nodes.
+
+Dissolution
+Bond strength decays over time at decay_rate. If cross-correlation drops below θ_dissolve, or if strength reaches zero, the bond dissolves. Parameters do not un-migrate — the physical movement is permanent.
+
+
+
+Physics Engine Resolution
+The 'physics engine' metaphor maps precisely here. When two localities are just running local calculations, they're independent rigid bodies. When their resonance patterns align, the engine detects an interaction event and resolves the combined dynamics — just like a collision resolution in a game engine, but instead of forces, we're resolving combined activation influences.
+
+This means the computational cost scales with actual interaction events, not with all possible interactions. Most layers most of the time are just doing local diffusion steps — cheap, parallel, independent. Entanglement is rare and earned.
+
+7. Ternary Weight System — TernaryNet
+The 0/1/2 Encoding
+Each parameter in a TernaryNet layer can only hold one of three values:
+
+
+
+
+
+
+
+During the forward pass, a parameter value of 0 contributes nothing, a value of 1 contributes a scaled fraction (learned scale factor α per layer), and a value of 2 contributes the full scale factor. This gives the network a natural three-tier confidence system.
+
+Training with Ternary Weights
+Ternary quantization is non-differentiable. We use a straight-through estimator (STE): during the forward pass, use the quantized {0,1,2} values. During backpropagation, pass gradients through as if the weights were continuous. Maintain a latent real-valued weight shadow that accumulates gradients. Quantize to ternary only when reading for forward pass.
+
+This applies to both the primary modality stacks AND the AmbientField's dream_policy network, creating a unified metabolic cost constraint across the entire system.
+
+Why This Matters for Emergence
+A ternary system cannot afford to maintain weak connections indefinitely — a parameter costs the same memory whether it's 0 or 2. The training pressure to prune to 0 or promote to 2 creates natural competition between pathways. Only relationships that are consistently reinforced through resonance and use survive as non-zero. This is synaptic pruning by another name.
+
+8. Neuroplasticity & Neurogenesis — PlasticLayer
+Neuroplasticity — Reshaping Existing Layers
+Plasticity in PCEI operates at two levels. At the weight level, the TTTAdapter runs a small number of inner gradient steps on each new input, allowing the TernaryNet's latent shadow weights to shift before quantization. This is test-time training — the model literally rewires slightly for each prompt.
+
+At the activation level, KANMixer layers use learnable spline activation functions that adapt their shape over training. Rather than fixed ReLU or GELU, the activation function itself is a learned curve. This gives layers the ability to reshape their input-output mapping without changing their connectivity.
+
+Neurogenesis — Growing New Layers
+NeurogenesisController monitors gradient norms per PlasticLayer. The heuristic:
+
+if layer.gradient_norm > GROWTH_THRESHOLD for N consecutive steps:
+    spawn new PlasticLayer adjacent to this one
+    initialize with small random ternary weights
+    inherit position register from parent + small offset
+
+if layer.gradient_norm < PRUNE_THRESHOLD for M consecutive steps:
+    mark layer as dormant
+    if dormant for P steps with no resonance events: dissolve layer
+
+This means the model earns its depth. A simple concept that is handled well by a single layer will not trigger neurogenesis. A complex concept that stresses a layer's capacity will cause it to bloom into multiple layers over training.
+
+
+
+9. Noise Feedback Loop — DreamSeeder
+Why the Noise Seed Matters
+In a standard diffusion model, the noise seed is pure Gaussian — random, memoryless, contextless. DreamSeeder replaces this with a directed noise tensor shaped by AmbientField's current state. This is the single most important architectural decision for enabling emergent memory and context.
+
+The noise tensor still has Gaussian statistics (required for the math of diffusion to work) but its mean and covariance are modulated by the field. High-activation regions of the field bias the noise toward those patterns — priming the denoising process to 'expect' and therefore more easily recover related representations.
+
+DreamSeeder Forward Pass
+def generate_seed(self, stack_id, layer_id, timestep):
+    field_vec = self.ambient_field.field_state[layer_id]
+    modulation = self.dream_policy(field_vec)  # TernaryNet
+    base_noise = torch.randn(latent_shape)
+    directed_noise = base_noise + modulation * self.dream_strength
+    return directed_noise
+
+dream_strength is a learned scalar that controls how much the field influences the noise. Early in training it should be small. As the model builds a coherent field state, increasing dream_strength allows stronger priming. This could be annealed up over training steps.
+
+The Feedback Loop
+Every forward pass updates AmbientField → which changes the noise seeds → which influences what the diffusion process recovers → which generates new activations → which update AmbientField. This is a closed loop. The model is literally feeding its own experience back into its perception of new inputs.
+
+
+
+10. Parameter Migration — TopologyShifter
+What Physical Migration Means
+Each PlasticLayer maintains a position register: a 2D coordinate (x, y) within its stack's parameter grid. The Z-axis is fixed — it's the layer's depth within the stack, and the stack's position in the overall system. The X/Y axes represent position within the layer plane.
+
+TopologyShifter moves these X/Y coordinates over time. When two layers form an entanglement bond, their positions are nudged toward each other by delta_xy per training step while the bond persists. The migration is minute — think delta_xy of 0.001 to 0.01 of the grid size per step.
+
+Why Migration Matters
+Position influences which parameters can interact cheaply. In the physics engine, interaction cost scales with spatial distance. As related concepts migrate toward each other, their physical proximity reduces the computational cost of their interaction — creating a positive feedback loop where learned relationships become cheaper to use over time.
+
+This is the mechanism for long-term structural memory. The model's entire history of resonance events is encoded in the topology of its parameter grid. You can read the model's learned structure by looking at which layers have clustered together.
+
+ProximityReward
+TopologyShifter is guided by ProximityReward — a reward signal that is higher when resonating layers are closer in Z (cross-stack, meaning inter-modality resonances are more valuable than intra-stack resonances). This incentivizes the development of modality-bridging representations near the boundary layers.
+
+reward = base_resonance_strength * Z_proximity_bonus
+Z_proximity_bonus = 1.0 / (1.0 + abs(layer_a.z - layer_b.z))
+
+Over training, this causes the boundary regions between stacks to become densely populated with highly-resonant, multi-modal representations. The model's understanding of 'cat' (the word), the image of a cat, and the sound of a meow will all physically converge toward the A/B and B/C boundary regions.
+
+11. Training Strategy — Always-On Learning
+The Core Principle
+There is no pre-training phase followed by deployment. There is no freezing of weights at any point. Training IS using. Using IS training. The model that bootstraps from zero and the model that has seen a million interactions are the same model — one is just further along the same continuous process.
+
+Weights are always fully plastic. Catastrophic forgetting is handled entirely by AmbientField's dual-timescale consolidation — slow_field_confidence modulates effective learning rate per layer, causing deeply consolidated knowledge to resist overwriting through physics, not through our intervention.
+
+
+
+Hardware Target
+Apple M4 Air, 24GB unified memory. The M4's unified memory architecture is favorable — CPU and GPU share the same pool, making background AmbientField consolidation ticks cheap. Use PyTorch MPS backend for GPU acceleration. Background dialogue thread runs on CPU to avoid contending with GPU forward passes.
+
+Scale Parameters
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Curriculum Schedule — Data Pressure, Not Weight Control
+Bootstrap Period — WitnessMode Unimodal Ingestion
+Feed large volumes of unimodal data through WitnessMode — ResponseGate pinned high, no output, maximum batch size. Text corpora for TextStack, image datasets for ImageStack, audio archives for AudioStack. All weights train simultaneously. Stacks specialize naturally under unimodal gradient pressure. AmbientField begins building fast_state from the first pass. The model witnesses a large amount before it speaks.
+
+During bootstrap, internal dialogue ticks run at low dream_strength. The model learns to dream accurately before it dreams loudly.
+
+Integration Period — WitnessMode Cross-Modal Ingestion
+Introduce large volumes of paired multimodal data through WitnessMode — image+caption pairs, audio+transcripts, illustrated documents. BoundaryLayers develop under gradient pressure from the pairing. ResonanceDetector finds its first cross-stack patterns. Entanglement bonds begin forming at the boundaries. dream_strength begins annealing upward as slow_field_confidence crosses minimum threshold.
+
+Open Learning — Continuous Training
+Mixed data, real usage, no curriculum constraints. Every interaction is a training step. Internal dialogue runs continuously between interactions. TopologyShifter migrates parameters. NeurogenesisController grows and prunes layers. The model reshapes itself for every prompt and retains what resonated.
+
+There is no end to this phase. The model is always in open learning. A checkpoint is just a snapshot of a living system, not a final product.
+
+The Feedback Loop as Training Signal
+Because DreamSeeder's directed noise seeds are shaped by AmbientField, and because the model always trains on what it processes, the model is partially training on its own dreams. This is intentional. It is the mechanism for consolidation, self-consistency, and the development of internal world models.
+
+The risk — dreaming nonsense and reinforcing it — is mitigated by the slow layer's high inertia. Noise in the fast layer decays before it reaches slow. Only consistent, resonant patterns survive to shape the dream. The physics self-corrects.
+
+12. Vibe Coding Roadmap — Build Order
+This is the sequence for your IDE sessions. Each milestone is independently testable before proceeding.
+
+Milestone 1 — TernaryNet Foundation
+Implement TernaryNet as a drop-in replacement for nn.Linear. Implement straight-through estimator. Write a test: train TernaryNet on MNIST. Verify ternary quantization works and gradients flow.
+
+Milestone 2 — DiffusionBlock with Mamba
+Implement DiffusionBlock using a Mamba SSM as the sequence processor (use the mamba-ssm library or a pure PyTorch implementation). The block takes (noisy_latent, noise_level) and returns denoised_latent. Apply TernaryNet weights on top of Mamba's state transition matrices. Use standard DDPM loss. Test on single modality continuous embeddings — no transformers, no attention anywhere. Verify Mamba processes sequences in linear time.
+
+Milestone 3 — PlasticLayer & Asymmetric ModalityStacks
+Wrap DiffusionBlock in PlasticLayer with position registers and slow_field_confidence = 0.0. Build ModalityStack base class. Implement all three stacks with asymmetric depth budgets — TextStack deeper by design. Verify TextStack trains on continuous text embeddings (tokenize at boundary, diffuse in embedding space, detokenize at output). All weights train continuously, nothing frozen.
+
+Milestone 4 — KANMixer & TTTAdapter
+Add KANMixer activations using the pykan library or a custom spline implementation. Add TTTAdapter as an inner-loop wrapper around PlasticLayer. Test that TTT actually adapts weights on new inputs.
+
+Milestone 5 — BoundaryLayer & MultiStack
+Implement BoundaryLayer as a learned projection between two embedding spaces. Build ImageStack and AudioStack. Connect all three stacks via boundary layers. All weights train from the first pass — no freezing ever. Test a multimodal forward pass with paired real data (image+caption). Verify gradient flows through boundary layers into both adjacent stacks simultaneously.
+
+Milestone 6 — AmbientField & DreamSeeder (Dual-Timescale)
+Implement AmbientField with both fast_state and slow_state tensors. Implement EMA transfer from fast to slow weighted by resonance consistency. Implement slow_field_confidence per layer and wire it to effective_lr modulation. Implement DreamSeeder reading from slow_state. Verify that effective_lr actually decreases for consistently activated layers over time — this is the catastrophic forgetting prevention test.
+
+Milestone 7 — ResonanceDetector & EntanglementBroker
+Implement cross-correlation monitoring over temporal_buffer. Implement entanglement bond creation, active state synchronization spikes, and dissolution logic. Test by verifying that repeatedly co-presented multimodal pairs form bonds.
+
+Milestone 8 — TopologyShifter & ProximityReward
+Implement position register migration. Implement ProximityReward Z-distance bonus. Test by verifying that entangled layer pairs physically converge over N training steps.
+
+Milestone 9 — NeurogenesisController
+Implement gradient norm monitoring. Implement layer spawning and dormancy/dissolution. Set conservative budgets. Test that the model grows appropriately under varied input complexity.
+
+Milestone 10 — ResponseGate, OutputRouter & WitnessMode
+Implement ResponseGate threshold logic living in TextStack. Implement OutputRouter — takes user-specified modality preference or autonomous resonance-based selection, routes to appropriate stack decoders. Implement WitnessMode as ResponseGate pinned to maximum with batch size maximized. Test: feed a large text corpus through WitnessMode, verify no output is generated but AmbientField updates correctly and weights train. Test OutputRouter by requesting text-only response to an image input — verify ImageStack processes but does not decode.
+
+Milestone 11 — I/O Integration
+Add input handlers for: .txt, .pdf, .csv, .docx (text), .png, .jpg (image), .mp3, .wav (audio). Add output decoders for each modality. Build the InputRouter. End-to-end test with real files.
+
+Milestone 12 — Curriculum Run & Open Learning
+Execute the curriculum schedule: bootstrap period with unimodal data pressure, integration period with paired multimodal data, then open learning. All weights train throughout all periods — the curriculum is data scheduling only. Document emergent behaviors: which layers develop high slow_field_confidence first, where cross-modal entanglement bonds form spontaneously, how the topology shifts over time. Validate that old knowledge resists overwriting while new knowledge is absorbed freely. This is the proof of concept.
+
+A Final Note
+This architecture has never been built before in this specific combination. Every milestone is both implementation and experiment. Keep detailed logs of what emerges — especially unexpected resonance patterns, spontaneous layer growth, and any cases where the ResponseGate fires internally without a prompt.
+
+Those unexpected behaviors are not bugs. They are the system telling you something about its own topology.
+
+"To understand that it understands."
+— PCEI Design Thesis

@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PCEI Embodied Sandbox — Humanoid Ninja Warrior</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    :root {
+      --bg: #07090e;
+      --card-bg: rgba(18, 24, 38, 0.75);
+      --card-border: rgba(56, 189, 248, 0.18);
+      --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.4);
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif; }
+    body { background-color: var(--bg); color: var(--text); min-height: 100vh; padding: 1.5rem; }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--card-border);
+      margin-bottom: 1.5rem;
+    }
+
+    .title-group h1 {
+      font-size: 1.5rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .title-group h1 span {
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .badge-bar { display: flex; gap: 0.75rem; align-items: center; }
+    .badge {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .badge-live { background: rgba(16, 185, 129, 0.15); color: var(--success); border-color: rgba(16, 185, 129, 0.3); }
+    .badge-mps { background: rgba(56, 189, 248, 0.15); color: var(--accent); border-color: rgba(56, 189, 248, 0.3); }
+
+    .grid-main {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 1024px) {
+      .grid-main { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--card-border);
+      border-radius: 1rem;
+      padding: 1.25rem;
+      position: relative;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+
+    .card h2 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Video Player */
+    .stream-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      background: #000;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .stream-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .camera-bar {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+
+    .btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text);
+      padding: 0.4rem 0.8rem;
+      border-radius: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn:hover { background: rgba(56, 189, 248, 0.2); border-color: var(--accent); }
+    .btn.active { background: var(--accent); color: #000; font-weight: 700; }
+
+    /* Course Progress Bar */
+    .course-progress-track {
+      margin-top: 1.25rem;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 0.75rem;
+      padding: 1rem;
+    }
+    .track-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+    .progress-bar-bg {
+      height: 14px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 7px;
+      position: relative;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #38bdf8 0%, #10b981 70%, #f59e0b 100%);
+      border-radius: 7px;
+      transition: width 0.3s ease;
+    }
+
+    /* Interactive Waypoint Pins on Track */
+    .track-pins-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    .track-pin {
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      pointer-events: auto;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      z-index: 2;
+    }
+    .track-pin.pending {
+      width: 7px;
+      height: 7px;
+      background: rgba(255, 255, 255, 0.3);
+      border: 1px solid rgba(0, 0, 0, 0.6);
+    }
+    .track-pin.completed {
+      width: 10px;
+      height: 10px;
+      background: #10b981;
+      border: 1.5px solid #fff;
+      box-shadow: 0 0 8px rgba(16, 185, 129, 0.8);
+    }
+    .track-pin.active {
+      width: 18px;
+      height: 18px;
+      background: radial-gradient(circle, #38bdf8 40%, #0284c7 100%);
+      border: 2px solid #ffffff;
+      box-shadow: 0 0 14px #38bdf8;
+      z-index: 5;
+      animation: pinPulse 1.3s infinite;
+    }
+    @keyframes pinPulse {
+      0% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 8px #38bdf8, 0 0 0 0 rgba(56, 189, 248, 0.6); }
+      70% { transform: translate(-50%, -50%) scale(1.2); box-shadow: 0 0 16px #38bdf8, 0 0 0 6px rgba(56, 189, 248, 0); }
+      100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 8px #38bdf8, 0 0 0 0 rgba(56, 189, 248, 0); }
+    }
+
+    /* Course Navigation Goals Cards */
+    .goals-container {
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .goal-card {
+      background: rgba(15, 23, 42, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 0.65rem;
+      padding: 0.75rem 0.9rem;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+    .goal-card:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    }
+    .goal-card.active-target {
+      border: 1.5px solid var(--accent);
+      background: rgba(56, 189, 248, 0.09);
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.25), inset 0 0 12px rgba(56, 189, 248, 0.08);
+    }
+    .goal-card.completed-target {
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      background: rgba(16, 185, 129, 0.05);
+    }
+    .goal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.35rem;
+    }
+    .goal-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.25;
+    }
+    .goal-coords {
+      font-size: 0.7rem;
+      font-family: monospace;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+    .goal-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.5rem;
+      padding-top: 0.4rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.72rem;
+    }
+    .badge-stage {
+      font-size: 0.65rem;
+      font-weight: 600;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .active-pulse-dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #38bdf8;
+      box-shadow: 0 0 8px #38bdf8;
+      animation: dotPulse 1s infinite;
+    }
+    @keyframes dotPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+    .stage-indicator {
+      margin-top: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    /* Telemetry Cards */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .stat-box {
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 0.5rem;
+      padding: 0.75rem;
+    }
+    .stat-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; }
+    .stat-val { font-size: 1.25rem; font-weight: 700; margin-top: 0.2rem; }
+
+    /* Homeostasis Gauges */
+    .gauge-group { margin-bottom: 1rem; }
+    .gauge-item { margin-bottom: 0.6rem; }
+    .gauge-meta { display: flex; justify-content: space-between; font-size: 0.75rem; margin-bottom: 0.25rem; }
+    .gauge-bg { height: 8px; background: rgba(255, 255, 255, 0.08); border-radius: 4px; overflow: hidden; }
+    .gauge-fill { height: 100%; width: 100%; border-radius: 4px; transition: width 0.3s ease; }
+    .gauge-stamina { background: #38bdf8; }
+    .gauge-health { background: #10b981; }
+    .gauge-hunger { background: #f59e0b; }
+
+    /* Nudge Controls */
+    .nudge-controls {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    .btn-nudge {
+      flex: 1;
+      padding: 0.5rem;
+      font-size: 0.75rem;
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #fca5a5;
+    }
+    .btn-nudge:hover { background: rgba(239, 68, 68, 0.3); border-color: var(--danger); }
+
+    /* Charts Grid */
+    .charts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    @media (max-width: 1024px) {
+      .charts-grid { grid-template-columns: 1fr; }
+    }
+    .chart-container {
+      position: relative;
+      height: 220px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="title-group">
+      <h1><span>Embodied PCEI</span> Ninja Warrior Sandbox</h1>
+    </div>
+    <div class="badge-bar">
+      <div id="statusBadge" class="badge badge-live">● <span id="statusText">TRAINING</span></div>
+      <div class="badge badge-mps">Apple M4 MPS Active</div>
+      <div class="badge" style="background: rgba(168, 85, 247, 0.2); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.4);">🧬 GEN <span id="genCount">0</span></div>
+      <div class="badge" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4);">🚩 FRONTIER <span id="frontierDist">4.2</span>m</div>
+      <div class="badge" style="background: rgba(255, 255, 255, 0.05);"><span id="fpsCount">0.0</span> FPS</div>
+      <div class="badge" style="background: rgba(255, 255, 255, 0.05);">Time: <span id="elapsedTime">00:00:00</span></div>
+    </div>
+  </header>
+
+  <div class="grid-main">
+    <!-- Visual Simulation Stream -->
+    <div class="card">
+      <h2>
+        Physical Simulation Stream
+        <span id="videoFps" style="font-size: 0.75rem; color: var(--accent);">Live Feed</span>
+      </h2>
+
+      <!-- Active Multi-Task Motor Primitives Selector -->
+      <div class="stream-selector-bar" style="display: flex; gap: 0.5rem; margin-bottom: 0.75rem; flex-wrap: wrap;">
+        <button id="btnStreamAll" class="btn active" onclick="switchStream('all', this)" style="border-color: rgba(56, 189, 248, 0.5); font-weight: 700;">🔄 Auto-Cycle (All 4 Streams)</button>
+        <button id="btnStreamStand" class="btn" onclick="switchStream('stand', this)" style="border-color: rgba(56, 189, 248, 0.4); color: #38bdf8;">🧘 Stream 1: Quiet Standing (4 Envs)</button>
+        <button id="btnStreamGetup" class="btn" onclick="switchStream('getup', this)" style="border-color: rgba(251, 191, 36, 0.4); color: #fbbf24;">🥋 Stream 2: Fall Recovery (4 Envs)</button>
+        <button id="btnStreamReach" class="btn" onclick="switchStream('reach', this)" style="border-color: rgba(232, 121, 249, 0.4); color: #e879f9;">🎯 Stream 3: Hand Reaching (4 Envs)</button>
+        <button id="btnStreamCruise" class="btn" onclick="switchStream('cruise', this)" style="border-color: rgba(52, 211, 153, 0.4); color: #34d399;">🏃 Stream 4: Waypoint Cruising (4 Envs)</button>
+      </div>
+
+      <div class="stream-container">
+        <img id="streamImg" src="/stream.mjpg" alt="Physical Simulation View" />
+      </div>
+      <div class="camera-bar" style="align-items: center;">
+        <button class="btn" onclick="switchCamera('track_cam', this)">Track Cam</button>
+        <button class="btn active" onclick="switchCamera('behind_cam', this)">Behind Cam</button>
+        <button class="btn" onclick="switchCamera('eye_cam', this)">Eye Cam (FPV)</button>
+        <button class="btn" onclick="switchCamera('front_cam', this)">Front Cam</button>
+        <button class="btn" onclick="switchCamera('reach_cam', this)">Reach Cam</button>
+        <button class="btn" onclick="switchCamera('aerial_cam', this)">Aerial Cam</button>
+        <div style="display: flex; align-items: center; gap: 0.4rem; margin-left: auto;">
+          <button id="btnViewMode" class="btn" style="border-color: rgba(245, 158, 11, 0.6); color: #fbbf24; font-weight: 600;" onclick="cycleViewMode()">View: Auto-Cycle</button>
+          <button id="ghostSwarmBtn" class="btn active" style="border-color: rgba(168, 85, 247, 0.6); color: #c084fc; font-weight: 600;" onclick="toggleGhostSwarm()">Ghost Swarm: ON</button>
+          <input type="range" id="ghostAlphaSlider" min="0.04" max="0.50" step="0.01" value="0.16" style="width: 65px; accent-color: #a855f7; cursor: pointer;" title="Adjust Ghost Transparency" oninput="changeGhostAlpha(this.value)">
+          <span id="ghostAlphaVal" style="font-size: 0.7rem; color: #c084fc; min-width: 28px;">16%</span>
+        </div>
+      </div>
+
+      <!-- Active Stream Live HUD Banner -->
+      <div id="streamLiveHud" style="margin-top: 0.85rem; background: rgba(0, 0, 0, 0.45); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 0.75rem; padding: 0.75rem 1rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+          <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: #38bdf8; display: flex; align-items: center; gap: 0.45rem;">
+            <span id="streamStatusDot" style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #38bdf8; box-shadow: 0 0 8px #38bdf8;"></span>
+            <span id="activeStreamTitle">Stream View: Auto-Cycle All Streams</span>
+          </span>
+          <span id="activeStreamBadge" class="badge badge-mps">Cruising Mode</span>
+        </div>
+        <div id="activeStreamDetails" style="font-size: 0.75rem; color: var(--text-muted); display: flex; gap: 1.5rem; flex-wrap: wrap;">
+          <span>Target: <b id="streamDetail1" style="color: #fbbf24;">Dynamic Arena Waypoint</b></span>
+          <span>Metric: <b id="streamDetail2" style="color: #38bdf8;">Speed Control (1.8 m/s)</b></span>
+          <span>Status: <b id="streamDetail3" style="color: #10b981;">Active Swarm (3 Ghosts)</b></span>
+        </div>
+      </div>
+
+      <!-- Live Solid-State LiDAR Scanner View (To-Scale 90°x50° FOV) -->
+      <div style="margin-top: 1.25rem; background: rgba(0, 0, 0, 0.45); border: 1px solid rgba(168, 85, 247, 0.25); border-radius: 0.75rem; padding: 0.85rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <span style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: #c084fc; letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.4rem;">
+            <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #a855f7; box-shadow: 0 0 8px #a855f7;"></span>
+            Solid-State LiDAR Eye (16×32 Beams — 512 Rays To-Scale)
+          </span>
+          <span id="lidarStatusText" style="font-size: 0.7rem; color: var(--text-muted); font-family: monospace;">FOV: 90°×50° (1.8:1 True Scale)</span>
+        </div>
+        <div style="display: flex; justify-content: center; width: 100%;">
+          <canvas id="lidarCanvas" width="576" height="320" style="width: 100%; max-width: 520px; aspect-ratio: 9 / 5; border-radius: 8px; background: #07090e; display: block; border: 1px solid rgba(255,255,255,0.08); box-shadow: inset 0 0 20px rgba(0,0,0,0.8);"></canvas>
+        </div>
+        <div style="display: flex; justify-content: space-between; max-width: 520px; margin: 0.4rem auto 0 auto; font-size: 0.65rem; color: var(--text-muted); font-family: monospace;">
+          <span>← -45° (Right)</span>
+          <span>Pitch: -35° (Ground) to +15° (Sky)</span>
+          <span>+45° (Left) →</span>
+        </div>
+      </div>
+
+      <!-- Obstacle Track Progression -->
+      <div class="course-progress-track">
+        <div class="track-labels">
+          <span>0m (Runway)</span>
+          <span>8m (Quad Steps)</span>
+          <span>18m (Balance Beam)</span>
+          <span>28m (Hurdles)</span>
+          <span>38m (Warped Wall)</span>
+          <span>48m (Summit)</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div id="courseProgressBar" class="progress-bar-fill"></div>
+          <div id="trackPinsLayer" class="track-pins-layer"></div>
+        </div>
+        <div class="stage-indicator">
+          <span id="activeStageText">Stage 0: Sprint Runway</span>
+          <span id="furthestXText">Record: 0.00m / 48m</span>
+        </div>
+        <!-- Active Progressive Navigation Waypoint Beacon -->
+        <div style="margin-top: 0.65rem; display: flex; align-items: center; justify-content: space-between; background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 6px; padding: 0.4rem 0.75rem; font-size: 0.75rem;">
+          <span style="color: #38bdf8; font-weight: 700; display: flex; align-items: center; gap: 0.4rem;">
+            <span>🎯</span> Active Target: <span id="waypointNameText" style="color: #fff; font-weight: 500;">Runway Accelerate 1</span>
+          </span>
+          <span id="waypointDistText" style="color: #fbbf24; font-family: monospace; font-weight: 600;">3.0m away</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Telemetry & Interactivity -->
+    <div class="card">
+      <h2>Embodied Telemetry & Metabolism</h2>
+
+      <div class="stat-row">
+        <div class="stat-box">
+          <div class="stat-label">Forward Velocity</div>
+          <div class="stat-val" style="color: var(--accent);"><span id="valVx">0.00</span> <small style="font-size: 0.7rem;">m/s</small></div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Torso Height</div>
+          <div class="stat-val"><span id="valZ">1.38</span> <small style="font-size: 0.7rem;">m</small></div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Mean Return</div>
+          <div class="stat-val" style="color: var(--success);"><span id="valReward">0.00</span></div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Global Steps</div>
+          <div class="stat-val"><span id="valSteps">0</span></div>
+        </div>
+      </div>
+
+      <!-- Homeostatic Metabolism -->
+      <h2>Homeostasis Gauges</h2>
+      <div class="gauge-group">
+        <div class="gauge-item">
+          <div class="gauge-meta">
+            <span>Lungs (Stamina)</span>
+            <span id="staminaPct">100%</span>
+          </div>
+          <div class="gauge-bg">
+            <div id="staminaBar" class="gauge-fill gauge-stamina" style="width: 100%;"></div>
+          </div>
+        </div>
+
+        <div class="gauge-item">
+          <div class="gauge-meta">
+            <span>Heart (Health)</span>
+            <span id="healthPct">100%</span>
+          </div>
+          <div class="gauge-bg">
+            <div id="healthBar" class="gauge-fill gauge-health" style="width: 100%;"></div>
+          </div>
+        </div>
+
+        <div class="gauge-item">
+          <div class="gauge-meta">
+            <span>Stomach (Hunger)</span>
+            <span id="hungerPct">0%</span>
+          </div>
+          <div class="gauge-bg">
+            <div id="hungerBar" class="gauge-fill gauge-hunger" style="width: 0%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Multi-Task Primitives Performance Board (16 Envs) -->
+      <h2 style="margin-top: 1.25rem;">Active Multi-Task Primitives (16 Envs — 4 Balanced Streams)</h2>
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; margin-bottom: 1rem;">
+        <div class="stat-box" style="border-left: 3px solid #38bdf8;">
+          <div class="stat-label">Stream 1: Quiet Standing (4 Envs)</div>
+          <div style="font-size: 0.85rem; font-weight: 700; color: #38bdf8; margin-top: 0.2rem;">Reference Pose Balance</div>
+          <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.15rem;">
+            Return: <b id="s1Return" style="color: #fff;">0.0</b> · Still: <b id="s1Still" style="color: #38bdf8;">0</b>
+          </div>
+          <div style="font-size: 0.68rem; color: var(--text-muted); margin-top: 0.2rem;">
+            Gen: <b id="s1Gen" style="color: #38bdf8;">0</b> · Elite Fit: <b id="s1Elite" style="color: #fff;">0.0</b>
+          </div>
+        </div>
+        <div class="stat-box" style="border-left: 3px solid #fbbf24;">
+          <div class="stat-label">Stream 2: Fall Recovery (4 Envs)</div>
+          <div style="font-size: 0.85rem; font-weight: 700; color: #fbbf24; margin-top: 0.2rem;">Get-Up (7 Fall Poses)</div>
+          <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.15rem;">
+            Return: <b id="s2Return" style="color: #fff;">0.0</b> · Success: <b id="s2Rate" style="color: #fbbf24;">0%</b>
+          </div>
+          <div style="font-size: 0.68rem; color: var(--text-muted); margin-top: 0.2rem;">
+            Gen: <b id="s2Gen" style="color: #fbbf24;">0</b> · Elite Fit: <b id="s2Elite" style="color: #fff;">0.0</b>
+          </div>
+        </div>
+        <div class="stat-box" style="border-left: 3px solid #e879f9;">
+          <div class="stat-label">Stream 3: Hand Reaching (4 Envs)</div>
+          <div style="font-size: 0.85rem; font-weight: 700; color: #e879f9; margin-top: 0.2rem;">Bilateral Target Reach</div>
+          <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.15rem;">
+            Return: <b id="s3Return" style="color: #fff;">0.0</b> · Touches: <b id="s3Touches" style="color: #e879f9;">0</b>
+          </div>
+          <div style="font-size: 0.68rem; color: var(--text-muted); margin-top: 0.2rem;">
+            Gen: <b id="s3Gen" style="color: #e879f9;">0</b> · Elite Fit: <b id="s3Elite" style="color: #fff;">0.0</b>
+          </div>
+        </div>
+        <div class="stat-box" style="border-left: 3px solid #34d399;">
+          <div class="stat-label">Stream 4: Cruising (4 Envs)</div>
+          <div style="font-size: 0.85rem; font-weight: 700; color: #34d399; margin-top: 0.2rem;">Waypoint Navigation</div>
+          <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.15rem;">
+            Return: <b id="s4Return" style="color: #fff;">0.0</b> · Goals: <b id="s4Goals" style="color: #34d399;">0</b>
+          </div>
+          <div style="font-size: 0.68rem; color: var(--text-muted); margin-top: 0.2rem;">
+            Gen: <b id="s4Gen" style="color: #34d399;">0</b> · Elite Fit: <b id="s4Elite" style="color: #fff;">0.0</b>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Nudge Test -->
+      <h2>Balance Perturbation Stress Test</h2>
+      <div class="nudge-controls">
+        <button class="btn btn-nudge" onclick="triggerNudge(15.0, 0)">Nudge Forward (+X)</button>
+        <button class="btn btn-nudge" onclick="triggerNudge(-15.0, 0)">Nudge Back (-X)</button>
+        <button class="btn btn-nudge" onclick="triggerNudge(0, 15.0)">Lateral Push (+Y)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Course Navigation Goals & Dynamic Waypoints Explorer -->
+  <div class="card goals-container">
+    <h2>
+      <span style="display: flex; align-items: center; gap: 0.5rem;">
+        <span style="font-size: 1.15rem;">🏆</span> Course Navigation Goals & Dynamic Waypoints
+      </span>
+      <span id="goalsSummaryBadge" style="font-size: 0.75rem; color: var(--accent); font-weight: 600;">0 / 18 Cleared</span>
+    </h2>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.6rem;">
+      <div style="display: flex; gap: 0.4rem; flex-wrap: wrap;" id="stageFilterBar">
+        <button class="btn active" onclick="setGoalFilter('all', this)">All Goals (18)</button>
+        <button class="btn" onclick="setGoalFilter('Sprint Runway', this)">Sprint Runway (3)</button>
+        <button class="btn" onclick="setGoalFilter('Quad Steps', this)">Quad Steps (4)</button>
+        <button class="btn" onclick="setGoalFilter('Balance Beam', this)">Balance Beam (3)</button>
+        <button class="btn" onclick="setGoalFilter('Hurdles', this)">Hurdles (3)</button>
+        <button class="btn" onclick="setGoalFilter('Warped Wall', this)">Warped Wall (3)</button>
+      </div>
+      <div style="font-size: 0.75rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.75rem;">
+        <span style="display: flex; align-items: center; gap: 0.3rem;"><span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #10b981;"></span> Cleared</span>
+        <span style="display: flex; align-items: center; gap: 0.3rem;"><span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #38bdf8; border: 1.5px solid #fff;"></span> Active</span>
+        <span style="display: flex; align-items: center; gap: 0.3rem;"><span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.3);"></span> Pending</span>
+      </div>
+    </div>
+
+    <!-- Dynamic Goals Grid -->
+    <div id="goalsGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 0.85rem;">
+      <!-- Populated dynamically via JavaScript -->
+    </div>
+  </div>
+
+  <!-- Real-Time Training Charts -->
+  <div class="charts-grid">
+    <div class="card">
+      <h2>Mean Episode Reward</h2>
+      <div class="chart-container">
+        <canvas id="chartReward"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Furthest Course Distance (m)</h2>
+      <div class="chart-container">
+        <canvas id="chartDistance"></canvas>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>PPO Loss & Entropy</h2>
+      <div class="chart-container">
+        <canvas id="chartLoss"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Initialize Charts
+    const ctxReward = document.getElementById('chartReward').getContext('2d');
+    const chartReward = new Chart(ctxReward, {
+      type: 'line',
+      data: { labels: [], datasets: [{ label: 'Mean Return', data: [], borderColor: '#10b981', backgroundColor: 'rgba(16, 185, 129, 0.1)', fill: true, tension: 0.3 }] },
+      options: { responsive: true, maintainAspectRatio: false, scales: { x: { display: false }, y: { grid: { color: 'rgba(255,255,255,0.05)' } } }, plugins: { legend: { display: false } } }
+    });
+
+    const ctxDistance = document.getElementById('chartDistance').getContext('2d');
+    const chartDistance = new Chart(ctxDistance, {
+      type: 'line',
+      data: { labels: [], datasets: [{ label: 'Max Distance (m)', data: [], borderColor: '#38bdf8', backgroundColor: 'rgba(56, 189, 248, 0.1)', fill: true, tension: 0.3 }] },
+      options: { responsive: true, maintainAspectRatio: false, scales: { x: { display: false }, y: { min: 0, max: 48, grid: { color: 'rgba(255,255,255,0.05)' } } }, plugins: { legend: { display: false } } }
+    });
+
+    const ctxLoss = document.getElementById('chartLoss').getContext('2d');
+    const chartLoss = new Chart(ctxLoss, {
+      type: 'line',
+      data: {
+        labels: [],
+        datasets: [
+          { label: 'Loss', data: [], borderColor: '#f43f5e', tension: 0.3 },
+          { label: 'Entropy', data: [], borderColor: '#a855f7', tension: 0.3 }
+        ]
+      },
+      options: { responsive: true, maintainAspectRatio: false, scales: { x: { display: false }, y: { grid: { color: 'rgba(255,255,255,0.05)' } } } }
+    });
+
+    function formatTime(seconds) {
+      const h = Math.floor(seconds / 3600).toString().padStart(2, '0');
+      const m = Math.floor((seconds % 3600) / 60).toString().padStart(2, '0');
+      const s = Math.floor(seconds % 60).toString().padStart(2, '0');
+      return `${h}:${m}:${s}`;
+    }
+
+    async function updateStatus() {
+      try {
+        const res = await fetch('/api/status');
+        if (!res.ok) return;
+        const d = await res.json();
+
+        document.getElementById('statusText').innerText = d.status.toUpperCase();
+        document.getElementById('fpsCount').innerText = d.fps;
+        document.getElementById('elapsedTime').innerText = formatTime(d.elapsed_seconds);
+
+        if (d.generation !== undefined) {
+          const genEl = document.getElementById('genCount');
+          if (genEl) genEl.innerText = d.generation;
+        }
+        if (d.frontier_x !== undefined) {
+          const frontEl = document.getElementById('frontierDist');
+          if (frontEl) frontEl.innerText = d.frontier_x.toFixed(1);
+        }
+
+        document.getElementById('valVx').innerText = d.kinematics.vx.toFixed(2);
+        document.getElementById('valZ').innerText = d.kinematics.z.toFixed(2);
+        document.getElementById('valReward').innerText = d.mean_reward.toFixed(1);
+        document.getElementById('valSteps').innerText = d.global_step.toLocaleString();
+
+        document.getElementById('activeStageText').innerText = d.active_stage;
+        
+        if (d.arena_mode) {
+          document.getElementById('furthestXText').innerText = `Goals Cleared: ${d.goals_completed || 0}`;
+          const wpEl = document.getElementById('waypointNameText');
+          if (wpEl) wpEl.innerText = `Goal #${(d.goals_completed || 0) + 1}`;
+          const distEl = document.getElementById('waypointDistText');
+          if (distEl && d.dist_to_goal !== undefined) {
+            distEl.innerText = `${d.dist_to_goal.toFixed(1)}m away · Gaze: ${Math.round((d.gaze_alignment || 0) * 100)}%`;
+          }
+          const pct = Math.min(100, (d.goals_completed || 0) * 10);
+          document.getElementById('courseProgressBar').style.width = `${pct}%`;
+        } else {
+          document.getElementById('furthestXText').innerText = `Record: ${d.furthest_x.toFixed(2)}m / 48m`;
+          if (d.active_waypoint_name) {
+            const wpEl = document.getElementById('waypointNameText');
+            if (wpEl) wpEl.innerText = d.active_waypoint_name;
+            const distEl = document.getElementById('waypointDistText');
+            if (distEl && d.dist_to_waypoint !== undefined) {
+              distEl.innerText = `${d.dist_to_waypoint.toFixed(1)}m away`;
+            }
+          }
+          const pct = Math.min(100, Math.max(0, (d.furthest_x / 48.0) * 100));
+          document.getElementById('courseProgressBar').style.width = `${pct}%`;
+        }
+
+        // Metabolism
+        const stamPct = Math.round(d.metabolism.stamina * 100);
+        document.getElementById('staminaPct').innerText = `${stamPct}%`;
+        document.getElementById('staminaBar').style.width = `${stamPct}%`;
+
+        const hpPct = Math.round(d.metabolism.health * 100);
+        document.getElementById('healthPct').innerText = `${hpPct}%`;
+        document.getElementById('healthBar').style.width = `${hpPct}%`;
+
+        const hngPct = Math.round(d.metabolism.hunger * 100);
+        document.getElementById('hungerPct').innerText = `${hngPct}%`;
+        document.getElementById('hungerBar').style.width = `${hngPct}%`;
+
+        // Ghost Swarm State Sync
+        if (d.ghost_swarm !== undefined) {
+          renderGhostSwarmState(d.ghost_swarm);
+        }
+        if (d.ghost_swarm_alpha !== undefined) {
+          const slider = document.getElementById('ghostAlphaSlider');
+          if (slider && !slider.matches(':active')) {
+            slider.value = d.ghost_swarm_alpha;
+            document.getElementById('ghostAlphaVal').innerText = `${Math.round(d.ghost_swarm_alpha * 100)}%`;
+          }
+        }
+
+        // ── 4-Stream Multi-Task Status UI Update ────────────────────────────
+        const sView = d.active_stream_view || 'all';
+        const sMode = d.active_stream_mode || 'cruise';
+        
+        // Highlight active stream button
+        const streamBtnMap = {
+          'all': 'btnStreamAll',
+          'stand': 'btnStreamStand',
+          'getup': 'btnStreamGetup',
+          'reach': 'btnStreamReach',
+          'cruise': 'btnStreamCruise'
+        };
+        Object.entries(streamBtnMap).forEach(([mode, btnId]) => {
+          const b = document.getElementById(btnId);
+          if (b) {
+            if (mode === sView) b.classList.add('active');
+            else b.classList.remove('active');
+          }
+        });
+
+        // Update Stream Live HUD banner
+        const hudTitle = document.getElementById('activeStreamTitle');
+        const hudBadge = document.getElementById('activeStreamBadge');
+        const hudDot = document.getElementById('streamStatusDot');
+        const d1 = document.getElementById('streamDetail1');
+        const d2 = document.getElementById('streamDetail2');
+        const d3 = document.getElementById('streamDetail3');
+
+        if (hudTitle && hudBadge) {
+          const viewPrefix = sView === 'all' ? '[Auto-Cycle] ' : '';
+          if (sMode === 'stand') {
+            hudTitle.innerText = `${viewPrefix}Stream 1: Quiet Standing Balance (Reference Pose Similarity)`;
+            hudBadge.innerText = 'Gaussian Equilibrium';
+            hudBadge.className = 'badge badge-mps';
+            hudDot.style.background = '#38bdf8';
+            if (d1) d1.innerText = `Torso Z: ${d.kinematics.z.toFixed(3)}m (Target: 1.168m)`;
+            const feetStr = d.both_feet_down ? 'BILATERAL GROUNDED (1.0x)' : (d.one_foot_down ? 'UNILATERAL (0.45x)' : 'AIRBORNE (0.05x)');
+            if (d2) d2.innerText = `Feet Contact: ${feetStr}`;
+            if (d3) d3.innerText = d.stand_still_score > 0 ? 'QUIET STILLNESS EQUILIBRIUM' : 'BALANCING JOINT REFLEXES';
+          } else if (sMode === 'getup') {
+            hudTitle.innerText = `${viewPrefix}Stream 2: Fall Recovery (Head Up & Feet Planted)`;
+            hudBadge.innerText = 'Head-Up Recovery';
+            hudBadge.className = 'badge badge-mps';
+            hudDot.style.background = '#fbbf24';
+            const headZ = (d.current_head_z !== undefined) ? d.current_head_z.toFixed(2) : (d.kinematics.z + 0.25).toFixed(2);
+            if (d1) d1.innerText = `Head Height: ${headZ}m (Target: 1.55m)`;
+            const feetStr = d.both_feet_down ? 'BOTH FEET ON GROUND' : 'PLANTING FEET';
+            if (d2) d2.innerText = `Feet Contact: ${feetStr}`;
+            if (d3) d3.innerText = d.getup_success ? 'RECOVERED UPRIGHT (+100 Jackpot)' : 'PUSHING HEAD UP';
+          } else if (sMode === 'reach') {
+            hudTitle.innerText = `${viewPrefix}Stream 3: Bilateral Hand Reaching (Bolted Torso)`;
+            hudBadge.innerText = '6-DOF Arm Motor Cortex';
+            hudBadge.className = 'badge badge-mps';
+            hudDot.style.background = '#e879f9';
+            const handStr = (d.active_reach_hand || 'none').toUpperCase();
+            if (d1) d1.innerText = `Active Hand Target: ${handStr}`;
+            if (d2) d2.innerText = `Total Touches: ${d.reach_touches || 0}`;
+            if (d3) d3.innerText = 'Bilateral Arm Articulation (100% Reachable Orbs)';
+          } else {
+            hudTitle.innerText = `${viewPrefix}Stream 4: Waypoint Cruising`;
+            hudBadge.innerText = 'Omnidirectional Cruising';
+            hudBadge.className = 'badge badge-live';
+            hudDot.style.background = '#10b981';
+            if (d1) d1.innerText = `Goal Dist: ${(d.dist_to_goal || 0).toFixed(1)}m`;
+            if (d2) d2.innerText = `Target Speed: 1.8 m/s (Cur: ${d.kinematics.speed.toFixed(2)})`;
+            if (d3) d3.innerText = `Goals Cleared: ${d.goals_completed || 0}`;
+          }
+        }
+
+        // Update Multi-Stream Performance Board
+        if (d.stream_stats) {
+          const s1 = d.stream_stats.stand;
+          if (s1) {
+            const elR = document.getElementById('s1Return');
+            const elS = document.getElementById('s1Still');
+            if (elR) elR.innerText = (s1.mean_reward || 0).toFixed(1);
+            if (elS) elS.innerText = `${s1.stillness_steps || 0}`;
+          }
+          const s2 = d.stream_stats.getup;
+          if (s2) {
+            const elR = document.getElementById('s2Return');
+            const elRate = document.getElementById('s2Rate');
+            if (elR) elR.innerText = (s2.mean_reward || 0).toFixed(1);
+            if (elRate) elRate.innerText = `${Math.round((s2.success_rate || 0) * 100)}% (${s2.successes || 0})`;
+          }
+          const s3 = d.stream_stats.reach;
+          if (s3) {
+            const elR = document.getElementById('s3Return');
+            const elT = document.getElementById('s3Touches');
+            if (elR) elR.innerText = (s3.mean_reward || 0).toFixed(1);
+            if (elT) elT.innerText = `${s3.touches || 0}`;
+          }
+          const s4 = d.stream_stats.cruise;
+          if (s4) {
+            const elR = document.getElementById('s4Return');
+            const elG = document.getElementById('s4Goals');
+            if (elR) elR.innerText = (s4.mean_reward || 0).toFixed(1);
+            if (elG) elG.innerText = `${s4.goals || 0}`;
+          }
+        }
+
+        // Update Stream Generations & Elite Fitness
+        if (d.stream_generations) {
+          const g1 = document.getElementById('s1Gen'); if (g1) g1.innerText = d.stream_generations.stand || 0;
+          const g2 = document.getElementById('s2Gen'); if (g2) g2.innerText = d.stream_generations.getup || 0;
+          const g3 = document.getElementById('s3Gen'); if (g3) g3.innerText = d.stream_generations.reach || 0;
+          const g4 = document.getElementById('s4Gen'); if (g4) g4.innerText = d.stream_generations.cruise || 0;
+        }
+        if (d.stream_elite_fitness) {
+          const ef1 = document.getElementById('s1Elite'); if (ef1) ef1.innerText = (d.stream_elite_fitness.stand || 0).toFixed(1);
+          const ef2 = document.getElementById('s2Elite'); if (ef2) ef2.innerText = (d.stream_elite_fitness.getup || 0).toFixed(1);
+          const ef3 = document.getElementById('s3Elite'); if (ef3) ef3.innerText = (d.stream_elite_fitness.reach || 0).toFixed(1);
+          const ef4 = document.getElementById('s4Elite'); if (ef4) ef4.innerText = (d.stream_elite_fitness.cruise || 0).toFixed(1);
+        }
+
+        // Update Waypoint Pins and Goals Grid Explorer
+        updateGoalsUI(d.waypoints, d.active_waypoint_idx, d.kinematics, d);
+
+        // Live Solid-State LiDAR Heatmap with Dynamic Target Waypoint Reticle
+        if (d.lidar) {
+          let targetPoint = null;
+          if (d.arena_mode && d.active_goal_pos) {
+            targetPoint = {
+              name: `Goal #${(d.goals_completed || 0) + 1}`,
+              x: d.active_goal_pos[0],
+              y: d.active_goal_pos[1],
+              z: d.active_goal_pos[2],
+              dist: d.dist_to_goal || 0,
+            };
+          } else if (d.waypoints && d.active_waypoint_idx !== undefined) {
+            targetPoint = d.waypoints[d.active_waypoint_idx];
+          }
+          drawLidarHeatmap(d.lidar, targetPoint, d.kinematics);
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    let currentGoalFilter = 'all';
+
+    function setGoalFilter(filter, btn) {
+      currentGoalFilter = filter;
+      document.querySelectorAll('#stageFilterBar .btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      if (window.lastWaypointsData) {
+        renderGoalsGrid(window.lastWaypointsData);
+      }
+    }
+
+    function updateGoalsUI(waypoints, activeIdx, kinematics, arenaData = null) {
+      if (arenaData && arenaData.arena_mode) {
+        const summaryEl = document.getElementById('goalsSummaryBadge');
+        if (summaryEl) {
+          summaryEl.innerText = `${arenaData.goals_completed || 0} Dynamic Arena Goals Cleared (+50 pts arrival jackpot)`;
+        }
+        const grid = document.getElementById('goalsGrid');
+        if (grid) {
+          const gx = arenaData.active_goal_pos ? arenaData.active_goal_pos[0] : 0;
+          const gy = arenaData.active_goal_pos ? arenaData.active_goal_pos[1] : 0;
+          const gz = arenaData.active_goal_pos ? arenaData.active_goal_pos[2] : 1.25;
+          const dist = arenaData.dist_to_goal || 0;
+          const gazePct = Math.round((arenaData.gaze_alignment || 0) * 100);
+
+          grid.innerHTML = `
+            <div class="goal-card active-target" style="grid-column: 1 / -1; background: rgba(14, 165, 233, 0.08); border-color: rgba(56, 189, 248, 0.4);">
+              <div>
+                <div class="goal-header">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent); font-family: monospace;">ARENA TARGET #${(arenaData.goals_completed || 0) + 1}</span>
+                  <span class="badge-stage" style="background: rgba(56, 189, 248, 0.2); color: #38bdf8;">Dynamic 360° Waypoint</span>
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #fbbf24;">+50 pts Arrival Jackpot</span>
+                </div>
+                <div class="goal-title" style="font-size: 1.1rem; margin-top: 0.35rem; color: #f8fafc;">Sequential Omnidirectional Target Beacon</div>
+                <div class="goal-coords" style="font-size: 0.82rem; margin-top: 0.35rem; color: var(--text-muted);">
+                  Target Coordinates: <b style="color: #e2e8f0;">(${gx.toFixed(2)}m, ${gy >= 0 ? '+' : ''}${gy.toFixed(2)}m, ${gz.toFixed(2)}m)</b> · Wide Capture Zone: <b style="color: #38bdf8;">±${(arenaData.goal_arrival_radius || 2.0).toFixed(2)}m</b>
+                </div>
+                <div style="margin-top: 0.65rem; display: flex; gap: 1.5rem; font-size: 0.8rem; flex-wrap: wrap;">
+                  <div>🧭 Distance to Target: <b style="color: #fbbf24;">${dist.toFixed(2)}m</b></div>
+                  <div>👁️ Head Gaze Alignment: <b style="color: #38bdf8;">${gazePct}%</b></div>
+                  <div>🏆 Total Cleared: <b style="color: #10b981;">${arenaData.goals_completed || 0}</b></div>
+                </div>
+              </div>
+              <div class="goal-footer" style="margin-top: 0.85rem; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 0.6rem;">
+                <span style="color: #38bdf8; font-weight: 700; display: flex; align-items: center; gap: 0.4rem;">
+                  <span class="active-pulse-dot"></span>🎯 ACTIVE TARGET BEACON
+                </span>
+                <span style="color: #fbbf24; font-weight: 700; font-family: monospace;">${dist.toFixed(1)}m away</span>
+              </div>
+            </div>
+          `;
+        }
+        return;
+      }
+
+      if (!waypoints || !waypoints.length) return;
+      window.lastWaypointsData = waypoints;
+
+      // Update Summary Badge
+      const clearedCount = waypoints.filter(w => w.completed).length;
+      const summaryEl = document.getElementById('goalsSummaryBadge');
+      if (summaryEl) {
+        summaryEl.innerText = `${clearedCount} / ${waypoints.length} Cleared (${Math.round((clearedCount / waypoints.length) * 100)}%)`;
+      }
+
+      // 1. Update Track Pins
+      const pinsContainer = document.getElementById('trackPinsLayer');
+      if (pinsContainer) {
+        let pinsHtml = '';
+        waypoints.forEach(wp => {
+          const pct = Math.max(0, Math.min(100, (wp.x / 48.0) * 100));
+          let pinClass = 'pending';
+          if (wp.completed) pinClass = 'completed';
+          else if (wp.active) pinClass = 'active';
+
+          pinsHtml += `<div class="track-pin ${pinClass}" style="left: ${pct}%;" title="#${wp.index + 1} ${wp.name} | X:${wp.x}m (${wp.dist}m away)" onclick="highlightGoal(${wp.index})"></div>`;
+        });
+        pinsContainer.innerHTML = pinsHtml;
+      }
+
+      // 2. Render Goals Grid
+      renderGoalsGrid(waypoints);
+    }
+
+    function renderGoalsGrid(waypoints) {
+      const grid = document.getElementById('goalsGrid');
+      if (!grid) return;
+
+      const filtered = waypoints.filter(wp => {
+        if (currentGoalFilter === 'all') return true;
+        return wp.stage.toLowerCase().includes(currentGoalFilter.toLowerCase());
+      });
+
+      let html = '';
+      filtered.forEach(wp => {
+        let cardClass = 'goal-card';
+        if (wp.active) cardClass += ' active-target';
+        else if (wp.completed) cardClass += ' completed-target';
+
+        let stageBadgeColor = 'rgba(56, 189, 248, 0.2); color: #38bdf8;';
+        if (wp.stage.includes('Quad')) stageBadgeColor = 'rgba(239, 68, 68, 0.2); color: #f87171;';
+        else if (wp.stage.includes('Beam')) stageBadgeColor = 'rgba(245, 158, 11, 0.2); color: #fbbf24;';
+        else if (wp.stage.includes('Hurdle')) stageBadgeColor = 'rgba(168, 85, 247, 0.2); color: #c084fc;';
+        else if (wp.stage.includes('Wall') || wp.stage.includes('Summit')) stageBadgeColor = 'rgba(16, 185, 129, 0.2); color: #34d399;';
+
+        let statusHtml = '';
+        if (wp.completed) {
+          statusHtml = `<span style="color: #10b981; font-weight: 700; display: flex; align-items: center; gap: 0.3rem;">✓ Cleared</span><span style="color: #64748b; font-family: monospace;">+${wp.bonus} pts</span>`;
+        } else if (wp.active) {
+          statusHtml = `<span style="color: #38bdf8; font-weight: 700; display: flex; align-items: center; gap: 0.35rem;"><span class="active-pulse-dot"></span>🎯 ACTIVE TARGET</span><span style="color: #fbbf24; font-weight: 700; font-family: monospace;">${wp.dist.toFixed(1)}m away</span>`;
+        } else {
+          statusHtml = `<span style="color: #64748b; display: flex; align-items: center; gap: 0.3rem;">⏳ Pending</span><span style="color: #64748b; font-family: monospace;">${wp.dist.toFixed(1)}m</span>`;
+        }
+
+        html += `
+          <div class="${cardClass}" id="goal-card-${wp.index}" onclick="highlightGoal(${wp.index})">
+            <div>
+              <div class="goal-header">
+                <span style="font-size: 0.7rem; font-weight: 700; color: var(--text-muted); font-family: monospace;">#${String(wp.index + 1).padStart(2, '0')}</span>
+                <span class="badge-stage" style="background: ${stageBadgeColor}">${wp.stage}</span>
+                <span style="font-size: 0.7rem; font-weight: 600; color: #fbbf24;">+${wp.bonus} pts</span>
+              </div>
+              <div class="goal-title">${wp.name}</div>
+              <div class="goal-coords">Pos: (${wp.x}m, ${wp.y > 0 ? '+' : ''}${wp.y}m, ${wp.z}m) · Radius: ±${wp.radius}m</div>
+            </div>
+            <div class="goal-footer">
+              ${statusHtml}
+            </div>
+          </div>
+        `;
+      });
+      grid.innerHTML = html;
+    }
+
+    function highlightGoal(idx) {
+      const card = document.getElementById(`goal-card-${idx}`);
+      if (card) {
+        card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        card.style.transform = 'scale(1.03)';
+        setTimeout(() => { card.style.transform = ''; }, 600);
+      }
+    }
+
+    function drawLidarHeatmap(grid, activeWp = null, kinematics = null) {
+      if (!grid || !grid.length) return;
+      const canvas = document.getElementById('lidarCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const nRows = grid.length;
+      const nCols = grid[0].length;
+      const cellW = canvas.width / nCols;
+      const cellH = canvas.height / nRows;
+
+      for (let r = 0; r < nRows; r++) {
+        const y = (nRows - 1 - r) * cellH;
+        for (let c = 0; c < nCols; c++) {
+          const x = c * cellW;
+          const dist = grid[r][c];
+          const norm = Math.max(0, Math.min(1, dist / 10.0));
+          
+          let rC, gC, bC;
+          if (norm < 0.25) {
+            const t = norm / 0.25;
+            rC = 239; gC = Math.round(68 + t * 90); bC = 68;
+          } else if (norm < 0.50) {
+            const t = (norm - 0.25) / 0.25;
+            rC = Math.round(245 - t * 180); gC = Math.round(158 + t * 50); bC = 11;
+          } else if (norm < 0.85) {
+            const t = (norm - 0.50) / 0.35;
+            rC = 14; gC = Math.round(180 - t * 40); bC = Math.round(160 + t * 90);
+          } else {
+            const t = (norm - 0.85) / 0.15;
+            rC = Math.round(30 - t * 15); gC = Math.round(35 - t * 20); bC = Math.round(65 - t * 25);
+          }
+          ctx.fillStyle = `rgb(${rC}, ${gC}, ${bC})`;
+          ctx.fillRect(x, y, cellW, cellH);
+          ctx.strokeStyle = 'rgba(0, 0, 0, 0.25)';
+          ctx.lineWidth = 0.5;
+          ctx.strokeRect(x, y, cellW, cellH);
+        }
+      }
+
+      // Draw To-Scale HUD Crosshairs (Pitch 0° horizon and Yaw 0° center)
+      const horizonY = canvas.height * (15.0 / 50.0); // Pitch 0° is 15° below top (50° total)
+      const centerX = canvas.width / 2.0;
+
+      ctx.save();
+      ctx.setLineDash([4, 4]);
+      ctx.strokeStyle = 'rgba(56, 189, 248, 0.5)';
+      ctx.lineWidth = 1;
+      
+      // Horizon line
+      ctx.beginPath();
+      ctx.moveTo(0, horizonY);
+      ctx.lineTo(canvas.width, horizonY);
+      ctx.stroke();
+
+      // Centerline
+      ctx.beginPath();
+      ctx.moveTo(centerX, 0);
+      ctx.lineTo(centerX, canvas.height);
+      ctx.stroke();
+
+      // HUD Text Overlays
+      ctx.setLineDash([]);
+      ctx.font = '9px monospace';
+      ctx.fillStyle = 'rgba(56, 189, 248, 0.7)';
+      ctx.fillText('HORIZON (0°)', 6, horizonY - 4);
+
+      // Draw Target Waypoint / Dynamic Arena Reticle on Radar if target is in front of sensor
+      if (activeWp && kinematics) {
+        let lx, ly, lz;
+        if (kinematics.target_local_pos && kinematics.target_local_pos.length === 3) {
+          [lx, ly, lz] = kinematics.target_local_pos;
+        } else {
+          lx = activeWp.x - (kinematics.x || 0);
+          ly = activeWp.y - (kinematics.y || 0);
+          lz = activeWp.z - (kinematics.z || 1.35);
+        }
+
+        if (lx > 0) {
+          const azRad = Math.atan2(ly, lx);
+          const azDeg = azRad * (180 / Math.PI);
+          const horizDist = Math.sqrt(lx * lx + ly * ly);
+          const pitchRad = Math.atan2(lz, Math.max(0.01, horizDist));
+          const pitchDeg = pitchRad * (180 / Math.PI);
+
+          if (azDeg >= -45 && azDeg <= 45 && pitchDeg >= -35 && pitchDeg <= 15) {
+            const reticleX = ((azDeg - (-45)) / 90) * canvas.width;
+            const reticleY = ((15 - pitchDeg) / 50) * canvas.height;
+
+            // Reticle Target Ring
+            ctx.strokeStyle = '#38bdf8';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.arc(reticleX, reticleY, 12, 0, Math.PI * 2);
+            ctx.stroke();
+
+            // Center bullseye dot
+            ctx.fillStyle = '#fbbf24';
+            ctx.beginPath();
+            ctx.arc(reticleX, reticleY, 3, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Label text
+            ctx.font = 'bold 9px monospace';
+            ctx.fillStyle = '#38bdf8';
+            ctx.fillText(`🎯 ${activeWp.name}`, reticleX + 15, reticleY - 2);
+            ctx.fillStyle = '#fbbf24';
+            ctx.fillText(`${activeWp.dist.toFixed(1)}m away`, reticleX + 15, reticleY + 10);
+          }
+        }
+      }
+      ctx.restore();
+    }
+
+    async function toggleGhostSwarm() {
+      try {
+        const res = await fetch('/api/ghost_swarm', { method: 'POST' });
+        const data = await res.json();
+        renderGhostSwarmState(data.enabled);
+      } catch (err) {
+        console.error('Failed to toggle ghost swarm', err);
+      }
+    }
+
+    async function changeGhostAlpha(val) {
+      document.getElementById('ghostAlphaVal').innerText = `${Math.round(val * 100)}%`;
+      try {
+        await fetch('/api/ghost_swarm', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ alpha: parseFloat(val) })
+        });
+      } catch (err) {
+        console.error('Failed to update ghost alpha', err);
+      }
+    }
+
+    function renderGhostSwarmState(enabled) {
+      const btn = document.getElementById('ghostSwarmBtn');
+      if (!btn) return;
+      if (enabled) {
+        btn.textContent = 'Ghost Swarm: ON';
+        btn.classList.add('active');
+        btn.style.color = '#c084fc';
+        btn.style.borderColor = 'rgba(168, 85, 247, 0.6)';
+      } else {
+        btn.textContent = 'Ghost Swarm: OFF';
+        btn.classList.remove('active');
+        btn.style.color = 'var(--text-muted)';
+        btn.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+      }
+    }
+
+    async function updateHistory() {
+      try {
+        const res = await fetch('/api/history');
+        if (!res.ok) return;
+        const h = await res.json();
+
+        chartReward.data.labels = h.steps;
+        chartReward.data.datasets[0].data = h.rewards;
+        chartReward.update();
+
+        chartDistance.data.labels = h.steps;
+        chartDistance.data.datasets[0].data = h.furthest_x;
+        chartDistance.update();
+
+        chartLoss.data.labels = h.steps;
+        chartLoss.data.datasets[0].data = h.loss;
+        chartLoss.data.datasets[1].data = h.entropy;
+        chartLoss.update();
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    async function switchStream(mode, btn) {
+      document.querySelectorAll('.stream-selector-bar .btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      try {
+        await fetch('/api/stream', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ stream: mode })
+        });
+      } catch (err) {
+        console.error('Failed to set stream:', err);
+      }
+    }
+
+    async function switchCamera(camName, btn) {
+      document.querySelectorAll('.camera-bar .btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      await fetch('/api/camera', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ camera: camName })
+      });
+    }
+
+    async function triggerNudge(x, y) {
+      await fetch('/api/nudge', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ x: x, y: y })
+      });
+    }
+
+    const VIEW_MODES = ["alternate", "pioneer", "anchor"];
+    const VIEW_LABELS = {
+      "alternate": "View: Auto-Cycle",
+      "pioneer": "View: Momentum Start (Vx=1.8)",
+      "anchor": "View: Dead-Stop Start (Vx=0)"
+    };
+    let currentViewMode = "alternate";
+
+    async function cycleViewMode() {
+      const idx = VIEW_MODES.indexOf(currentViewMode);
+      currentViewMode = VIEW_MODES[(idx + 1) % VIEW_MODES.length];
+      const btn = document.getElementById('btnViewMode');
+      if (btn && VIEW_LABELS[currentViewMode]) {
+        btn.innerText = VIEW_LABELS[currentViewMode];
+      }
+      await fetch('/api/view_mode', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ mode: currentViewMode })
+      });
+    }
+
+    // Refresh cycles
+    setInterval(updateStatus, 500);
+    setInterval(updateHistory, 3000);
+    updateStatus();
+    updateHistory();
+  </script>
+</body>
+</html>

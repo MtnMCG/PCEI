@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCEI Command Center</title>
+    <meta name="description" content="PCEI Command Center - AI Research Dashboard">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header class="top-bar">
+        <div class="logo-area">
+            <div class="logo-icon"></div>
+            <h1>PCEI Command Center</h1>
+        </div>
+        <div class="status-area">
+            <div class="time-display" id="system-time">00:00:00</div>
+            <div class="status-indicator" id="api-status">
+                <span class="status-dot"></span>
+                <span class="status-text">Connecting...</span>
+            </div>
+            <div class="status-indicator" id="ws-status">
+                <span class="status-dot"></span>
+                <span class="status-text">WS Offline</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="dashboard-grid">
+
+        <!-- Anthropic-level Metrics Bar -->
+        <section class="panel glass-card full-width" id="panel-metrics-bar">
+            <div class="metrics-bar">
+                <div class="metric-pill"><span class="mp-label">Step</span><span class="mp-value accent" id="live-step">--</span></div>
+                <div class="metric-pill"><span class="mp-label">Train Loss</span><span class="mp-value red" id="live-loss">--</span></div>
+                <div class="metric-pill"><span class="mp-label">Eval Loss</span><span class="mp-value orange" id="live-eval-loss">--</span></div>
+                <div class="metric-pill"><span class="mp-label">Perplexity</span><span class="mp-value yellow" id="live-perplexity">--</span></div>
+                <div class="metric-pill"><span class="mp-label">Grad Norm</span><span class="mp-value" id="live-grad-norm">--</span></div>
+                <div class="metric-pill"><span class="mp-label">Tokens/sec</span><span class="mp-value green" id="live-throughput">--</span></div>
+                <div class="metric-pill"><span class="mp-label">LR</span><span class="mp-value" id="live-lr">--</span></div>
+                <div class="metric-pill"><span class="mp-label">Active Bonds</span><span class="mp-value purple" id="live-bonds">--</span></div>
+                <div class="metric-pill"><span class="mp-label">F/S Divergence</span><span class="mp-value" id="live-divergence">--</span></div>
+            </div>
+        </section>
+
+        <!-- Loss Trajectory -->
+        <section class="panel glass-card full-width" id="panel-loss-chart">
+            <header class="panel-header">
+                <h2>Loss Trajectory &#8212; Grokking Monitor</h2>
+                <div class="panel-controls">
+                    <span class="chart-legend-item"><span class="legend-dot train"></span>Train Loss</span>
+                    <span class="chart-legend-item"><span class="legend-dot eval"></span>Eval Loss</span>
+                </div>
+            </header>
+            <div class="panel-content" style="height:220px; position:relative;">
+                <canvas id="loss-chart"></canvas>
+            </div>
+        </section>
+
+        <!-- Model Overview -->
+        <section class="panel glass-card" id="panel-model">
+            <header class="panel-header">
+                <h2>Model Overview</h2>
+                <div class="panel-controls"><button class="icon-btn" id="refresh-model" title="Refresh">&#8635;</button></div>
+            </header>
+            <div class="panel-content">
+                <div class="stats-row">
+                    <div class="stat-box"><span class="stat-label">Total Params</span><div class="stat-value big-number" id="total-params">--</div></div>
+                    <div class="stat-box"><span class="stat-label">Trainable Params</span><div class="stat-value big-number" id="trainable-params">--</div></div>
+                </div>
+                <div class="distribution-container">
+                    <span class="stat-label">Ternary Weight Distribution (-1 / 0 / +1)</span>
+                    <div class="ternary-bar" id="ternary-dist-bar">
+                        <div class="ternary-segment neg" style="width: 33%"></div>
+                        <div class="ternary-segment zero" style="width: 34%"></div>
+                        <div class="ternary-segment pos" style="width: 33%"></div>
+                    </div>
+                    <div class="ternary-labels">
+                        <span id="ternary-lbl-neg">-1: --%</span>
+                        <span id="ternary-lbl-zero">0: --%</span>
+                        <span id="ternary-lbl-pos">+1: --%</span>
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table class="data-table" id="stack-table">
+                        <thead><tr><th>Stack</th><th>Layers</th><th>d_model</th><th>Params</th></tr></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="system-info-row">
+                    <div class="info-pill"><span class="lbl">dtype:</span> <span class="val" id="model-dtype">--</span></div>
+                    <div class="info-pill"><span class="lbl">vocab:</span> <span class="val" id="model-vocab">--</span></div>
+                    <div class="info-pill"><span class="lbl">device:</span> <span class="val" id="model-device">--</span></div>
+                </div>
+                <div class="checkpoint-info-row">
+                    <div class="ckpt-meta">
+                        <strong>Current Checkpoint:</strong> <span id="current-ckpt-name">--</span>
+                        <span class="sub-meta">Step: <span id="current-ckpt-step">--</span> | Size: <span id="current-ckpt-size">--</span></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AmbientField -->
+        <section class="panel glass-card" id="panel-ambient">
+            <header class="panel-header"><h2>AmbientField State</h2></header>
+            <div class="panel-content grid-layout">
+                <div class="heatmap-section">
+                    <span class="section-title">Per-Layer Slow Field Confidence</span>
+                    <div class="heatmap-grid" id="confidence-heatmap"></div>
+                </div>
+                <div class="ambient-sidebar">
+                    <div class="stat-box small"><span class="stat-label">Fast State Norm</span><div class="stat-value" id="fast-norm">--</div></div>
+                    <div class="stat-box small"><span class="stat-label">Slow State Norm</span><div class="stat-value" id="slow-norm">--</div></div>
+                    <div class="stat-box small"><span class="stat-label">Fast/Slow Divergence</span><div class="stat-value" id="fs-divergence">--</div></div>
+                    <div class="bar-chart-section">
+                        <span class="section-title">Effective LR per Layer</span>
+                        <div class="lr-bar-container" id="lr-bars"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3D Entanglement Topology -->
+        <section class="panel glass-card" id="panel-entanglement">
+            <header class="panel-header">
+                <h2>3D Entanglement Topology</h2>
+                <div class="legend">
+                    <span class="legend-item"><span class="dot text"></span>Text</span>
+                    <span class="legend-item"><span class="dot image"></span>Image</span>
+                    <span class="legend-item"><span class="dot audio"></span>Audio</span>
+                </div>
+            </header>
+            <div class="panel-content">
+                <div class="entanglement-stats">
+                    <div class="e-stat">Active Bonds: <span id="e-active">--</span></div>
+                    <div class="e-stat">Total Formed: <span id="e-formed">--</span></div>
+                    <div class="e-stat">Total Dissolved: <span id="e-dissolved">--</span></div>
+                </div>
+                <div id="topology-3d" style="height:380px; border-radius:8px; overflow:hidden; background:rgba(0,0,0,0.3);"></div>
+            </div>
+        </section>
+
+        <!-- Training Launcher -->
+        <section class="panel glass-card" id="panel-training">
+            <header class="panel-header"><h2>Training Launcher</h2></header>
+            <div class="panel-content">
+                <div class="tabs-header" id="launcher-tabs">
+                    <button class="tab-btn active" data-target="tab-wiki">Wiki Explorer</button>
+                    <button class="tab-btn" data-target="tab-instruct">Instruct</button>
+                    <button class="tab-btn" data-target="tab-dreaming">Dreaming</button>
+                    <button class="tab-btn" data-target="tab-resonance">Resonance</button>
+                    <button class="tab-btn" data-target="tab-multimodal">Multimodal</button>
+                    <button class="tab-btn" data-target="tab-reading">Reading Room</button>
+                    <button class="tab-btn" data-target="tab-ollama">Ollama Trainer</button>
+                </div>
+                <div class="tabs-content">
+                    <!-- Wiki Explorer — args: --checkpoint-name --start-topic --metabolic-flush --grad-accum-steps -->
+                    <div class="tab-pane active" id="tab-wiki">
+                        <form class="launcher-form" data-script="wiki_explorer">
+                            <div class="form-grid">
+                                <div class="form-group"><label>Checkpoint</label><input type="text" name="checkpoint-name" list="checkpoint-list" value="pcei_100m.pt"></div>
+                                <div class="form-group"><label>Start Topic</label><input type="text" name="start-topic" value="English language"></div>
+                                <div class="form-group"><label>Grad Accum Steps</label><input type="number" name="grad-accum-steps" value="4" min="1" max="64"></div>
+                                <div class="form-group checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="metabolic-flush" value="true">
+                                        <span>Metabolic Flush</span>
+                                        <small>Increase plasticity on startup</small>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-actions"><button type="submit" class="btn btn-primary launch-btn">Launch Wiki Explorer</button></div>
+                        </form>
+                    </div>
+                    <!-- Instruction Tuner — args: --mode --checkpoint-name --ollama-model --num-ollama --force-generate --epochs --metabolic-flush --grad-accum-steps -->
+                    <div class="tab-pane" id="tab-instruct">
+                        <form class="launcher-form" data-script="instruction_tuner">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label>Mode</label>
+                                    <select name="mode">
+                                        <option value="anthropic">Claude Phased CoT (The-Claude-Dataset)</option>
+                                        <option value="auto">Auto Hybrid (Claude CoT + Academic Reasoning)</option>
+                                        <option value="basic">Basic (Conversational)</option>
+                                        <option value="hk">HK (Trading Corpus)</option>
+                                        <option value="chat">Chat (Offline Replay)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group"><label>Checkpoint</label><input type="text" name="checkpoint-name" list="checkpoint-list" value="pcei_100m.pt"></div>
+                                <div class="form-group"><label>Ollama Model</label><input type="text" name="ollama-model" value="gpt-oss:120b-cloud" placeholder="e.g. llama3:8b"></div>
+                                <div class="form-group"><label>Num Samples</label><input type="number" name="num-ollama" value="20000" min="1" max="100000"></div>
+                                <div class="form-group"><label>Epochs</label><input type="number" name="epochs" value="3" min="1" max="50"></div>
+                                <div class="form-group"><label>Grad Accum Steps</label><input type="number" name="grad-accum-steps" value="8" min="1" max="64"></div>
+                                <div class="form-group checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="metabolic-flush" value="true">
+                                        <span>Metabolic Flush</span>
+                                        <small>Decay confidence to boost plasticity</small>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-actions"><button type="submit" class="btn btn-primary launch-btn">Launch Instruction Tuner</button></div>
+                        </form>
+                    </div>
+                    <!-- Dreaming Chamber — args: --checkpoint-name --lr --save-interval --seed --metabolic-flush -->
+                    <div class="tab-pane" id="tab-dreaming">
+                        <form class="launcher-form" data-script="dreaming_chamber">
+                            <div class="form-grid">
+                                <div class="form-group"><label>Checkpoint</label><input type="text" name="checkpoint-name" list="checkpoint-list" value="pcei_100m.pt"></div>
+                                <div class="form-group"><label>Learning Rate</label><input type="text" name="lr" value="1e-5"></div>
+                                <div class="form-group"><label>Save Interval (cycles)</label><input type="number" name="save-interval" value="50" min="1"></div>
+                                <div class="form-group"><label>Seed Topic (Optional)</label><input type="text" name="seed" placeholder="e.g. astrophysics (empty = self-resonance)"></div>
+                                <div class="form-group checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="metabolic-flush" value="true">
+                                        <span>Metabolic Flush</span>
+                                        <small>Reset slow-field confidence</small>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-actions"><button type="submit" class="btn btn-primary launch-btn">Launch Dreaming Chamber</button></div>
+                        </form>
+                    </div>
+                    <div class="tab-pane" id="tab-resonance">
+                        <div class="chat-container">
+                            <div class="chat-header" id="chat-config">
+                                <input type="text" id="chat-ckpt" class="chat-input" list="checkpoint-list" value="pcei_100m.pt" placeholder="Checkpoint Name" style="flex:2">
+                                <select id="chat-mode" style="background:#111;color:#aaa;border:1px solid #333;padding:0.5rem;border-radius:4px;font-family:inherit">
+                                    <option value="inference">Fast (inference only)</option>
+                                    <option value="learn">Learn (trains on input)</option>
+                                </select>
+                                <button class="btn btn-primary" id="btn-chat-connect">Connect</button>
+                                <button class="btn" id="btn-chat-kill" style="background:rgba(255,80,80,0.15);color:#ff5050;border:1px solid rgba(255,80,80,0.3);display:none">Kill</button>
+                            </div>
+                            <div class="chat-history" id="chat-history">
+                                <div class="chat-message system">Not connected. Enter a checkpoint and click Connect.</div>
+                            </div>
+                            <div class="chat-input-area">
+                                <input type="text" id="chat-input" class="chat-input" placeholder="Type a message... (Enter to send)" disabled>
+                                <button class="btn btn-primary" id="btn-chat-send" disabled>Send</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Multimodal Tuner — args: --checkpoint-name --batch-size --steps --lr --grad-accum-steps --use-metabolic-loss --audio-only --image-only --metabolic-flush -->
+                    <div class="tab-pane" id="tab-multimodal">
+                        <form class="launcher-form" data-script="multimodal_tuner">
+                            <div class="form-grid">
+                                <div class="form-group"><label>Checkpoint</label><input type="text" name="checkpoint-name" list="checkpoint-list" value="pcei_100m.pt"></div>
+                                <div class="form-group"><label>Batch Size</label><input type="number" name="batch-size" value="4" min="1" max="64"></div>
+                                <div class="form-group"><label>Steps</label><input type="number" name="steps" value="1000" min="1"></div>
+                                <div class="form-group"><label>Learning Rate</label><input type="text" name="lr" value="5e-5"></div>
+                                <div class="form-group"><label>Grad Accum Steps</label><input type="number" name="grad-accum-steps" value="4" min="1"></div>
+                                <div class="form-group">
+                                    <label>Modality Focus</label>
+                                    <select name="_modality">
+                                        <option value="">All Modalities</option>
+                                        <option value="audio">Audio Only</option>
+                                        <option value="image">Image Only</option>
+                                    </select>
+                                </div>
+                                <div class="form-group checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="use-metabolic-loss" value="true">
+                                        <span>Metabolic Loss</span>
+                                        <small>Include metabolic regularisation</small>
+                                    </label>
+                                </div>
+                                <div class="form-group checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="metabolic-flush" value="true">
+                                        <span>Metabolic Flush</span>
+                                        <small>Reset slow-field confidence</small>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-actions"><button type="submit" class="btn btn-primary launch-btn">Launch Multimodal Tuner</button></div>
+                        </form>
+                    </div>
+                    <!-- Reading Room -->
+                    <div class="tab-pane" id="tab-reading">
+                        <form class="launcher-form" data-script="reading_room">
+                            <div class="form-grid">
+                                <div class="form-group"><label>Checkpoint</label><input type="text" name="checkpoint-name" list="checkpoint-list" value="pcei_100m.pt"></div>
+                                <div class="form-group"><label>Curriculum</label><input type="text" name="curriculum" value="3-1000"></div>
+                                <div class="form-group"><label>Batch Size</label><input type="number" name="batch-size" value="8" min="1" max="64"></div>
+                                <div class="form-group"><label>Learning Rate</label><input type="text" name="lr" value="3e-4"></div>
+                                <div class="form-group"><label>Grad Accum Steps</label><input type="number" name="grad-accum-steps" value="8" min="1" max="64"></div>
+                            </div>
+                            <div class="form-actions"><button type="submit" class="btn btn-primary launch-btn">Launch Reading Room</button></div>
+                        </form>
+                    </div>
+                    <!-- Ollama Trainer -->
+                    <div class="tab-pane" id="tab-ollama">
+                        <form class="launcher-form" data-script="ollama_trainer">
+                            <div class="form-grid">
+                                <div class="form-group"><label>Checkpoint</label><input type="text" name="checkpoint-name" list="checkpoint-list" value="pcei_100m.pt"></div>
+                                <div class="form-group"><label>Ollama Model</label><input type="text" name="ollama-model" value="MtnMCG/Council-Ultima:latest"></div>
+                                <div class="form-group"><label>Learning Rate</label><input type="text" name="lr" value="2e-4"></div>
+                            </div>
+                            <div class="form-actions"><button type="submit" class="btn btn-primary launch-btn">Launch Ollama Trainer</button></div>
+                        </form>
+                    </div>
+                </div>
+                <div class="active-process-view hidden" id="active-process-view">
+                    <div class="process-header">
+                        <div class="process-info">
+                            <span class="status-pulse running"></span>
+                            <strong>Running:</strong> <span id="running-script-name">--</span>
+                            <span class="runtime" id="process-runtime">00:00</span>
+                        </div>
+                        <button class="btn btn-danger btn-sm" id="btn-kill-process">Kill</button>
+                    </div>
+                    <div class="log-viewer" id="process-logs"></div>
+                    <div class="director-console hidden" id="director-console" style="margin-top:10px; display:flex; gap:10px;">
+                        <input type="text" id="director-input" class="modern-input" placeholder="Enter Director Instruction for Ollama..." style="flex:1; padding:10px; border-radius:4px; border:1px solid rgba(255,255,255,0.1); background:rgba(0,0,0,0.2); color:#fff;">
+                        <button id="btn-director-send" class="btn btn-primary">Send</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Checkpoint Manager -->
+        <section class="panel glass-card" id="panel-checkpoints">
+            <header class="panel-header">
+                <h2>Checkpoint Manager</h2>
+                <div class="panel-controls"><button class="icon-btn" id="refresh-checkpoints" title="Refresh">&#8635;</button></div>
+            </header>
+            <div class="panel-content table-wrapper">
+                <table class="data-table" id="checkpoints-table">
+                    <thead><tr><th>Filename</th><th>Size</th><th>Step</th><th>Modified</th><th>Action</th></tr></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Datalist for Checkpoints -->
+    <datalist id="checkpoint-list"></datalist>
+
+</body>
+</html>

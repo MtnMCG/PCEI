@@ -1,0 +1,82 @@
+{
+  "ambient_field": {
+    "d_model": 1280,
+    "seq_len": 19,
+    "raw_dimensional_footprint": 24320,
+    "ambient_dimensional_footprint": 1280,
+    "compression_factor": 19.0,
+    "token_to_ambient_cosine_similarity": 0.2471,
+    "token_logits_divergence_mse": 42.5
+  },
+  "entanglement_bonds": {
+    "loss_with_bonds": 4.15625,
+    "loss_without_bonds": 4.15625,
+    "exact_loss_difference": 0.0,
+    "max_gradient_norm_divergence": 0.0,
+    "gradient_neutrality_verified": true
+  },
+  "bitnet_audit": {
+    "total_quantized_parameters": 332595200,
+    "global_neg1_percentage": 40.08,
+    "global_zero_percentage": 19.82,
+    "global_pos1_percentage": 40.09,
+    "sample_layer_breakdowns": [
+      {
+        "layer": "core.text_stack.layers.0.block.ternary_mlp.0",
+        "gamma": 0.016968,
+        "neg1_pct": 39.4,
+        "zero_pct": 21.19,
+        "pos1_pct": 39.4
+      },
+      {
+        "layer": "core.text_stack.layers.0.block.ternary_mlp.2",
+        "gamma": 0.013184,
+        "neg1_pct": 38.24,
+        "zero_pct": 23.56,
+        "pos1_pct": 38.2
+      },
+      {
+        "layer": "core.text_stack.layers.1.block.ternary_mlp.0",
+        "gamma": 0.016846,
+        "neg1_pct": 39.86,
+        "zero_pct": 20.26,
+        "pos1_pct": 39.88
+      },
+      {
+        "layer": "core.text_stack.layers.1.block.ternary_mlp.2",
+        "gamma": 0.013733,
+        "neg1_pct": 39.66,
+        "zero_pct": 20.7,
+        "pos1_pct": 39.63
+      },
+      {
+        "layer": "core.text_stack.layers.2.block.ternary_mlp.0",
+        "gamma": 0.016357,
+        "neg1_pct": 40.37,
+        "zero_pct": 19.26,
+        "pos1_pct": 40.37
+      },
+      {
+        "layer": "core.text_stack.layers.2.block.ternary_mlp.2",
+        "gamma": 0.012329,
+        "neg1_pct": 38.46,
+        "zero_pct": 23.07,
+        "pos1_pct": 38.47
+      },
+      {
+        "layer": "core.text_stack.layers.23.module.block.ternary_mlp.0",
+        "gamma": 0.015442,
+        "neg1_pct": 40.73,
+        "zero_pct": 18.52,
+        "pos1_pct": 40.75
+      },
+      {
+        "layer": "core.text_stack.layers.23.module.block.ternary_mlp.2",
+        "gamma": 0.011536,
+        "neg1_pct": 40.37,
+        "zero_pct": 19.17,
+        "pos1_pct": 40.46
+      }
+    ]
+  }
+}

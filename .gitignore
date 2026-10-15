@@ -1,0 +1,116 @@
+# ==============================================================================
+# PCEI Framework - Git Ignore Specification
+# ==============================================================================
+
+# OS & Editor Artifacts
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python & Environment Artifacts
+__pycache__/
+*.py[cod]
+*.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Credentials, Keys & Sensitive Environment Files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+
+# Model Weights, Checkpoints & Serialization Artifacts (>100MB)
+*.pt
+*.pth
+*.bin
+*.ckpt
+*.onnx
+*.safetensors
+*.h5
+checkpoints/
+**/checkpoints/
+models/checkpoints/
+**/models/checkpoints/
+trained_model/
+frozen_99m_survivor/
+legacy_74m_archive/
+
+# Raw Datasets, Bulky Corpora, Video Caches & Media
+data/raw/
+**/data/raw/
+unprocessed books/
+data/LibriSpeech/
+**/LibriSpeech/
+data/MNIST/
+**/MNIST/
+tiktoken_cache/
+**/tiktoken_cache/
+video_cache/
+**/video_cache/
+cloud_multimodal_bundle/
+**/cloud_multimodal_bundle/
+data/synthetic/anthropic_claude.jsonl
+**/data/synthetic/anthropic_claude.jsonl
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+*.7z
+*.MOV
+*.mp4
+*.mp3
+*.wav
+*.avi
+*.mkv
+
+# Backups & Temporary files
+*.bak
+*backup*
+*copy*
+
+# Training Logs, Diagnostics & Local Telemetry
+*.log
+**/logs/
+src/logs/
+**/src/logs/
+dashboard/logs/
+**/dashboard/logs/
+MUJOCO_LOG.TXT
+**/MUJOCO_LOG.TXT
+wandb/
+**/wandb/
+*.csv.bak

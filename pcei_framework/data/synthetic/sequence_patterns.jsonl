@@ -1,0 +1,3000 @@
+{"text": "count: 1 3 5 7 9 next: 11 13 15", "type": "count"}
+{"text": "reverse: ccddee answer: eeddcc", "type": "reverse"}
+{"text": "reverse: kokmeilp answer: pliemkok", "type": "reverse"}
+{"text": "count: 3 7 11 15 19 23 next: 27 31 35", "type": "count"}
+{"text": "reverse: ofdk answer: kdfo", "type": "reverse"}
+{"text": "reverse: gkldjil answer: lijdlkg", "type": "reverse"}
+{"text": "count: 14 15 16 17 18 19 20 21 next: 22 23 24", "type": "count"}
+{"text": "repeat: gigbgjcigigbgjci next: gigbgjci", "type": "repeat"}
+{"text": "repeat: ddbaeddbae next: ddbae", "type": "repeat"}
+{"text": "reverse: dconhofbfg answer: gfbfohnocd", "type": "reverse"}
+{"text": "reverse: ofhmlnl answer: lnlmhfo", "type": "reverse"}
+{"text": "repeat: iebaedeiebaede next: iebaede", "type": "repeat"}
+{"text": "reverse: enogopmmke answer: ekmmpogone", "type": "reverse"}
+{"text": "shift3: lfakkk answer: oidnnn", "type": "cipher"}
+{"text": "count: 2 5 8 11 14 17 20 next: 23 26 29", "type": "count"}
+{"text": "reverse: fokfbdn answer: ndbfkof", "type": "reverse"}
+{"text": "repeat: hegchegchegc next: hegc", "type": "repeat"}
+{"text": "repeat: hghghghg next: hg", "type": "repeat"}
+{"text": "repeat: ddfddfddfddf next: ddf", "type": "repeat"}
+{"text": "repeat: abjcabjcabjc next: abjc", "type": "repeat"}
+{"text": "repeat: gfbgfbgfbgfb next: gfb", "type": "repeat"}
+{"text": "count: 11 16 21 26 31 next: 36 41 46", "type": "count"}
+{"text": "repeat: djdjdj next: dj", "type": "repeat"}
+{"text": "reverse: ffkiecmb answer: bmceikff", "type": "reverse"}
+{"text": "count: 12 14 16 18 20 next: 22 24 26", "type": "count"}
+{"text": "shift5: elji answer: jqon", "type": "cipher"}
+{"text": "shift5: nijnp answer: snosu", "type": "cipher"}
+{"text": "shift5: pie answer: unj", "type": "cipher"}
+{"text": "reverse: gddgeae answer: eaegddg", "type": "reverse"}
+{"text": "shift1: laigeh answer: mbjhfi", "type": "cipher"}
+{"text": "reverse: cicbkejk answer: kjekbcic", "type": "reverse"}
+{"text": "reverse: acnjpm answer: mpjnca", "type": "reverse"}
+{"text": "shift1: dicpgpop answer: ejdqhqpq", "type": "cipher"}
+{"text": "shift1: madfap answer: nbegbq", "type": "cipher"}
+{"text": "shift3: ihpmkp answer: lkspns", "type": "cipher"}
+{"text": "reverse: hlcmfdaopo answer: opoadfmclh", "type": "reverse"}
+{"text": "reverse: ipjcmlb answer: blmcjpi", "type": "reverse"}
+{"text": "count: 2 3 4 5 6 next: 7 8 9", "type": "count"}
+{"text": "reverse: nbeoaabhk answer: khbaaoebn", "type": "reverse"}
+{"text": "shift3: aakjfaac answer: ddnmiddf", "type": "cipher"}
+{"text": "count: 1 3 5 7 9 11 13 next: 15 17 19", "type": "count"}
+{"text": "reverse: dhfiln answer: nlifhd", "type": "reverse"}
+{"text": "shift2: hiiclfaa answer: jkkenhcc", "type": "cipher"}
+{"text": "shift3: ead answer: hdg", "type": "cipher"}
+{"text": "shift3: dnfjck answer: gqimfn", "type": "cipher"}
+{"text": "count: 17 20 23 26 29 32 35 next: 38 41 44", "type": "count"}
+{"text": "repeat: gahgah next: gah", "type": "repeat"}
+{"text": "count: 11 12 13 14 next: 15 16 17", "type": "count"}
+{"text": "shift3: fidghe answer: ilgjkh", "type": "cipher"}
+{"text": "shift2: dbdejeik answer: fdfglgkm", "type": "cipher"}
+{"text": "repeat: cacaca next: ca", "type": "repeat"}
+{"text": "shift1: oihn answer: pjio", "type": "cipher"}
+{"text": "shift1: phhfbong answer: qiigcpoh", "type": "cipher"}
+{"text": "repeat: gecfagecfagecfa next: gecfa", "type": "repeat"}
+{"text": "reverse: hdkn answer: nkdh", "type": "reverse"}
+{"text": "reverse: jbodl answer: ldobj", "type": "reverse"}
+{"text": "reverse: onno answer: onno", "type": "reverse"}
+{"text": "reverse: jjoo answer: oojj", "type": "reverse"}
+{"text": "repeat: djdj next: dj", "type": "repeat"}
+{"text": "reverse: decphgle answer: elghpced", "type": "reverse"}
+{"text": "shift2: bgg answer: dii", "type": "cipher"}
+{"text": "shift4: amecelp answer: eqigipt", "type": "cipher"}
+{"text": "repeat: hiihiihii next: hii", "type": "repeat"}
+{"text": "shift2: hgj answer: jil", "type": "cipher"}
+{"text": "count: 8 12 16 20 next: 24 28 32", "type": "count"}
+{"text": "reverse: fpiepm answer: mpeipf", "type": "reverse"}
+{"text": "reverse: khdn answer: ndhk", "type": "reverse"}
+{"text": "repeat: fcibbaghfcibbaghfcibbagh next: fcibbagh", "type": "repeat"}
+{"text": "repeat: heaibheaibheaib next: heaib", "type": "repeat"}
+{"text": "repeat: cfbiecfbiecfbiecfbie next: cfbie", "type": "repeat"}
+{"text": "shift5: blmaeip answer: gqrfjnu", "type": "cipher"}
+{"text": "shift5: olblbpl answer: tqgqguq", "type": "cipher"}
+{"text": "repeat: bgdhgbbgdhgbbgdhgbbgdhgb next: bgdhgb", "type": "repeat"}
+{"text": "shift5: neipgna answer: sjnulsf", "type": "cipher"}
+{"text": "count: 17 19 21 23 25 27 next: 29 31 33", "type": "count"}
+{"text": "count: 9 14 19 24 29 34 39 44 next: 49 54 59", "type": "count"}
+{"text": "reverse: mjkg answer: gkjm", "type": "reverse"}
+{"text": "shift1: hhfja answer: iigkb", "type": "cipher"}
+{"text": "count: 17 19 21 23 25 27 next: 29 31 33", "type": "count"}
+{"text": "reverse: blgdf answer: fdglb", "type": "reverse"}
+{"text": "count: 3 6 9 12 15 18 21 next: 24 27 30", "type": "count"}
+{"text": "shift5: hpge answer: mulj", "type": "cipher"}
+{"text": "shift5: gefao answer: ljkft", "type": "cipher"}
+{"text": "shift5: dje answer: ioj", "type": "cipher"}
+{"text": "repeat: haaggiehaaggie next: haaggie", "type": "repeat"}
+{"text": "repeat: dgdefhdgdefh next: dgdefh", "type": "repeat"}
+{"text": "shift2: nep answer: pgr", "type": "cipher"}
+{"text": "reverse: bgg answer: ggb", "type": "reverse"}
+{"text": "shift4: pcigif answer: tgmkmj", "type": "cipher"}
+{"text": "count: 17 21 25 29 33 next: 37 41 45", "type": "count"}
+{"text": "repeat: dgebcdgebc next: dgebc", "type": "repeat"}
+{"text": "shift5: endl answer: jsiq", "type": "cipher"}
+{"text": "count: 20 25 30 35 next: 40 45 50", "type": "count"}
+{"text": "shift1: kjh answer: lki", "type": "cipher"}
+{"text": "count: 9 11 13 15 17 next: 19 21 23", "type": "count"}
+{"text": "reverse: jaiennaoha answer: ahoanneiaj", "type": "reverse"}
+{"text": "reverse: cll answer: llc", "type": "reverse"}
+{"text": "reverse: ipcffdba answer: abdffcpi", "type": "reverse"}
+{"text": "repeat: cjcjcj next: cj", "type": "repeat"}
+{"text": "shift5: pil answer: unq", "type": "cipher"}
+{"text": "count: 16 20 24 28 32 next: 36 40 44", "type": "count"}
+{"text": "reverse: bnndanhia answer: aihnadnnb", "type": "reverse"}
+{"text": "reverse: imnmlj answer: jlmnmi", "type": "reverse"}
+{"text": "count: 14 19 24 29 34 39 44 49 next: 54 59 64", "type": "count"}
+{"text": "reverse: hek answer: keh", "type": "reverse"}
+{"text": "repeat: ihih next: ih", "type": "repeat"}
+{"text": "reverse: aopcedn answer: ndecpoa", "type": "reverse"}
+{"text": "reverse: kogimaj answer: jamigok", "type": "reverse"}
+{"text": "repeat: fhefhefhefhe next: fhe", "type": "repeat"}
+{"text": "count: 19 20 21 22 23 24 25 26 next: 27 28 29", "type": "count"}
+{"text": "repeat: cdachcacdachcacdachcacdachca next: cdachca", "type": "repeat"}
+{"text": "repeat: ieiieiieiiei next: iei", "type": "repeat"}
+{"text": "shift2: capof answer: ecrqh", "type": "cipher"}
+{"text": "reverse: iifcjchdd answer: ddhcjcfii", "type": "reverse"}
+{"text": "repeat: hdijefddhdijefddhdijefddhdijefdd next: hdijefdd", "type": "repeat"}
+{"text": "repeat: jbbaafcejbbaafcejbbaafce next: jbbaafce", "type": "repeat"}
+{"text": "reverse: dfj answer: jfd", "type": "reverse"}
+{"text": "reverse: madci answer: icdam", "type": "reverse"}
+{"text": "repeat: ehjehj next: ehj", "type": "repeat"}
+{"text": "shift5: bec answer: gjh", "type": "cipher"}
+{"text": "shift1: cnflcldm answer: dogmdmen", "type": "cipher"}
+{"text": "shift3: ehbdfnn answer: hkegiqq", "type": "cipher"}
+{"text": "repeat: ajgjjggajgjjggajgjjggajgjjgg next: ajgjjgg", "type": "repeat"}
+{"text": "count: 6 7 8 9 next: 10 11 12", "type": "count"}
+{"text": "repeat: jcicfjcicfjcicfjcicf next: jcicf", "type": "repeat"}
+{"text": "shift4: lmd answer: pqh", "type": "cipher"}
+{"text": "repeat: dddddddd next: dd", "type": "repeat"}
+{"text": "repeat: bjbjbjbj next: bj", "type": "repeat"}
+{"text": "reverse: nglflndli answer: ildnlflgn", "type": "reverse"}
+{"text": "reverse: opjgdf answer: fdgjpo", "type": "reverse"}
+{"text": "reverse: igigbkm answer: mkbgigi", "type": "reverse"}
+{"text": "reverse: oknih answer: hinko", "type": "reverse"}
+{"text": "reverse: alecm answer: mcela", "type": "reverse"}
+{"text": "reverse: cfdpmfppo answer: oppfmpdfc", "type": "reverse"}
+{"text": "repeat: djcdjcdjc next: djc", "type": "repeat"}
+{"text": "shift2: bkijj answer: dmkll", "type": "cipher"}
+{"text": "repeat: igaebhahigaebhah next: igaebhah", "type": "repeat"}
+{"text": "repeat: edaeda next: eda", "type": "repeat"}
+{"text": "repeat: dejdejdejdej next: dej", "type": "repeat"}
+{"text": "repeat: abebeeeaabebeeeaabebeeeaabebeeea next: abebeeea", "type": "repeat"}
+{"text": "count: 16 19 22 25 28 31 34 next: 37 40 43", "type": "count"}
+{"text": "shift3: conoei answer: frqrhl", "type": "cipher"}
+{"text": "reverse: cgenol answer: lonegc", "type": "reverse"}
+{"text": "reverse: dfhdc answer: cdhfd", "type": "reverse"}
+{"text": "repeat: aifcihhaifcihhaifcihh next: aifcihh", "type": "repeat"}
+{"text": "reverse: imadf answer: fdami", "type": "reverse"}
+{"text": "shift3: cmomd answer: fprpg", "type": "cipher"}
+{"text": "shift5: lfh answer: qkm", "type": "cipher"}
+{"text": "repeat: dcabaeidcabaeidcabaei next: dcabaei", "type": "repeat"}
+{"text": "repeat: bgagjadbbgagjadb next: bgagjadb", "type": "repeat"}
+{"text": "repeat: bighghdbighghd next: bighghd", "type": "repeat"}
+{"text": "shift3: hgdeoib answer: kjghrle", "type": "cipher"}
+{"text": "repeat: hidijebchidijebchidijebchidijebc next: hidijebc", "type": "repeat"}
+{"text": "repeat: ciihbbciihbb next: ciihbb", "type": "repeat"}
+{"text": "repeat: fhjjfifhjjfifhjjfi next: fhjjfi", "type": "repeat"}
+{"text": "count: 15 18 21 24 27 30 33 next: 36 39 42", "type": "count"}
+{"text": "count: 11 15 19 23 27 31 next: 35 39 43", "type": "count"}
+{"text": "reverse: bbf answer: fbb", "type": "reverse"}
+{"text": "repeat: dcddcddcddcd next: dcd", "type": "repeat"}
+{"text": "reverse: bgdlk answer: kldgb", "type": "reverse"}
+{"text": "repeat: fcfcfc next: fc", "type": "repeat"}
+{"text": "shift4: mepefoo answer: qitijss", "type": "cipher"}
+{"text": "count: 19 20 21 22 next: 23 24 25", "type": "count"}
+{"text": "shift1: bfanel answer: cgbofm", "type": "cipher"}
+{"text": "shift2: pkmkajek answer: rmomclgm", "type": "cipher"}
+{"text": "repeat: ceihbhficeihbhficeihbhfi next: ceihbhfi", "type": "repeat"}
+{"text": "shift5: pdj answer: uio", "type": "cipher"}
+{"text": "shift1: mnbgeknm answer: nochflon", "type": "cipher"}
+{"text": "reverse: dejnkcjki answer: ikjcknjed", "type": "reverse"}
+{"text": "shift1: nhlkkadi answer: oimllbej", "type": "cipher"}
+{"text": "reverse: cnj answer: jnc", "type": "reverse"}
+{"text": "count: 9 14 19 24 29 next: 34 39 44", "type": "count"}
+{"text": "shift5: onblne answer: tsgqsj", "type": "cipher"}
+{"text": "reverse: jicoimk answer: kmiocij", "type": "reverse"}
+{"text": "count: 15 19 23 27 31 next: 35 39 43", "type": "count"}
+{"text": "shift3: fmin answer: iplq", "type": "cipher"}
+{"text": "reverse: lami answer: imal", "type": "reverse"}
+{"text": "repeat: ahciiiaahciiia next: ahciiia", "type": "repeat"}
+{"text": "count: 14 18 22 26 30 34 38 42 next: 46 50 54", "type": "count"}
+{"text": "shift3: koaj answer: nrdm", "type": "cipher"}
+{"text": "count: 11 14 17 20 23 26 29 32 next: 35 38 41", "type": "count"}
+{"text": "reverse: pefmmbal answer: labmmfep", "type": "reverse"}
+{"text": "count: 9 14 19 24 29 34 next: 39 44 49", "type": "count"}
+{"text": "shift2: dmnohn answer: fopqjp", "type": "cipher"}
+{"text": "count: 8 13 18 23 28 33 38 43 next: 48 53 58", "type": "count"}
+{"text": "count: 19 22 25 28 31 34 37 next: 40 43 46", "type": "count"}
+{"text": "count: 3 5 7 9 11 13 15 next: 17 19 21", "type": "count"}
+{"text": "repeat: afaf next: af", "type": "repeat"}
+{"text": "count: 1 3 5 7 9 11 13 next: 15 17 19", "type": "count"}
+{"text": "count: 19 21 23 25 27 29 31 next: 33 35 37", "type": "count"}
+{"text": "shift1: kjlag answer: lkmbh", "type": "cipher"}
+{"text": "shift5: chhdjfk answer: hmmiokp", "type": "cipher"}
+{"text": "count: 13 17 21 25 29 33 37 41 next: 45 49 53", "type": "count"}
+{"text": "reverse: ook answer: koo", "type": "reverse"}
+{"text": "reverse: koogm answer: mgook", "type": "reverse"}
+{"text": "reverse: bakdnlian answer: nailndkab", "type": "reverse"}
+{"text": "repeat: eafjbdideafjbdideafjbdideafjbdid next: eafjbdid", "type": "repeat"}
+{"text": "reverse: kngofocnkg answer: gkncofognk", "type": "reverse"}
+{"text": "shift2: dehjekld answer: fgjlgmnf", "type": "cipher"}
+{"text": "reverse: caggokh answer: hkoggac", "type": "reverse"}
+{"text": "count: 19 23 27 31 35 39 43 47 next: 51 55 59", "type": "count"}
+{"text": "shift2: dicopjmf answer: fkeqrloh", "type": "cipher"}
+{"text": "count: 5 8 11 14 17 20 next: 23 26 29", "type": "count"}
+{"text": "shift4: bebfgma answer: fifjkqe", "type": "cipher"}
+{"text": "count: 6 10 14 18 22 26 next: 30 34 38", "type": "count"}
+{"text": "repeat: gddjgefbgddjgefb next: gddjgefb", "type": "repeat"}
+{"text": "shift2: chmloid answer: ejonqkf", "type": "cipher"}
+{"text": "repeat: cebfecebfecebfecebfe next: cebfe", "type": "repeat"}
+{"text": "count: 7 11 15 19 next: 23 27 31", "type": "count"}
+{"text": "repeat: adcagbaeadcagbaeadcagbaeadcagbae next: adcagbae", "type": "repeat"}
+{"text": "reverse: ngmbl answer: lbmgn", "type": "reverse"}
+{"text": "count: 6 7 8 9 10 11 12 next: 13 14 15", "type": "count"}
+{"text": "reverse: afghip answer: pihgfa", "type": "reverse"}
+{"text": "repeat: fbfb next: fb", "type": "repeat"}
+{"text": "reverse: ppngeiodd answer: ddoiegnpp", "type": "reverse"}
+{"text": "reverse: oaaajg answer: gjaaao", "type": "reverse"}
+{"text": "count: 15 18 21 24 27 next: 30 33 36", "type": "count"}
+{"text": "reverse: pmcoocecif answer: ficecoocmp", "type": "reverse"}
+{"text": "shift2: paf answer: rch", "type": "cipher"}
+{"text": "repeat: afaaafaaafaaafaa next: afaa", "type": "repeat"}
+{"text": "repeat: dgdg next: dg", "type": "repeat"}
+{"text": "count: 6 9 12 15 18 21 next: 24 27 30", "type": "count"}
+{"text": "reverse: ncogk answer: kgocn", "type": "reverse"}
+{"text": "count: 7 11 15 19 23 27 31 35 next: 39 43 47", "type": "count"}
+{"text": "repeat: cgjihifcgjihif next: cgjihif", "type": "repeat"}
+{"text": "count: 20 25 30 35 40 45 50 55 next: 60 65 70", "type": "count"}
+{"text": "repeat: cefcefcef next: cef", "type": "repeat"}
+{"text": "reverse: hdfdgjpb answer: bpjgdfdh", "type": "reverse"}
+{"text": "reverse: mdffjjjhk answer: khjjjffdm", "type": "reverse"}
+{"text": "count: 2 4 6 8 next: 10 12 14", "type": "count"}
+{"text": "reverse: leg answer: gel", "type": "reverse"}
+{"text": "repeat: hgehgehgehge next: hge", "type": "repeat"}
+{"text": "repeat: cabhafacabhafacabhafacabhafa next: cabhafa", "type": "repeat"}
+{"text": "reverse: fab answer: baf", "type": "reverse"}
+{"text": "shift2: bbimeemk answer: ddkoggom", "type": "cipher"}
+{"text": "reverse: hjdfbbd answer: dbbfdjh", "type": "reverse"}
+{"text": "reverse: ffbbbpm answer: mpbbbff", "type": "reverse"}
+{"text": "shift5: ieaal answer: njffq", "type": "cipher"}
+{"text": "reverse: cemcbc answer: cbcmec", "type": "reverse"}
+{"text": "repeat: hccbhccbhccb next: hccb", "type": "repeat"}
+{"text": "shift5: ldld answer: qiqi", "type": "cipher"}
+{"text": "count: 16 19 22 25 28 31 34 37 next: 40 43 46", "type": "count"}
+{"text": "repeat: ififif next: if", "type": "repeat"}
+{"text": "reverse: bjiepfgce answer: ecgfpeijb", "type": "reverse"}
+{"text": "reverse: bhaklkkg answer: gkklkahb", "type": "reverse"}
+{"text": "shift1: ckckfcag answer: dldlgdbh", "type": "cipher"}
+{"text": "repeat: ihihihih next: ih", "type": "repeat"}
+{"text": "shift1: gdkpcfe answer: helqdgf", "type": "cipher"}
+{"text": "count: 20 25 30 35 40 45 50 next: 55 60 65", "type": "count"}
+{"text": "shift3: pnji answer: sqml", "type": "cipher"}
+{"text": "repeat: icdideicdide next: icdide", "type": "repeat"}
+{"text": "shift2: jopem answer: lqrgo", "type": "cipher"}
+{"text": "count: 9 10 11 12 next: 13 14 15", "type": "count"}
+{"text": "shift3: jdlhoap answer: mgokrds", "type": "cipher"}
+{"text": "count: 18 20 22 24 next: 26 28 30", "type": "count"}
+{"text": "shift3: gbonhf answer: jerqki", "type": "cipher"}
+{"text": "count: 7 10 13 16 19 22 25 next: 28 31 34", "type": "count"}
+{"text": "reverse: molfdmjim answer: mijmdflom", "type": "reverse"}
+{"text": "shift3: mcaoha answer: pfdrkd", "type": "cipher"}
+{"text": "count: 4 8 12 16 20 24 28 32 next: 36 40 44", "type": "count"}
+{"text": "shift2: nieg answer: pkgi", "type": "cipher"}
+{"text": "count: 1 5 9 13 17 21 25 next: 29 33 37", "type": "count"}
+{"text": "count: 4 7 10 13 16 19 22 next: 25 28 31", "type": "count"}
+{"text": "repeat: edhgbieedhgbieedhgbieedhgbie next: edhgbie", "type": "repeat"}
+{"text": "repeat: bfidehdbfidehdbfidehdbfidehd next: bfidehd", "type": "repeat"}
+{"text": "repeat: ieahgghieahgghieahgghieahggh next: ieahggh", "type": "repeat"}
+{"text": "count: 17 22 27 32 37 42 47 next: 52 57 62", "type": "count"}
+{"text": "repeat: hedddhichedddhichedddhic next: hedddhic", "type": "repeat"}
+{"text": "shift5: ffj answer: kko", "type": "cipher"}
+{"text": "reverse: pacbi answer: ibcap", "type": "reverse"}
+{"text": "reverse: lnjjmgpoh answer: hopgmjjnl", "type": "reverse"}
+{"text": "count: 4 8 12 16 20 next: 24 28 32", "type": "count"}
+{"text": "count: 15 19 23 27 31 35 next: 39 43 47", "type": "count"}
+{"text": "reverse: fhbhk answer: khbhf", "type": "reverse"}
+{"text": "count: 1 6 11 16 21 next: 26 31 36", "type": "count"}
+{"text": "shift1: miiohm answer: njjpin", "type": "cipher"}
+{"text": "shift1: kgjof answer: lhkpg", "type": "cipher"}
+{"text": "reverse: enej answer: jene", "type": "reverse"}
+{"text": "count: 2 6 10 14 18 next: 22 26 30", "type": "count"}
+{"text": "shift3: ojbhkjcp answer: rmeknmfs", "type": "cipher"}
+{"text": "shift5: plekpab answer: uqjpufg", "type": "cipher"}
+{"text": "count: 19 22 25 28 31 34 next: 37 40 43", "type": "count"}
+{"text": "count: 6 10 14 18 22 26 30 next: 34 38 42", "type": "count"}
+{"text": "shift2: ebmj answer: gdol", "type": "cipher"}
+{"text": "reverse: ililmadgj answer: jgdamlili", "type": "reverse"}
+{"text": "repeat: egfegf next: egf", "type": "repeat"}
+{"text": "shift4: nlfph answer: rpjtl", "type": "cipher"}
+{"text": "repeat: cedhcedhcedhcedh next: cedh", "type": "repeat"}
+{"text": "reverse: ghbmocd answer: dcombhg", "type": "reverse"}
+{"text": "count: 4 5 6 7 8 9 10 11 next: 12 13 14", "type": "count"}
+{"text": "shift1: ione answer: jpof", "type": "cipher"}
+{"text": "repeat: bidcibidcibidcibidci next: bidci", "type": "repeat"}
+{"text": "count: 20 22 24 26 next: 28 30 32", "type": "count"}
+{"text": "repeat: jijgbjjijgbjjijgbjjijgbj next: jijgbj", "type": "repeat"}
+{"text": "reverse: kfibifj answer: jfibifk", "type": "reverse"}
+{"text": "reverse: pbmbfmhn answer: nhmfbmbp", "type": "reverse"}
+{"text": "count: 18 21 24 27 30 33 36 39 next: 42 45 48", "type": "count"}
+{"text": "shift2: mdnajfm answer: ofpclho", "type": "cipher"}
+{"text": "shift2: ijpf answer: klrh", "type": "cipher"}
+{"text": "repeat: cedfjcedfj next: cedfj", "type": "repeat"}
+{"text": "shift3: hdakbd answer: kgdneg", "type": "cipher"}
+{"text": "repeat: eiciieiciieiciieicii next: eicii", "type": "repeat"}
+{"text": "shift1: hjkamgmb answer: iklbnhnc", "type": "cipher"}
+{"text": "reverse: enjippd answer: dppijne", "type": "reverse"}
+{"text": "repeat: dbffjehedbffjehedbffjehe next: dbffjehe", "type": "repeat"}
+{"text": "shift2: hiccajjg answer: jkeeclli", "type": "cipher"}
+{"text": "reverse: jkjgajp answer: pjagjkj", "type": "reverse"}
+{"text": "repeat: dhcgeeghdhcgeegh next: dhcgeegh", "type": "repeat"}
+{"text": "shift5: aefb answer: fjkg", "type": "cipher"}
+{"text": "count: 3 7 11 15 next: 19 23 27", "type": "count"}
+{"text": "reverse: ighgnjl answer: ljnghgi", "type": "reverse"}
+{"text": "count: 9 13 17 21 25 next: 29 33 37", "type": "count"}
+{"text": "count: 20 25 30 35 40 45 50 55 next: 60 65 70", "type": "count"}
+{"text": "count: 11 13 15 17 19 21 next: 23 25 27", "type": "count"}
+{"text": "repeat: icbbeafcicbbeafcicbbeafc next: icbbeafc", "type": "repeat"}
+{"text": "count: 3 6 9 12 15 next: 18 21 24", "type": "count"}
+{"text": "reverse: ocioeneod answer: doeneoico", "type": "reverse"}
+{"text": "shift3: ape answer: dsh", "type": "cipher"}
+{"text": "shift5: fngc answer: kslh", "type": "cipher"}
+{"text": "repeat: bhjjdedbhjjdedbhjjdedbhjjded next: bhjjded", "type": "repeat"}
+{"text": "repeat: dhdhdhdh next: dh", "type": "repeat"}
+{"text": "shift2: oblnidmd answer: qdnpkfof", "type": "cipher"}
+{"text": "reverse: pppih answer: hippp", "type": "reverse"}
+{"text": "count: 5 8 11 14 17 20 23 26 next: 29 32 35", "type": "count"}
+{"text": "shift3: oeolkmp answer: rhronps", "type": "cipher"}
+{"text": "shift4: ejnkhblb answer: inrolfpf", "type": "cipher"}
+{"text": "shift5: mch answer: rhm", "type": "cipher"}
+{"text": "reverse: lhomde answer: edmohl", "type": "reverse"}
+{"text": "repeat: cidijccidijccidijccidijc next: cidijc", "type": "repeat"}
+{"text": "shift1: pihhkgkf answer: qjiilhlg", "type": "cipher"}
+{"text": "repeat: cdjedcbfcdjedcbfcdjedcbf next: cdjedcbf", "type": "repeat"}
+{"text": "shift4: ainko answer: emros", "type": "cipher"}
+{"text": "repeat: ifciifciifciifci next: ifci", "type": "repeat"}
+{"text": "count: 8 11 14 17 20 23 26 next: 29 32 35", "type": "count"}
+{"text": "repeat: hfjdebjihfjdebjihfjdebjihfjdebji next: hfjdebji", "type": "repeat"}
+{"text": "reverse: ddhpgf answer: fgphdd", "type": "reverse"}
+{"text": "count: 11 14 17 20 23 next: 26 29 32", "type": "count"}
+{"text": "count: 13 16 19 22 25 next: 28 31 34", "type": "count"}
+{"text": "count: 20 22 24 26 28 next: 30 32 34", "type": "count"}
+{"text": "reverse: pebkaffa answer: affakbep", "type": "reverse"}
+{"text": "repeat: fdceecigfdceecigfdceecigfdceecig next: fdceecig", "type": "repeat"}
+{"text": "shift3: ffohi answer: iirkl", "type": "cipher"}
+{"text": "repeat: bgaicidebgaicide next: bgaicide", "type": "repeat"}
+{"text": "reverse: ijmnooncha answer: ahcnoonmji", "type": "reverse"}
+{"text": "count: 6 10 14 18 22 next: 26 30 34", "type": "count"}
+{"text": "shift3: ccbfmeh answer: ffeiphk", "type": "cipher"}
+{"text": "count: 19 20 21 22 23 24 25 next: 26 27 28", "type": "count"}
+{"text": "repeat: ididid next: id", "type": "repeat"}
+{"text": "repeat: fghajfghaj next: fghaj", "type": "repeat"}
+{"text": "count: 2 4 6 8 10 12 14 next: 16 18 20", "type": "count"}
+{"text": "reverse: fia answer: aif", "type": "reverse"}
+{"text": "reverse: bocijdcp answer: pcdjicob", "type": "reverse"}
+{"text": "shift5: bdccijo answer: gihhnot", "type": "cipher"}
+{"text": "shift3: hdbm answer: kgep", "type": "cipher"}
+{"text": "count: 7 11 15 19 23 next: 27 31 35", "type": "count"}
+{"text": "shift1: gfiiolc answer: hgjjpmd", "type": "cipher"}
+{"text": "count: 19 24 29 34 39 next: 44 49 54", "type": "count"}
+{"text": "shift5: edcglnm answer: jihlqsr", "type": "cipher"}
+{"text": "repeat: bddbdd next: bdd", "type": "repeat"}
+{"text": "reverse: ggdpnpcnl answer: lncpnpdgg", "type": "reverse"}
+{"text": "count: 19 21 23 25 27 29 31 next: 33 35 37", "type": "count"}
+{"text": "repeat: ecihecih next: ecih", "type": "repeat"}
+{"text": "repeat: gejbjgejbjgejbj next: gejbj", "type": "repeat"}
+{"text": "count: 8 10 12 14 next: 16 18 20", "type": "count"}
+{"text": "reverse: mklknemhen answer: nehmenklkm", "type": "reverse"}
+{"text": "reverse: cdjhona answer: anohjdc", "type": "reverse"}
+{"text": "shift2: ldmolkk answer: nfoqnmm", "type": "cipher"}
+{"text": "reverse: cel answer: lec", "type": "reverse"}
+{"text": "repeat: chifhchifh next: chifh", "type": "repeat"}
+{"text": "count: 14 16 18 20 22 24 26 28 next: 30 32 34", "type": "count"}
+{"text": "shift3: docf answer: grfi", "type": "cipher"}
+{"text": "shift5: clflkco answer: hqkqpht", "type": "cipher"}
+{"text": "count: 19 22 25 28 next: 31 34 37", "type": "count"}
+{"text": "reverse: hdleo answer: oeldh", "type": "reverse"}
+{"text": "shift1: nklcki answer: olmdlj", "type": "cipher"}
+{"text": "repeat: gjjafaigjjafaigjjafai next: gjjafai", "type": "repeat"}
+{"text": "shift2: bhpfioib answer: djrhkqkd", "type": "cipher"}
+{"text": "count: 19 24 29 34 39 44 49 next: 54 59 64", "type": "count"}
+{"text": "reverse: fjbom answer: mobjf", "type": "reverse"}
+{"text": "reverse: eaddme answer: emddae", "type": "reverse"}
+{"text": "repeat: gjedddjcgjedddjcgjedddjcgjedddjc next: gjedddjc", "type": "repeat"}
+{"text": "repeat: bjdbbbfbjdbbbfbjdbbbf next: bjdbbbf", "type": "repeat"}
+{"text": "repeat: ifbjcbifbjcb next: ifbjcb", "type": "repeat"}
+{"text": "count: 11 14 17 20 23 26 29 32 next: 35 38 41", "type": "count"}
+{"text": "reverse: nginhkllai answer: iallkhnign", "type": "reverse"}
+{"text": "count: 14 16 18 20 22 24 next: 26 28 30", "type": "count"}
+{"text": "shift5: apnjkkj answer: fusoppo", "type": "cipher"}
+{"text": "count: 6 11 16 21 26 31 next: 36 41 46", "type": "count"}
+{"text": "reverse: cnnlngnib answer: bingnlnnc", "type": "reverse"}
+{"text": "count: 3 8 13 18 23 28 33 38 next: 43 48 53", "type": "count"}
+{"text": "reverse: gcdih answer: hidcg", "type": "reverse"}
+{"text": "reverse: jahabgici answer: icigbahaj", "type": "reverse"}
+{"text": "reverse: eblakh answer: hkalbe", "type": "reverse"}
+{"text": "reverse: gaciejciha answer: ahicjeicag", "type": "reverse"}
+{"text": "reverse: galep answer: pelag", "type": "reverse"}
+{"text": "reverse: mpjode answer: edojpm", "type": "reverse"}
+{"text": "reverse: opjjilnbla answer: albnlijjpo", "type": "reverse"}
+{"text": "reverse: kflpjjm answer: mjjplfk", "type": "reverse"}
+{"text": "repeat: iigiig next: iig", "type": "repeat"}
+{"text": "reverse: icb answer: bci", "type": "reverse"}
+{"text": "shift4: nnckih answer: rrgoml", "type": "cipher"}
+{"text": "shift4: glhmgdpk answer: kplqkhto", "type": "cipher"}
+{"text": "repeat: hiabihiabi next: hiabi", "type": "repeat"}
+{"text": "repeat: fjfj next: fj", "type": "repeat"}
+{"text": "repeat: bhbhbhbh next: bh", "type": "repeat"}
+{"text": "reverse: hmamikpb answer: bpkimamh", "type": "reverse"}
+{"text": "shift5: ppgijp answer: uulnou", "type": "cipher"}
+{"text": "reverse: laf answer: fal", "type": "reverse"}
+{"text": "reverse: dfhjm answer: mjhfd", "type": "reverse"}
+{"text": "repeat: fedhfedhfedh next: fedh", "type": "repeat"}
+{"text": "shift3: ijl answer: lmo", "type": "cipher"}
+{"text": "repeat: eafaeafa next: eafa", "type": "repeat"}
+{"text": "repeat: cffhcdccffhcdccffhcdc next: cffhcdc", "type": "repeat"}
+{"text": "shift4: fpi answer: jtm", "type": "cipher"}
+{"text": "repeat: fidifadbfidifadb next: fidifadb", "type": "repeat"}
+{"text": "reverse: ndknmm answer: mmnkdn", "type": "reverse"}
+{"text": "repeat: gjbfigjbfigjbfigjbfi next: gjbfi", "type": "repeat"}
+{"text": "reverse: eneja answer: ajene", "type": "reverse"}
+{"text": "reverse: nkin answer: nikn", "type": "reverse"}
+{"text": "shift3: cdphh answer: fgskk", "type": "cipher"}
+{"text": "count: 4 5 6 7 next: 8 9 10", "type": "count"}
+{"text": "repeat: jdabcifjdabcifjdabcif next: jdabcif", "type": "repeat"}
+{"text": "reverse: gemiijaij answer: jiajiimeg", "type": "reverse"}
+{"text": "count: 3 6 9 12 next: 15 18 21", "type": "count"}
+{"text": "repeat: gdfgajegdfgajegdfgajegdfgaje next: gdfgaje", "type": "repeat"}
+{"text": "reverse: ppki answer: ikpp", "type": "reverse"}
+{"text": "repeat: jdejjdejjdejjdej next: jdej", "type": "repeat"}
+{"text": "reverse: kkad answer: dakk", "type": "reverse"}
+{"text": "shift5: njadibk answer: sofingp", "type": "cipher"}
+{"text": "reverse: jgimlnogd answer: dgonlmigj", "type": "reverse"}
+{"text": "shift3: gkgff answer: jnjii", "type": "cipher"}
+{"text": "reverse: dnfa answer: afnd", "type": "reverse"}
+{"text": "count: 2 4 6 8 10 12 next: 14 16 18", "type": "count"}
+{"text": "shift5: jjef answer: oojk", "type": "cipher"}
+{"text": "shift3: dfnfbbn answer: giqieeq", "type": "cipher"}
+{"text": "reverse: lphfc answer: cfhpl", "type": "reverse"}
+{"text": "repeat: ebdjebdjebdjebdj next: ebdj", "type": "repeat"}
+{"text": "count: 10 15 20 25 30 next: 35 40 45", "type": "count"}
+{"text": "reverse: bhagnh answer: hngahb", "type": "reverse"}
+{"text": "reverse: lmcchhc answer: chhccml", "type": "reverse"}
+{"text": "shift5: efpohfc answer: jkutmkh", "type": "cipher"}
+{"text": "repeat: fgabcfgabcfgabcfgabc next: fgabc", "type": "repeat"}
+{"text": "count: 15 20 25 30 35 40 next: 45 50 55", "type": "count"}
+{"text": "count: 5 10 15 20 25 30 35 next: 40 45 50", "type": "count"}
+{"text": "shift3: dadkec answer: gdgnhf", "type": "cipher"}
+{"text": "count: 9 11 13 15 next: 17 19 21", "type": "count"}
+{"text": "reverse: eef answer: fee", "type": "reverse"}
+{"text": "reverse: neg answer: gen", "type": "reverse"}
+{"text": "repeat: gdgd next: gd", "type": "repeat"}
+{"text": "shift4: ojck answer: sngo", "type": "cipher"}
+{"text": "reverse: jimomokl answer: lkomomij", "type": "reverse"}
+{"text": "reverse: pooaem answer: meaoop", "type": "reverse"}
+{"text": "repeat: ififif next: if", "type": "repeat"}
+{"text": "repeat: cccccc next: cc", "type": "repeat"}
+{"text": "count: 6 11 16 21 26 31 36 next: 41 46 51", "type": "count"}
+{"text": "shift3: ghcebhhn answer: jkfhekkq", "type": "cipher"}
+{"text": "shift1: iopejad answer: jpqfkbe", "type": "cipher"}
+{"text": "repeat: eajegedeajegedeajeged next: eajeged", "type": "repeat"}
+{"text": "reverse: amod answer: doma", "type": "reverse"}
+{"text": "shift3: jgplgo answer: mjsojr", "type": "cipher"}
+{"text": "reverse: jjlhjhhnel answer: lenhhjhljj", "type": "reverse"}
+{"text": "repeat: aiiiagcjaiiiagcjaiiiagcjaiiiagcj next: aiiiagcj", "type": "repeat"}
+{"text": "repeat: fdifdi next: fdi", "type": "repeat"}
+{"text": "reverse: klgf answer: fglk", "type": "reverse"}
+{"text": "count: 1 6 11 16 21 next: 26 31 36", "type": "count"}
+{"text": "reverse: picged answer: degcip", "type": "reverse"}
+{"text": "shift5: ehljh answer: jmqom", "type": "cipher"}
+{"text": "repeat: bahabahabahabaha next: baha", "type": "repeat"}
+{"text": "reverse: bjgdm answer: mdgjb", "type": "reverse"}
+{"text": "count: 16 17 18 19 20 21 22 next: 23 24 25", "type": "count"}
+{"text": "reverse: efjldfdgjn answer: njgdfdljfe", "type": "reverse"}
+{"text": "reverse: hlpka answer: akplh", "type": "reverse"}
+{"text": "reverse: fjoggaeajm answer: mjaeaggojf", "type": "reverse"}
+{"text": "repeat: jgccjgccjgccjgcc next: jgcc", "type": "repeat"}
+{"text": "repeat: dbigejdbigejdbigej next: dbigej", "type": "repeat"}
+{"text": "reverse: oennh answer: hnneo", "type": "reverse"}
+{"text": "repeat: cfdcfdcfd next: cfd", "type": "repeat"}
+{"text": "repeat: djacjfdjacjfdjacjf next: djacjf", "type": "repeat"}
+{"text": "shift4: nmb answer: rqf", "type": "cipher"}
+{"text": "repeat: bejbbejb next: bejb", "type": "repeat"}
+{"text": "repeat: hfihfi next: hfi", "type": "repeat"}
+{"text": "count: 20 23 26 29 32 35 38 next: 41 44 47", "type": "count"}
+{"text": "reverse: feccd answer: dccef", "type": "reverse"}
+{"text": "shift4: oeoepi answer: sisitm", "type": "cipher"}
+{"text": "shift5: efa answer: jkf", "type": "cipher"}
+{"text": "reverse: cjlgdoj answer: jodgljc", "type": "reverse"}
+{"text": "repeat: aaeddagcaaeddagc next: aaeddagc", "type": "repeat"}
+{"text": "count: 4 5 6 7 8 9 next: 10 11 12", "type": "count"}
+{"text": "repeat: hfeacbhfeacbhfeacb next: hfeacb", "type": "repeat"}
+{"text": "reverse: giohgi answer: ighoig", "type": "reverse"}
+{"text": "shift2: cglphhp answer: einrjjr", "type": "cipher"}
+{"text": "shift2: eancke answer: gcpemg", "type": "cipher"}
+{"text": "count: 5 6 7 8 9 10 11 12 next: 13 14 15", "type": "count"}
+{"text": "repeat: hcjbfdihcjbfdi next: hcjbfdi", "type": "repeat"}
+{"text": "repeat: gfbhgfbh next: gfbh", "type": "repeat"}
+{"text": "count: 17 20 23 26 next: 29 32 35", "type": "count"}
+{"text": "count: 1 3 5 7 9 11 next: 13 15 17", "type": "count"}
+{"text": "shift4: jjd answer: nnh", "type": "cipher"}
+{"text": "repeat: ddddbcgaddddbcgaddddbcga next: ddddbcga", "type": "repeat"}
+{"text": "count: 8 10 12 14 16 18 20 22 next: 24 26 28", "type": "count"}
+{"text": "count: 14 17 20 23 26 next: 29 32 35", "type": "count"}
+{"text": "reverse: nngmg answer: gmgnn", "type": "reverse"}
+{"text": "repeat: jidfbajidfbajidfbajidfba next: jidfba", "type": "repeat"}
+{"text": "reverse: ebfp answer: pfbe", "type": "reverse"}
+{"text": "shift2: dfoijfeh answer: fhqklhgj", "type": "cipher"}
+{"text": "shift1: eilep answer: fjmfq", "type": "cipher"}
+{"text": "reverse: ehk answer: khe", "type": "reverse"}
+{"text": "shift5: jgnjnn answer: olsoss", "type": "cipher"}
+{"text": "repeat: bhgdejbhgdejbhgdejbhgdej next: bhgdej", "type": "repeat"}
+{"text": "repeat: hefghhefgh next: hefgh", "type": "repeat"}
+{"text": "count: 12 17 22 27 32 37 42 47 next: 52 57 62", "type": "count"}
+{"text": "repeat: cjfhafcjfhafcjfhafcjfhaf next: cjfhaf", "type": "repeat"}
+{"text": "repeat: fadfadfadfad next: fad", "type": "repeat"}
+{"text": "repeat: gjagjagja next: gja", "type": "repeat"}
+{"text": "repeat: cgccgccgc next: cgc", "type": "repeat"}
+{"text": "shift2: balbmi answer: dcndok", "type": "cipher"}
+{"text": "repeat: dhdfdhjdhdfdhjdhdfdhjdhdfdhj next: dhdfdhj", "type": "repeat"}
+{"text": "shift4: lah answer: pel", "type": "cipher"}
+{"text": "shift4: dln answer: hpr", "type": "cipher"}
+{"text": "repeat: cheche next: che", "type": "repeat"}
+{"text": "count: 6 11 16 21 26 31 36 41 next: 46 51 56", "type": "count"}
+{"text": "count: 1 4 7 10 13 16 19 next: 22 25 28", "type": "count"}
+{"text": "shift5: hiho answer: mnmt", "type": "cipher"}
+{"text": "shift1: oaag answer: pbbh", "type": "cipher"}
+{"text": "reverse: kfo answer: ofk", "type": "reverse"}
+{"text": "count: 14 15 16 17 18 19 next: 20 21 22", "type": "count"}
+{"text": "count: 9 12 15 18 21 next: 24 27 30", "type": "count"}
+{"text": "count: 7 10 13 16 19 22 25 28 next: 31 34 37", "type": "count"}
+{"text": "count: 11 13 15 17 next: 19 21 23", "type": "count"}
+{"text": "shift1: ambnceob answer: bncodfpc", "type": "cipher"}
+{"text": "reverse: oainpiimci answer: icmiipniao", "type": "reverse"}
+{"text": "reverse: lhi answer: ihl", "type": "reverse"}
+{"text": "repeat: jjfjfjjfjfjjfjfjjfjf next: jjfjf", "type": "repeat"}
+{"text": "reverse: bahcin answer: nichab", "type": "reverse"}
+{"text": "repeat: hfgehejehfgeheje next: hfgeheje", "type": "repeat"}
+{"text": "repeat: igdfgbfigdfgbfigdfgbfigdfgbf next: igdfgbf", "type": "repeat"}
+{"text": "count: 1 3 5 7 9 11 13 15 next: 17 19 21", "type": "count"}
+{"text": "repeat: eeeeeeeee next: eee", "type": "repeat"}
+{"text": "count: 10 15 20 25 30 35 40 45 next: 50 55 60", "type": "count"}
+{"text": "reverse: dmfenoj answer: jonefmd", "type": "reverse"}
+{"text": "repeat: jgcjgc next: jgc", "type": "repeat"}
+{"text": "shift5: ngmodk answer: slrtip", "type": "cipher"}
+{"text": "repeat: icebgccjicebgccj next: icebgccj", "type": "repeat"}
+{"text": "repeat: jcifjigjcifjigjcifjig next: jcifjig", "type": "repeat"}
+{"text": "repeat: aibfadaibfad next: aibfad", "type": "repeat"}
+{"text": "reverse: edbnojgol answer: logjonbde", "type": "reverse"}
+{"text": "repeat: dgdgdgdg next: dg", "type": "repeat"}
+{"text": "reverse: johppmhi answer: ihmpphoj", "type": "reverse"}
+{"text": "count: 11 12 13 14 15 16 17 18 next: 19 20 21", "type": "count"}
+{"text": "reverse: bdp answer: pdb", "type": "reverse"}
+{"text": "repeat: djaiiedjaiiedjaiie next: djaiie", "type": "repeat"}
+{"text": "repeat: hbehbehbehbe next: hbe", "type": "repeat"}
+{"text": "count: 3 7 11 15 19 23 27 31 next: 35 39 43", "type": "count"}
+{"text": "reverse: ekmljh answer: hjlmke", "type": "reverse"}
+{"text": "count: 20 25 30 35 40 next: 45 50 55", "type": "count"}
+{"text": "count: 16 18 20 22 24 26 28 next: 30 32 34", "type": "count"}
+{"text": "repeat: edifccedifccedifccedifcc next: edifcc", "type": "repeat"}
+{"text": "repeat: ibchffddibchffddibchffddibchffdd next: ibchffdd", "type": "repeat"}
+{"text": "shift3: ljhklhp answer: omknoks", "type": "cipher"}
+{"text": "reverse: ecbggk answer: kggbce", "type": "reverse"}
+{"text": "reverse: bcmcmf answer: fmcmcb", "type": "reverse"}
+{"text": "reverse: mao answer: oam", "type": "reverse"}
+{"text": "reverse: ljog answer: gojl", "type": "reverse"}
+{"text": "reverse: nedceigaoa answer: aoagiecden", "type": "reverse"}
+{"text": "reverse: fgmgb answer: bgmgf", "type": "reverse"}
+{"text": "count: 16 20 24 28 32 36 40 next: 44 48 52", "type": "count"}
+{"text": "repeat: abhabhabh next: abh", "type": "repeat"}
+{"text": "shift2: hjcjjbhp answer: jlelldjr", "type": "cipher"}
+{"text": "count: 1 5 9 13 17 21 25 29 next: 33 37 41", "type": "count"}
+{"text": "shift1: aacleenc answer: bbdmffod", "type": "cipher"}
+{"text": "shift1: ppnfkm answer: qqogln", "type": "cipher"}
+{"text": "count: 17 22 27 32 next: 37 42 47", "type": "count"}
+{"text": "reverse: behanpabpi answer: ipbapnaheb", "type": "reverse"}
+{"text": "shift2: jkmmd answer: lmoof", "type": "cipher"}
+{"text": "reverse: jbo answer: obj", "type": "reverse"}
+{"text": "reverse: djdecpk answer: kpcedjd", "type": "reverse"}
+{"text": "count: 18 19 20 21 next: 22 23 24", "type": "count"}
+{"text": "count: 8 9 10 11 12 13 14 15 next: 16 17 18", "type": "count"}
+{"text": "shift5: gdmbkgif answer: lirgplnk", "type": "cipher"}
+{"text": "repeat: djaagjddjaagjd next: djaagjd", "type": "repeat"}
+{"text": "count: 10 13 16 19 22 25 next: 28 31 34", "type": "count"}
+{"text": "reverse: comcjhnlek answer: kelnhjcmoc", "type": "reverse"}
+{"text": "shift1: dkb answer: elc", "type": "cipher"}
+{"text": "shift1: lbjo answer: mckp", "type": "cipher"}
+{"text": "repeat: acjaiaaeacjaiaae next: acjaiaae", "type": "repeat"}
+{"text": "shift5: kaoiopp answer: pftntuu", "type": "cipher"}
+{"text": "repeat: caihbcggcaihbcggcaihbcggcaihbcgg next: caihbcgg", "type": "repeat"}
+{"text": "repeat: gidgidgidgid next: gid", "type": "repeat"}
+{"text": "shift2: icpb answer: kerd", "type": "cipher"}
+{"text": "shift5: dai answer: ifn", "type": "cipher"}
+{"text": "reverse: pkdpjhgl answer: lghjpdkp", "type": "reverse"}
+{"text": "count: 4 7 10 13 16 next: 19 22 25", "type": "count"}
+{"text": "count: 15 19 23 27 next: 31 35 39", "type": "count"}
+{"text": "reverse: gfl answer: lfg", "type": "reverse"}
+{"text": "reverse: eej answer: jee", "type": "reverse"}
+{"text": "repeat: jbggdafjbggdafjbggdaf next: jbggdaf", "type": "repeat"}
+{"text": "count: 4 5 6 7 8 next: 9 10 11", "type": "count"}
+{"text": "repeat: cbcb next: cb", "type": "repeat"}
+{"text": "count: 3 4 5 6 7 8 9 next: 10 11 12", "type": "count"}
+{"text": "reverse: nbejehgbmo answer: ombghejebn", "type": "reverse"}
+{"text": "reverse: ipadl answer: ldapi", "type": "reverse"}
+{"text": "repeat: feebggabfeebggabfeebggab next: feebggab", "type": "repeat"}
+{"text": "shift4: jcmhdaed answer: ngqlheih", "type": "cipher"}
+{"text": "count: 20 24 28 32 36 next: 40 44 48", "type": "count"}
+{"text": "repeat: baijgfffbaijgfffbaijgfffbaijgfff next: baijgfff", "type": "repeat"}
+{"text": "reverse: din answer: nid", "type": "reverse"}
+{"text": "shift2: hhgodapc answer: jjiqfcre", "type": "cipher"}
+{"text": "repeat: edgjfacedgjfacedgjfac next: edgjfac", "type": "repeat"}
+{"text": "shift4: ngighdjf answer: rkmklhnj", "type": "cipher"}
+{"text": "shift1: mcdpihk answer: ndeqjil", "type": "cipher"}
+{"text": "count: 12 15 18 21 24 27 30 next: 33 36 39", "type": "count"}
+{"text": "repeat: begbibegbibegbibegbi next: begbi", "type": "repeat"}
+{"text": "reverse: ggjfmg answer: gmfjgg", "type": "reverse"}
+{"text": "count: 8 12 16 20 24 28 next: 32 36 40", "type": "count"}
+{"text": "repeat: ebghhbiebghhbi next: ebghhbi", "type": "repeat"}
+{"text": "reverse: peiobpd answer: dpboiep", "type": "reverse"}
+{"text": "count: 6 8 10 12 14 16 18 next: 20 22 24", "type": "count"}
+{"text": "count: 18 21 24 27 30 33 36 next: 39 42 45", "type": "count"}
+{"text": "reverse: opnnehmbb answer: bbmhennpo", "type": "reverse"}
+{"text": "shift4: fpnkg answer: jtrok", "type": "cipher"}
+{"text": "reverse: lfjdja answer: ajdjfl", "type": "reverse"}
+{"text": "reverse: llfgofd answer: dfogfll", "type": "reverse"}
+{"text": "count: 6 11 16 21 26 31 next: 36 41 46", "type": "count"}
+{"text": "reverse: hgngkb answer: bkgngh", "type": "reverse"}
+{"text": "reverse: gdkapnang answer: gnanpakdg", "type": "reverse"}
+{"text": "count: 20 22 24 26 28 30 32 34 next: 36 38 40", "type": "count"}
+{"text": "reverse: nhdnnk answer: knndhn", "type": "reverse"}
+{"text": "repeat: hjhjhj next: hj", "type": "repeat"}
+{"text": "count: 3 6 9 12 15 next: 18 21 24", "type": "count"}
+{"text": "reverse: gjlap answer: paljg", "type": "reverse"}
+{"text": "shift2: ifii answer: khkk", "type": "cipher"}
+{"text": "count: 7 8 9 10 11 12 13 next: 14 15 16", "type": "count"}
+{"text": "shift5: jgpah answer: olufm", "type": "cipher"}
+{"text": "repeat: adhciadhciadhci next: adhci", "type": "repeat"}
+{"text": "count: 12 14 16 18 20 22 24 26 next: 28 30 32", "type": "count"}
+{"text": "count: 7 8 9 10 11 12 13 14 next: 15 16 17", "type": "count"}
+{"text": "reverse: kekphn answer: nhpkek", "type": "reverse"}
+{"text": "repeat: eihjhbejeihjhbej next: eihjhbej", "type": "repeat"}
+{"text": "count: 2 6 10 14 18 22 26 next: 30 34 38", "type": "count"}
+{"text": "count: 15 16 17 18 19 next: 20 21 22", "type": "count"}
+{"text": "count: 6 10 14 18 22 26 30 34 next: 38 42 46", "type": "count"}
+{"text": "shift3: ibhmdlma answer: lekpgopd", "type": "cipher"}
+{"text": "repeat: ebebeb next: eb", "type": "repeat"}
+{"text": "reverse: gllkncekpg answer: gpkecnkllg", "type": "reverse"}
+{"text": "count: 17 20 23 26 next: 29 32 35", "type": "count"}
+{"text": "count: 7 10 13 16 19 22 next: 25 28 31", "type": "count"}
+{"text": "repeat: cdhgicdhgi next: cdhgi", "type": "repeat"}
+{"text": "reverse: lkgdb answer: bdgkl", "type": "reverse"}
+{"text": "count: 14 18 22 26 30 34 next: 38 42 46", "type": "count"}
+{"text": "repeat: ebagiebagi next: ebagi", "type": "repeat"}
+{"text": "shift1: egnidkpf answer: fhojelqg", "type": "cipher"}
+{"text": "repeat: hefbeghefbeghefbeghefbeg next: hefbeg", "type": "repeat"}
+{"text": "repeat: bfgabebfgabebfgabebfgabe next: bfgabe", "type": "repeat"}
+{"text": "reverse: mog answer: gom", "type": "reverse"}
+{"text": "count: 12 16 20 24 28 32 36 40 next: 44 48 52", "type": "count"}
+{"text": "repeat: bjajgbjajg next: bjajg", "type": "repeat"}
+{"text": "reverse: bfhcb answer: bchfb", "type": "reverse"}
+{"text": "reverse: iaigihilo answer: olihigiai", "type": "reverse"}
+{"text": "reverse: chklolbc answer: cblolkhc", "type": "reverse"}
+{"text": "reverse: fneihjpco answer: ocpjhienf", "type": "reverse"}
+{"text": "shift4: dkajl answer: hoenp", "type": "cipher"}
+{"text": "count: 15 20 25 30 35 40 45 next: 50 55 60", "type": "count"}
+{"text": "count: 16 17 18 19 next: 20 21 22", "type": "count"}
+{"text": "repeat: eidfhabeidfhabeidfhabeidfhab next: eidfhab", "type": "repeat"}
+{"text": "repeat: cgceghdcgceghdcgceghdcgceghd next: cgceghd", "type": "repeat"}
+{"text": "repeat: adaiadaiadaiadai next: adai", "type": "repeat"}
+{"text": "shift3: gljckin answer: jomfnlq", "type": "cipher"}
+{"text": "reverse: pjjehbggl answer: lggbhejjp", "type": "reverse"}
+{"text": "repeat: cgefcgefcgef next: cgef", "type": "repeat"}
+{"text": "repeat: ibfiibfi next: ibfi", "type": "repeat"}
+{"text": "reverse: jlaminmd answer: dmnimalj", "type": "reverse"}
+{"text": "reverse: pjpen answer: nepjp", "type": "reverse"}
+{"text": "shift3: odb answer: rge", "type": "cipher"}
+{"text": "shift4: nlobh answer: rpsfl", "type": "cipher"}
+{"text": "repeat: jdijdi next: jdi", "type": "repeat"}
+{"text": "repeat: dhhehjdedhhehjdedhhehjde next: dhhehjde", "type": "repeat"}
+{"text": "repeat: efachiecefachiec next: efachiec", "type": "repeat"}
+{"text": "count: 19 20 21 22 23 24 next: 25 26 27", "type": "count"}
+{"text": "repeat: jfdadhbjfdadhbjfdadhbjfdadhb next: jfdadhb", "type": "repeat"}
+{"text": "reverse: lknbmded answer: dedmbnkl", "type": "reverse"}
+{"text": "count: 3 4 5 6 7 8 9 next: 10 11 12", "type": "count"}
+{"text": "count: 11 13 15 17 19 21 23 25 next: 27 29 31", "type": "count"}
+{"text": "count: 5 7 9 11 13 15 next: 17 19 21", "type": "count"}
+{"text": "count: 10 11 12 13 14 15 16 17 next: 18 19 20", "type": "count"}
+{"text": "shift3: oekbmm answer: rhnepp", "type": "cipher"}
+{"text": "repeat: debgdfdebgdfdebgdfdebgdf next: debgdf", "type": "repeat"}
+{"text": "count: 3 4 5 6 7 8 9 10 next: 11 12 13", "type": "count"}
+{"text": "count: 12 13 14 15 16 next: 17 18 19", "type": "count"}
+{"text": "reverse: nik answer: kin", "type": "reverse"}
+{"text": "shift2: lidggm answer: nkfiio", "type": "cipher"}
+{"text": "count: 11 12 13 14 next: 15 16 17", "type": "count"}
+{"text": "shift3: meomfaa answer: phrpidd", "type": "cipher"}
+{"text": "repeat: iaiiaiiaiiai next: iai", "type": "repeat"}
+{"text": "repeat: chcfcbhgchcfcbhg next: chcfcbhg", "type": "repeat"}
+{"text": "reverse: pdi answer: idp", "type": "reverse"}
+{"text": "repeat: gehfigehfigehfi next: gehfi", "type": "repeat"}
+{"text": "reverse: jca answer: acj", "type": "reverse"}
+{"text": "shift1: hlefnpk answer: imfgoql", "type": "cipher"}
+{"text": "count: 15 18 21 24 27 30 next: 33 36 39", "type": "count"}
+{"text": "shift3: hfae answer: kidh", "type": "cipher"}
+{"text": "count: 14 19 24 29 34 39 44 49 next: 54 59 64", "type": "count"}
+{"text": "shift3: moimcbb answer: prlpfee", "type": "cipher"}
+{"text": "reverse: bgo answer: ogb", "type": "reverse"}
+{"text": "shift1: bammlmo answer: cbnnmnp", "type": "cipher"}
+{"text": "count: 1 2 3 4 5 6 7 next: 8 9 10", "type": "count"}
+{"text": "count: 20 23 26 29 32 next: 35 38 41", "type": "count"}
+{"text": "reverse: ohbjlchlko answer: oklhcljbho", "type": "reverse"}
+{"text": "count: 5 6 7 8 9 10 11 next: 12 13 14", "type": "count"}
+{"text": "count: 10 13 16 19 next: 22 25 28", "type": "count"}
+{"text": "count: 15 16 17 18 19 20 next: 21 22 23", "type": "count"}
+{"text": "reverse: fddjemab answer: bamejddf", "type": "reverse"}
+{"text": "reverse: fcgjbpa answer: apbjgcf", "type": "reverse"}
+{"text": "reverse: nkccanmjk answer: kjmnacckn", "type": "reverse"}
+{"text": "shift3: ogkm answer: rjnp", "type": "cipher"}
+{"text": "reverse: hgaje answer: ejagh", "type": "reverse"}
+{"text": "count: 20 23 26 29 32 35 next: 38 41 44", "type": "count"}
+{"text": "count: 11 14 17 20 next: 23 26 29", "type": "count"}
+{"text": "repeat: jcfijcfijcfi next: jcfi", "type": "repeat"}
+{"text": "shift3: hoifan answer: krlidq", "type": "cipher"}
+{"text": "shift2: llagd answer: nncif", "type": "cipher"}
+{"text": "count: 2 6 10 14 next: 18 22 26", "type": "count"}
+{"text": "count: 9 12 15 18 21 24 27 30 next: 33 36 39", "type": "count"}
+{"text": "count: 11 13 15 17 19 21 23 25 next: 27 29 31", "type": "count"}
+{"text": "count: 14 19 24 29 next: 34 39 44", "type": "count"}
+{"text": "shift4: acgooj answer: egkssn", "type": "cipher"}
+{"text": "repeat: bghbcgjbghbcgjbghbcgjbghbcgj next: bghbcgj", "type": "repeat"}
+{"text": "shift4: ehl answer: ilp", "type": "cipher"}
+{"text": "repeat: ffbbgeffbbgeffbbgeffbbge next: ffbbge", "type": "repeat"}
+{"text": "repeat: ghjhjcighjhjcighjhjci next: ghjhjci", "type": "repeat"}
+{"text": "count: 13 18 23 28 33 38 43 48 next: 53 58 63", "type": "count"}
+{"text": "count: 6 8 10 12 14 16 18 20 next: 22 24 26", "type": "count"}
+{"text": "repeat: hiifahiifahiifa next: hiifa", "type": "repeat"}
+{"text": "reverse: kechka answer: akhcek", "type": "reverse"}
+{"text": "repeat: fcadbfcadbfcadbfcadb next: fcadb", "type": "repeat"}
+{"text": "reverse: ojdaodj answer: jdoadjo", "type": "reverse"}
+{"text": "count: 6 9 12 15 18 21 24 next: 27 30 33", "type": "count"}
+{"text": "reverse: naamga answer: agmaan", "type": "reverse"}
+{"text": "count: 18 22 26 30 34 38 next: 42 46 50", "type": "count"}
+{"text": "repeat: ibjijibjijibjijibjij next: ibjij", "type": "repeat"}
+{"text": "repeat: hdgbejhdgbejhdgbejhdgbej next: hdgbej", "type": "repeat"}
+{"text": "shift4: efdndi answer: ijhrhm", "type": "cipher"}
+{"text": "shift1: hdjpjm answer: iekqkn", "type": "cipher"}
+{"text": "repeat: dihdih next: dih", "type": "repeat"}
+{"text": "repeat: jibfajibfa next: jibfa", "type": "repeat"}
+{"text": "count: 3 6 9 12 15 18 21 24 next: 27 30 33", "type": "count"}
+{"text": "reverse: monlddhe answer: ehddlnom", "type": "reverse"}
+{"text": "reverse: jkc answer: ckj", "type": "reverse"}
+{"text": "count: 2 4 6 8 next: 10 12 14", "type": "count"}
+{"text": "repeat: jgjgdjgjgdjgjgdjgjgd next: jgjgd", "type": "repeat"}
+{"text": "reverse: nckhgcgfjp answer: pjfgcghkcn", "type": "reverse"}
+{"text": "repeat: bcahhabcahhabcahha next: bcahha", "type": "repeat"}
+{"text": "shift3: hjegh answer: kmhjk", "type": "cipher"}
+{"text": "repeat: bcbcbcbc next: bc", "type": "repeat"}
+{"text": "shift1: gie answer: hjf", "type": "cipher"}
+{"text": "count: 3 7 11 15 19 23 27 31 next: 35 39 43", "type": "count"}
+{"text": "count: 13 18 23 28 33 38 43 next: 48 53 58", "type": "count"}
+{"text": "count: 15 18 21 24 27 30 33 next: 36 39 42", "type": "count"}
+{"text": "count: 10 15 20 25 next: 30 35 40", "type": "count"}
+{"text": "reverse: jllmk answer: kmllj", "type": "reverse"}
+{"text": "repeat: bfhhdgbfhhdgbfhhdg next: bfhhdg", "type": "repeat"}
+{"text": "shift1: amhbkfag answer: bniclgbh", "type": "cipher"}
+{"text": "repeat: hhhhhh next: hh", "type": "repeat"}
+{"text": "repeat: bdbdbdbd next: bd", "type": "repeat"}
+{"text": "repeat: jicgjicgjicg next: jicg", "type": "repeat"}
+{"text": "repeat: bebbeb next: beb", "type": "repeat"}
+{"text": "reverse: ojoofm answer: mfoojo", "type": "reverse"}
+{"text": "repeat: bgfegcjbgfegcjbgfegcj next: bgfegcj", "type": "repeat"}
+{"text": "reverse: hmenhoflol answer: lolfohnemh", "type": "reverse"}
+{"text": "shift1: affi answer: bggj", "type": "cipher"}
+{"text": "repeat: efhaaafjefhaaafjefhaaafj next: efhaaafj", "type": "repeat"}
+{"text": "shift3: lcchiej answer: offklhm", "type": "cipher"}
+{"text": "count: 8 11 14 17 20 23 26 29 next: 32 35 38", "type": "count"}
+{"text": "reverse: defa answer: afed", "type": "reverse"}
+{"text": "repeat: jbjbjb next: jb", "type": "repeat"}
+{"text": "reverse: kapkh answer: hkpak", "type": "reverse"}
+{"text": "shift5: fnn answer: kss", "type": "cipher"}
+{"text": "repeat: cabehejicabeheji next: cabeheji", "type": "repeat"}
+{"text": "count: 15 18 21 24 27 30 next: 33 36 39", "type": "count"}
+{"text": "shift3: ckhmjnpn answer: fnkpmqsq", "type": "cipher"}
+{"text": "count: 5 9 13 17 21 25 next: 29 33 37", "type": "count"}
+{"text": "count: 15 20 25 30 35 next: 40 45 50", "type": "count"}
+{"text": "count: 17 18 19 20 21 22 next: 23 24 25", "type": "count"}
+{"text": "count: 18 20 22 24 26 28 30 next: 32 34 36", "type": "count"}
+{"text": "reverse: nicfd answer: dfcin", "type": "reverse"}
+{"text": "reverse: iohkao answer: oakhoi", "type": "reverse"}
+{"text": "repeat: jiichjiichjiichjiich next: jiich", "type": "repeat"}
+{"text": "reverse: hjicnc answer: cncijh", "type": "reverse"}
+{"text": "reverse: nlpjjmofji answer: ijfomjjpln", "type": "reverse"}
+{"text": "count: 20 22 24 26 28 30 next: 32 34 36", "type": "count"}
+{"text": "count: 6 7 8 9 10 11 12 13 next: 14 15 16", "type": "count"}
+{"text": "shift2: mbkkke answer: odmmmg", "type": "cipher"}
+{"text": "repeat: gehecgjcgehecgjc next: gehecgjc", "type": "repeat"}
+{"text": "reverse: dfe answer: efd", "type": "reverse"}
+{"text": "shift2: dgge answer: fiig", "type": "cipher"}
+{"text": "shift1: imc answer: jnd", "type": "cipher"}
+{"text": "count: 14 17 20 23 next: 26 29 32", "type": "count"}
+{"text": "repeat: gfdjggfdjggfdjggfdjg next: gfdjg", "type": "repeat"}
+{"text": "shift3: jppdjm answer: mssgmp", "type": "cipher"}
+{"text": "count: 20 24 28 32 36 40 44 48 next: 52 56 60", "type": "count"}
+{"text": "repeat: djahegdjaheg next: djaheg", "type": "repeat"}
+{"text": "repeat: fbfbfb next: fb", "type": "repeat"}
+{"text": "repeat: ihcihcihc next: ihc", "type": "repeat"}
+{"text": "reverse: cleejgdag answer: gadgjeelc", "type": "reverse"}
+{"text": "repeat: ebihceebihceebihce next: ebihce", "type": "repeat"}
+{"text": "shift1: kckembap answer: ldlfncbq", "type": "cipher"}
+{"text": "repeat: egcegcegcegc next: egc", "type": "repeat"}
+{"text": "count: 10 13 16 19 22 25 28 31 next: 34 37 40", "type": "count"}
+{"text": "reverse: pmepfmcoc answer: cocmfpemp", "type": "reverse"}
+{"text": "count: 10 13 16 19 22 25 28 next: 31 34 37", "type": "count"}
+{"text": "shift4: fied answer: jmih", "type": "cipher"}
+{"text": "repeat: aihaaiha next: aiha", "type": "repeat"}
+{"text": "count: 20 22 24 26 28 30 32 next: 34 36 38", "type": "count"}
+{"text": "repeat: fecjcfecjcfecjc next: fecjc", "type": "repeat"}
+{"text": "shift5: hcabadhk answer: mhfgfimp", "type": "cipher"}
+{"text": "repeat: ffbfcffbfc next: ffbfc", "type": "repeat"}
+{"text": "reverse: jof answer: foj", "type": "reverse"}
+{"text": "reverse: hgngnbfolj answer: jlofbngngh", "type": "reverse"}
+{"text": "count: 15 17 19 21 23 25 next: 27 29 31", "type": "count"}
+{"text": "reverse: edphjc answer: cjhpde", "type": "reverse"}
+{"text": "reverse: khbojdi answer: idjobhk", "type": "reverse"}
+{"text": "shift1: mbbagan answer: nccbhbo", "type": "cipher"}
+{"text": "count: 14 18 22 26 30 34 38 42 next: 46 50 54", "type": "count"}
+{"text": "repeat: icehjcdicehjcdicehjcdicehjcd next: icehjcd", "type": "repeat"}
+{"text": "repeat: abdicaaabdicaaabdicaa next: abdicaa", "type": "repeat"}
+{"text": "count: 10 13 16 19 22 25 28 next: 31 34 37", "type": "count"}
+{"text": "shift5: bgho answer: glmt", "type": "cipher"}
+{"text": "shift3: fdng answer: igqj", "type": "cipher"}
+{"text": "reverse: fdhfgp answer: pgfhdf", "type": "reverse"}
+{"text": "reverse: gaceoib answer: bioecag", "type": "reverse"}
+{"text": "count: 15 18 21 24 27 30 33 36 next: 39 42 45", "type": "count"}
+{"text": "shift1: ljoebb answer: mkpfcc", "type": "cipher"}
+{"text": "shift5: cjklpdi answer: hopquin", "type": "cipher"}
+{"text": "reverse: gnanciag answer: gaicnang", "type": "reverse"}
+{"text": "shift4: pmfj answer: tqjn", "type": "cipher"}
+{"text": "shift2: golabljo answer: iqncdnlq", "type": "cipher"}
+{"text": "count: 11 12 13 14 15 16 17 next: 18 19 20", "type": "count"}
+{"text": "shift4: pbojfoi answer: tfsnjsm", "type": "cipher"}
+{"text": "shift4: dekn answer: hior", "type": "cipher"}
+{"text": "repeat: aecaecaec next: aec", "type": "repeat"}
+{"text": "repeat: dggaihcdggaihc next: dggaihc", "type": "repeat"}
+{"text": "shift3: mnikkn answer: pqlnnq", "type": "cipher"}
+{"text": "repeat: ccahiaccccahiaccccahiaccccahiacc next: ccahiacc", "type": "repeat"}
+{"text": "reverse: aajm answer: mjaa", "type": "reverse"}
+{"text": "shift4: ebicmome answer: ifmgqsqi", "type": "cipher"}
+{"text": "repeat: cabchicabchicabchi next: cabchi", "type": "repeat"}
+{"text": "reverse: opigmn answer: nmgipo", "type": "reverse"}
+{"text": "shift5: ifb answer: nkg", "type": "cipher"}
+{"text": "repeat: efdefd next: efd", "type": "repeat"}
+{"text": "reverse: opeddob answer: boddepo", "type": "reverse"}
+{"text": "repeat: djbgidjbgi next: djbgi", "type": "repeat"}
+{"text": "shift3: kophk answer: nrskn", "type": "cipher"}
+{"text": "count: 1 6 11 16 21 26 next: 31 36 41", "type": "count"}
+{"text": "shift1: cgh answer: dhi", "type": "cipher"}
+{"text": "repeat: dfhbjgedfhbjgedfhbjgedfhbjge next: dfhbjge", "type": "repeat"}
+{"text": "repeat: dbdbdb next: db", "type": "repeat"}
+{"text": "shift3: iklmipe answer: lnoplsh", "type": "cipher"}
+{"text": "shift4: onmiph answer: srqmtl", "type": "cipher"}
+{"text": "shift2: aei answer: cgk", "type": "cipher"}
+{"text": "shift4: hlaln answer: lpepr", "type": "cipher"}
+{"text": "shift4: eimomg answer: imqsqk", "type": "cipher"}
+{"text": "count: 4 8 12 16 20 24 next: 28 32 36", "type": "count"}
+{"text": "shift3: eegb answer: hhje", "type": "cipher"}
+{"text": "reverse: ogh answer: hgo", "type": "reverse"}
+{"text": "shift3: ichhp answer: lfkks", "type": "cipher"}
+{"text": "reverse: kokdcmndf answer: fdnmcdkok", "type": "reverse"}
+{"text": "count: 7 8 9 10 11 12 13 14 next: 15 16 17", "type": "count"}
+{"text": "count: 16 21 26 31 36 next: 41 46 51", "type": "count"}
+{"text": "count: 3 7 11 15 19 23 27 31 next: 35 39 43", "type": "count"}
+{"text": "repeat: feafafeafafeafafeafa next: feafa", "type": "repeat"}
+{"text": "shift4: eopeajn answer: istienr", "type": "cipher"}
+{"text": "reverse: binidg answer: gdinib", "type": "reverse"}
+{"text": "repeat: abifeheabifeheabifehe next: abifehe", "type": "repeat"}
+{"text": "shift1: gockenm answer: hpdlfon", "type": "cipher"}
+{"text": "count: 15 17 19 21 next: 23 25 27", "type": "count"}
+{"text": "reverse: hfjjcafpg answer: gpfacjjfh", "type": "reverse"}
+{"text": "reverse: booigcim answer: micgioob", "type": "reverse"}
+{"text": "count: 7 12 17 22 27 next: 32 37 42", "type": "count"}
+{"text": "repeat: hjjjehjjje next: hjjje", "type": "repeat"}
+{"text": "shift3: dcii answer: gfll", "type": "cipher"}
+{"text": "shift4: cdjnac answer: ghnreg", "type": "cipher"}
+{"text": "reverse: hflalai answer: ialalfh", "type": "reverse"}
+{"text": "shift3: hkllh answer: knook", "type": "cipher"}
+{"text": "count: 1 3 5 7 9 11 13 next: 15 17 19", "type": "count"}
+{"text": "count: 2 6 10 14 18 22 next: 26 30 34", "type": "count"}
+{"text": "repeat: agjccceagjccceagjccceagjccce next: agjccce", "type": "repeat"}
+{"text": "repeat: dfcahhdfcahhdfcahh next: dfcahh", "type": "repeat"}
+{"text": "count: 2 5 8 11 14 17 20 23 next: 26 29 32", "type": "count"}
+{"text": "repeat: ifgbifgbifgb next: ifgb", "type": "repeat"}
+{"text": "reverse: emn answer: nme", "type": "reverse"}
+{"text": "reverse: leoleapcd answer: dcpaeloel", "type": "reverse"}
+{"text": "count: 12 13 14 15 16 17 18 next: 19 20 21", "type": "count"}
+{"text": "count: 18 23 28 33 38 next: 43 48 53", "type": "count"}
+{"text": "repeat: abdigabdig next: abdig", "type": "repeat"}
+{"text": "count: 2 7 12 17 22 27 next: 32 37 42", "type": "count"}
+{"text": "count: 19 23 27 31 35 39 43 47 next: 51 55 59", "type": "count"}
+{"text": "reverse: pdemjkk answer: kkjmedp", "type": "reverse"}
+{"text": "shift2: cnhdaaa answer: epjfccc", "type": "cipher"}
+{"text": "repeat: jecejdjecejdjecejd next: jecejd", "type": "repeat"}
+{"text": "reverse: hjimenbdji answer: ijdbnemijh", "type": "reverse"}
+{"text": "shift3: imj answer: lpm", "type": "cipher"}
+{"text": "repeat: ddgafieddgafie next: ddgafie", "type": "repeat"}
+{"text": "count: 10 11 12 13 14 15 next: 16 17 18", "type": "count"}
+{"text": "count: 13 18 23 28 33 38 43 next: 48 53 58", "type": "count"}
+{"text": "shift2: pkolgl answer: rmqnin", "type": "cipher"}
+{"text": "reverse: nggm answer: mggn", "type": "reverse"}
+{"text": "repeat: bcdbcd next: bcd", "type": "repeat"}
+{"text": "repeat: cgeijfacgeijfacgeijfa next: cgeijfa", "type": "repeat"}
+{"text": "count: 14 18 22 26 next: 30 34 38", "type": "count"}
+{"text": "repeat: dafgbdafgb next: dafgb", "type": "repeat"}
+{"text": "repeat: hafhaf next: haf", "type": "repeat"}
+{"text": "reverse: amoenj answer: jneoma", "type": "reverse"}
+{"text": "repeat: cbgcbg next: cbg", "type": "repeat"}
+{"text": "reverse: omg answer: gmo", "type": "reverse"}
+{"text": "count: 14 18 22 26 next: 30 34 38", "type": "count"}
+{"text": "count: 10 15 20 25 30 35 next: 40 45 50", "type": "count"}
+{"text": "reverse: obg answer: gbo", "type": "reverse"}
+{"text": "shift1: koamgpod answer: lpbnhqpe", "type": "cipher"}
+{"text": "reverse: mckeg answer: gekcm", "type": "reverse"}
+{"text": "count: 13 18 23 28 33 next: 38 43 48", "type": "count"}
+{"text": "count: 8 9 10 11 12 13 14 next: 15 16 17", "type": "count"}
+{"text": "repeat: ifififif next: if", "type": "repeat"}
+{"text": "shift2: aonja answer: cqplc", "type": "cipher"}
+{"text": "shift2: dlb answer: fnd", "type": "cipher"}
+{"text": "repeat: afafafaf next: af", "type": "repeat"}
+{"text": "count: 16 17 18 19 20 21 22 23 next: 24 25 26", "type": "count"}
+{"text": "reverse: mihpg answer: gphim", "type": "reverse"}
+{"text": "repeat: bbbjgdidbbbjgdidbbbjgdidbbbjgdid next: bbbjgdid", "type": "repeat"}
+{"text": "reverse: pfa answer: afp", "type": "reverse"}
+{"text": "shift3: eldmiop answer: hogplrs", "type": "cipher"}
+{"text": "count: 8 11 14 17 next: 20 23 26", "type": "count"}
+{"text": "repeat: jabjabjabjab next: jab", "type": "repeat"}
+{"text": "count: 2 3 4 5 6 7 next: 8 9 10", "type": "count"}
+{"text": "count: 18 20 22 24 26 28 30 32 next: 34 36 38", "type": "count"}
+{"text": "reverse: hdmlohf answer: fholmdh", "type": "reverse"}
+{"text": "repeat: fefefe next: fe", "type": "repeat"}
+{"text": "shift5: okbmi answer: tpgrn", "type": "cipher"}
+{"text": "reverse: klokgam answer: magkolk", "type": "reverse"}
+{"text": "shift2: icio answer: kekq", "type": "cipher"}
+{"text": "repeat: bijicebijicebijice next: bijice", "type": "repeat"}
+{"text": "repeat: ifgcifgc next: ifgc", "type": "repeat"}
+{"text": "repeat: abiabiabi next: abi", "type": "repeat"}
+{"text": "repeat: bdbd next: bd", "type": "repeat"}
+{"text": "shift3: mbcjnjn answer: pefmqmq", "type": "cipher"}
+{"text": "reverse: jcfmc answer: cmfcj", "type": "reverse"}
+{"text": "count: 14 18 22 26 30 34 38 42 next: 46 50 54", "type": "count"}
+{"text": "shift4: olj answer: spn", "type": "cipher"}
+{"text": "count: 7 12 17 22 27 32 37 next: 42 47 52", "type": "count"}
+{"text": "repeat: jddjdd next: jdd", "type": "repeat"}
+{"text": "count: 6 7 8 9 next: 10 11 12", "type": "count"}
+{"text": "reverse: elolbhohdi answer: idhohblole", "type": "reverse"}
+{"text": "count: 19 24 29 34 39 next: 44 49 54", "type": "count"}
+{"text": "repeat: hfggahfggahfgga next: hfgga", "type": "repeat"}
+{"text": "shift2: ifhkg answer: khjmi", "type": "cipher"}
+{"text": "shift2: kiakkc answer: mkcmme", "type": "cipher"}
+{"text": "count: 4 5 6 7 8 9 10 next: 11 12 13", "type": "count"}
+{"text": "count: 19 23 27 31 35 next: 39 43 47", "type": "count"}
+{"text": "shift3: geidkf answer: jhlgni", "type": "cipher"}
+{"text": "count: 17 21 25 29 33 37 41 next: 45 49 53", "type": "count"}
+{"text": "shift2: elphdh answer: gnrjfj", "type": "cipher"}
+{"text": "repeat: dehdbjdehdbjdehdbjdehdbj next: dehdbj", "type": "repeat"}
+{"text": "reverse: agcioi answer: ioicga", "type": "reverse"}
+{"text": "count: 2 5 8 11 next: 14 17 20", "type": "count"}
+{"text": "count: 11 15 19 23 27 31 35 next: 39 43 47", "type": "count"}
+{"text": "repeat: bdbdbd next: bd", "type": "repeat"}
+{"text": "repeat: ffdffdffdffd next: ffd", "type": "repeat"}
+{"text": "shift4: aef answer: eij", "type": "cipher"}
+{"text": "reverse: jdbn answer: nbdj", "type": "reverse"}
+{"text": "reverse: omcnhkjj answer: jjkhncmo", "type": "reverse"}
+{"text": "repeat: dbfeadbfeadbfea next: dbfea", "type": "repeat"}
+{"text": "repeat: hdaeidhdaeidhdaeid next: hdaeid", "type": "repeat"}
+{"text": "repeat: ahjahjahj next: ahj", "type": "repeat"}
+{"text": "repeat: dedbiddhdedbiddh next: dedbiddh", "type": "repeat"}
+{"text": "shift1: hplbogih answer: iqmcphji", "type": "cipher"}
+{"text": "reverse: dpfjhhlf answer: flhhjfpd", "type": "reverse"}
+{"text": "repeat: beaibeaibeai next: beai", "type": "repeat"}
+{"text": "repeat: fbhcfbhc next: fbhc", "type": "repeat"}
+{"text": "reverse: mjm answer: mjm", "type": "reverse"}
+{"text": "reverse: cpdeejbpm answer: mpbjeedpc", "type": "reverse"}
+{"text": "repeat: egjagbegjagb next: egjagb", "type": "repeat"}
+{"text": "reverse: mliadnegc answer: cgendailm", "type": "reverse"}
+{"text": "reverse: ffmnk answer: knmff", "type": "reverse"}
+{"text": "reverse: jdaopndghg answer: ghgdnpoadj", "type": "reverse"}
+{"text": "count: 8 13 18 23 28 next: 33 38 43", "type": "count"}
+{"text": "count: 2 7 12 17 22 27 next: 32 37 42", "type": "count"}
+{"text": "reverse: hjd answer: djh", "type": "reverse"}
+{"text": "reverse: deampaada answer: adaapmaed", "type": "reverse"}
+{"text": "repeat: icacccicaccc next: icaccc", "type": "repeat"}
+{"text": "repeat: gcdecfcgcdecfc next: gcdecfc", "type": "repeat"}
+{"text": "repeat: ccdbjiiccdbjiiccdbjii next: ccdbjii", "type": "repeat"}
+{"text": "shift3: hlhjf answer: kokmi", "type": "cipher"}
+{"text": "count: 19 23 27 31 35 39 next: 43 47 51", "type": "count"}
+{"text": "count: 16 17 18 19 20 next: 21 22 23", "type": "count"}
+{"text": "reverse: eegceglh answer: hlgecgee", "type": "reverse"}
+{"text": "repeat: bgbgbg next: bg", "type": "repeat"}
+{"text": "reverse: bbelmj answer: jmlebb", "type": "reverse"}
+{"text": "count: 1 6 11 16 21 next: 26 31 36", "type": "count"}
+{"text": "shift2: lbjl answer: ndln", "type": "cipher"}
+{"text": "repeat: gaeiiegaeiiegaeiie next: gaeiie", "type": "repeat"}
+{"text": "shift5: olieodm answer: tqnjtir", "type": "cipher"}
+{"text": "repeat: fcbecafcbeca next: fcbeca", "type": "repeat"}
+{"text": "count: 3 6 9 12 15 18 next: 21 24 27", "type": "count"}
+{"text": "count: 4 8 12 16 20 next: 24 28 32", "type": "count"}
+{"text": "repeat: fidbaacfidbaac next: fidbaac", "type": "repeat"}
+{"text": "repeat: cddcddcddcdd next: cdd", "type": "repeat"}
+{"text": "repeat: fbfcigdfbfcigdfbfcigdfbfcigd next: fbfcigd", "type": "repeat"}
+{"text": "shift3: iocjphfa answer: lrfmskid", "type": "cipher"}
+{"text": "reverse: hkoenjp answer: pjneokh", "type": "reverse"}
+{"text": "repeat: bbceigbbceigbbceig next: bbceig", "type": "repeat"}
+{"text": "reverse: oofabhjljf answer: fjljhbafoo", "type": "reverse"}
+{"text": "reverse: dhfig answer: gifhd", "type": "reverse"}
+{"text": "reverse: aljgo answer: ogjla", "type": "reverse"}
+{"text": "reverse: dkhalmnij answer: jinmlahkd", "type": "reverse"}
+{"text": "reverse: kdphninc answer: cninhpdk", "type": "reverse"}
+{"text": "reverse: mbibakel answer: lekabibm", "type": "reverse"}
+{"text": "count: 16 21 26 31 36 41 46 next: 51 56 61", "type": "count"}
+{"text": "count: 20 24 28 32 36 40 44 next: 48 52 56", "type": "count"}
+{"text": "count: 14 17 20 23 26 29 next: 32 35 38", "type": "count"}
+{"text": "reverse: lpjfloka answer: akolfjpl", "type": "reverse"}
+{"text": "repeat: afiafi next: afi", "type": "repeat"}
+{"text": "reverse: pdagniablc answer: clbaingadp", "type": "reverse"}
+{"text": "shift5: doj answer: ito", "type": "cipher"}
+{"text": "repeat: bicbicbic next: bic", "type": "repeat"}
+{"text": "shift5: imhhcd answer: nrmmhi", "type": "cipher"}
+{"text": "count: 13 16 19 22 25 next: 28 31 34", "type": "count"}
+{"text": "reverse: acodoebloe answer: eolbeodoca", "type": "reverse"}
+{"text": "reverse: kpmkh answer: hkmpk", "type": "reverse"}
+{"text": "count: 14 19 24 29 next: 34 39 44", "type": "count"}
+{"text": "count: 15 18 21 24 next: 27 30 33", "type": "count"}
+{"text": "reverse: dealmehoan answer: naohemlaed", "type": "reverse"}
+{"text": "reverse: bgchgm answer: mghcgb", "type": "reverse"}
+{"text": "reverse: mdgabejg answer: gjebagdm", "type": "reverse"}
+{"text": "shift3: acgbi answer: dfjel", "type": "cipher"}
+{"text": "repeat: aahijhaahijh next: aahijh", "type": "repeat"}
+{"text": "reverse: eohjen answer: nejhoe", "type": "reverse"}
+{"text": "reverse: ikbkjfbmoo answer: oombfjkbki", "type": "reverse"}
+{"text": "reverse: eklohghgdi answer: idghgholke", "type": "reverse"}
+{"text": "shift3: degp answer: ghjs", "type": "cipher"}
+{"text": "reverse: ceof answer: foec", "type": "reverse"}
+{"text": "reverse: pokoidc answer: cdiokop", "type": "reverse"}
+{"text": "repeat: gigigi next: gi", "type": "repeat"}
+{"text": "reverse: dpl answer: lpd", "type": "reverse"}
+{"text": "repeat: egcaegcaegcaegca next: egca", "type": "repeat"}
+{"text": "repeat: jgfgejgfgejgfgejgfge next: jgfge", "type": "repeat"}
+{"text": "shift4: mfb answer: qjf", "type": "cipher"}
+{"text": "count: 8 9 10 11 12 next: 13 14 15", "type": "count"}
+{"text": "count: 4 5 6 7 8 9 10 next: 11 12 13", "type": "count"}
+{"text": "reverse: nahdc answer: cdhan", "type": "reverse"}
+{"text": "reverse: kbbefmh answer: hmfebbk", "type": "reverse"}
+{"text": "count: 3 5 7 9 11 13 15 next: 17 19 21", "type": "count"}
+{"text": "count: 6 7 8 9 10 11 12 next: 13 14 15", "type": "count"}
+{"text": "shift4: alii answer: epmm", "type": "cipher"}
+{"text": "repeat: dgbfjchdgbfjchdgbfjch next: dgbfjch", "type": "repeat"}
+{"text": "reverse: hhdj answer: jdhh", "type": "reverse"}
+{"text": "reverse: ppcon answer: nocpp", "type": "reverse"}
+{"text": "repeat: biifbiifbiifbiif next: biif", "type": "repeat"}
+{"text": "count: 15 17 19 21 23 25 27 29 next: 31 33 35", "type": "count"}
+{"text": "reverse: ihbdkabb answer: bbakdbhi", "type": "reverse"}
+{"text": "reverse: eppf answer: fppe", "type": "reverse"}
+{"text": "repeat: ghghghgh next: gh", "type": "repeat"}
+{"text": "count: 11 16 21 26 31 36 41 next: 46 51 56", "type": "count"}
+{"text": "shift1: hohlmdg answer: ipimneh", "type": "cipher"}
+{"text": "reverse: ldgam answer: magdl", "type": "reverse"}
+{"text": "count: 18 22 26 30 34 38 next: 42 46 50", "type": "count"}
+{"text": "count: 10 15 20 25 30 35 next: 40 45 50", "type": "count"}
+{"text": "count: 15 19 23 27 31 35 39 43 next: 47 51 55", "type": "count"}
+{"text": "count: 14 17 20 23 next: 26 29 32", "type": "count"}
+{"text": "shift4: bckdjp answer: fgohnt", "type": "cipher"}
+{"text": "reverse: ppocdnconk answer: knocndcopp", "type": "reverse"}
+{"text": "count: 11 15 19 23 27 31 35 next: 39 43 47", "type": "count"}
+{"text": "repeat: ejhejh next: ejh", "type": "repeat"}
+{"text": "repeat: caaggcaagg next: caagg", "type": "repeat"}
+{"text": "count: 16 17 18 19 20 21 next: 22 23 24", "type": "count"}
+{"text": "repeat: ceijdaceijdaceijda next: ceijda", "type": "repeat"}
+{"text": "shift2: chmblpop answer: ejodnrqr", "type": "cipher"}
+{"text": "count: 2 5 8 11 next: 14 17 20", "type": "count"}
+{"text": "reverse: kop answer: pok", "type": "reverse"}
+{"text": "shift1: momigcnk answer: npnjhdol", "type": "cipher"}
+{"text": "repeat: ddbhjibddbhjibddbhjibddbhjib next: ddbhjib", "type": "repeat"}
+{"text": "reverse: dhgjeb answer: bejghd", "type": "reverse"}
+{"text": "shift4: phaa answer: tlee", "type": "cipher"}
+{"text": "count: 12 13 14 15 next: 16 17 18", "type": "count"}
+{"text": "count: 18 22 26 30 34 38 next: 42 46 50", "type": "count"}
+{"text": "shift3: ppo answer: ssr", "type": "cipher"}
+{"text": "reverse: gfbanb answer: bnabfg", "type": "reverse"}
+{"text": "count: 13 14 15 16 17 18 19 20 next: 21 22 23", "type": "count"}
+{"text": "reverse: jogiobp answer: pboigoj", "type": "reverse"}
+{"text": "repeat: jajajaja next: ja", "type": "repeat"}
+{"text": "shift2: bagmbdp answer: dciodfr", "type": "cipher"}
+{"text": "count: 1 2 3 4 5 6 7 8 next: 9 10 11", "type": "count"}
+{"text": "count: 20 22 24 26 next: 28 30 32", "type": "count"}
+{"text": "shift3: pnkofcc answer: sqnriff", "type": "cipher"}
+{"text": "shift4: njpiah answer: rntmel", "type": "cipher"}
+{"text": "shift5: ohmgp answer: tmrlu", "type": "cipher"}
+{"text": "shift5: ffdnhb answer: kkismg", "type": "cipher"}
+{"text": "count: 17 18 19 20 21 22 next: 23 24 25", "type": "count"}
+{"text": "count: 19 22 25 28 31 34 next: 37 40 43", "type": "count"}
+{"text": "count: 17 19 21 23 25 27 next: 29 31 33", "type": "count"}
+{"text": "count: 16 18 20 22 next: 24 26 28", "type": "count"}
+{"text": "count: 1 2 3 4 next: 5 6 7", "type": "count"}
+{"text": "shift5: bdjfpgk answer: giokulp", "type": "cipher"}
+{"text": "repeat: gbgbgb next: gb", "type": "repeat"}
+{"text": "count: 16 18 20 22 24 26 next: 28 30 32", "type": "count"}
+{"text": "repeat: aaaa next: aa", "type": "repeat"}
+{"text": "reverse: hob answer: boh", "type": "reverse"}
+{"text": "shift3: aeeepoo answer: dhhhsrr", "type": "cipher"}
+{"text": "reverse: cbihmp answer: pmhibc", "type": "reverse"}
+{"text": "reverse: ihabp answer: pbahi", "type": "reverse"}
+{"text": "repeat: ebgbdebgbdebgbd next: ebgbd", "type": "repeat"}
+{"text": "repeat: cfcjbcfcjbcfcjbcfcjb next: cfcjb", "type": "repeat"}
+{"text": "repeat: ijiebiaijiebia next: ijiebia", "type": "repeat"}
+{"text": "shift4: bfhcpiei answer: fjlgtmim", "type": "cipher"}
+{"text": "repeat: fdbfgbfdbfgbfdbfgb next: fdbfgb", "type": "repeat"}
+{"text": "repeat: cjgabcjgab next: cjgab", "type": "repeat"}
+{"text": "shift1: dlmc answer: emnd", "type": "cipher"}
+{"text": "repeat: bgdejggdbgdejggdbgdejggdbgdejggd next: bgdejggd", "type": "repeat"}
+{"text": "repeat: cgjbijicgjbijicgjbiji next: cgjbiji", "type": "repeat"}
+{"text": "repeat: fjdfafjdfa next: fjdfa", "type": "repeat"}
+{"text": "repeat: dbicjdbicjdbicjdbicj next: dbicj", "type": "repeat"}
+{"text": "shift3: nkn answer: qnq", "type": "cipher"}
+{"text": "shift3: mekpl answer: phnso", "type": "cipher"}
+{"text": "shift1: cnmmgaof answer: donnhbpg", "type": "cipher"}
+{"text": "reverse: ihbdhk answer: khdbhi", "type": "reverse"}
+{"text": "reverse: geedeb answer: bedeeg", "type": "reverse"}
+{"text": "count: 6 11 16 21 26 next: 31 36 41", "type": "count"}
+{"text": "reverse: pmhd answer: dhmp", "type": "reverse"}
+{"text": "reverse: hanmdeo answer: oedmnah", "type": "reverse"}
+{"text": "repeat: cegeajdcegeajd next: cegeajd", "type": "repeat"}
+{"text": "repeat: cgdhdcgdhdcgdhdcgdhd next: cgdhd", "type": "repeat"}
+{"text": "shift4: aejb answer: einf", "type": "cipher"}
+{"text": "repeat: icdfhecicdfhec next: icdfhec", "type": "repeat"}
+{"text": "reverse: fgkjd answer: djkgf", "type": "reverse"}
+{"text": "shift1: fbio answer: gcjp", "type": "cipher"}
+{"text": "reverse: mhahh answer: hhahm", "type": "reverse"}
+{"text": "shift3: lndnom answer: oqgqrp", "type": "cipher"}
+{"text": "shift1: aai answer: bbj", "type": "cipher"}
+{"text": "count: 13 15 17 19 21 23 25 next: 27 29 31", "type": "count"}
+{"text": "shift3: dmoj answer: gprm", "type": "cipher"}
+{"text": "count: 16 17 18 19 20 21 next: 22 23 24", "type": "count"}
+{"text": "count: 17 18 19 20 next: 21 22 23", "type": "count"}
+{"text": "shift2: bhh answer: djj", "type": "cipher"}
+{"text": "repeat: idihidih next: idih", "type": "repeat"}
+{"text": "count: 12 17 22 27 32 next: 37 42 47", "type": "count"}
+{"text": "shift5: hblcd answer: mgqhi", "type": "cipher"}
+{"text": "reverse: jkki answer: ikkj", "type": "reverse"}
+{"text": "shift5: aneg answer: fsjl", "type": "cipher"}
+{"text": "shift3: ojbad answer: rmedg", "type": "cipher"}
+{"text": "shift2: fhgfohl answer: hjihqjn", "type": "cipher"}
+{"text": "shift4: joh answer: nsl", "type": "cipher"}
+{"text": "reverse: lplilo answer: olilpl", "type": "reverse"}
+{"text": "reverse: oef answer: feo", "type": "reverse"}
+{"text": "count: 3 5 7 9 next: 11 13 15", "type": "count"}
+{"text": "shift3: oahkfn answer: rdkniq", "type": "cipher"}
+{"text": "shift5: agjkgj answer: floplo", "type": "cipher"}
+{"text": "count: 7 11 15 19 23 next: 27 31 35", "type": "count"}
+{"text": "count: 4 9 14 19 24 29 34 39 next: 44 49 54", "type": "count"}
+{"text": "reverse: oogkdjiepl answer: lpeijdkgoo", "type": "reverse"}
+{"text": "reverse: lafl answer: lfal", "type": "reverse"}
+{"text": "reverse: gagadi answer: idagag", "type": "reverse"}
+{"text": "repeat: gacgdgacgdgacgdgacgd next: gacgd", "type": "repeat"}
+{"text": "shift5: hcdfo answer: mhikt", "type": "cipher"}
+{"text": "repeat: dfihadfihadfihadfiha next: dfiha", "type": "repeat"}
+{"text": "shift4: lbl answer: pfp", "type": "cipher"}
+{"text": "shift4: lnbic answer: prfmg", "type": "cipher"}
+{"text": "shift3: dafpfmnn answer: gdisipqq", "type": "cipher"}
+{"text": "shift1: bcigb answer: cdjhc", "type": "cipher"}
+{"text": "shift3: pilihgc answer: slolkjf", "type": "cipher"}
+{"text": "reverse: kcfcodk answer: kdocfck", "type": "reverse"}
+{"text": "repeat: ejjfhejjfhejjfh next: ejjfh", "type": "repeat"}
+{"text": "repeat: gidhebgidhebgidheb next: gidheb", "type": "repeat"}
+{"text": "repeat: ififcififcififc next: ififc", "type": "repeat"}
+{"text": "repeat: cibaicibai next: cibai", "type": "repeat"}
+{"text": "reverse: enadek answer: kedane", "type": "reverse"}
+{"text": "reverse: nmjdb answer: bdjmn", "type": "reverse"}
+{"text": "shift3: oednaf answer: rhgqdi", "type": "cipher"}
+{"text": "repeat: ehjdehjdehjd next: ehjd", "type": "repeat"}
+{"text": "shift4: hpfje answer: ltjni", "type": "cipher"}
+{"text": "repeat: bcjdehfbcjdehfbcjdehfbcjdehf next: bcjdehf", "type": "repeat"}
+{"text": "shift3: nbonekjp answer: qerqhnms", "type": "cipher"}
+{"text": "shift4: acnenoc answer: egrirsg", "type": "cipher"}
+{"text": "shift5: fbof answer: kgtk", "type": "cipher"}
+{"text": "repeat: hejjfjhejjfjhejjfjhejjfj next: hejjfj", "type": "repeat"}
+{"text": "repeat: aejihcjaejihcjaejihcjaejihcj next: aejihcj", "type": "repeat"}
+{"text": "count: 18 23 28 33 38 43 48 next: 53 58 63", "type": "count"}
+{"text": "shift5: nghecdb answer: slmjhig", "type": "cipher"}
+{"text": "reverse: mbj answer: jbm", "type": "reverse"}
+{"text": "shift3: ahilp answer: dklos", "type": "cipher"}
+{"text": "shift3: nimb answer: qlpe", "type": "cipher"}
+{"text": "shift5: bkp answer: gpu", "type": "cipher"}
+{"text": "repeat: ehhhbeiehhhbeiehhhbeiehhhbei next: ehhhbei", "type": "repeat"}
+{"text": "repeat: gabbffgabbffgabbff next: gabbff", "type": "repeat"}
+{"text": "shift2: bliikk answer: dnkkmm", "type": "cipher"}
+{"text": "reverse: ecglgcclbp answer: pblccglgce", "type": "reverse"}
+{"text": "reverse: pmmapi answer: ipammp", "type": "reverse"}
+{"text": "shift1: dno answer: eop", "type": "cipher"}
+{"text": "count: 7 8 9 10 next: 11 12 13", "type": "count"}
+{"text": "shift5: hab answer: mfg", "type": "cipher"}
+{"text": "repeat: jhhecfeejhhecfeejhhecfee next: jhhecfee", "type": "repeat"}
+{"text": "shift2: gedll answer: igfnn", "type": "cipher"}
+{"text": "count: 2 5 8 11 14 17 20 23 next: 26 29 32", "type": "count"}
+{"text": "count: 8 13 18 23 28 33 38 43 next: 48 53 58", "type": "count"}
+{"text": "reverse: mmhcbn answer: nbchmm", "type": "reverse"}
+{"text": "reverse: afn answer: nfa", "type": "reverse"}
+{"text": "shift4: ghbh answer: klfl", "type": "cipher"}
+{"text": "shift3: ejnjn answer: hmqmq", "type": "cipher"}
+{"text": "count: 3 5 7 9 11 13 next: 15 17 19", "type": "count"}
+{"text": "reverse: fbmjj answer: jjmbf", "type": "reverse"}
+{"text": "reverse: kkpagpn answer: npgapkk", "type": "reverse"}
+{"text": "repeat: ajjceiajjceiajjceiajjcei next: ajjcei", "type": "repeat"}
+{"text": "repeat: cjcjcjcj next: cj", "type": "repeat"}
+{"text": "repeat: digdigdigdig next: dig", "type": "repeat"}
+{"text": "count: 10 13 16 19 22 next: 25 28 31", "type": "count"}
+{"text": "reverse: cngnenbedd answer: ddebnengnc", "type": "reverse"}
+{"text": "shift3: kfin answer: nilq", "type": "cipher"}
+{"text": "count: 18 23 28 33 38 43 next: 48 53 58", "type": "count"}
+{"text": "count: 18 22 26 30 34 38 42 next: 46 50 54", "type": "count"}
+{"text": "reverse: jdoolpmlo answer: olmploodj", "type": "reverse"}
+{"text": "repeat: aeaeaeae next: ae", "type": "repeat"}
+{"text": "repeat: ajhjajhjajhj next: ajhj", "type": "repeat"}
+{"text": "reverse: ijip answer: piji", "type": "reverse"}
+{"text": "shift5: obblan answer: tggqfs", "type": "cipher"}
+{"text": "shift1: oacgnn answer: pbdhoo", "type": "cipher"}
+{"text": "repeat: hfehfehfe next: hfe", "type": "repeat"}
+{"text": "reverse: npfoaflk answer: klfaofpn", "type": "reverse"}
+{"text": "shift4: bfgfan answer: fjkjer", "type": "cipher"}
+{"text": "reverse: fmflmnc answer: cnmlfmf", "type": "reverse"}
+{"text": "count: 12 14 16 18 20 next: 22 24 26", "type": "count"}
+{"text": "shift3: oonc answer: rrqf", "type": "cipher"}
+{"text": "repeat: jciifhijciifhijciifhijciifhi next: jciifhi", "type": "repeat"}
+{"text": "shift3: dbil answer: gelo", "type": "cipher"}
+{"text": "count: 10 15 20 25 30 next: 35 40 45", "type": "count"}
+{"text": "repeat: fcdifcdifcdifcdi next: fcdi", "type": "repeat"}
+{"text": "count: 10 11 12 13 14 next: 15 16 17", "type": "count"}
+{"text": "shift4: plee answer: tpii", "type": "cipher"}
+{"text": "count: 2 5 8 11 14 17 next: 20 23 26", "type": "count"}
+{"text": "shift2: kcgihfa answer: meikjhc", "type": "cipher"}
+{"text": "repeat: fiaeffiaeffiaeffiaef next: fiaef", "type": "repeat"}
+{"text": "reverse: pclmknc answer: cnkmlcp", "type": "reverse"}
+{"text": "count: 10 12 14 16 18 20 next: 22 24 26", "type": "count"}
+{"text": "shift2: nallfeki answer: pcnnhgmk", "type": "cipher"}
+{"text": "shift4: olikij answer: spmomn", "type": "cipher"}
+{"text": "count: 2 7 12 17 22 27 32 37 next: 42 47 52", "type": "count"}
+{"text": "count: 14 16 18 20 22 next: 24 26 28", "type": "count"}
+{"text": "shift3: bkkep answer: ennhs", "type": "cipher"}
+{"text": "shift2: mgkcd answer: oimef", "type": "cipher"}
+{"text": "reverse: dgj answer: jgd", "type": "reverse"}
+{"text": "count: 7 9 11 13 15 17 19 21 next: 23 25 27", "type": "count"}
+{"text": "count: 1 4 7 10 13 16 19 22 next: 25 28 31", "type": "count"}
+{"text": "reverse: efhmkgmmm answer: mmmgkmhfe", "type": "reverse"}
+{"text": "count: 13 16 19 22 25 28 next: 31 34 37", "type": "count"}
+{"text": "reverse: ojfaihoc answer: cohiafjo", "type": "reverse"}
+{"text": "repeat: jebhifgjebhifgjebhifg next: jebhifg", "type": "repeat"}
+{"text": "repeat: fbdicjcffbdicjcf next: fbdicjcf", "type": "repeat"}
+{"text": "count: 11 14 17 20 next: 23 26 29", "type": "count"}
+{"text": "count: 12 16 20 24 next: 28 32 36", "type": "count"}
+{"text": "shift3: cmf answer: fpi", "type": "cipher"}
+{"text": "repeat: gegegege next: ge", "type": "repeat"}
+{"text": "shift3: pkenlc answer: snhqof", "type": "cipher"}
+{"text": "count: 9 13 17 21 25 29 33 37 next: 41 45 49", "type": "count"}
+{"text": "shift5: hbbkcf answer: mggphk", "type": "cipher"}
+{"text": "shift4: enbeph answer: irfitl", "type": "cipher"}
+{"text": "reverse: gjpggmab answer: bamggpjg", "type": "reverse"}
+{"text": "count: 8 12 16 20 24 28 32 36 next: 40 44 48", "type": "count"}
+{"text": "repeat: jjjjjj next: jj", "type": "repeat"}
+{"text": "reverse: lailepk answer: kpelial", "type": "reverse"}
+{"text": "count: 15 20 25 30 35 next: 40 45 50", "type": "count"}
+{"text": "repeat: cehaceha next: ceha", "type": "repeat"}
+{"text": "count: 7 11 15 19 23 27 31 next: 35 39 43", "type": "count"}
+{"text": "shift2: aambmbp answer: ccododr", "type": "cipher"}
+{"text": "repeat: jhjigijhjigi next: jhjigi", "type": "repeat"}
+{"text": "repeat: igehiigehiigehi next: igehi", "type": "repeat"}
+{"text": "repeat: gjjacejgjjacejgjjacej next: gjjacej", "type": "repeat"}
+{"text": "shift2: bcfm answer: deho", "type": "cipher"}
+{"text": "reverse: ccobeodho answer: ohdoebocc", "type": "reverse"}
+{"text": "count: 10 14 18 22 26 30 34 38 next: 42 46 50", "type": "count"}
+{"text": "reverse: bkkk answer: kkkb", "type": "reverse"}
+{"text": "repeat: jbafejbafejbafe next: jbafe", "type": "repeat"}
+{"text": "count: 1 2 3 4 5 next: 6 7 8", "type": "count"}
+{"text": "repeat: jcjcjcjc next: jc", "type": "repeat"}
+{"text": "count: 19 21 23 25 27 29 next: 31 33 35", "type": "count"}
+{"text": "count: 6 9 12 15 18 21 24 27 next: 30 33 36", "type": "count"}
+{"text": "count: 2 6 10 14 18 22 26 next: 30 34 38", "type": "count"}
+{"text": "reverse: akleel answer: leelka", "type": "reverse"}
+{"text": "reverse: nhnaec answer: ceanhn", "type": "reverse"}
+{"text": "count: 5 9 13 17 next: 21 25 29", "type": "count"}
+{"text": "repeat: ccigccigccig next: ccig", "type": "repeat"}
+{"text": "count: 15 18 21 24 next: 27 30 33", "type": "count"}
+{"text": "shift4: hfdlpjde answer: ljhptnhi", "type": "cipher"}
+{"text": "count: 20 23 26 29 32 35 38 next: 41 44 47", "type": "count"}
+{"text": "reverse: papfe answer: efpap", "type": "reverse"}
+{"text": "reverse: nkh answer: hkn", "type": "reverse"}
+{"text": "count: 4 7 10 13 next: 16 19 22", "type": "count"}
+{"text": "repeat: dgfdgjbadgfdgjbadgfdgjba next: dgfdgjba", "type": "repeat"}
+{"text": "count: 20 24 28 32 36 40 44 48 next: 52 56 60", "type": "count"}
+{"text": "reverse: kabccdidfp answer: pfdidccbak", "type": "reverse"}
+{"text": "repeat: bifhbifh next: bifh", "type": "repeat"}
+{"text": "repeat: hehheh next: heh", "type": "repeat"}
+{"text": "repeat: ahcjicgahcjicgahcjicg next: ahcjicg", "type": "repeat"}
+{"text": "reverse: lpoacn answer: ncaopl", "type": "reverse"}
+{"text": "reverse: hdfmjmog answer: gomjmfdh", "type": "reverse"}
+{"text": "repeat: fgfgfg next: fg", "type": "repeat"}
+{"text": "repeat: ejfcejfcejfcejfc next: ejfc", "type": "repeat"}
+{"text": "repeat: hicahicahica next: hica", "type": "repeat"}
+{"text": "reverse: cgcnefipi answer: ipifencgc", "type": "reverse"}
+{"text": "count: 18 21 24 27 next: 30 33 36", "type": "count"}
+{"text": "shift4: hcnokk answer: lgrsoo", "type": "cipher"}
+{"text": "shift4: dmgd answer: hqkh", "type": "cipher"}
+{"text": "reverse: pebbfkhkjc answer: cjkhkfbbep", "type": "reverse"}
+{"text": "shift2: anemcahj answer: cpgoecjl", "type": "cipher"}
+{"text": "count: 11 14 17 20 23 26 next: 29 32 35", "type": "count"}
+{"text": "repeat: idihfaiidihfaiidihfaiidihfai next: idihfai", "type": "repeat"}
+{"text": "count: 14 18 22 26 30 34 38 42 next: 46 50 54", "type": "count"}
+{"text": "count: 9 12 15 18 21 24 27 30 next: 33 36 39", "type": "count"}
+{"text": "count: 2 5 8 11 14 next: 17 20 23", "type": "count"}
+{"text": "reverse: odampfgof answer: fogfpmado", "type": "reverse"}
+{"text": "shift4: cobmpg answer: gsfqtk", "type": "cipher"}
+{"text": "repeat: fcfbceffcfbceffcfbcef next: fcfbcef", "type": "repeat"}
+{"text": "reverse: kjmp answer: pmjk", "type": "reverse"}
+{"text": "repeat: hahichahic next: hahic", "type": "repeat"}
+{"text": "shift3: mdf answer: pgi", "type": "cipher"}
+{"text": "repeat: gggggg next: gg", "type": "repeat"}
+{"text": "reverse: gcdfamh answer: hmafdcg", "type": "reverse"}
+{"text": "shift2: nkeohpbi answer: pmgqjrdk", "type": "cipher"}
+{"text": "count: 19 21 23 25 next: 27 29 31", "type": "count"}
+{"text": "repeat: dcceaeedcceaeedcceaee next: dcceaee", "type": "repeat"}
+{"text": "reverse: bfidk answer: kdifb", "type": "reverse"}
+{"text": "shift5: looo answer: qttt", "type": "cipher"}
+{"text": "repeat: fifedegfifedegfifedegfifedeg next: fifedeg", "type": "repeat"}
+{"text": "repeat: egegegeg next: eg", "type": "repeat"}
+{"text": "count: 16 19 22 25 next: 28 31 34", "type": "count"}
+{"text": "repeat: bieeahbieeahbieeahbieeah next: bieeah", "type": "repeat"}
+{"text": "shift1: kcn answer: ldo", "type": "cipher"}
+{"text": "count: 6 9 12 15 18 next: 21 24 27", "type": "count"}
+{"text": "shift3: mllcjga answer: poofmjd", "type": "cipher"}
+{"text": "reverse: jfadelcnei answer: iencledafj", "type": "reverse"}
+{"text": "repeat: hfagghfagghfagg next: hfagg", "type": "repeat"}
+{"text": "shift4: pch answer: tgl", "type": "cipher"}
+{"text": "count: 2 7 12 17 22 27 32 37 next: 42 47 52", "type": "count"}
+{"text": "count: 3 6 9 12 next: 15 18 21", "type": "count"}
+{"text": "count: 9 13 17 21 25 next: 29 33 37", "type": "count"}
+{"text": "shift5: donan answer: itsfs", "type": "cipher"}
+{"text": "reverse: jeha answer: ahej", "type": "reverse"}
+{"text": "shift2: edghbfie answer: gfijdhkg", "type": "cipher"}
+{"text": "shift3: fogifbm answer: irjliep", "type": "cipher"}
+{"text": "count: 2 4 6 8 10 12 14 next: 16 18 20", "type": "count"}
+{"text": "count: 11 16 21 26 31 next: 36 41 46", "type": "count"}
+{"text": "shift2: bhclhng answer: djenjpi", "type": "cipher"}
+{"text": "reverse: eichan answer: nahcie", "type": "reverse"}
+{"text": "repeat: deadhjbedeadhjbedeadhjbedeadhjbe next: deadhjbe", "type": "repeat"}
+{"text": "reverse: oaefe answer: efeao", "type": "reverse"}
+{"text": "shift3: ebkhko answer: henknr", "type": "cipher"}
+{"text": "repeat: hfifhfifhfifhfif next: hfif", "type": "repeat"}
+{"text": "repeat: ieecjafbieecjafb next: ieecjafb", "type": "repeat"}
+{"text": "shift3: bpcegdo answer: esfhjgr", "type": "cipher"}
+{"text": "count: 18 19 20 21 22 23 next: 24 25 26", "type": "count"}
+{"text": "count: 16 18 20 22 24 26 28 30 next: 32 34 36", "type": "count"}
+{"text": "reverse: maj answer: jam", "type": "reverse"}
+{"text": "repeat: jaejaejaejae next: jae", "type": "repeat"}
+{"text": "shift2: cpjde answer: erlfg", "type": "cipher"}
+{"text": "repeat: ahadibeaahadibeaahadibea next: ahadibea", "type": "repeat"}
+{"text": "shift4: nlgblil answer: rpkfpmp", "type": "cipher"}
+{"text": "shift1: cpn answer: dqo", "type": "cipher"}
+{"text": "repeat: jjiccjjiccjjiccjjicc next: jjicc", "type": "repeat"}
+{"text": "reverse: ifbeomm answer: mmoebfi", "type": "reverse"}
+{"text": "reverse: ganafccb answer: bccfanag", "type": "reverse"}
+{"text": "shift2: jdggc answer: lfiie", "type": "cipher"}
+{"text": "count: 6 10 14 18 22 26 next: 30 34 38", "type": "count"}
+{"text": "reverse: kiflmfcchc answer: chccfmlfik", "type": "reverse"}
+{"text": "shift5: cej answer: hjo", "type": "cipher"}
+{"text": "shift5: mofkgbgk answer: rtkplglp", "type": "cipher"}
+{"text": "count: 6 7 8 9 10 11 12 next: 13 14 15", "type": "count"}
+{"text": "reverse: gieghidala answer: aladihgeig", "type": "reverse"}
+{"text": "count: 17 22 27 32 37 42 next: 47 52 57", "type": "count"}
+{"text": "count: 8 9 10 11 12 13 14 next: 15 16 17", "type": "count"}
+{"text": "repeat: cdgaibabcdgaibabcdgaibabcdgaibab next: cdgaibab", "type": "repeat"}
+{"text": "reverse: okfepolc answer: clopefko", "type": "reverse"}
+{"text": "reverse: ibfp answer: pfbi", "type": "reverse"}
+{"text": "repeat: hibafhhibafhhibafh next: hibafh", "type": "repeat"}
+{"text": "shift3: ilepkncd answer: lohsnqfg", "type": "cipher"}
+{"text": "count: 1 3 5 7 9 11 next: 13 15 17", "type": "count"}
+{"text": "count: 1 5 9 13 next: 17 21 25", "type": "count"}
+{"text": "repeat: aefaef next: aef", "type": "repeat"}
+{"text": "repeat: cacbdbdcacbdbdcacbdbd next: cacbdbd", "type": "repeat"}
+{"text": "repeat: cdjcdjcdj next: cdj", "type": "repeat"}
+{"text": "reverse: cknhlohna answer: anholhnkc", "type": "reverse"}
+{"text": "repeat: ggcjiggcji next: ggcji", "type": "repeat"}
+{"text": "shift1: dhhdke answer: eiielf", "type": "cipher"}
+{"text": "reverse: med answer: dem", "type": "reverse"}
+{"text": "count: 16 20 24 28 next: 32 36 40", "type": "count"}
+{"text": "repeat: bcbcjffbcbcjffbcbcjff next: bcbcjff", "type": "repeat"}
+{"text": "reverse: cfomlnj answer: jnlmofc", "type": "reverse"}
+{"text": "repeat: jgeejgeejgeejgee next: jgee", "type": "repeat"}
+{"text": "repeat: icedabigicedabigicedabigicedabig next: icedabig", "type": "repeat"}
+{"text": "reverse: bbfgi answer: igfbb", "type": "reverse"}
+{"text": "repeat: gcibhgcibhgcibhgcibh next: gcibh", "type": "repeat"}
+{"text": "count: 9 13 17 21 next: 25 29 33", "type": "count"}
+{"text": "repeat: cgfcgf next: cgf", "type": "repeat"}
+{"text": "shift5: fmbhfdia answer: krgmkinf", "type": "cipher"}
+{"text": "count: 18 22 26 30 next: 34 38 42", "type": "count"}
+{"text": "shift1: ogcbngep answer: phdcohfq", "type": "cipher"}
+{"text": "reverse: dbiklaacb answer: bcaalkibd", "type": "reverse"}
+{"text": "shift5: bccpd answer: ghhui", "type": "cipher"}
+{"text": "repeat: eeechceeechceeechc next: eeechc", "type": "repeat"}
+{"text": "repeat: hagafjhihagafjhi next: hagafjhi", "type": "repeat"}
+{"text": "repeat: fbibbefefbibbefefbibbefefbibbefe next: fbibbefe", "type": "repeat"}
+{"text": "count: 7 11 15 19 next: 23 27 31", "type": "count"}
+{"text": "shift3: nddbmd answer: qggepg", "type": "cipher"}
+{"text": "repeat: afdgbafdgb next: afdgb", "type": "repeat"}
+{"text": "repeat: jfabgbjfabgbjfabgbjfabgb next: jfabgb", "type": "repeat"}
+{"text": "reverse: pajdnm answer: mndjap", "type": "reverse"}
+{"text": "repeat: hjhcgbhjhcgb next: hjhcgb", "type": "repeat"}
+{"text": "shift4: oghic answer: sklmg", "type": "cipher"}
+{"text": "shift3: idfpba answer: lgised", "type": "cipher"}
+{"text": "shift5: mhmbnh answer: rmrgsm", "type": "cipher"}
+{"text": "count: 15 20 25 30 35 40 45 next: 50 55 60", "type": "count"}
+{"text": "count: 4 5 6 7 next: 8 9 10", "type": "count"}
+{"text": "shift2: dojkkmdc answer: fqlmmofe", "type": "cipher"}
+{"text": "reverse: okf answer: fko", "type": "reverse"}
+{"text": "repeat: hghghg next: hg", "type": "repeat"}
+{"text": "repeat: aedgacejaedgacejaedgacej next: aedgacej", "type": "repeat"}
+{"text": "count: 17 20 23 26 29 32 next: 35 38 41", "type": "count"}
+{"text": "repeat: ibbjhaibbjhaibbjhaibbjha next: ibbjha", "type": "repeat"}
+{"text": "shift3: makchk answer: pdnfkn", "type": "cipher"}
+{"text": "reverse: ooilc answer: clioo", "type": "reverse"}
+{"text": "shift4: epekhb answer: itiolf", "type": "cipher"}
+{"text": "shift1: ljigjo answer: mkjhkp", "type": "cipher"}
+{"text": "reverse: ibdbceahge answer: eghaecbdbi", "type": "reverse"}
+{"text": "shift2: fdmecgha answer: hfogeijc", "type": "cipher"}
+{"text": "count: 12 13 14 15 next: 16 17 18", "type": "count"}
+{"text": "shift2: fbijbcaf answer: hdkldech", "type": "cipher"}
+{"text": "reverse: mibcjmf answer: fmjcbim", "type": "reverse"}
+{"text": "count: 16 17 18 19 20 21 22 23 next: 24 25 26", "type": "count"}
+{"text": "repeat: ehgagichehgagichehgagichehgagich next: ehgagich", "type": "repeat"}
+{"text": "shift1: ckmmolak answer: dlnnpmbl", "type": "cipher"}
+{"text": "count: 5 10 15 20 next: 25 30 35", "type": "count"}
+{"text": "repeat: bbjabbjabbjabbja next: bbja", "type": "repeat"}
+{"text": "shift1: nfcad answer: ogdbe", "type": "cipher"}
+{"text": "shift2: lcjokaa answer: nelqmcc", "type": "cipher"}
+{"text": "repeat: ebhcibebhcibebhcib next: ebhcib", "type": "repeat"}
+{"text": "count: 4 9 14 19 24 29 next: 34 39 44", "type": "count"}
+{"text": "count: 14 19 24 29 34 39 44 next: 49 54 59", "type": "count"}
+{"text": "shift1: oknee answer: ploff", "type": "cipher"}
+{"text": "reverse: doicgblj answer: jlbgciod", "type": "reverse"}
+{"text": "reverse: blkmco answer: ocmklb", "type": "reverse"}
+{"text": "shift3: ihdii answer: lkgll", "type": "cipher"}
+{"text": "repeat: hihhhihh next: hihh", "type": "repeat"}
+{"text": "repeat: abfigabfigabfig next: abfig", "type": "repeat"}
+{"text": "reverse: oal answer: lao", "type": "reverse"}
+{"text": "repeat: eggbheeggbheeggbheeggbhe next: eggbhe", "type": "repeat"}
+{"text": "reverse: pakjn answer: njkap", "type": "reverse"}
+{"text": "repeat: bajaagbajaagbajaag next: bajaag", "type": "repeat"}
+{"text": "repeat: iaeiae next: iae", "type": "repeat"}
+{"text": "repeat: geafigeafigeafigeafi next: geafi", "type": "repeat"}
+{"text": "reverse: mfceoocm answer: mcooecfm", "type": "reverse"}
+{"text": "reverse: eioammgndg answer: gdngmmaoie", "type": "reverse"}
+{"text": "count: 8 9 10 11 next: 12 13 14", "type": "count"}
+{"text": "reverse: lmhhpejlj answer: jljephhml", "type": "reverse"}
+{"text": "repeat: cbdgdhhcbdgdhhcbdgdhh next: cbdgdhh", "type": "repeat"}
+{"text": "count: 15 16 17 18 19 next: 20 21 22", "type": "count"}
+{"text": "shift2: kdipd answer: mfkrf", "type": "cipher"}
+{"text": "reverse: foi answer: iof", "type": "reverse"}
+{"text": "shift4: obbgjh answer: sffknl", "type": "cipher"}
+{"text": "reverse: fhjeofea answer: aefoejhf", "type": "reverse"}
+{"text": "repeat: dehjdehjdehjdehj next: dehj", "type": "repeat"}
+{"text": "repeat: idacediidacedi next: idacedi", "type": "repeat"}
+{"text": "shift4: iglnfdp answer: mkprjht", "type": "cipher"}
+{"text": "shift2: mdgd answer: ofif", "type": "cipher"}
+{"text": "repeat: iiiiii next: ii", "type": "repeat"}
+{"text": "shift2: ccp answer: eer", "type": "cipher"}
+{"text": "shift1: lpobmg answer: mqpcnh", "type": "cipher"}
+{"text": "count: 3 5 7 9 11 13 15 next: 17 19 21", "type": "count"}
+{"text": "repeat: ccfdccfdccfd next: ccfd", "type": "repeat"}
+{"text": "repeat: fjifjifji next: fji", "type": "repeat"}
+{"text": "shift1: agme answer: bhnf", "type": "cipher"}
+{"text": "reverse: bfkf answer: fkfb", "type": "reverse"}
+{"text": "count: 5 8 11 14 17 20 23 next: 26 29 32", "type": "count"}
+{"text": "repeat: caca next: ca", "type": "repeat"}
+{"text": "count: 3 7 11 15 19 23 27 next: 31 35 39", "type": "count"}
+{"text": "shift5: kna answer: psf", "type": "cipher"}
+{"text": "repeat: gheeghee next: ghee", "type": "repeat"}
+{"text": "shift4: ckof answer: gosj", "type": "cipher"}
+{"text": "shift3: jaoh answer: mdrk", "type": "cipher"}
+{"text": "repeat: cfbhidggcfbhidggcfbhidgg next: cfbhidgg", "type": "repeat"}
+{"text": "reverse: nnlcfakgk answer: kgkafclnn", "type": "reverse"}
+{"text": "count: 13 14 15 16 17 next: 18 19 20", "type": "count"}
+{"text": "shift5: pba answer: ugf", "type": "cipher"}
+{"text": "shift1: hanmc answer: ibond", "type": "cipher"}
+{"text": "count: 8 9 10 11 12 13 14 15 next: 16 17 18", "type": "count"}
+{"text": "repeat: jiajiajiajia next: jia", "type": "repeat"}
+{"text": "repeat: jadijijgjadijijg next: jadijijg", "type": "repeat"}
+{"text": "shift5: fnoghojh answer: kstlmtom", "type": "cipher"}
+{"text": "shift1: ahhjf answer: biikg", "type": "cipher"}
+{"text": "reverse: focgg answer: ggcof", "type": "reverse"}
+{"text": "repeat: iddbcibiddbcib next: iddbcib", "type": "repeat"}
+{"text": "reverse: ffceennd answer: dnneecff", "type": "reverse"}
+{"text": "repeat: daedaedaedae next: dae", "type": "repeat"}
+{"text": "reverse: lkaaaaom answer: moaaaakl", "type": "reverse"}
+{"text": "reverse: idkek answer: kekdi", "type": "reverse"}
+{"text": "shift3: dgkhjc answer: gjnkmf", "type": "cipher"}
+{"text": "count: 11 16 21 26 31 36 41 46 next: 51 56 61", "type": "count"}
+{"text": "reverse: fbafc answer: cfabf", "type": "reverse"}
+{"text": "shift1: highj answer: ijhik", "type": "cipher"}
+{"text": "reverse: kdikfmdm answer: mdmfkidk", "type": "reverse"}
+{"text": "count: 11 14 17 20 23 26 next: 29 32 35", "type": "count"}
+{"text": "count: 8 10 12 14 16 18 20 next: 22 24 26", "type": "count"}
+{"text": "shift4: ikokpa answer: mosote", "type": "cipher"}
+{"text": "count: 1 4 7 10 13 16 next: 19 22 25", "type": "count"}
+{"text": "count: 8 13 18 23 28 33 38 43 next: 48 53 58", "type": "count"}
+{"text": "count: 15 17 19 21 23 25 next: 27 29 31", "type": "count"}
+{"text": "reverse: fmnnependi answer: idnepennmf", "type": "reverse"}
+{"text": "reverse: mdnmdodbpl answer: lpbdodmndm", "type": "reverse"}
+{"text": "reverse: aobk answer: kboa", "type": "reverse"}
+{"text": "repeat: bgebge next: bge", "type": "repeat"}
+{"text": "repeat: aaaaaa next: aa", "type": "repeat"}
+{"text": "reverse: edgbebdn answer: ndbebgde", "type": "reverse"}
+{"text": "reverse: gnijia answer: aijing", "type": "reverse"}
+{"text": "shift4: knebkn answer: orifor", "type": "cipher"}
+{"text": "shift2: jlim answer: lnko", "type": "cipher"}
+{"text": "count: 20 24 28 32 36 next: 40 44 48", "type": "count"}
+{"text": "shift5: opbfgfcj answer: tugklkho", "type": "cipher"}
+{"text": "count: 18 21 24 27 30 next: 33 36 39", "type": "count"}
+{"text": "count: 3 6 9 12 15 18 21 next: 24 27 30", "type": "count"}
+{"text": "count: 17 22 27 32 37 42 next: 47 52 57", "type": "count"}
+{"text": "count: 17 22 27 32 37 next: 42 47 52", "type": "count"}
+{"text": "reverse: jah answer: haj", "type": "reverse"}
+{"text": "shift1: fkif answer: gljg", "type": "cipher"}
+{"text": "count: 11 13 15 17 19 21 23 25 next: 27 29 31", "type": "count"}
+{"text": "reverse: ajob answer: boja", "type": "reverse"}
+{"text": "shift3: njojc answer: qmrmf", "type": "cipher"}
+{"text": "shift3: piiam answer: slldp", "type": "cipher"}
+{"text": "repeat: fihjfihjfihj next: fihj", "type": "repeat"}
+{"text": "count: 15 18 21 24 next: 27 30 33", "type": "count"}
+{"text": "reverse: npgeok answer: koegpn", "type": "reverse"}
+{"text": "count: 17 18 19 20 21 22 next: 23 24 25", "type": "count"}
+{"text": "shift5: mjkkiih answer: roppnnm", "type": "cipher"}
+{"text": "repeat: ededed next: ed", "type": "repeat"}
+{"text": "shift2: aki answer: cmk", "type": "cipher"}
+{"text": "count: 8 11 14 17 20 next: 23 26 29", "type": "count"}
+{"text": "repeat: dgeifdgeifdgeif next: dgeif", "type": "repeat"}
+{"text": "shift2: hbnj answer: jdpl", "type": "cipher"}
+{"text": "count: 11 14 17 20 23 next: 26 29 32", "type": "count"}
+{"text": "shift5: jiaadb answer: onffig", "type": "cipher"}
+{"text": "reverse: oajcmmkenk answer: knekmmcjao", "type": "reverse"}
+{"text": "shift3: jdmnfobi answer: mgpqirel", "type": "cipher"}
+{"text": "repeat: aeaeae next: ae", "type": "repeat"}
+{"text": "reverse: mnfdkcbd answer: dbckdfnm", "type": "reverse"}
+{"text": "shift1: cng answer: doh", "type": "cipher"}
+{"text": "repeat: jdjdjdjd next: jd", "type": "repeat"}
+{"text": "shift2: cmgjig answer: eoilki", "type": "cipher"}
+{"text": "repeat: hdhdhdhd next: hdhd", "type": "repeat"}
+{"text": "reverse: bkkb answer: bkkb", "type": "reverse"}
+{"text": "shift4: enad answer: ireh", "type": "cipher"}
+{"text": "count: 14 15 16 17 next: 18 19 20", "type": "count"}
+{"text": "count: 16 21 26 31 36 41 46 51 next: 56 61 66", "type": "count"}
+{"text": "count: 14 15 16 17 18 19 20 21 next: 22 23 24", "type": "count"}
+{"text": "shift3: pledh answer: sohgk", "type": "cipher"}
+{"text": "repeat: djffdfcdjffdfc next: djffdfc", "type": "repeat"}
+{"text": "shift5: pckg answer: uhpl", "type": "cipher"}
+{"text": "shift4: hco answer: lgs", "type": "cipher"}
+{"text": "repeat: ahchdahchdahchd next: ahchd", "type": "repeat"}
+{"text": "reverse: dbk answer: kbd", "type": "reverse"}
+{"text": "count: 4 5 6 7 8 9 10 next: 11 12 13", "type": "count"}
+{"text": "reverse: majkj answer: jkjam", "type": "reverse"}
+{"text": "count: 13 16 19 22 25 28 next: 31 34 37", "type": "count"}
+{"text": "repeat: hdhdhd next: hd", "type": "repeat"}
+{"text": "repeat: gegegege next: ge", "type": "repeat"}
+{"text": "reverse: hlkhg answer: ghklh", "type": "reverse"}
+{"text": "reverse: cjme answer: emjc", "type": "reverse"}
+{"text": "shift4: eikhjofg answer: imolnsjk", "type": "cipher"}
+{"text": "shift1: jlkkji answer: kmllkj", "type": "cipher"}
+{"text": "shift3: fjp answer: ims", "type": "cipher"}
+{"text": "shift1: nacfkial answer: obdgljbm", "type": "cipher"}
+{"text": "repeat: gehggehggehg next: gehg", "type": "repeat"}
+{"text": "repeat: fgefbaaifgefbaai next: fgefbaai", "type": "repeat"}
+{"text": "count: 2 3 4 5 6 7 8 next: 9 10 11", "type": "count"}
+{"text": "count: 3 5 7 9 next: 11 13 15", "type": "count"}
+{"text": "count: 15 18 21 24 next: 27 30 33", "type": "count"}
+{"text": "reverse: bfhclghd answer: dhglchfb", "type": "reverse"}
+{"text": "shift2: gphfb answer: irjhd", "type": "cipher"}
+{"text": "count: 6 9 12 15 next: 18 21 24", "type": "count"}
+{"text": "shift4: lkgoi answer: poksm", "type": "cipher"}
+{"text": "reverse: gmbhae answer: eahbmg", "type": "reverse"}
+{"text": "shift4: fooefahd answer: jssijelh", "type": "cipher"}
+{"text": "shift4: hgcldeg answer: lkgphik", "type": "cipher"}
+{"text": "reverse: lmg answer: gml", "type": "reverse"}
+{"text": "reverse: nbabbdgm answer: mgdbbabn", "type": "reverse"}
+{"text": "shift2: fkgpcm answer: hmireo", "type": "cipher"}
+{"text": "count: 14 15 16 17 18 19 next: 20 21 22", "type": "count"}
+{"text": "repeat: ihajbeihajbeihajbe next: ihajbe", "type": "repeat"}
+{"text": "repeat: abfabf next: abf", "type": "repeat"}
+{"text": "repeat: eajheajheajh next: eajh", "type": "repeat"}
+{"text": "repeat: jdjibebdjdjibebdjdjibebd next: jdjibebd", "type": "repeat"}
+{"text": "repeat: ecgigjcecgigjc next: ecgigjc", "type": "repeat"}
+{"text": "shift5: dhnkgm answer: imsplr", "type": "cipher"}
+{"text": "count: 4 8 12 16 20 24 next: 28 32 36", "type": "count"}
+{"text": "repeat: ccigaccigacciga next: cciga", "type": "repeat"}
+{"text": "reverse: apcd answer: dcpa", "type": "reverse"}
+{"text": "count: 6 10 14 18 22 26 next: 30 34 38", "type": "count"}
+{"text": "reverse: ojgibjhh answer: hhjbigjo", "type": "reverse"}
+{"text": "count: 14 15 16 17 18 19 20 next: 21 22 23", "type": "count"}
+{"text": "count: 10 12 14 16 next: 18 20 22", "type": "count"}
+{"text": "repeat: cdacdacda next: cda", "type": "repeat"}
+{"text": "repeat: fahbfahb next: fahb", "type": "repeat"}
+{"text": "count: 11 15 19 23 27 31 35 next: 39 43 47", "type": "count"}
+{"text": "count: 18 22 26 30 34 38 42 46 next: 50 54 58", "type": "count"}
+{"text": "shift3: enlbn answer: hqoeq", "type": "cipher"}
+{"text": "repeat: cbeebcfcbeebcfcbeebcfcbeebcf next: cbeebcf", "type": "repeat"}
+{"text": "repeat: jbajbajba next: jba", "type": "repeat"}
+{"text": "reverse: kgom answer: mogk", "type": "reverse"}
+{"text": "repeat: ehihdehihdehihdehihd next: ehihd", "type": "repeat"}
+{"text": "count: 17 21 25 29 33 37 41 45 next: 49 53 57", "type": "count"}
+{"text": "repeat: heifaibheifaibheifaibheifaib next: heifaib", "type": "repeat"}
+{"text": "repeat: ggggjggggjggggjggggj next: ggggj", "type": "repeat"}
+{"text": "shift4: nlnfpfnj answer: rprjtjrn", "type": "cipher"}
+{"text": "count: 15 18 21 24 27 30 33 36 next: 39 42 45", "type": "count"}
+{"text": "repeat: gjaiabaigjaiabaigjaiabai next: gjaiabai", "type": "repeat"}
+{"text": "count: 17 20 23 26 29 32 35 next: 38 41 44", "type": "count"}
+{"text": "shift3: mhfmcl answer: pkipfo", "type": "cipher"}
+{"text": "count: 1 2 3 4 5 6 7 next: 8 9 10", "type": "count"}
+{"text": "repeat: gcjbchhhgcjbchhhgcjbchhhgcjbchhh next: gcjbchhh", "type": "repeat"}
+{"text": "shift2: nmkb answer: pomd", "type": "cipher"}
+{"text": "reverse: lkomjoeh answer: heojmokl", "type": "reverse"}
+{"text": "count: 4 8 12 16 20 24 28 32 next: 36 40 44", "type": "count"}
+{"text": "repeat: afggbjdcafggbjdc next: afggbjdc", "type": "repeat"}
+{"text": "repeat: efjcbhefjcbhefjcbh next: efjcbh", "type": "repeat"}
+{"text": "shift1: ehcab answer: fidbc", "type": "cipher"}
+{"text": "count: 5 7 9 11 13 15 17 next: 19 21 23", "type": "count"}
+{"text": "count: 1 2 3 4 5 6 7 next: 8 9 10", "type": "count"}
+{"text": "reverse: mmgok answer: kogmm", "type": "reverse"}
+{"text": "repeat: ebfebfebfebf next: ebf", "type": "repeat"}
+{"text": "reverse: fkoddc answer: cddokf", "type": "reverse"}
+{"text": "shift2: kfcbf answer: mhedh", "type": "cipher"}
+{"text": "reverse: lbeabljl answer: ljlbaebl", "type": "reverse"}
+{"text": "shift4: kchdlc answer: oglhpg", "type": "cipher"}
+{"text": "shift1: opb answer: pqc", "type": "cipher"}
+{"text": "reverse: lme answer: eml", "type": "reverse"}
+{"text": "shift5: defoh answer: ijktm", "type": "cipher"}
+{"text": "reverse: ilmhnfkf answer: fkfnhmli", "type": "reverse"}
+{"text": "shift3: chngnlhb answer: fkqjqoke", "type": "cipher"}
+{"text": "count: 13 14 15 16 17 18 19 20 next: 21 22 23", "type": "count"}
+{"text": "shift2: mkk answer: omm", "type": "cipher"}
+{"text": "shift5: pckmhap answer: uhprmfu", "type": "cipher"}
+{"text": "shift3: fcjbia answer: ifmeld", "type": "cipher"}
+{"text": "count: 5 10 15 20 25 30 35 next: 40 45 50", "type": "count"}
+{"text": "reverse: mok answer: kom", "type": "reverse"}
+{"text": "repeat: ajajajaj next: aj", "type": "repeat"}
+{"text": "shift3: molhed answer: prokhg", "type": "cipher"}
+{"text": "shift2: bgnecpfg answer: dipgerhi", "type": "cipher"}
+{"text": "reverse: knb answer: bnk", "type": "reverse"}
+{"text": "count: 17 20 23 26 29 32 35 next: 38 41 44", "type": "count"}
+{"text": "repeat: caicai next: cai", "type": "repeat"}
+{"text": "shift2: hncg answer: jpei", "type": "cipher"}
+{"text": "shift2: edfjijjg answer: gfhlklli", "type": "cipher"}
+{"text": "shift1: nehncail answer: ofiodbjm", "type": "cipher"}
+{"text": "repeat: ibdhghibdhghibdhgh next: ibdhgh", "type": "repeat"}
+{"text": "count: 7 12 17 22 27 32 37 next: 42 47 52", "type": "count"}
+{"text": "repeat: jcjebcdjcjebcdjcjebcd next: jcjebcd", "type": "repeat"}
+{"text": "count: 9 12 15 18 next: 21 24 27", "type": "count"}
+{"text": "reverse: fbgblig answer: gilbgbf", "type": "reverse"}
+{"text": "reverse: bieljnhon answer: nohnjleib", "type": "reverse"}
+{"text": "count: 5 7 9 11 13 15 next: 17 19 21", "type": "count"}
+{"text": "reverse: fdokagfjbc answer: cbjfgakodf", "type": "reverse"}
+{"text": "reverse: omejf answer: fjemo", "type": "reverse"}
+{"text": "shift3: epaknm answer: hsdnqp", "type": "cipher"}
+{"text": "count: 4 6 8 10 12 14 next: 16 18 20", "type": "count"}
+{"text": "reverse: liim answer: miil", "type": "reverse"}
+{"text": "shift1: gdbglcpb answer: hechmdqc", "type": "cipher"}
+{"text": "count: 3 7 11 15 19 23 27 31 next: 35 39 43", "type": "count"}
+{"text": "repeat: bajiibgfbajiibgfbajiibgf next: bajiibgf", "type": "repeat"}
+{"text": "count: 12 14 16 18 20 next: 22 24 26", "type": "count"}
+{"text": "shift4: gdflgepe answer: khjpkiti", "type": "cipher"}
+{"text": "shift2: anojfbi answer: cpqlhdk", "type": "cipher"}
+{"text": "reverse: mbjelfaa answer: aaflejbm", "type": "reverse"}
+{"text": "count: 3 8 13 18 next: 23 28 33", "type": "count"}
+{"text": "count: 9 14 19 24 29 34 39 44 next: 49 54 59", "type": "count"}
+{"text": "repeat: jcbghjcbghjcbgh next: jcbgh", "type": "repeat"}
+{"text": "reverse: dmak answer: kamd", "type": "reverse"}
+{"text": "count: 16 18 20 22 24 next: 26 28 30", "type": "count"}
+{"text": "shift3: bojhnl answer: ermkqo", "type": "cipher"}
+{"text": "repeat: dcabgdcabg next: dcabg", "type": "repeat"}
+{"text": "shift5: opai answer: tufn", "type": "cipher"}
+{"text": "shift3: gnhbap answer: jqkeds", "type": "cipher"}
+{"text": "shift3: hadm answer: kdgp", "type": "cipher"}
+{"text": "reverse: phahl answer: lhahp", "type": "reverse"}
+{"text": "repeat: ebdecjihebdecjihebdecjih next: ebdecjih", "type": "repeat"}
+{"text": "shift4: ddm answer: hhq", "type": "cipher"}
+{"text": "count: 16 19 22 25 28 31 next: 34 37 40", "type": "count"}
+{"text": "shift3: jpejdbea answer: mshmgehd", "type": "cipher"}
+{"text": "count: 11 14 17 20 next: 23 26 29", "type": "count"}
+{"text": "shift4: edkjihef answer: ihonmlij", "type": "cipher"}
+{"text": "reverse: mjkmopjgpa answer: apgjpomkjm", "type": "reverse"}
+{"text": "count: 1 2 3 4 5 6 7 next: 8 9 10", "type": "count"}
+{"text": "reverse: ligl answer: lgil", "type": "reverse"}
+{"text": "shift3: edoj answer: hgrm", "type": "cipher"}
+{"text": "shift2: lnhh answer: npjj", "type": "cipher"}
+{"text": "shift2: dlf answer: fnh", "type": "cipher"}
+{"text": "reverse: mmdnmnpcfe answer: efcpnmndmm", "type": "reverse"}
+{"text": "repeat: hbbaihhbbaihhbbaih next: hbbaih", "type": "repeat"}
+{"text": "repeat: ifecifecifec next: ifec", "type": "repeat"}
+{"text": "reverse: gkfpmgnehp answer: phengmpfkg", "type": "reverse"}
+{"text": "count: 17 19 21 23 25 27 29 31 next: 33 35 37", "type": "count"}
+{"text": "shift5: bepc answer: gjuh", "type": "cipher"}
+{"text": "repeat: fhijfdcjfhijfdcjfhijfdcjfhijfdcj next: fhijfdcj", "type": "repeat"}
+{"text": "count: 3 8 13 18 23 28 33 next: 38 43 48", "type": "count"}
+{"text": "repeat: hfdidcbhhfdidcbh next: hfdidcbh", "type": "repeat"}
+{"text": "reverse: affah answer: haffa", "type": "reverse"}
+{"text": "repeat: hggcjghggcjg next: hggcjg", "type": "repeat"}
+{"text": "repeat: ggdgggdgggdgggdg next: ggdg", "type": "repeat"}
+{"text": "shift2: ajj answer: cll", "type": "cipher"}
+{"text": "repeat: feiicffeiicf next: feiicf", "type": "repeat"}
+{"text": "repeat: igicigic next: igic", "type": "repeat"}
+{"text": "shift2: bfhndnn answer: dhjpfpp", "type": "cipher"}
+{"text": "repeat: idaidaidaida next: ida", "type": "repeat"}
+{"text": "shift2: loi answer: nqk", "type": "cipher"}
+{"text": "repeat: jjjfhgfjjjfhgfjjjfhgfjjjfhgf next: jjjfhgf", "type": "repeat"}
+{"text": "repeat: ibiicibiicibiicibiic next: ibiic", "type": "repeat"}
+{"text": "count: 18 23 28 33 38 43 48 53 next: 58 63 68", "type": "count"}
+{"text": "shift3: kggfnfe answer: njjiqih", "type": "cipher"}
+{"text": "repeat: iifhgcjeiifhgcjeiifhgcjeiifhgcje next: iifhgcje", "type": "repeat"}
+{"text": "shift3: bnmh answer: eqpk", "type": "cipher"}
+{"text": "repeat: jehjeh next: jeh", "type": "repeat"}
+{"text": "reverse: lcfffp answer: pfffcl", "type": "reverse"}
+{"text": "count: 6 9 12 15 next: 18 21 24", "type": "count"}
+{"text": "repeat: decbbdecbbdecbb next: decbb", "type": "repeat"}
+{"text": "reverse: mhea answer: aehm", "type": "reverse"}
+{"text": "count: 8 9 10 11 12 13 14 15 next: 16 17 18", "type": "count"}
+{"text": "shift1: gokddmi answer: hpleenj", "type": "cipher"}
+{"text": "shift2: ejdcfmn answer: glfehop", "type": "cipher"}
+{"text": "reverse: paa answer: aap", "type": "reverse"}
+{"text": "reverse: lpm answer: mpl", "type": "reverse"}
+{"text": "repeat: dighdighdighdigh next: digh", "type": "repeat"}
+{"text": "shift2: kgnpplf answer: miprrnh", "type": "cipher"}
+{"text": "reverse: aeckckgplh answer: hlpgkckcea", "type": "reverse"}
+{"text": "reverse: amacng answer: gncama", "type": "reverse"}
+{"text": "shift3: clcbhh answer: fofekk", "type": "cipher"}
+{"text": "shift3: plgnbo answer: sojqer", "type": "cipher"}
+{"text": "repeat: bgdbgdbgdbgd next: bgd", "type": "repeat"}
+{"text": "count: 20 25 30 35 40 next: 45 50 55", "type": "count"}
+{"text": "reverse: bcdhapdfba answer: abfdpahdcb", "type": "reverse"}
+{"text": "count: 10 13 16 19 22 25 28 next: 31 34 37", "type": "count"}
+{"text": "reverse: cdnbpei answer: iepbndc", "type": "reverse"}
+{"text": "count: 4 7 10 13 16 19 next: 22 25 28", "type": "count"}
+{"text": "repeat: faagfaagfaagfaag next: faag", "type": "repeat"}
+{"text": "shift1: cgblfm answer: dhcmgn", "type": "cipher"}
+{"text": "repeat: egahaegahaegahaegaha next: egaha", "type": "repeat"}
+{"text": "shift1: pkki answer: qllj", "type": "cipher"}
+{"text": "shift5: omfebb answer: trkjgg", "type": "cipher"}
+{"text": "repeat: edggfccfedggfccfedggfccfedggfccf next: edggfccf", "type": "repeat"}
+{"text": "shift1: jiop answer: kjpq", "type": "cipher"}
+{"text": "repeat: aaejaaaejaaaejaaaeja next: aaeja", "type": "repeat"}
+{"text": "repeat: gabbgabb next: gabb", "type": "repeat"}
+{"text": "reverse: aemkeckl answer: lkcekmea", "type": "reverse"}
+{"text": "shift3: mili answer: plol", "type": "cipher"}
+{"text": "reverse: megidbbj answer: jbbdigem", "type": "reverse"}
+{"text": "count: 11 16 21 26 next: 31 36 41", "type": "count"}
+{"text": "repeat: abdcgfabdcgfabdcgf next: abdcgf", "type": "repeat"}
+{"text": "reverse: caobdck answer: kcdboac", "type": "reverse"}
+{"text": "repeat: cjbcjbcjbcjb next: cjb", "type": "repeat"}
+{"text": "count: 13 14 15 16 17 18 next: 19 20 21", "type": "count"}
+{"text": "count: 17 18 19 20 21 22 next: 23 24 25", "type": "count"}
+{"text": "count: 16 20 24 28 32 36 next: 40 44 48", "type": "count"}
+{"text": "count: 13 14 15 16 17 next: 18 19 20", "type": "count"}
+{"text": "reverse: kikapjn answer: njpakik", "type": "reverse"}
+{"text": "reverse: cpcine answer: enicpc", "type": "reverse"}
+{"text": "reverse: gdopg answer: gpodg", "type": "reverse"}
+{"text": "shift4: nia answer: rme", "type": "cipher"}
+{"text": "repeat: bhddfbjgbhddfbjgbhddfbjg next: bhddfbjg", "type": "repeat"}
+{"text": "shift4: agdemj answer: ekhiqn", "type": "cipher"}
+{"text": "count: 11 13 15 17 next: 19 21 23", "type": "count"}
+{"text": "shift5: jnpc answer: osuh", "type": "cipher"}
+{"text": "reverse: ejhkem answer: mekhje", "type": "reverse"}
+{"text": "repeat: bhbjbhbjbhbjbhbj next: bhbj", "type": "repeat"}
+{"text": "shift3: dicpkdh answer: glfsngk", "type": "cipher"}
+{"text": "shift1: jbfg answer: kcgh", "type": "cipher"}
+{"text": "shift3: gebdnepj answer: jhegqhsm", "type": "cipher"}
+{"text": "shift4: bnnc answer: frrg", "type": "cipher"}
+{"text": "shift1: jfpeh answer: kgqfi", "type": "cipher"}
+{"text": "repeat: hjhjhj next: hj", "type": "repeat"}
+{"text": "reverse: pbd answer: dbp", "type": "reverse"}
+{"text": "count: 6 7 8 9 10 11 12 next: 13 14 15", "type": "count"}
+{"text": "repeat: hifjhhifjh next: hifjh", "type": "repeat"}
+{"text": "count: 18 20 22 24 26 28 30 32 next: 34 36 38", "type": "count"}
+{"text": "shift1: jlck answer: kmdl", "type": "cipher"}
+{"text": "reverse: milpi answer: iplim", "type": "reverse"}
+{"text": "shift4: efapdhlf answer: ijethlpj", "type": "cipher"}
+{"text": "reverse: dlgjim answer: mijgld", "type": "reverse"}
+{"text": "repeat: eeibhajdeeibhajdeeibhajd next: eeibhajd", "type": "repeat"}
+{"text": "repeat: djegddjegddjegd next: djegd", "type": "repeat"}
+{"text": "reverse: gkhgn answer: nghkg", "type": "reverse"}
+{"text": "shift1: blg answer: cmh", "type": "cipher"}
+{"text": "shift1: klbmlpa answer: lmcnmqb", "type": "cipher"}
+{"text": "repeat: bbbeffedbbbeffedbbbeffedbbbeffed next: bbbeffed", "type": "repeat"}
+{"text": "shift4: lhhhibef answer: plllmfij", "type": "cipher"}
+{"text": "reverse: bkdfh answer: hfdkb", "type": "reverse"}
+{"text": "repeat: hchgghchgghchgg next: hchgg", "type": "repeat"}
+{"text": "reverse: eaohihfk answer: kfhihoae", "type": "reverse"}
+{"text": "repeat: acfeacfeacfeacfe next: acfe", "type": "repeat"}
+{"text": "count: 11 14 17 20 23 next: 26 29 32", "type": "count"}
+{"text": "shift3: bafcjflf answer: edifmioi", "type": "cipher"}
+{"text": "count: 4 7 10 13 16 19 next: 22 25 28", "type": "count"}
+{"text": "shift2: nbmek answer: pdogm", "type": "cipher"}
+{"text": "repeat: cefciddjcefciddjcefciddjcefciddj next: cefciddj", "type": "repeat"}
+{"text": "reverse: gjakagdak answer: kadgakajg", "type": "reverse"}
+{"text": "reverse: jankdepn answer: npedknaj", "type": "reverse"}
+{"text": "reverse: dbabdfegjl answer: ljgefdbabd", "type": "reverse"}
+{"text": "count: 17 19 21 23 25 27 29 next: 31 33 35", "type": "count"}
+{"text": "count: 1 6 11 16 next: 21 26 31", "type": "count"}
+{"text": "reverse: dkh answer: hkd", "type": "reverse"}
+{"text": "count: 3 7 11 15 19 23 27 31 next: 35 39 43", "type": "count"}
+{"text": "count: 17 21 25 29 next: 33 37 41", "type": "count"}
+{"text": "shift4: ldgg answer: phkk", "type": "cipher"}
+{"text": "shift1: gocmag answer: hpdnbh", "type": "cipher"}
+{"text": "shift1: omi answer: pnj", "type": "cipher"}
+{"text": "reverse: faapjmgpic answer: cipgmjpaaf", "type": "reverse"}
+{"text": "count: 15 20 25 30 35 40 45 50 next: 55 60 65", "type": "count"}
+{"text": "count: 15 16 17 18 19 next: 20 21 22", "type": "count"}
+{"text": "repeat: ijegbjfaijegbjfa next: ijegbjfa", "type": "repeat"}
+{"text": "shift5: mjeejfnf answer: rojjoksk", "type": "cipher"}
+{"text": "shift5: fkjmfpc answer: kporkuh", "type": "cipher"}
+{"text": "count: 8 13 18 23 28 33 38 43 next: 48 53 58", "type": "count"}
+{"text": "count: 20 24 28 32 next: 36 40 44", "type": "count"}
+{"text": "repeat: iefafibiefafib next: iefafib", "type": "repeat"}
+{"text": "count: 16 19 22 25 28 31 next: 34 37 40", "type": "count"}
+{"text": "reverse: difldlk answer: kldlfid", "type": "reverse"}
+{"text": "count: 6 7 8 9 10 11 next: 12 13 14", "type": "count"}
+{"text": "shift4: ogoad answer: skseh", "type": "cipher"}
+{"text": "count: 3 5 7 9 11 13 15 17 next: 19 21 23", "type": "count"}
+{"text": "reverse: bcnidbbibf answer: fbibbdincb", "type": "reverse"}
+{"text": "shift2: iaoihcgp answer: kcqkjeir", "type": "cipher"}
+{"text": "reverse: abobapcpi answer: ipcpaboba", "type": "reverse"}
+{"text": "repeat: bjibjibjibji next: bji", "type": "repeat"}
+{"text": "reverse: dmbcgefkof answer: fokfegcbmd", "type": "reverse"}
+{"text": "reverse: olmnbbm answer: mbbnmlo", "type": "reverse"}
+{"text": "shift1: dhiee answer: eijff", "type": "cipher"}
+{"text": "count: 10 12 14 16 18 20 next: 22 24 26", "type": "count"}
+{"text": "repeat: gcgc next: gc", "type": "repeat"}
+{"text": "shift1: mfncc answer: ngodd", "type": "cipher"}
+{"text": "count: 5 6 7 8 9 next: 10 11 12", "type": "count"}
+{"text": "repeat: ifififif next: if", "type": "repeat"}
+{"text": "count: 11 14 17 20 23 26 29 next: 32 35 38", "type": "count"}
+{"text": "count: 19 20 21 22 next: 23 24 25", "type": "count"}
+{"text": "count: 14 16 18 20 22 24 26 next: 28 30 32", "type": "count"}
+{"text": "reverse: hoa answer: aoh", "type": "reverse"}
+{"text": "reverse: oohbcdaec answer: ceadcbhoo", "type": "reverse"}
+{"text": "repeat: ffeififfeififfeififfeifi next: ffeifi", "type": "repeat"}
+{"text": "count: 19 20 21 22 23 next: 24 25 26", "type": "count"}
+{"text": "reverse: mpfkglfe answer: eflgkfpm", "type": "reverse"}
+{"text": "reverse: jkkphef answer: fehpkkj", "type": "reverse"}
+{"text": "reverse: jcdpgp answer: pgpdcj", "type": "reverse"}
+{"text": "repeat: ibbiibbiibbi next: ibbi", "type": "repeat"}
+{"text": "repeat: chachacha next: cha", "type": "repeat"}
+{"text": "repeat: hheaaabhheaaabhheaaab next: hheaaab", "type": "repeat"}
+{"text": "count: 19 20 21 22 23 24 25 next: 26 27 28", "type": "count"}
+{"text": "repeat: bcbcbcbc next: bc", "type": "repeat"}
+{"text": "reverse: keegi answer: igeek", "type": "reverse"}
+{"text": "shift3: knhfipk answer: nqkilsn", "type": "cipher"}
+{"text": "shift5: palefak answer: ufqjkfp", "type": "cipher"}
+{"text": "shift2: dabim answer: fcdko", "type": "cipher"}
+{"text": "shift5: emdld answer: jriqi", "type": "cipher"}
+{"text": "repeat: fjcijfjcijfjcij next: fjcij", "type": "repeat"}
+{"text": "reverse: jlpfpoim answer: miopfplj", "type": "reverse"}
+{"text": "repeat: iifciifciifciifc next: iifc", "type": "repeat"}
+{"text": "reverse: nchhoogpi answer: ipgoohhcn", "type": "reverse"}
+{"text": "shift4: khm answer: olq", "type": "cipher"}
+{"text": "repeat: jddjdd next: jdd", "type": "repeat"}
+{"text": "shift4: fmlal answer: jqpep", "type": "cipher"}
+{"text": "count: 5 7 9 11 13 15 next: 17 19 21", "type": "count"}
+{"text": "shift1: cljk answer: dmkl", "type": "cipher"}
+{"text": "shift3: dckk answer: gfnn", "type": "cipher"}
+{"text": "repeat: afbciafbciafbciafbci next: afbci", "type": "repeat"}
+{"text": "reverse: fkfbnono answer: ononbfkf", "type": "reverse"}
+{"text": "reverse: amghfen answer: nefhgma", "type": "reverse"}
+{"text": "shift5: pnhh answer: usmm", "type": "cipher"}
+{"text": "repeat: jhhagjfjhhagjf next: jhhagjf", "type": "repeat"}
+{"text": "shift3: anl answer: dqo", "type": "cipher"}
+{"text": "count: 14 15 16 17 18 19 20 next: 21 22 23", "type": "count"}
+{"text": "repeat: ecjiecji next: ecji", "type": "repeat"}
+{"text": "reverse: goggmonijl answer: ljinomggog", "type": "reverse"}
+{"text": "count: 3 4 5 6 7 8 9 next: 10 11 12", "type": "count"}
+{"text": "reverse: ogmlc answer: clmgo", "type": "reverse"}
+{"text": "repeat: eahcgjeahcgj next: eahcgj", "type": "repeat"}
+{"text": "repeat: didididi next: di", "type": "repeat"}
+{"text": "shift3: gjhdbc answer: jmkgef", "type": "cipher"}
+{"text": "shift4: jnomehoi answer: nrsqilsm", "type": "cipher"}
+{"text": "reverse: nik answer: kin", "type": "reverse"}
+{"text": "shift5: peecidb answer: ujjhnig", "type": "cipher"}
+{"text": "repeat: fefe next: fe", "type": "repeat"}
+{"text": "shift2: ceingk answer: egkpim", "type": "cipher"}
+{"text": "count: 10 14 18 22 26 next: 30 34 38", "type": "count"}
+{"text": "reverse: dhnkajfge answer: egfjaknhd", "type": "reverse"}
+{"text": "shift1: apckolc answer: bqdlpmd", "type": "cipher"}
+{"text": "repeat: acacbdeacacbdeacacbdeacacbde next: acacbde", "type": "repeat"}
+{"text": "reverse: fbadgiedb answer: bdeigdabf", "type": "reverse"}
+{"text": "reverse: ghbiaiio answer: oiiaibhg", "type": "reverse"}
+{"text": "count: 11 15 19 23 27 next: 31 35 39", "type": "count"}
+{"text": "repeat: ihfjaaihfjaaihfjaaihfjaa next: ihfjaa", "type": "repeat"}
+{"text": "shift3: okmjnk answer: rnpmqn", "type": "cipher"}
+{"text": "count: 20 22 24 26 28 next: 30 32 34", "type": "count"}
+{"text": "reverse: nkbhpnpo answer: opnphbkn", "type": "reverse"}
+{"text": "shift2: lgoion answer: niqkqp", "type": "cipher"}
+{"text": "reverse: pmogk answer: kgomp", "type": "reverse"}
+{"text": "count: 11 12 13 14 next: 15 16 17", "type": "count"}
+{"text": "reverse: ghl answer: lhg", "type": "reverse"}
+{"text": "shift4: jde answer: nhi", "type": "cipher"}
+{"text": "count: 5 10 15 20 25 30 next: 35 40 45", "type": "count"}
+{"text": "count: 9 11 13 15 next: 17 19 21", "type": "count"}
+{"text": "repeat: dcehdcehdcehdceh next: dceh", "type": "repeat"}
+{"text": "count: 19 23 27 31 35 39 next: 43 47 51", "type": "count"}
+{"text": "shift3: egggb answer: hjjje", "type": "cipher"}
+{"text": "shift1: fce answer: gdf", "type": "cipher"}
+{"text": "repeat: efdfcbfefdfcbfefdfcbfefdfcbf next: efdfcbf", "type": "repeat"}
+{"text": "reverse: lceb answer: becl", "type": "reverse"}
+{"text": "reverse: gbiohe answer: ehoibg", "type": "reverse"}
+{"text": "reverse: ncefba answer: abfecn", "type": "reverse"}
+{"text": "count: 12 13 14 15 16 17 18 next: 19 20 21", "type": "count"}
+{"text": "reverse: jfejb answer: bjefj", "type": "reverse"}
+{"text": "repeat: diijjdiijjdiijj next: diijj", "type": "repeat"}
+{"text": "reverse: cehkbabln answer: nlbabkhec", "type": "reverse"}
+{"text": "count: 12 17 22 27 32 37 42 next: 47 52 57", "type": "count"}
+{"text": "shift3: foanihdf answer: irdqlkgi", "type": "cipher"}
+{"text": "shift3: nooamo answer: qrrdpr", "type": "cipher"}
+{"text": "count: 12 15 18 21 24 next: 27 30 33", "type": "count"}
+{"text": "reverse: dfokfepd answer: dpefkofd", "type": "reverse"}
+{"text": "repeat: ifeaaiifeaaiifeaai next: ifeaai", "type": "repeat"}
+{"text": "count: 20 25 30 35 40 45 50 55 next: 60 65 70", "type": "count"}
+{"text": "reverse: egjghnfnp answer: pnfnhgjge", "type": "reverse"}
+{"text": "count: 2 7 12 17 next: 22 27 32", "type": "count"}
+{"text": "count: 18 23 28 33 38 43 48 53 next: 58 63 68", "type": "count"}
+{"text": "count: 6 10 14 18 22 26 30 next: 34 38 42", "type": "count"}
+{"text": "reverse: dkdfg answer: gfdkd", "type": "reverse"}
+{"text": "count: 16 19 22 25 28 31 34 37 next: 40 43 46", "type": "count"}
+{"text": "shift5: epjendn answer: juojsis", "type": "cipher"}
+{"text": "shift4: ocghcf answer: sgklgj", "type": "cipher"}
+{"text": "count: 11 16 21 26 next: 31 36 41", "type": "count"}
+{"text": "reverse: gikcej answer: jeckig", "type": "reverse"}
+{"text": "reverse: nmelb answer: blemn", "type": "reverse"}
+{"text": "reverse: fki answer: ikf", "type": "reverse"}
+{"text": "count: 16 20 24 28 32 36 40 44 next: 48 52 56", "type": "count"}
+{"text": "repeat: ahbaahba next: ahba", "type": "repeat"}
+{"text": "count: 12 16 20 24 28 32 36 next: 40 44 48", "type": "count"}
+{"text": "count: 4 8 12 16 20 24 next: 28 32 36", "type": "count"}
+{"text": "count: 4 6 8 10 12 14 16 18 next: 20 22 24", "type": "count"}
+{"text": "count: 12 16 20 24 28 next: 32 36 40", "type": "count"}
+{"text": "reverse: bbic answer: cibb", "type": "reverse"}
+{"text": "reverse: abi answer: iba", "type": "reverse"}
+{"text": "reverse: cclc answer: clcc", "type": "reverse"}
+{"text": "shift5: lokeaa answer: qtpjff", "type": "cipher"}
+{"text": "reverse: ombpnke answer: eknpbmo", "type": "reverse"}
+{"text": "shift4: ojihdhea answer: snmlhlie", "type": "cipher"}
+{"text": "repeat: hdfhfhchdfhfhc next: hdfhfhc", "type": "repeat"}
+{"text": "count: 5 10 15 20 next: 25 30 35", "type": "count"}
+{"text": "repeat: gfecajjjgfecajjjgfecajjj next: gfecajjj", "type": "repeat"}
+{"text": "shift1: kphd answer: lqie", "type": "cipher"}
+{"text": "shift4: oepgpfc answer: sitktjg", "type": "cipher"}
+{"text": "repeat: hahaha next: ha", "type": "repeat"}
+{"text": "repeat: ggjgacaggjgacaggjgaca next: ggjgaca", "type": "repeat"}
+{"text": "reverse: edajkcink answer: knickjade", "type": "reverse"}
+{"text": "repeat: dbgjjfaidbgjjfaidbgjjfaidbgjjfai next: dbgjjfai", "type": "repeat"}
+{"text": "shift1: lafo answer: mbgp", "type": "cipher"}
+{"text": "shift3: aoco answer: drfr", "type": "cipher"}
+{"text": "reverse: mjdebb answer: bbedjm", "type": "reverse"}
+{"text": "reverse: lihfnjhd answer: dhjnfhil", "type": "reverse"}
+{"text": "count: 8 12 16 20 24 28 next: 32 36 40", "type": "count"}
+{"text": "shift2: mpgppmb answer: orirrod", "type": "cipher"}
+{"text": "shift5: npd answer: sui", "type": "cipher"}
+{"text": "shift2: lcnmakfl answer: nepocmhn", "type": "cipher"}
+{"text": "shift5: dno answer: ist", "type": "cipher"}
+{"text": "reverse: oemk answer: kmeo", "type": "reverse"}
+{"text": "reverse: eoda answer: adoe", "type": "reverse"}
+{"text": "reverse: lbbm answer: mbbl", "type": "reverse"}
+{"text": "repeat: eigjfbhjeigjfbhj next: eigjfbhj", "type": "repeat"}
+{"text": "shift2: jfakdcd answer: lhcmfef", "type": "cipher"}
+{"text": "repeat: iahiciahiciahic next: iahic", "type": "repeat"}
+{"text": "reverse: gigac answer: cagig", "type": "reverse"}
+{"text": "count: 14 19 24 29 34 39 next: 44 49 54", "type": "count"}
+{"text": "shift1: emmchpmk answer: fnndiqnl", "type": "cipher"}
+{"text": "shift1: ekglc answer: flhmd", "type": "cipher"}
+{"text": "shift3: bgdm answer: ejgp", "type": "cipher"}
+{"text": "repeat: fbbjbjgfbbjbjg next: fbbjbjg", "type": "repeat"}
+{"text": "reverse: blmhkde answer: edkhmlb", "type": "reverse"}
+{"text": "shift1: befpehnf answer: cfgqfiog", "type": "cipher"}
+{"text": "reverse: glhf answer: fhlg", "type": "reverse"}
+{"text": "count: 14 17 20 23 26 29 32 35 next: 38 41 44", "type": "count"}
+{"text": "shift1: dobaplgd answer: epcbqmhe", "type": "cipher"}
+{"text": "repeat: ajjajjajjajj next: ajj", "type": "repeat"}
+{"text": "count: 18 20 22 24 26 28 30 next: 32 34 36", "type": "count"}
+{"text": "count: 5 10 15 20 25 30 35 next: 40 45 50", "type": "count"}
+{"text": "count: 12 14 16 18 next: 20 22 24", "type": "count"}
+{"text": "repeat: ifcjaaifcjaa next: ifcjaa", "type": "repeat"}
+{"text": "reverse: nedofpjajo answer: ojajpfoden", "type": "reverse"}
+{"text": "count: 20 23 26 29 next: 32 35 38", "type": "count"}
+{"text": "shift3: kljgna answer: nomjqd", "type": "cipher"}
+{"text": "count: 15 17 19 21 23 next: 25 27 29", "type": "count"}
+{"text": "repeat: djcdjc next: djc", "type": "repeat"}
+{"text": "repeat: ebhibebhibebhibebhib next: ebhib", "type": "repeat"}
+{"text": "reverse: mocajlo answer: oljacom", "type": "reverse"}
+{"text": "reverse: cghom answer: mohgc", "type": "reverse"}
+{"text": "shift1: ddoolj answer: eeppmk", "type": "cipher"}
+{"text": "shift4: bdnbno answer: fhrfrs", "type": "cipher"}
+{"text": "count: 10 12 14 16 next: 18 20 22", "type": "count"}
+{"text": "repeat: ggdehggcggdehggcggdehggc next: ggdehggc", "type": "repeat"}
+{"text": "shift5: opeegi answer: tujjln", "type": "cipher"}
+{"text": "count: 10 14 18 22 26 30 34 38 next: 42 46 50", "type": "count"}
+{"text": "count: 15 16 17 18 19 20 next: 21 22 23", "type": "count"}
+{"text": "reverse: emnpdnh answer: hndpnme", "type": "reverse"}
+{"text": "repeat: jcjcjc next: jc", "type": "repeat"}
+{"text": "reverse: jhhlboa answer: aoblhhj", "type": "reverse"}
+{"text": "repeat: hbffifhbffifhbffif next: hbffif", "type": "repeat"}
+{"text": "count: 8 12 16 20 24 28 32 36 next: 40 44 48", "type": "count"}
+{"text": "reverse: mbhi answer: ihbm", "type": "reverse"}
+{"text": "count: 12 14 16 18 20 22 24 26 next: 28 30 32", "type": "count"}
+{"text": "reverse: alma answer: amla", "type": "reverse"}
+{"text": "count: 3 6 9 12 next: 15 18 21", "type": "count"}
+{"text": "count: 9 13 17 21 next: 25 29 33", "type": "count"}
+{"text": "repeat: ejgeaejejgeaejejgeaejejgeaej next: ejgeaej", "type": "repeat"}
+{"text": "count: 19 22 25 28 31 34 37 40 next: 43 46 49", "type": "count"}
+{"text": "shift5: njgn answer: sols", "type": "cipher"}
+{"text": "repeat: ceebaaaceebaaaceebaaaceebaaa next: ceebaaa", "type": "repeat"}
+{"text": "repeat: jbfbifjejbfbifjejbfbifje next: jbfbifje", "type": "repeat"}
+{"text": "repeat: chdhchdh next: chdh", "type": "repeat"}
+{"text": "repeat: jgjaecjgjaecjgjaecjgjaec next: jgjaec", "type": "repeat"}
+{"text": "repeat: giegie next: gie", "type": "repeat"}
+{"text": "count: 5 9 13 17 21 25 29 next: 33 37 41", "type": "count"}
+{"text": "repeat: heiheiheihei next: hei", "type": "repeat"}
+{"text": "reverse: cpmgfpfj answer: jfpfgmpc", "type": "reverse"}
+{"text": "reverse: manflanod answer: donalfnam", "type": "reverse"}
+{"text": "count: 3 8 13 18 23 28 next: 33 38 43", "type": "count"}
+{"text": "repeat: afehfedhafehfedh next: afehfedh", "type": "repeat"}
+{"text": "count: 13 14 15 16 17 18 19 20 next: 21 22 23", "type": "count"}
+{"text": "repeat: igbigbigb next: igb", "type": "repeat"}
+{"text": "repeat: abicadgabicadgabicadgabicadg next: abicadg", "type": "repeat"}
+{"text": "reverse: anphfelne answer: enlefhpna", "type": "reverse"}
+{"text": "reverse: adb answer: bda", "type": "reverse"}
+{"text": "count: 16 17 18 19 20 21 next: 22 23 24", "type": "count"}
+{"text": "repeat: icbefficbefficbeff next: icbeff", "type": "repeat"}
+{"text": "reverse: nnbe answer: ebnn", "type": "reverse"}
+{"text": "reverse: kmehpkmc answer: cmkphemk", "type": "reverse"}
+{"text": "reverse: ijcileok answer: koelicji", "type": "reverse"}
+{"text": "repeat: eeeeeeeee next: eee", "type": "repeat"}
+{"text": "reverse: hibo answer: obih", "type": "reverse"}
+{"text": "reverse: bhbk answer: kbhb", "type": "reverse"}
+{"text": "repeat: hihdjhihdj next: hihdj", "type": "repeat"}
+{"text": "shift1: cpiko answer: dqjlp", "type": "cipher"}
+{"text": "reverse: bgkpjg answer: gjpkgb", "type": "reverse"}
+{"text": "count: 1 6 11 16 21 26 next: 31 36 41", "type": "count"}
+{"text": "count: 11 15 19 23 next: 27 31 35", "type": "count"}
+{"text": "count: 2 3 4 5 6 7 8 next: 9 10 11", "type": "count"}
+{"text": "count: 13 15 17 19 21 next: 23 25 27", "type": "count"}
+{"text": "count: 8 11 14 17 next: 20 23 26", "type": "count"}
+{"text": "shift1: hmb answer: inc", "type": "cipher"}
+{"text": "reverse: mgldoanhp answer: phnaodlgm", "type": "reverse"}
+{"text": "count: 17 18 19 20 21 22 23 next: 24 25 26", "type": "count"}
+{"text": "repeat: ffdhbhafffdhbhafffdhbhafffdhbhaf next: ffdhbhaf", "type": "repeat"}
+{"text": "shift1: pgd answer: qhe", "type": "cipher"}
+{"text": "count: 17 21 25 29 33 37 41 next: 45 49 53", "type": "count"}
+{"text": "reverse: hblghc answer: chglbh", "type": "reverse"}
+{"text": "repeat: hejehejehejeheje next: heje", "type": "repeat"}
+{"text": "repeat: aijhjaeaijhjaeaijhjae next: aijhjae", "type": "repeat"}
+{"text": "reverse: deg answer: ged", "type": "reverse"}
+{"text": "shift4: kiiegk answer: ommiko", "type": "cipher"}
+{"text": "repeat: cjjcjjcjjcjj next: cjj", "type": "repeat"}
+{"text": "shift4: ebedpkfm answer: ifihtojq", "type": "cipher"}
+{"text": "count: 18 19 20 21 22 23 24 next: 25 26 27", "type": "count"}
+{"text": "shift1: jbhjpj answer: kcikqk", "type": "cipher"}
+{"text": "count: 20 22 24 26 28 next: 30 32 34", "type": "count"}
+{"text": "count: 20 24 28 32 36 40 44 next: 48 52 56", "type": "count"}
+{"text": "reverse: elnmkihp answer: phikmnle", "type": "reverse"}
+{"text": "reverse: lcdhdidfef answer: fefdidhdcl", "type": "reverse"}
+{"text": "shift2: dnpo answer: fprq", "type": "cipher"}
+{"text": "shift1: gdjaddb answer: hekbeec", "type": "cipher"}
+{"text": "repeat: gdfgejgdfgejgdfgej next: gdfgej", "type": "repeat"}
+{"text": "count: 12 15 18 21 24 27 next: 30 33 36", "type": "count"}
+{"text": "reverse: fpogkkhp answer: phkkgopf", "type": "reverse"}
+{"text": "repeat: igjigjigj next: igj", "type": "repeat"}
+{"text": "count: 5 10 15 20 25 30 35 next: 40 45 50", "type": "count"}
+{"text": "shift1: egc answer: fhd", "type": "cipher"}
+{"text": "count: 19 22 25 28 31 34 next: 37 40 43", "type": "count"}
+{"text": "reverse: jeel answer: leej", "type": "reverse"}
+{"text": "reverse: kljhaoglf answer: flgoahjlk", "type": "reverse"}
+{"text": "count: 14 18 22 26 30 34 38 next: 42 46 50", "type": "count"}
+{"text": "shift2: abnlgphp answer: cdpnirjr", "type": "cipher"}
+{"text": "reverse: bcdobbmhei answer: iehmbbodcb", "type": "reverse"}
+{"text": "count: 3 8 13 18 23 next: 28 33 38", "type": "count"}
+{"text": "shift5: kldghkb answer: pqilmpg", "type": "cipher"}
+{"text": "shift4: mco answer: qgs", "type": "cipher"}
+{"text": "shift3: jniga answer: mqljd", "type": "cipher"}
+{"text": "reverse: jobonf answer: fnoboj", "type": "reverse"}
+{"text": "repeat: bhbbhbbhbbhb next: bhb", "type": "repeat"}
+{"text": "repeat: hadadheihadadheihadadheihadadhei next: hadadhei", "type": "repeat"}
+{"text": "shift5: fpdfmj answer: kuikro", "type": "cipher"}
+{"text": "count: 9 11 13 15 17 19 next: 21 23 25", "type": "count"}
+{"text": "shift5: fcngkbke answer: khslpgpj", "type": "cipher"}
+{"text": "shift3: nhdgjpa answer: qkgjmsd", "type": "cipher"}
+{"text": "reverse: mohmflbpae answer: eapblfmhom", "type": "reverse"}
+{"text": "count: 13 16 19 22 next: 25 28 31", "type": "count"}
+{"text": "reverse: fgh answer: hgf", "type": "reverse"}
+{"text": "repeat: fgfgfg next: fg", "type": "repeat"}
+{"text": "repeat: eabaeabaeaba next: eaba", "type": "repeat"}
+{"text": "repeat: cbhcicficbhcicficbhcicficbhcicfi next: cbhcicfi", "type": "repeat"}
+{"text": "reverse: mfkcebo answer: obeckfm", "type": "reverse"}
+{"text": "reverse: flbd answer: dblf", "type": "reverse"}
+{"text": "repeat: afeeibafeeib next: afeeib", "type": "repeat"}
+{"text": "count: 14 15 16 17 18 19 20 21 next: 22 23 24", "type": "count"}
+{"text": "repeat: egbeegbeegbe next: egbe", "type": "repeat"}
+{"text": "count: 20 23 26 29 32 next: 35 38 41", "type": "count"}
+{"text": "reverse: incdh answer: hdcni", "type": "reverse"}
+{"text": "reverse: kkcohngmd answer: dmgnhockk", "type": "reverse"}
+{"text": "reverse: llkjebmlhb answer: bhlmbejkll", "type": "reverse"}
+{"text": "repeat: gagagaga next: ga", "type": "repeat"}
+{"text": "reverse: gpep answer: pepg", "type": "reverse"}
+{"text": "reverse: eelcf answer: fclee", "type": "reverse"}
+{"text": "repeat: bhbaaicebhbaaice next: bhbaaice", "type": "repeat"}
+{"text": "count: 13 14 15 16 next: 17 18 19", "type": "count"}
+{"text": "count: 2 3 4 5 6 next: 7 8 9", "type": "count"}
+{"text": "shift4: fcahh answer: jgell", "type": "cipher"}
+{"text": "repeat: fegfegfeg next: feg", "type": "repeat"}
+{"text": "repeat: gfagfa next: gfa", "type": "repeat"}
+{"text": "shift4: hihojcho answer: lmlsngls", "type": "cipher"}
+{"text": "count: 2 3 4 5 6 next: 7 8 9", "type": "count"}
+{"text": "shift2: aegjbk answer: cgildm", "type": "cipher"}
+{"text": "repeat: ehbfdhgehbfdhg next: ehbfdhg", "type": "repeat"}
+{"text": "reverse: cfgnf answer: fngfc", "type": "reverse"}
+{"text": "count: 2 7 12 17 22 27 32 next: 37 42 47", "type": "count"}
+{"text": "shift3: kmn answer: npq", "type": "cipher"}
+{"text": "shift1: ladnbbe answer: mbeoccf", "type": "cipher"}
+{"text": "count: 2 6 10 14 18 22 26 30 next: 34 38 42", "type": "count"}
+{"text": "count: 19 24 29 34 39 44 49 next: 54 59 64", "type": "count"}
+{"text": "reverse: bmjnpkbo answer: obkpnjmb", "type": "reverse"}
+{"text": "reverse: ndjnehe answer: ehenjdn", "type": "reverse"}
+{"text": "count: 2 3 4 5 next: 6 7 8", "type": "count"}
+{"text": "repeat: jdgejgjdgejgjdgejg next: jdgejg", "type": "repeat"}
+{"text": "repeat: eheheheh next: eh", "type": "repeat"}
+{"text": "reverse: jlhda answer: adhlj", "type": "reverse"}
+{"text": "reverse: jbkfgmkbh answer: hbkmgfkbj", "type": "reverse"}
+{"text": "repeat: geafageafageafa next: geafa", "type": "repeat"}
+{"text": "count: 5 10 15 20 25 next: 30 35 40", "type": "count"}
+{"text": "shift1: hmnddbi answer: inoeecj", "type": "cipher"}
+{"text": "reverse: dbfkafphem answer: mehpfakfbd", "type": "reverse"}
+{"text": "repeat: fefacfefac next: fefac", "type": "repeat"}
+{"text": "reverse: dnmjeiolhc answer: chloiejmnd", "type": "reverse"}
+{"text": "shift4: hca answer: lge", "type": "cipher"}
+{"text": "reverse: abbd answer: dbba", "type": "reverse"}
+{"text": "count: 4 6 8 10 next: 12 14 16", "type": "count"}
+{"text": "reverse: glnp answer: pnlg", "type": "reverse"}
+{"text": "repeat: ijiiji next: iji", "type": "repeat"}
+{"text": "reverse: cdoiomp answer: pmoiodc", "type": "reverse"}
+{"text": "shift3: bdac answer: egdf", "type": "cipher"}
+{"text": "repeat: cbjhgcbjhg next: cbjhg", "type": "repeat"}
+{"text": "shift2: digdjj answer: fkifll", "type": "cipher"}
+{"text": "count: 7 11 15 19 23 27 next: 31 35 39", "type": "count"}
+{"text": "shift5: lceio answer: qhjnt", "type": "cipher"}
+{"text": "count: 15 18 21 24 next: 27 30 33", "type": "count"}
+{"text": "count: 19 23 27 31 35 39 next: 43 47 51", "type": "count"}
+{"text": "reverse: fjgn answer: ngjf", "type": "reverse"}
+{"text": "reverse: fecbecoja answer: ajocebcef", "type": "reverse"}
+{"text": "repeat: dieaddieaddieaddiead next: diead", "type": "repeat"}
+{"text": "shift1: cacdjje answer: dbdekkf", "type": "cipher"}
+{"text": "count: 15 17 19 21 23 next: 25 27 29", "type": "count"}
+{"text": "repeat: efcicefcicefcic next: efcic", "type": "repeat"}
+{"text": "reverse: mllilcjfij answer: jifjclillm", "type": "reverse"}
+{"text": "count: 4 9 14 19 next: 24 29 34", "type": "count"}
+{"text": "repeat: hjceeihjceei next: hjceei", "type": "repeat"}
+{"text": "count: 1 3 5 7 9 11 13 15 next: 17 19 21", "type": "count"}
+{"text": "repeat: aafddhcaaafddhcaaafddhca next: aafddhca", "type": "repeat"}
+{"text": "reverse: gpfjdop answer: podjfpg", "type": "reverse"}
+{"text": "count: 20 25 30 35 40 45 50 55 next: 60 65 70", "type": "count"}
+{"text": "reverse: hke answer: ekh", "type": "reverse"}
+{"text": "count: 13 15 17 19 next: 21 23 25", "type": "count"}
+{"text": "reverse: kgkldooedk answer: kdeoodlkgk", "type": "reverse"}
+{"text": "count: 5 10 15 20 25 next: 30 35 40", "type": "count"}
+{"text": "shift4: ojdmce answer: snhqgi", "type": "cipher"}
+{"text": "shift4: kehged answer: oilkih", "type": "cipher"}
+{"text": "reverse: eopghcicod answer: docichgpoe", "type": "reverse"}
+{"text": "reverse: oiaccmc answer: cmccaio", "type": "reverse"}
+{"text": "count: 8 13 18 23 28 33 38 43 next: 48 53 58", "type": "count"}
+{"text": "count: 9 14 19 24 29 34 39 44 next: 49 54 59", "type": "count"}
+{"text": "reverse: pnbbjpmaf answer: fampjbbnp", "type": "reverse"}
+{"text": "count: 19 21 23 25 27 29 31 33 next: 35 37 39", "type": "count"}
+{"text": "shift2: dpl answer: frn", "type": "cipher"}
+{"text": "count: 13 17 21 25 next: 29 33 37", "type": "count"}
+{"text": "reverse: knmool answer: loomnk", "type": "reverse"}
+{"text": "count: 9 13 17 21 25 29 33 next: 37 41 45", "type": "count"}
+{"text": "count: 10 15 20 25 next: 30 35 40", "type": "count"}
+{"text": "repeat: fddfddfddfdd next: fdd", "type": "repeat"}
+{"text": "reverse: daa answer: aad", "type": "reverse"}
+{"text": "reverse: bnlnpegh answer: hgepnlnb", "type": "reverse"}
+{"text": "repeat: cjfifcjfifcjfif next: cjfif", "type": "repeat"}
+{"text": "count: 12 16 20 24 next: 28 32 36", "type": "count"}
+{"text": "repeat: giihgiihgiih next: giih", "type": "repeat"}
+{"text": "count: 6 11 16 21 26 31 36 41 next: 46 51 56", "type": "count"}
+{"text": "repeat: cbhfaiecbhfaiecbhfaie next: cbhfaie", "type": "repeat"}
+{"text": "reverse: lclpog answer: goplcl", "type": "reverse"}
+{"text": "repeat: fedefedefedefede next: fede", "type": "repeat"}
+{"text": "reverse: gijigl answer: lgijig", "type": "reverse"}
+{"text": "shift2: lepdlpbp answer: ngrfnrdr", "type": "cipher"}
+{"text": "repeat: hachac next: hac", "type": "repeat"}
+{"text": "count: 3 6 9 12 15 next: 18 21 24", "type": "count"}
+{"text": "count: 12 15 18 21 24 next: 27 30 33", "type": "count"}
+{"text": "reverse: cjjjdjk answer: kjdjjjc", "type": "reverse"}
+{"text": "shift3: pab answer: sde", "type": "cipher"}
+{"text": "repeat: iejeiiejei next: iejei", "type": "repeat"}
+{"text": "count: 8 11 14 17 20 23 26 next: 29 32 35", "type": "count"}
+{"text": "shift2: ehidp answer: gjkfr", "type": "cipher"}
+{"text": "shift1: jmbmn answer: kncno", "type": "cipher"}
+{"text": "reverse: adjcjhpin answer: niphjcjda", "type": "reverse"}
+{"text": "shift2: eeekk answer: gggmm", "type": "cipher"}
+{"text": "count: 14 18 22 26 next: 30 34 38", "type": "count"}
+{"text": "count: 7 12 17 22 27 32 37 42 next: 47 52 57", "type": "count"}
+{"text": "repeat: aebbaebbaebbaebb next: aebb", "type": "repeat"}
+{"text": "repeat: ghfgghfgghfgghfg next: ghfg", "type": "repeat"}
+{"text": "reverse: lhjcbe answer: ebcjhl", "type": "reverse"}
+{"text": "count: 16 17 18 19 20 next: 21 22 23", "type": "count"}
+{"text": "reverse: moek answer: keom", "type": "reverse"}
+{"text": "shift1: ebfci answer: fcgdj", "type": "cipher"}
+{"text": "repeat: hjfedfdchjfedfdchjfedfdchjfedfdc next: hjfedfdc", "type": "repeat"}
+{"text": "count: 5 6 7 8 9 10 11 next: 12 13 14", "type": "count"}
+{"text": "count: 1 4 7 10 13 16 next: 19 22 25", "type": "count"}
+{"text": "reverse: kbkaia answer: aiakbk", "type": "reverse"}
+{"text": "reverse: pegialak answer: kalaigep", "type": "reverse"}
+{"text": "shift1: jhkdlf answer: kilemg", "type": "cipher"}
+{"text": "shift4: hiki answer: lmom", "type": "cipher"}
+{"text": "count: 9 13 17 21 25 29 33 next: 37 41 45", "type": "count"}
+{"text": "repeat: jhaihiejhaihiejhaihie next: jhaihie", "type": "repeat"}
+{"text": "shift5: dlgclnpf answer: iqlhqsuk", "type": "cipher"}
+{"text": "reverse: nbkinifp answer: pfinikbn", "type": "reverse"}
+{"text": "repeat: eiieiieii next: eii", "type": "repeat"}
+{"text": "count: 16 21 26 31 next: 36 41 46", "type": "count"}
+{"text": "repeat: dgedcghfdgedcghfdgedcghf next: dgedcghf", "type": "repeat"}
+{"text": "count: 10 15 20 25 30 next: 35 40 45", "type": "count"}
+{"text": "count: 4 6 8 10 12 14 16 18 next: 20 22 24", "type": "count"}
+{"text": "reverse: kjejhnfe answer: efnhjejk", "type": "reverse"}
+{"text": "reverse: mmdcofhcm answer: mchfocdmm", "type": "reverse"}
+{"text": "count: 2 3 4 5 6 next: 7 8 9", "type": "count"}
+{"text": "shift1: popjg answer: qpqkh", "type": "cipher"}
+{"text": "repeat: edaedaedaeda next: eda", "type": "repeat"}
+{"text": "reverse: cldkmn answer: nmkdlc", "type": "reverse"}
+{"text": "count: 7 10 13 16 19 22 25 next: 28 31 34", "type": "count"}
+{"text": "count: 13 18 23 28 33 38 next: 43 48 53", "type": "count"}
+{"text": "repeat: jhdjhdjhd next: jhd", "type": "repeat"}
+{"text": "shift4: gjjbfe answer: knnfji", "type": "cipher"}
+{"text": "shift1: pnoicmed answer: qopjdnfe", "type": "cipher"}
+{"text": "reverse: ileblpei answer: ieplbeli", "type": "reverse"}
+{"text": "reverse: himi answer: imih", "type": "reverse"}
+{"text": "shift5: nmlhkee answer: srqmpjj", "type": "cipher"}
+{"text": "reverse: dmbeacog answer: gocaebmd", "type": "reverse"}
+{"text": "reverse: golpn answer: nplog", "type": "reverse"}
+{"text": "shift4: fdfhbd answer: jhjlfh", "type": "cipher"}
+{"text": "reverse: dapkfdc answer: cdfkpad", "type": "reverse"}
+{"text": "reverse: ogbfcbdjfc answer: cfjdbcfbgo", "type": "reverse"}
+{"text": "reverse: jnk answer: knj", "type": "reverse"}
+{"text": "shift1: bcehgelc answer: cdfihfmd", "type": "cipher"}
+{"text": "count: 2 7 12 17 next: 22 27 32", "type": "count"}
+{"text": "shift4: bihnggae answer: fmlrkkei", "type": "cipher"}
+{"text": "reverse: dakb answer: bkad", "type": "reverse"}
+{"text": "repeat: becbbecbbecb next: becb", "type": "repeat"}
+{"text": "shift2: gndcole answer: ipfeqng", "type": "cipher"}
+{"text": "repeat: hhihhihhihhi next: hhi", "type": "repeat"}
+{"text": "repeat: cbcgcbcg next: cbcg", "type": "repeat"}
+{"text": "repeat: cdjicdjicdjicdji next: cdji", "type": "repeat"}
+{"text": "repeat: cjcj next: cj", "type": "repeat"}
+{"text": "shift3: mfjbh answer: pimek", "type": "cipher"}
+{"text": "reverse: hadljen answer: nejldah", "type": "reverse"}
+{"text": "count: 1 5 9 13 17 21 25 29 next: 33 37 41", "type": "count"}
+{"text": "count: 11 15 19 23 next: 27 31 35", "type": "count"}
+{"text": "reverse: neip answer: pien", "type": "reverse"}
+{"text": "repeat: afeheafeheafeheafehe next: afehe", "type": "repeat"}
+{"text": "count: 3 4 5 6 7 8 next: 9 10 11", "type": "count"}
+{"text": "repeat: ifbjedgiifbjedgi next: ifbjedgi", "type": "repeat"}
+{"text": "shift2: dkhepak answer: fmjgrcm", "type": "cipher"}
+{"text": "count: 4 6 8 10 next: 12 14 16", "type": "count"}
+{"text": "reverse: lfo answer: ofl", "type": "reverse"}
+{"text": "repeat: dhfdhfdhfdhf next: dhf", "type": "repeat"}
+{"text": "repeat: cebjhiafcebjhiafcebjhiaf next: cebjhiaf", "type": "repeat"}
+{"text": "repeat: hhjigdajhhjigdaj next: hhjigdaj", "type": "repeat"}
+{"text": "count: 14 15 16 17 18 19 20 21 next: 22 23 24", "type": "count"}
+{"text": "count: 2 6 10 14 next: 18 22 26", "type": "count"}
+{"text": "repeat: dfdf next: df", "type": "repeat"}
+{"text": "repeat: bhefcbhefc next: bhefc", "type": "repeat"}
+{"text": "reverse: aoag answer: gaoa", "type": "reverse"}
+{"text": "repeat: fccffccffccffccf next: fccf", "type": "repeat"}
+{"text": "reverse: klp answer: plk", "type": "reverse"}
+{"text": "reverse: agf answer: fga", "type": "reverse"}
+{"text": "reverse: ehgkk answer: kkghe", "type": "reverse"}
+{"text": "shift1: fcef answer: gdfg", "type": "cipher"}
+{"text": "reverse: iolofc answer: cfoloi", "type": "reverse"}
+{"text": "shift3: acllf answer: dfooi", "type": "cipher"}
+{"text": "repeat: ffff next: ff", "type": "repeat"}
+{"text": "reverse: jbhcim answer: michbj", "type": "reverse"}
+{"text": "shift4: ebiao answer: ifmes", "type": "cipher"}
+{"text": "repeat: bjdcbbjdcbbjdcbbjdcb next: bjdcb", "type": "repeat"}
+{"text": "reverse: mih answer: him", "type": "reverse"}
+{"text": "repeat: hefhefhef next: hef", "type": "repeat"}
+{"text": "repeat: bidddidgbidddidgbidddidg next: bidddidg", "type": "repeat"}
+{"text": "count: 8 9 10 11 12 13 14 15 next: 16 17 18", "type": "count"}
+{"text": "reverse: dihlic answer: cilhid", "type": "reverse"}
+{"text": "shift5: gpl answer: luq", "type": "cipher"}
+{"text": "repeat: hjghjghjghjg next: hjg", "type": "repeat"}
+{"text": "repeat: acdegaacdega next: acdega", "type": "repeat"}
+{"text": "shift1: nma answer: onb", "type": "cipher"}
+{"text": "count: 11 14 17 20 23 26 29 next: 32 35 38", "type": "count"}
+{"text": "repeat: hjahfhjahf next: hjahf", "type": "repeat"}
+{"text": "reverse: jfkhp answer: phkfj", "type": "reverse"}
+{"text": "count: 10 14 18 22 next: 26 30 34", "type": "count"}
+{"text": "count: 9 12 15 18 21 next: 24 27 30", "type": "count"}
+{"text": "shift4: fmoh answer: jqsl", "type": "cipher"}
+{"text": "shift2: jkdfdff answer: lmfhfhh", "type": "cipher"}
+{"text": "shift1: emoj answer: fnpk", "type": "cipher"}
+{"text": "shift4: bcnalba answer: fgrepfe", "type": "cipher"}
+{"text": "reverse: leknkjkbhm answer: mhbkjknkel", "type": "reverse"}
+{"text": "repeat: egdfidagegdfidagegdfidag next: egdfidag", "type": "repeat"}
+{"text": "reverse: pijodgknfe answer: efnkgdojip", "type": "reverse"}
+{"text": "count: 3 7 11 15 19 23 27 next: 31 35 39", "type": "count"}
+{"text": "count: 12 17 22 27 next: 32 37 42", "type": "count"}
+{"text": "count: 7 12 17 22 27 next: 32 37 42", "type": "count"}
+{"text": "count: 15 20 25 30 35 40 45 next: 50 55 60", "type": "count"}
+{"text": "reverse: ghkgbme answer: embgkhg", "type": "reverse"}
+{"text": "shift2: iekjl answer: kgmln", "type": "cipher"}
+{"text": "reverse: ehngjaag answer: gaajgnhe", "type": "reverse"}
+{"text": "repeat: fcegafcegafcegafcega next: fcega", "type": "repeat"}
+{"text": "count: 11 14 17 20 23 26 next: 29 32 35", "type": "count"}
+{"text": "count: 11 13 15 17 19 21 next: 23 25 27", "type": "count"}
+{"text": "shift5: gkffa answer: lpkkf", "type": "cipher"}
+{"text": "count: 13 16 19 22 25 next: 28 31 34", "type": "count"}
+{"text": "count: 7 12 17 22 27 32 next: 37 42 47", "type": "count"}
+{"text": "reverse: gakbgomn answer: nmogbkag", "type": "reverse"}
+{"text": "repeat: jiggbjbjjiggbjbjjiggbjbj next: jiggbjbj", "type": "repeat"}
+{"text": "count: 20 23 26 29 32 35 38 next: 41 44 47", "type": "count"}
+{"text": "count: 12 13 14 15 16 17 next: 18 19 20", "type": "count"}
+{"text": "shift4: oaheplm answer: selitpq", "type": "cipher"}
+{"text": "repeat: haahaahaa next: haa", "type": "repeat"}
+{"text": "count: 2 5 8 11 14 17 20 23 next: 26 29 32", "type": "count"}
+{"text": "repeat: bhcfbdfbhcfbdfbhcfbdf next: bhcfbdf", "type": "repeat"}
+{"text": "count: 9 13 17 21 25 29 33 next: 37 41 45", "type": "count"}
+{"text": "repeat: jdejdejde next: jde", "type": "repeat"}
+{"text": "reverse: iejilmjh answer: hjmlijei", "type": "reverse"}
+{"text": "count: 18 21 24 27 30 next: 33 36 39", "type": "count"}
+{"text": "reverse: fbdmhbn answer: nbhmdbf", "type": "reverse"}
+{"text": "repeat: bjbcbichbjbcbichbjbcbichbjbcbich next: bjbcbich", "type": "repeat"}
+{"text": "reverse: olmpncho answer: ohcnpmlo", "type": "reverse"}
+{"text": "repeat: aacgacjbaacgacjbaacgacjbaacgacjb next: aacgacjb", "type": "repeat"}
+{"text": "reverse: ofhn answer: nhfo", "type": "reverse"}
+{"text": "shift1: ikho answer: jlip", "type": "cipher"}
+{"text": "shift1: jbolkiak answer: kcpmljbl", "type": "cipher"}
+{"text": "count: 2 4 6 8 10 12 14 next: 16 18 20", "type": "count"}
+{"text": "count: 5 6 7 8 next: 9 10 11", "type": "count"}
+{"text": "repeat: ecjecjecjecj next: ecj", "type": "repeat"}
+{"text": "reverse: bmdceflhl answer: lhlfecdmb", "type": "reverse"}
+{"text": "repeat: gahdjjgahdjjgahdjj next: gahdjj", "type": "repeat"}
+{"text": "shift1: ehcekmb answer: fidflnc", "type": "cipher"}
+{"text": "repeat: gfhabgfhabgfhabgfhab next: gfhab", "type": "repeat"}
+{"text": "count: 4 9 14 19 24 29 next: 34 39 44", "type": "count"}
+{"text": "shift4: ohgnhnf answer: slkrlrj", "type": "cipher"}
+{"text": "shift4: hkik answer: lomo", "type": "cipher"}
+{"text": "repeat: dhdhfecdhdhfec next: dhdhfec", "type": "repeat"}
+{"text": "repeat: gdfehcagdfehcagdfehca next: gdfehca", "type": "repeat"}
+{"text": "reverse: libablfmc answer: cmflbabil", "type": "reverse"}
+{"text": "shift1: lkf answer: mlg", "type": "cipher"}
+{"text": "count: 16 19 22 25 next: 28 31 34", "type": "count"}
+{"text": "count: 16 17 18 19 20 21 22 23 next: 24 25 26", "type": "count"}
+{"text": "repeat: hihi next: hi", "type": "repeat"}
+{"text": "reverse: oanpfbep answer: pebfpnao", "type": "reverse"}
+{"text": "count: 5 8 11 14 17 20 next: 23 26 29", "type": "count"}
+{"text": "repeat: fifi next: fi", "type": "repeat"}
+{"text": "shift4: lmbcehfm answer: pqfgiljq", "type": "cipher"}
+{"text": "count: 9 12 15 18 21 24 27 next: 30 33 36", "type": "count"}
+{"text": "reverse: fehnd answer: dnhef", "type": "reverse"}
+{"text": "reverse: ilnafnhdb answer: bdhnfanli", "type": "reverse"}
+{"text": "count: 3 8 13 18 23 28 33 next: 38 43 48", "type": "count"}
+{"text": "shift4: lnodj answer: prshn", "type": "cipher"}
+{"text": "count: 16 21 26 31 36 next: 41 46 51", "type": "count"}
+{"text": "repeat: fgiiabbfgiiabb next: fgiiabb", "type": "repeat"}
+{"text": "reverse: aepfjnpi answer: ipnjfpea", "type": "reverse"}
+{"text": "repeat: jgjbhgjgjbhgjgjbhg next: jgjbhg", "type": "repeat"}
+{"text": "repeat: jcabaijjjcabaijj next: jcabaijj", "type": "repeat"}
+{"text": "shift3: fmceg answer: ipfhj", "type": "cipher"}
+{"text": "reverse: ljaei answer: ieajl", "type": "reverse"}
+{"text": "count: 12 16 20 24 next: 28 32 36", "type": "count"}
+{"text": "shift1: hbjif answer: ickjg", "type": "cipher"}
+{"text": "count: 19 24 29 34 39 44 49 54 next: 59 64 69", "type": "count"}
+{"text": "count: 13 16 19 22 25 28 31 next: 34 37 40", "type": "count"}
+{"text": "repeat: igaabfigaabfigaabfigaabf next: igaabf", "type": "repeat"}
+{"text": "repeat: gegege next: ge", "type": "repeat"}
+{"text": "shift1: moopd answer: nppqe", "type": "cipher"}
+{"text": "shift2: meof answer: ogqh", "type": "cipher"}
+{"text": "reverse: glpnckhf answer: fhkcnplg", "type": "reverse"}
+{"text": "repeat: ieieie next: ie", "type": "repeat"}
+{"text": "repeat: eghfcaeghfcaeghfca next: eghfca", "type": "repeat"}
+{"text": "reverse: mjekioek answer: keoikejm", "type": "reverse"}
+{"text": "reverse: jbj answer: jbj", "type": "reverse"}
+{"text": "shift5: dbhmpkf answer: igmrupk", "type": "cipher"}
+{"text": "repeat: iibfdiibfdiibfd next: iibfd", "type": "repeat"}
+{"text": "reverse: hchenl answer: lnehch", "type": "reverse"}
+{"text": "count: 15 18 21 24 next: 27 30 33", "type": "count"}
+{"text": "shift1: lhkj answer: milk", "type": "cipher"}
+{"text": "repeat: jaabhjaabhjaabh next: jaabh", "type": "repeat"}
+{"text": "count: 8 9 10 11 next: 12 13 14", "type": "count"}
+{"text": "reverse: imfamdho answer: ohdmafmi", "type": "reverse"}
+{"text": "count: 7 9 11 13 next: 15 17 19", "type": "count"}
+{"text": "reverse: acn answer: nca", "type": "reverse"}
+{"text": "reverse: cpgkdakfm answer: mfkadkgpc", "type": "reverse"}
+{"text": "repeat: ehaceaifehaceaifehaceaifehaceaif next: ehaceaif", "type": "repeat"}
+{"text": "count: 3 6 9 12 15 18 next: 21 24 27", "type": "count"}
+{"text": "reverse: dgnligaoj answer: joagilngd", "type": "reverse"}
+{"text": "reverse: ojkanoj answer: jonakjo", "type": "reverse"}
+{"text": "shift2: pbbgik answer: rddikm", "type": "cipher"}
+{"text": "reverse: penl answer: lnep", "type": "reverse"}
+{"text": "reverse: ggb answer: bgg", "type": "reverse"}
+{"text": "repeat: eeieeieeieei next: eei", "type": "repeat"}
+{"text": "reverse: opbjl answer: ljbpo", "type": "reverse"}
+{"text": "count: 12 16 20 24 28 32 36 40 next: 44 48 52", "type": "count"}
+{"text": "shift2: emf answer: goh", "type": "cipher"}
+{"text": "shift5: ieejf answer: njjok", "type": "cipher"}
+{"text": "repeat: gehffdhegehffdhe next: gehffdhe", "type": "repeat"}
+{"text": "count: 7 9 11 13 15 17 next: 19 21 23", "type": "count"}
+{"text": "reverse: lbfaee answer: eeafbl", "type": "reverse"}
+{"text": "shift4: oelohn answer: sipslr", "type": "cipher"}
+{"text": "count: 4 5 6 7 next: 8 9 10", "type": "count"}
+{"text": "repeat: fcddfcddfcddfcdd next: fcdd", "type": "repeat"}
+{"text": "count: 8 13 18 23 next: 28 33 38", "type": "count"}
+{"text": "count: 14 18 22 26 30 next: 34 38 42", "type": "count"}
+{"text": "reverse: nblndeii answer: iiednlbn", "type": "reverse"}
+{"text": "shift2: kohkpnbe answer: mqjmrpdg", "type": "cipher"}
+{"text": "count: 2 4 6 8 10 next: 12 14 16", "type": "count"}
+{"text": "repeat: hegcbgbbhegcbgbbhegcbgbb next: hegcbgbb", "type": "repeat"}
+{"text": "repeat: hbdahbdahbdahbda next: hbda", "type": "repeat"}
+{"text": "shift3: gbpgjnj answer: jesjmqm", "type": "cipher"}
+{"text": "shift1: gnjcegee answer: hokdfhff", "type": "cipher"}
+{"text": "reverse: nkokb answer: bkokn", "type": "reverse"}
+{"text": "reverse: mbjdjjkmjd answer: djmkjjdjbm", "type": "reverse"}
+{"text": "repeat: jdcedjdcedjdced next: jdced", "type": "repeat"}
+{"text": "repeat: dhijeedhijee next: dhijee", "type": "repeat"}
+{"text": "repeat: ajeajeajeaje next: aje", "type": "repeat"}
+{"text": "repeat: dccgfcdccgfcdccgfc next: dccgfc", "type": "repeat"}
+{"text": "repeat: dagjadagjadagja next: dagja", "type": "repeat"}
+{"text": "repeat: fejejidfejejid next: fejejid", "type": "repeat"}
+{"text": "reverse: gdgd answer: dgdg", "type": "reverse"}
+{"text": "count: 4 9 14 19 next: 24 29 34", "type": "count"}
+{"text": "shift3: pfjif answer: simli", "type": "cipher"}
+{"text": "repeat: ggeefggeefggeefggeef next: ggeef", "type": "repeat"}
+{"text": "repeat: acjiacji next: acji", "type": "repeat"}
+{"text": "repeat: cigfgcigfgcigfg next: cigfg", "type": "repeat"}
+{"text": "shift5: pioooa answer: untttf", "type": "cipher"}
+{"text": "reverse: dbf answer: fbd", "type": "reverse"}
+{"text": "repeat: hdifdhchdifdhchdifdhc next: hdifdhc", "type": "repeat"}
+{"text": "count: 8 11 14 17 20 23 26 29 next: 32 35 38", "type": "count"}
+{"text": "repeat: cbahcbahcbah next: cbah", "type": "repeat"}
+{"text": "shift4: mbpdcafi answer: qfthgejm", "type": "cipher"}
+{"text": "repeat: ejhjhejhjhejhjhejhjh next: ejhjh", "type": "repeat"}
+{"text": "count: 16 19 22 25 28 31 next: 34 37 40", "type": "count"}
+{"text": "repeat: bdgfecdgbdgfecdgbdgfecdgbdgfecdg next: bdgfecdg", "type": "repeat"}
+{"text": "repeat: gggggggg next: gg", "type": "repeat"}
+{"text": "count: 5 6 7 8 9 10 next: 11 12 13", "type": "count"}
+{"text": "shift5: kgpgpib answer: plulung", "type": "cipher"}
+{"text": "repeat: iejghiejghiejghiejgh next: iejgh", "type": "repeat"}
+{"text": "repeat: ajcefiaajcefia next: ajcefia", "type": "repeat"}
+{"text": "repeat: hbhb next: hb", "type": "repeat"}
+{"text": "count: 2 4 6 8 10 12 next: 14 16 18", "type": "count"}
+{"text": "shift1: lagpkfd answer: mbhqlge", "type": "cipher"}
+{"text": "shift2: pkehhjc answer: rmgjjle", "type": "cipher"}
+{"text": "reverse: fjholg answer: glohjf", "type": "reverse"}
+{"text": "shift4: ekne answer: iori", "type": "cipher"}
+{"text": "repeat: jihjihjih next: jih", "type": "repeat"}
+{"text": "reverse: ced answer: dec", "type": "reverse"}
+{"text": "shift1: mnkoagn answer: nolpbho", "type": "cipher"}
+{"text": "count: 9 10 11 12 13 14 15 16 next: 17 18 19", "type": "count"}
+{"text": "count: 20 21 22 23 24 next: 25 26 27", "type": "count"}
+{"text": "count: 20 25 30 35 40 45 50 55 next: 60 65 70", "type": "count"}
+{"text": "shift4: pcail answer: tgemp", "type": "cipher"}
+{"text": "count: 1 6 11 16 21 26 31 next: 36 41 46", "type": "count"}
+{"text": "shift5: lecbo answer: qjhgt", "type": "cipher"}
+{"text": "shift1: aakck answer: bbldl", "type": "cipher"}
+{"text": "shift5: pehaeho answer: ujmfjmt", "type": "cipher"}
+{"text": "shift1: oaodk answer: pbpel", "type": "cipher"}
+{"text": "repeat: ahadahad next: ahad", "type": "repeat"}
+{"text": "repeat: bfbbddfbfbbddfbfbbddf next: bfbbddf", "type": "repeat"}
+{"text": "repeat: ffdffdffd next: ffd", "type": "repeat"}
+{"text": "shift1: lmdmpdoc answer: mnenqepd", "type": "cipher"}
+{"text": "reverse: hofbccel answer: leccbfoh", "type": "reverse"}
+{"text": "shift1: ifn answer: jgo", "type": "cipher"}
+{"text": "count: 11 14 17 20 23 26 29 next: 32 35 38", "type": "count"}
+{"text": "shift2: bbgjgbih answer: ddilidkj", "type": "cipher"}
+{"text": "count: 19 21 23 25 27 29 31 33 next: 35 37 39", "type": "count"}
+{"text": "shift4: ekjb answer: ionf", "type": "cipher"}
+{"text": "shift4: lhda answer: plhe", "type": "cipher"}
+{"text": "reverse: pggk answer: kggp", "type": "reverse"}
+{"text": "shift3: ochingi answer: rfklqjl", "type": "cipher"}
+{"text": "shift2: eldjhgpk answer: gnfljirm", "type": "cipher"}
+{"text": "reverse: mngg answer: ggnm", "type": "reverse"}
+{"text": "shift1: dgbih answer: ehcji", "type": "cipher"}
+{"text": "shift3: bcpflg answer: efsioj", "type": "cipher"}
+{"text": "shift4: jlgkfa answer: npkoje", "type": "cipher"}
+{"text": "reverse: dlihlpdb answer: bdplhild", "type": "reverse"}
+{"text": "shift5: dogjoma answer: itlotrf", "type": "cipher"}
+{"text": "count: 7 12 17 22 27 32 next: 37 42 47", "type": "count"}
+{"text": "repeat: iigfiafiigfiaf next: iigfiaf", "type": "repeat"}
+{"text": "reverse: lec answer: cel", "type": "reverse"}
+{"text": "count: 16 21 26 31 36 41 next: 46 51 56", "type": "count"}
+{"text": "reverse: pfppm answer: mppfp", "type": "reverse"}
+{"text": "repeat: hbeicchhhbeicchh next: hbeicchh", "type": "repeat"}
+{"text": "count: 9 13 17 21 25 29 33 37 next: 41 45 49", "type": "count"}
+{"text": "reverse: gigln answer: nlgig", "type": "reverse"}
+{"text": "shift1: bfmedc answer: cgnfed", "type": "cipher"}
+{"text": "count: 11 14 17 20 23 26 29 next: 32 35 38", "type": "count"}
+{"text": "shift4: hlkh answer: lpol", "type": "cipher"}
+{"text": "shift5: dlhbcppd answer: iqmghuui", "type": "cipher"}
+{"text": "repeat: dedfedddedfedd next: dedfedd", "type": "repeat"}
+{"text": "shift1: eldlcf answer: fmemdg", "type": "cipher"}
+{"text": "reverse: fhepclhnkd answer: dknhlcpehf", "type": "reverse"}
+{"text": "reverse: hdab answer: badh", "type": "reverse"}
+{"text": "reverse: dghkkme answer: emkkhgd", "type": "reverse"}
+{"text": "count: 11 15 19 23 27 31 next: 35 39 43", "type": "count"}
+{"text": "reverse: bebph answer: hpbeb", "type": "reverse"}
+{"text": "repeat: dbgbcadjdbgbcadj next: dbgbcadj", "type": "repeat"}
+{"text": "repeat: dhcgccdhcgccdhcgcc next: dhcgcc", "type": "repeat"}
+{"text": "count: 9 14 19 24 29 34 next: 39 44 49", "type": "count"}
+{"text": "reverse: ocblo answer: olbco", "type": "reverse"}
+{"text": "repeat: ejbicdjejbicdjejbicdj next: ejbicdj", "type": "repeat"}
+{"text": "repeat: hhfgeihhfgeihhfgeihhfgei next: hhfgei", "type": "repeat"}
+{"text": "shift1: edcfc answer: fedgd", "type": "cipher"}
+{"text": "count: 18 20 22 24 26 28 next: 30 32 34", "type": "count"}
+{"text": "repeat: gjegcggjegcggjegcg next: gjegcg", "type": "repeat"}
+{"text": "reverse: emae answer: eame", "type": "reverse"}
+{"text": "count: 10 15 20 25 next: 30 35 40", "type": "count"}
+{"text": "count: 12 13 14 15 16 17 18 19 next: 20 21 22", "type": "count"}
+{"text": "shift4: pnpbo answer: trtfs", "type": "cipher"}
+{"text": "repeat: aeccdiaeccdi next: aeccdi", "type": "repeat"}
+{"text": "repeat: gaichcbgaichcb next: gaichcb", "type": "repeat"}
+{"text": "repeat: cbfjbfdccbfjbfdc next: cbfjbfdc", "type": "repeat"}
+{"text": "repeat: fgecaiajfgecaiajfgecaiaj next: fgecaiaj", "type": "repeat"}
+{"text": "reverse: jmpphf answer: fhppmj", "type": "reverse"}
+{"text": "repeat: fafafafa next: fa", "type": "repeat"}
+{"text": "repeat: fhcjeifhcjei next: fhcjei", "type": "repeat"}
+{"text": "count: 12 16 20 24 28 32 36 40 next: 44 48 52", "type": "count"}
+{"text": "shift5: gponbe answer: lutsgj", "type": "cipher"}
+{"text": "repeat: abiehaabiehaabieha next: abieha", "type": "repeat"}
+{"text": "reverse: alechabpdf answer: fdpbahcela", "type": "reverse"}
+{"text": "repeat: hebihgahebihga next: hebihga", "type": "repeat"}
+{"text": "count: 20 21 22 23 24 25 26 next: 27 28 29", "type": "count"}
+{"text": "reverse: nomajgjbg answer: gbjgjamon", "type": "reverse"}
+{"text": "reverse: dkd answer: dkd", "type": "reverse"}
+{"text": "shift3: meemk answer: phhpn", "type": "cipher"}
+{"text": "repeat: dhhieifbdhhieifb next: dhhieifb", "type": "repeat"}
+{"text": "reverse: hkgkn answer: nkgkh", "type": "reverse"}
+{"text": "count: 5 10 15 20 25 30 35 next: 40 45 50", "type": "count"}
+{"text": "shift2: mnnenb answer: oppgpd", "type": "cipher"}
+{"text": "reverse: llp answer: pll", "type": "reverse"}
+{"text": "reverse: dkp answer: pkd", "type": "reverse"}
+{"text": "count: 11 12 13 14 15 16 17 next: 18 19 20", "type": "count"}
+{"text": "shift2: deomc answer: fgqoe", "type": "cipher"}
+{"text": "count: 11 14 17 20 next: 23 26 29", "type": "count"}
+{"text": "count: 10 12 14 16 18 20 22 24 next: 26 28 30", "type": "count"}
+{"text": "repeat: iffagcceiffagcceiffagcce next: iffagcce", "type": "repeat"}
+{"text": "reverse: adepf answer: fpeda", "type": "reverse"}
+{"text": "count: 14 15 16 17 18 next: 19 20 21", "type": "count"}
+{"text": "reverse: odobc answer: cbodo", "type": "reverse"}
+{"text": "count: 1 6 11 16 21 26 next: 31 36 41", "type": "count"}
+{"text": "count: 9 12 15 18 21 24 27 next: 30 33 36", "type": "count"}
+{"text": "repeat: jcfgjajjcfgjajjcfgjaj next: jcfgjaj", "type": "repeat"}
+{"text": "repeat: gagagaga next: ga", "type": "repeat"}
+{"text": "count: 9 12 15 18 21 24 next: 27 30 33", "type": "count"}
+{"text": "reverse: mlhfgmbclk answer: klcbmgfhlm", "type": "reverse"}
+{"text": "repeat: cbecbecbe next: cbe", "type": "repeat"}
+{"text": "count: 14 15 16 17 18 next: 19 20 21", "type": "count"}
+{"text": "reverse: gjibpjnk answer: knjpbijg", "type": "reverse"}
+{"text": "count: 19 21 23 25 27 29 31 33 next: 35 37 39", "type": "count"}
+{"text": "shift3: haond answer: kdrqg", "type": "cipher"}
+{"text": "shift5: nnmlchp answer: ssrqhmu", "type": "cipher"}
+{"text": "repeat: aacaacaac next: aac", "type": "repeat"}
+{"text": "reverse: mofmeddn answer: nddemfom", "type": "reverse"}
+{"text": "repeat: fbcfbcfbcfbc next: fbc", "type": "repeat"}
+{"text": "count: 17 22 27 32 next: 37 42 47", "type": "count"}
+{"text": "shift4: kkfflpi answer: oojjptm", "type": "cipher"}
+{"text": "repeat: jfghjfghjfgh next: jfgh", "type": "repeat"}
+{"text": "shift4: ihkjnen answer: mlonrir", "type": "cipher"}
+{"text": "shift4: efa answer: ije", "type": "cipher"}
+{"text": "count: 11 13 15 17 19 21 23 next: 25 27 29", "type": "count"}
+{"text": "count: 1 6 11 16 next: 21 26 31", "type": "count"}
+{"text": "repeat: jiji next: ji", "type": "repeat"}
+{"text": "repeat: jgfghgjgfghg next: jgfghg", "type": "repeat"}
+{"text": "shift1: ndh answer: oei", "type": "cipher"}
+{"text": "repeat: iiiiii next: ii", "type": "repeat"}
+{"text": "shift2: lck answer: nem", "type": "cipher"}
+{"text": "shift1: hafkgkp answer: ibglhlq", "type": "cipher"}
+{"text": "repeat: fgjffgjf next: fgjf", "type": "repeat"}
+{"text": "repeat: dccahcdccahcdccahcdccahc next: dccahc", "type": "repeat"}
+{"text": "reverse: oakfkn answer: nkfkao", "type": "reverse"}
+{"text": "count: 2 7 12 17 22 next: 27 32 37", "type": "count"}
+{"text": "repeat: dbdeajhdbdeajhdbdeajhdbdeajh next: dbdeajh", "type": "repeat"}
+{"text": "shift1: din answer: ejo", "type": "cipher"}
+{"text": "shift5: adgbn answer: filgs", "type": "cipher"}
+{"text": "reverse: fgenkiblo answer: olbiknegf", "type": "reverse"}
+{"text": "reverse: dldejmjfjl answer: ljfjmjedld", "type": "reverse"}
+{"text": "reverse: hjn answer: njh", "type": "reverse"}
+{"text": "reverse: beocnlgnke answer: eknglncoeb", "type": "reverse"}
+{"text": "shift4: gnakalf answer: kreoepj", "type": "cipher"}
+{"text": "reverse: gbm answer: mbg", "type": "reverse"}
+{"text": "repeat: adfbadfbadfbadfb next: adfb", "type": "repeat"}
+{"text": "reverse: fbicm answer: mcibf", "type": "reverse"}
+{"text": "count: 10 13 16 19 22 next: 25 28 31", "type": "count"}
+{"text": "count: 10 11 12 13 14 15 16 next: 17 18 19", "type": "count"}
+{"text": "repeat: gbedbbjgbedbbjgbedbbjgbedbbj next: gbedbbj", "type": "repeat"}
+{"text": "count: 5 6 7 8 9 10 11 12 next: 13 14 15", "type": "count"}
+{"text": "repeat: acfcfacfcfacfcf next: acfcf", "type": "repeat"}
+{"text": "count: 5 6 7 8 9 10 11 12 next: 13 14 15", "type": "count"}
+{"text": "reverse: aoia answer: aioa", "type": "reverse"}
+{"text": "count: 14 17 20 23 26 29 next: 32 35 38", "type": "count"}
+{"text": "reverse: cch answer: hcc", "type": "reverse"}
+{"text": "repeat: cececece next: ce", "type": "repeat"}
+{"text": "count: 11 12 13 14 15 16 17 next: 18 19 20", "type": "count"}
+{"text": "repeat: jhigjjhigjjhigj next: jhigj", "type": "repeat"}
+{"text": "repeat: acgjeegjacgjeegjacgjeegjacgjeegj next: acgjeegj", "type": "repeat"}
+{"text": "reverse: icjl answer: ljci", "type": "reverse"}
+{"text": "count: 1 6 11 16 21 26 31 36 next: 41 46 51", "type": "count"}
+{"text": "shift5: ldopebp answer: qitujgu", "type": "cipher"}
+{"text": "count: 18 19 20 21 22 23 next: 24 25 26", "type": "count"}
+{"text": "repeat: hjdjhjdjhjdjhjdj next: hjdj", "type": "repeat"}
+{"text": "repeat: fjbefjbefjbefjbe next: fjbe", "type": "repeat"}
+{"text": "shift3: fmm answer: ipp", "type": "cipher"}
+{"text": "repeat: fafafa next: fa", "type": "repeat"}
+{"text": "count: 19 24 29 34 39 next: 44 49 54", "type": "count"}
+{"text": "shift3: oimoa answer: rlprd", "type": "cipher"}
+{"text": "count: 19 20 21 22 23 next: 24 25 26", "type": "count"}
+{"text": "count: 8 13 18 23 next: 28 33 38", "type": "count"}
+{"text": "count: 1 5 9 13 17 21 25 29 next: 33 37 41", "type": "count"}
+{"text": "reverse: kdjfoj answer: jofjdk", "type": "reverse"}
+{"text": "shift3: hmiclkoa answer: kplfonrd", "type": "cipher"}
+{"text": "shift3: daonofi answer: gdrqril", "type": "cipher"}
+{"text": "reverse: mefbmjm answer: mjmbfem", "type": "reverse"}
+{"text": "repeat: gdgefdgdgefdgdgefdgdgefd next: gdgefd", "type": "repeat"}
+{"text": "repeat: agagag next: ag", "type": "repeat"}
+{"text": "reverse: lopbef answer: febpol", "type": "reverse"}
+{"text": "count: 17 19 21 23 25 next: 27 29 31", "type": "count"}
+{"text": "repeat: ddahcbddahcbddahcb next: ddahcb", "type": "repeat"}
+{"text": "repeat: jedhjjedhjjedhj next: jedhj", "type": "repeat"}
+{"text": "repeat: baebdfdibaebdfdi next: baebdfdi", "type": "repeat"}
+{"text": "count: 2 3 4 5 6 7 8 next: 9 10 11", "type": "count"}
+{"text": "shift3: ojnbodld answer: rmqergog", "type": "cipher"}
+{"text": "reverse: addeelm answer: mleedda", "type": "reverse"}
+{"text": "shift5: lidh answer: qnim", "type": "cipher"}
+{"text": "count: 11 13 15 17 next: 19 21 23", "type": "count"}
+{"text": "shift5: lcnkko answer: qhsppt", "type": "cipher"}
+{"text": "repeat: cjffcjffcjffcjff next: cjff", "type": "repeat"}
+{"text": "shift3: jcf answer: mfi", "type": "cipher"}
+{"text": "reverse: olmjalcebi answer: ibeclajmlo", "type": "reverse"}
+{"text": "reverse: lnljp answer: pjlnl", "type": "reverse"}
+{"text": "reverse: hogcpkeha answer: ahekpcgoh", "type": "reverse"}
+{"text": "repeat: hjiahjia next: hjia", "type": "repeat"}
+{"text": "reverse: pfaiegkabj answer: jbakgeiafp", "type": "reverse"}
+{"text": "repeat: iahdjbfaiahdjbfaiahdjbfa next: iahdjbfa", "type": "repeat"}
+{"text": "repeat: iaiceiaiceiaice next: iaice", "type": "repeat"}
+{"text": "count: 12 17 22 27 32 37 42 47 next: 52 57 62", "type": "count"}
+{"text": "reverse: agi answer: iga", "type": "reverse"}
+{"text": "repeat: ibdaiibdaiibdai next: ibdai", "type": "repeat"}
+{"text": "shift3: hclcll answer: kfofoo", "type": "cipher"}
+{"text": "shift3: nmcn answer: qpfq", "type": "cipher"}
+{"text": "repeat: aibdfaibdfaibdfaibdf next: aibdf", "type": "repeat"}
+{"text": "count: 10 13 16 19 22 25 28 31 next: 34 37 40", "type": "count"}
+{"text": "count: 1 3 5 7 9 next: 11 13 15", "type": "count"}
+{"text": "reverse: fnobjpp answer: ppjbonf", "type": "reverse"}
+{"text": "shift2: fdjo answer: hflq", "type": "cipher"}
+{"text": "repeat: hedghedghedg next: hedg", "type": "repeat"}
+{"text": "reverse: idgai answer: iagdi", "type": "reverse"}
+{"text": "count: 17 22 27 32 37 42 47 52 next: 57 62 67", "type": "count"}
+{"text": "reverse: epicekp answer: pkecipe", "type": "reverse"}
+{"text": "repeat: ibhbhibhbhibhbhibhbh next: ibhbh", "type": "repeat"}
+{"text": "shift5: chjdk answer: hmoip", "type": "cipher"}
+{"text": "repeat: cchccchc next: cchc", "type": "repeat"}
+{"text": "reverse: eipafkkfan answer: nafkkfapie", "type": "reverse"}
+{"text": "shift4: phpdncg answer: tlthrgk", "type": "cipher"}
+{"text": "reverse: fkjodcbbpo answer: opbbcdojkf", "type": "reverse"}
+{"text": "repeat: cccc next: cc", "type": "repeat"}
+{"text": "repeat: ihjcdiihjcdi next: ihjcdi", "type": "repeat"}
+{"text": "shift4: afdod answer: ejhsh", "type": "cipher"}
+{"text": "reverse: nfmhnbmbll answer: llbmbnhmfn", "type": "reverse"}
+{"text": "count: 6 7 8 9 10 next: 11 12 13", "type": "count"}
+{"text": "reverse: acakljhpm answer: mphjlkaca", "type": "reverse"}
+{"text": "reverse: aeec answer: ceea", "type": "reverse"}
+{"text": "reverse: jblga answer: aglbj", "type": "reverse"}
+{"text": "reverse: moni answer: inom", "type": "reverse"}
+{"text": "reverse: fkamg answer: gmakf", "type": "reverse"}
+{"text": "repeat: fhgjjbfhgjjbfhgjjbfhgjjb next: fhgjjb", "type": "repeat"}
+{"text": "count: 3 5 7 9 next: 11 13 15", "type": "count"}
+{"text": "repeat: hcibbhcibbhcibb next: hcibb", "type": "repeat"}
+{"text": "count: 10 13 16 19 22 next: 25 28 31", "type": "count"}
+{"text": "reverse: gedll answer: lldeg", "type": "reverse"}
+{"text": "reverse: mmajk answer: kjamm", "type": "reverse"}
+{"text": "repeat: jaiadcjaiadc next: jaiadc", "type": "repeat"}
+{"text": "repeat: dddfddddfddddfddddfd next: dddfd", "type": "repeat"}
+{"text": "count: 20 22 24 26 next: 28 30 32", "type": "count"}
+{"text": "reverse: jjailndl answer: ldnliajj", "type": "reverse"}
+{"text": "shift1: ond answer: poe", "type": "cipher"}
+{"text": "count: 18 23 28 33 38 43 next: 48 53 58", "type": "count"}
+{"text": "count: 10 11 12 13 14 15 next: 16 17 18", "type": "count"}
+{"text": "shift3: ncg answer: qfj", "type": "cipher"}
+{"text": "repeat: caecae next: cae", "type": "repeat"}
+{"text": "shift1: naglmp answer: obhmnq", "type": "cipher"}
+{"text": "count: 3 4 5 6 7 next: 8 9 10", "type": "count"}
+{"text": "count: 15 18 21 24 27 30 33 36 next: 39 42 45", "type": "count"}
+{"text": "repeat: ijijij next: ij", "type": "repeat"}
+{"text": "count: 1 2 3 4 5 6 7 next: 8 9 10", "type": "count"}
+{"text": "shift4: jlgagbe answer: npkekfi", "type": "cipher"}
+{"text": "reverse: fhlcpojaol answer: loajopclhf", "type": "reverse"}
+{"text": "reverse: ohdofbkbfk answer: kfbkbfodho", "type": "reverse"}
+{"text": "count: 1 6 11 16 21 26 next: 31 36 41", "type": "count"}
+{"text": "reverse: kidpii answer: iipdik", "type": "reverse"}
+{"text": "repeat: dbadba next: dba", "type": "repeat"}
+{"text": "shift2: ijnkd answer: klpmf", "type": "cipher"}
+{"text": "shift2: ekijgl answer: gmklin", "type": "cipher"}
+{"text": "count: 7 9 11 13 next: 15 17 19", "type": "count"}
+{"text": "reverse: ccapj answer: jpacc", "type": "reverse"}
+{"text": "count: 6 10 14 18 22 next: 26 30 34", "type": "count"}
+{"text": "repeat: achecachecachecachec next: achec", "type": "repeat"}
+{"text": "shift4: bglgijc answer: fkpkmng", "type": "cipher"}
+{"text": "reverse: bblok answer: kolbb", "type": "reverse"}
+{"text": "shift3: pmakd answer: spdng", "type": "cipher"}
+{"text": "repeat: cgicgi next: cgi", "type": "repeat"}
+{"text": "reverse: ioco answer: ocoi", "type": "reverse"}
+{"text": "reverse: hmpephacpe answer: epcahpepmh", "type": "reverse"}
+{"text": "count: 3 8 13 18 23 28 next: 33 38 43", "type": "count"}
+{"text": "count: 8 11 14 17 20 23 next: 26 29 32", "type": "count"}
+{"text": "reverse: kfbnbobm answer: mbobnbfk", "type": "reverse"}
+{"text": "reverse: ekmakf answer: fkamke", "type": "reverse"}
+{"text": "shift2: ckmgp answer: emoir", "type": "cipher"}
+{"text": "count: 3 4 5 6 7 8 next: 9 10 11", "type": "count"}
+{"text": "shift2: ocpdhl answer: qerfjn", "type": "cipher"}
+{"text": "count: 12 16 20 24 next: 28 32 36", "type": "count"}
+{"text": "reverse: lengh answer: hgnel", "type": "reverse"}
+{"text": "shift3: hleaf answer: kohdi", "type": "cipher"}
+{"text": "shift4: ajmp answer: enqt", "type": "cipher"}
+{"text": "repeat: chchchch next: ch", "type": "repeat"}
+{"text": "reverse: koaofcj answer: jcfoaok", "type": "reverse"}
+{"text": "count: 9 12 15 18 21 next: 24 27 30", "type": "count"}
+{"text": "count: 4 7 10 13 next: 16 19 22", "type": "count"}
+{"text": "repeat: aiefjgaiefjg next: aiefjg", "type": "repeat"}
+{"text": "shift4: gmlfecoe answer: kqpjigsi", "type": "cipher"}
+{"text": "count: 11 14 17 20 next: 23 26 29", "type": "count"}
+{"text": "shift4: pegkdlja answer: tikohpne", "type": "cipher"}
+{"text": "reverse: decgfoe answer: eofgced", "type": "reverse"}
+{"text": "count: 20 25 30 35 40 45 50 next: 55 60 65", "type": "count"}
+{"text": "reverse: kke answer: ekk", "type": "reverse"}
+{"text": "count: 18 19 20 21 22 next: 23 24 25", "type": "count"}
+{"text": "shift3: fobgio answer: irejlr", "type": "cipher"}
+{"text": "count: 10 14 18 22 next: 26 30 34", "type": "count"}
+{"text": "reverse: apk answer: kpa", "type": "reverse"}
+{"text": "shift4: kopa answer: oste", "type": "cipher"}
+{"text": "shift4: hiipm answer: lmmtq", "type": "cipher"}
+{"text": "count: 20 24 28 32 36 40 44 next: 48 52 56", "type": "count"}
+{"text": "repeat: jjdejjdejjde next: jjde", "type": "repeat"}
+{"text": "reverse: odfgo answer: ogfdo", "type": "reverse"}
+{"text": "shift3: ibgbfbfa answer: lejeieid", "type": "cipher"}
+{"text": "repeat: ffgffcgffgffcgffgffcg next: ffgffcg", "type": "repeat"}
+{"text": "count: 12 15 18 21 24 27 30 next: 33 36 39", "type": "count"}
+{"text": "repeat: eaheghjjeaheghjj next: eaheghjj", "type": "repeat"}
+{"text": "count: 18 19 20 21 22 23 24 25 next: 26 27 28", "type": "count"}
+{"text": "count: 6 8 10 12 14 16 next: 18 20 22", "type": "count"}
+{"text": "shift5: modpmjca answer: rtiurohf", "type": "cipher"}
+{"text": "count: 19 24 29 34 39 44 49 54 next: 59 64 69", "type": "count"}
+{"text": "reverse: nplchjfjgn answer: ngjfjhclpn", "type": "reverse"}
+{"text": "count: 10 13 16 19 22 25 next: 28 31 34", "type": "count"}
+{"text": "count: 6 9 12 15 18 21 24 27 next: 30 33 36", "type": "count"}
+{"text": "reverse: bjaccd answer: dccajb", "type": "reverse"}
+{"text": "count: 16 18 20 22 24 26 next: 28 30 32", "type": "count"}
+{"text": "repeat: dhjfcdhjfcdhjfc next: dhjfc", "type": "repeat"}
+{"text": "repeat: aidchaidchaidch next: aidch", "type": "repeat"}
+{"text": "shift3: ckkcmc answer: fnnfpf", "type": "cipher"}
+{"text": "repeat: jeidjeidjeid next: jeid", "type": "repeat"}
+{"text": "reverse: fckbd answer: dbkcf", "type": "reverse"}
+{"text": "count: 18 20 22 24 26 28 30 next: 32 34 36", "type": "count"}
+{"text": "reverse: bcpemmihd answer: dhimmepcb", "type": "reverse"}
+{"text": "count: 15 18 21 24 27 30 next: 33 36 39", "type": "count"}
+{"text": "reverse: fcao answer: oacf", "type": "reverse"}
+{"text": "reverse: jhbglbjn answer: njblgbhj", "type": "reverse"}
+{"text": "reverse: ganaolo answer: oloanag", "type": "reverse"}
+{"text": "reverse: cimfppen answer: neppfmic", "type": "reverse"}
+{"text": "repeat: eabibaeeabibae next: eabibae", "type": "repeat"}
+{"text": "repeat: aabeaabe next: aabe", "type": "repeat"}
+{"text": "count: 10 15 20 25 30 next: 35 40 45", "type": "count"}
+{"text": "reverse: ogcdmebo answer: obemdcgo", "type": "reverse"}
+{"text": "count: 13 15 17 19 21 next: 23 25 27", "type": "count"}
+{"text": "count: 16 17 18 19 20 21 22 next: 23 24 25", "type": "count"}
+{"text": "reverse: ngfhfldm answer: mdlfhfgn", "type": "reverse"}
+{"text": "count: 2 7 12 17 next: 22 27 32", "type": "count"}
+{"text": "shift2: lkak answer: nmcm", "type": "cipher"}
+{"text": "shift1: oibn answer: pjco", "type": "cipher"}
+{"text": "repeat: djjagidjjagidjjagidjjagi next: djjagi", "type": "repeat"}
+{"text": "shift5: cdoel answer: hitjq", "type": "cipher"}
+{"text": "shift2: aodbhoph answer: cqfdjqrj", "type": "cipher"}
+{"text": "shift5: lggbg answer: qllgl", "type": "cipher"}
+{"text": "count: 17 19 21 23 25 27 29 31 next: 33 35 37", "type": "count"}
+{"text": "shift5: cpkdp answer: hupiu", "type": "cipher"}
+{"text": "reverse: cfphfa answer: afhpfc", "type": "reverse"}
+{"text": "count: 20 25 30 35 40 next: 45 50 55", "type": "count"}
+{"text": "shift2: flkbli answer: hnmdnk", "type": "cipher"}
+{"text": "reverse: iajlcdjbg answer: gbjdcljai", "type": "reverse"}
+{"text": "repeat: gijhgijhgijh next: gijh", "type": "repeat"}
+{"text": "shift4: abld answer: efph", "type": "cipher"}
+{"text": "count: 14 18 22 26 30 34 next: 38 42 46", "type": "count"}
+{"text": "reverse: dnfojkmok answer: komkjofnd", "type": "reverse"}
+{"text": "repeat: igigig next: ig", "type": "repeat"}
+{"text": "shift5: acagb answer: fhflg", "type": "cipher"}
+{"text": "count: 6 10 14 18 22 next: 26 30 34", "type": "count"}
+{"text": "reverse: dpoocgo answer: ogcoopd", "type": "reverse"}
+{"text": "reverse: amlioinbeg answer: gebnioilma", "type": "reverse"}
+{"text": "reverse: cad answer: dac", "type": "reverse"}
+{"text": "reverse: mdolhg answer: ghlodm", "type": "reverse"}
+{"text": "count: 12 15 18 21 24 27 30 next: 33 36 39", "type": "count"}
+{"text": "count: 9 12 15 18 next: 21 24 27", "type": "count"}
+{"text": "reverse: lefdejhpc answer: cphjedfel", "type": "reverse"}
+{"text": "reverse: alkaedenee answer: eenedeakla", "type": "reverse"}
+{"text": "reverse: lpecdm answer: mdcepl", "type": "reverse"}
+{"text": "count: 2 7 12 17 22 27 next: 32 37 42", "type": "count"}
+{"text": "count: 11 13 15 17 next: 19 21 23", "type": "count"}
+{"text": "reverse: ijonglni answer: inlgnoji", "type": "reverse"}
+{"text": "count: 16 20 24 28 next: 32 36 40", "type": "count"}
+{"text": "repeat: fifi next: fi", "type": "repeat"}
+{"text": "count: 19 23 27 31 35 39 43 47 next: 51 55 59", "type": "count"}
+{"text": "repeat: gijjhhgijjhhgijjhh next: gijjhh", "type": "repeat"}
+{"text": "count: 20 23 26 29 32 35 next: 38 41 44", "type": "count"}
+{"text": "reverse: dege answer: eged", "type": "reverse"}
+{"text": "reverse: jicdik answer: kidcij", "type": "reverse"}
+{"text": "shift2: djefp answer: flghr", "type": "cipher"}
+{"text": "shift3: ejp answer: hms", "type": "cipher"}
+{"text": "repeat: adjjfciadjjfci next: adjjfci", "type": "repeat"}
+{"text": "shift1: fflkbek answer: ggmlcfl", "type": "cipher"}
+{"text": "shift4: ncnb answer: rgrf", "type": "cipher"}
+{"text": "count: 14 18 22 26 next: 30 34 38", "type": "count"}
+{"text": "count: 17 18 19 20 21 22 23 24 next: 25 26 27", "type": "count"}
+{"text": "count: 11 16 21 26 31 36 next: 41 46 51", "type": "count"}
+{"text": "count: 2 5 8 11 14 17 20 next: 23 26 29", "type": "count"}
+{"text": "reverse: modcphgjko answer: okjghpcdom", "type": "reverse"}
+{"text": "reverse: dpphp answer: phppd", "type": "reverse"}
+{"text": "shift1: gng answer: hoh", "type": "cipher"}
+{"text": "reverse: mipbmgkgb answer: bgkgmbpim", "type": "reverse"}
+{"text": "shift5: jcjacp answer: ohofhu", "type": "cipher"}
+{"text": "reverse: aclof answer: folca", "type": "reverse"}
+{"text": "reverse: hjnd answer: dnjh", "type": "reverse"}
+{"text": "reverse: pofpmahg answer: ghampfop", "type": "reverse"}
+{"text": "shift2: leklgjo answer: ngmnilq", "type": "cipher"}
+{"text": "repeat: fgeidfgeid next: fgeid", "type": "repeat"}
+{"text": "count: 6 8 10 12 14 16 18 20 next: 22 24 26", "type": "count"}
+{"text": "count: 18 21 24 27 next: 30 33 36", "type": "count"}
+{"text": "shift3: hli answer: kol", "type": "cipher"}
+{"text": "repeat: cbbjggcbbjggcbbjgg next: cbbjgg", "type": "repeat"}
+{"text": "count: 1 6 11 16 21 26 31 36 next: 41 46 51", "type": "count"}
+{"text": "reverse: gonocne answer: enconog", "type": "reverse"}
+{"text": "count: 19 21 23 25 27 next: 29 31 33", "type": "count"}
+{"text": "count: 4 6 8 10 next: 12 14 16", "type": "count"}
+{"text": "repeat: chgiachgiachgia next: chgia", "type": "repeat"}
+{"text": "repeat: egcegc next: egc", "type": "repeat"}
+{"text": "repeat: babababa next: ba", "type": "repeat"}
+{"text": "count: 12 14 16 18 20 22 24 26 next: 28 30 32", "type": "count"}
+{"text": "reverse: efdjgbcn answer: ncbgjdfe", "type": "reverse"}
+{"text": "count: 10 13 16 19 22 next: 25 28 31", "type": "count"}
+{"text": "repeat: jdddjdddjdddjddd next: jddd", "type": "repeat"}
+{"text": "repeat: gfigfigfi next: gfi", "type": "repeat"}
+{"text": "count: 5 10 15 20 25 30 next: 35 40 45", "type": "count"}
+{"text": "repeat: jahhajahhajahhajahha next: jahha", "type": "repeat"}
+{"text": "count: 4 7 10 13 next: 16 19 22", "type": "count"}
+{"text": "count: 1 5 9 13 17 next: 21 25 29", "type": "count"}
+{"text": "shift3: klaidfci answer: nodlgifl", "type": "cipher"}
+{"text": "count: 5 6 7 8 9 10 11 12 next: 13 14 15", "type": "count"}
+{"text": "shift1: balfhag answer: cbmgibh", "type": "cipher"}
+{"text": "count: 16 20 24 28 32 36 40 next: 44 48 52", "type": "count"}
+{"text": "count: 16 20 24 28 32 36 next: 40 44 48", "type": "count"}
+{"text": "count: 3 6 9 12 15 18 21 next: 24 27 30", "type": "count"}
+{"text": "shift5: mljpnbfo answer: rqousgkt", "type": "cipher"}
+{"text": "repeat: ghghgh next: gh", "type": "repeat"}
+{"text": "count: 15 20 25 30 35 next: 40 45 50", "type": "count"}
+{"text": "shift3: ohaagjkh answer: rkddjmnk", "type": "cipher"}
+{"text": "count: 18 20 22 24 26 28 30 next: 32 34 36", "type": "count"}
+{"text": "reverse: pgbmekgjhj answer: jhjgkembgp", "type": "reverse"}
+{"text": "repeat: jcgjcg next: jcg", "type": "repeat"}
+{"text": "reverse: clfcbbkdi answer: idkbbcflc", "type": "reverse"}
+{"text": "count: 4 9 14 19 24 29 next: 34 39 44", "type": "count"}
+{"text": "reverse: ehkdom answer: modkhe", "type": "reverse"}
+{"text": "count: 12 14 16 18 20 22 24 26 next: 28 30 32", "type": "count"}
+{"text": "repeat: hheghheg next: hheg", "type": "repeat"}
+{"text": "count: 8 11 14 17 next: 20 23 26", "type": "count"}
+{"text": "reverse: dmnfl answer: lfnmd", "type": "reverse"}
+{"text": "reverse: midj answer: jdim", "type": "reverse"}
+{"text": "shift2: hhokkfdi answer: jjqmmhfk", "type": "cipher"}
+{"text": "reverse: ndolohahhj answer: jhhaholodn", "type": "reverse"}
+{"text": "reverse: pinhhai answer: iahhnip", "type": "reverse"}
+{"text": "count: 4 7 10 13 16 next: 19 22 25", "type": "count"}
+{"text": "count: 20 22 24 26 28 30 32 34 next: 36 38 40", "type": "count"}
+{"text": "reverse: glcp answer: pclg", "type": "reverse"}
+{"text": "repeat: dada next: da", "type": "repeat"}
+{"text": "count: 5 6 7 8 9 10 11 12 next: 13 14 15", "type": "count"}
+{"text": "count: 9 11 13 15 17 19 next: 21 23 25", "type": "count"}
+{"text": "count: 10 11 12 13 next: 14 15 16", "type": "count"}
+{"text": "count: 6 10 14 18 22 26 next: 30 34 38", "type": "count"}
+{"text": "shift2: hhjcnm answer: jjlepo", "type": "cipher"}
+{"text": "reverse: aglhl answer: lhlga", "type": "reverse"}
+{"text": "reverse: dmakgljm answer: mjlgkamd", "type": "reverse"}
+{"text": "count: 8 12 16 20 24 next: 28 32 36", "type": "count"}
+{"text": "shift5: hlo answer: mqt", "type": "cipher"}
+{"text": "reverse: acbgmgggn answer: ngggmgbca", "type": "reverse"}
+{"text": "reverse: mmhaaalm answer: mlaaahmm", "type": "reverse"}
+{"text": "reverse: kpnn answer: nnpk", "type": "reverse"}
+{"text": "shift3: hjaojaj answer: kmdrmdm", "type": "cipher"}
+{"text": "repeat: iijfefjdiijfefjdiijfefjdiijfefjd next: iijfefjd", "type": "repeat"}
+{"text": "count: 1 2 3 4 5 next: 6 7 8", "type": "count"}
+{"text": "repeat: bgbgbg next: bg", "type": "repeat"}
+{"text": "shift5: aoipjf answer: ftnuok", "type": "cipher"}
+{"text": "count: 15 19 23 27 31 next: 35 39 43", "type": "count"}
+{"text": "count: 20 22 24 26 28 30 next: 32 34 36", "type": "count"}
+{"text": "shift4: lbdp answer: pfht", "type": "cipher"}
+{"text": "shift4: pplmeblh answer: ttpqifpl", "type": "cipher"}
+{"text": "repeat: bhhgedbhhgedbhhged next: bhhged", "type": "repeat"}
+{"text": "count: 11 15 19 23 27 31 35 next: 39 43 47", "type": "count"}
+{"text": "count: 6 11 16 21 26 31 36 41 next: 46 51 56", "type": "count"}
+{"text": "count: 8 10 12 14 16 18 20 22 next: 24 26 28", "type": "count"}
+{"text": "reverse: alepkiim answer: miikpela", "type": "reverse"}
+{"text": "repeat: fgffgffgf next: fgf", "type": "repeat"}
+{"text": "count: 5 7 9 11 13 15 next: 17 19 21", "type": "count"}
+{"text": "reverse: pcdijepjjc answer: cjjpejidcp", "type": "reverse"}
+{"text": "reverse: fibgn answer: ngbif", "type": "reverse"}
+{"text": "repeat: hjddchjddc next: hjddc", "type": "repeat"}
+{"text": "count: 19 22 25 28 31 34 37 next: 40 43 46", "type": "count"}
+{"text": "repeat: bieegbieegbieegbieeg next: bieeg", "type": "repeat"}
+{"text": "reverse: omdna answer: andmo", "type": "reverse"}
+{"text": "reverse: makidmigld answer: dlgimdikam", "type": "reverse"}
+{"text": "repeat: bebebe next: be", "type": "repeat"}
+{"text": "count: 6 9 12 15 next: 18 21 24", "type": "count"}
+{"text": "repeat: eageihiaeageihiaeageihiaeageihia next: eageihia", "type": "repeat"}
+{"text": "repeat: cfejfadcfejfadcfejfadcfejfad next: cfejfad", "type": "repeat"}
+{"text": "count: 8 11 14 17 20 23 26 29 next: 32 35 38", "type": "count"}
+{"text": "count: 13 15 17 19 next: 21 23 25", "type": "count"}
+{"text": "count: 15 17 19 21 23 25 27 next: 29 31 33", "type": "count"}
+{"text": "reverse: oiil answer: liio", "type": "reverse"}
+{"text": "repeat: ieabgieabg next: ieabg", "type": "repeat"}
+{"text": "shift2: djgjccog answer: flileeqi", "type": "cipher"}
+{"text": "reverse: jfiffcffim answer: miffcffifj", "type": "reverse"}
+{"text": "repeat: ffhgfadfffhgfadf next: ffhgfadf", "type": "repeat"}
+{"text": "reverse: olgp answer: pglo", "type": "reverse"}
+{"text": "shift3: iolae answer: lrodh", "type": "cipher"}
+{"text": "repeat: jddjddjddjdd next: jdd", "type": "repeat"}
+{"text": "reverse: ldnblnejd answer: djenlbndl", "type": "reverse"}
+{"text": "count: 14 17 20 23 next: 26 29 32", "type": "count"}
+{"text": "reverse: fompp answer: ppmof", "type": "reverse"}
+{"text": "shift4: jdgbdo answer: nhkfhs", "type": "cipher"}
+{"text": "repeat: fighfjfighfjfighfjfighfj next: fighfj", "type": "repeat"}
+{"text": "shift4: pahmj answer: telqn", "type": "cipher"}
+{"text": "reverse: kifekej answer: jekefik", "type": "reverse"}
+{"text": "repeat: egeg next: eg", "type": "repeat"}
+{"text": "repeat: hbbhhbbhhbbh next: hbbh", "type": "repeat"}
+{"text": "repeat: jihjih next: jih", "type": "repeat"}
+{"text": "repeat: eiieaedgeiieaedgeiieaedg next: eiieaedg", "type": "repeat"}
+{"text": "count: 17 22 27 32 37 42 next: 47 52 57", "type": "count"}
+{"text": "reverse: cnpgbopcce answer: eccpobgpnc", "type": "reverse"}
+{"text": "shift1: lehe answer: mfif", "type": "cipher"}
+{"text": "count: 14 19 24 29 34 next: 39 44 49", "type": "count"}
+{"text": "shift1: pjabfacf answer: qkbcgbdg", "type": "cipher"}
+{"text": "count: 9 10 11 12 next: 13 14 15", "type": "count"}
+{"text": "shift4: ldgennbd answer: phkirrfh", "type": "cipher"}
+{"text": "count: 13 15 17 19 21 23 next: 25 27 29", "type": "count"}
+{"text": "reverse: egffeflcom answer: moclfeffge", "type": "reverse"}
+{"text": "repeat: acaacaacaaca next: aca", "type": "repeat"}
+{"text": "repeat: bfbfbf next: bf", "type": "repeat"}
+{"text": "count: 11 14 17 20 23 26 29 next: 32 35 38", "type": "count"}
+{"text": "reverse: cnkife answer: efiknc", "type": "reverse"}
+{"text": "reverse: kaccj answer: jccak", "type": "reverse"}
+{"text": "count: 11 15 19 23 27 31 35 39 next: 43 47 51", "type": "count"}
+{"text": "count: 11 14 17 20 next: 23 26 29", "type": "count"}
+{"text": "count: 1 2 3 4 next: 5 6 7", "type": "count"}
+{"text": "reverse: pai answer: iap", "type": "reverse"}
+{"text": "shift4: mkj answer: qon", "type": "cipher"}
+{"text": "repeat: dghfbagdghfbag next: dghfbag", "type": "repeat"}
+{"text": "repeat: hgihgi next: hgi", "type": "repeat"}
+{"text": "repeat: dajeegdajeegdajeeg next: dajeeg", "type": "repeat"}
+{"text": "shift2: lommbfbc answer: nqoodhde", "type": "cipher"}
+{"text": "repeat: efidfefidf next: efidf", "type": "repeat"}
+{"text": "count: 1 4 7 10 13 16 next: 19 22 25", "type": "count"}
+{"text": "shift5: lhg answer: qml", "type": "cipher"}
+{"text": "reverse: cpofhfcg answer: gcfhfopc", "type": "reverse"}
+{"text": "count: 7 11 15 19 23 27 31 next: 35 39 43", "type": "count"}
+{"text": "count: 20 21 22 23 next: 24 25 26", "type": "count"}
+{"text": "repeat: jhfjiffjhfjiffjhfjiff next: jhfjiff", "type": "repeat"}
+{"text": "count: 14 15 16 17 next: 18 19 20", "type": "count"}
+{"text": "count: 2 5 8 11 14 17 next: 20 23 26", "type": "count"}
+{"text": "shift1: mfa answer: ngb", "type": "cipher"}
+{"text": "repeat: agcdefagcdefagcdefagcdef next: agcdef", "type": "repeat"}
+{"text": "repeat: bjdbjdbjd next: bjd", "type": "repeat"}
+{"text": "repeat: ghgjjghgjjghgjj next: ghgjj", "type": "repeat"}
+{"text": "reverse: ipdfdjdmho answer: ohmdjdfdpi", "type": "reverse"}
+{"text": "shift1: ngem answer: ohfn", "type": "cipher"}
+{"text": "shift4: johg answer: nslk", "type": "cipher"}
+{"text": "reverse: pij answer: jip", "type": "reverse"}
+{"text": "count: 17 18 19 20 21 22 23 next: 24 25 26", "type": "count"}
+{"text": "count: 8 12 16 20 24 28 32 36 next: 40 44 48", "type": "count"}
+{"text": "count: 17 18 19 20 21 22 23 24 next: 25 26 27", "type": "count"}
+{"text": "reverse: kacobiabbj answer: jbbaibocak", "type": "reverse"}
+{"text": "count: 19 20 21 22 23 next: 24 25 26", "type": "count"}
+{"text": "shift5: memkldf answer: rjrpqik", "type": "cipher"}
+{"text": "count: 10 14 18 22 26 30 34 38 next: 42 46 50", "type": "count"}
+{"text": "reverse: alb answer: bla", "type": "reverse"}
+{"text": "shift2: fkfpamn answer: hmhrcop", "type": "cipher"}
+{"text": "repeat: jhigdaibjhigdaibjhigdaibjhigdaib next: jhigdaib", "type": "repeat"}
+{"text": "reverse: ibchic answer: cihcbi", "type": "reverse"}
+{"text": "count: 1 6 11 16 21 26 31 36 next: 41 46 51", "type": "count"}
+{"text": "shift3: bgj answer: ejm", "type": "cipher"}

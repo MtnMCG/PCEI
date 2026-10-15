@@ -1,0 +1,178 @@
+<mujoco model="humanoid_flat_arena">
+  <compiler angle="degree" coordinate="local" inertiafromgeom="true"/>
+  <option timestep="0.005" iterations="50" solver="Newton" gravity="0 0 -9.81"/>
+
+  <default>
+    <joint limited="true" damping="1.0" armature="0.01" stiffness="0"/>
+    <geom condim="3" friction="1.2 0.1 0.1" solref="0.015 1.0" solimp="0.9 0.95 0.001"/>
+    <motor ctrlrange="-1.0 1.0" ctrllimited="true"/>
+  </default>
+
+  <asset>
+    <texture type="skybox" builtin="gradient" rgb1="0.3 0.5 0.7" rgb2="0.1 0.15 0.2" width="512" height="512"/>
+    <texture name="grid" type="2d" builtin="checker" rgb1="0.15 0.17 0.22" rgb2="0.22 0.25 0.32" width="512" height="512" mark="edge" markrgb="0.8 0.8 0.8"/>
+    <material name="grid_mat" texture="grid" texrepeat="2 2" reflectance="0.1"/>
+    <material name="body_mat" rgba="0.2 0.7 0.9 1.0" shininess="0.5"/>
+    <material name="joint_mat" rgba="0.9 0.4 0.1 1.0"/>
+    <material name="foot_mat" rgba="0.1 0.2 0.3 1.0"/>
+    <material name="course_mat" rgba="0.85 0.25 0.2 1.0"/>
+    <material name="beam_mat" rgba="0.95 0.75 0.1 1.0"/>
+    <material name="barrier_mat" rgba="0.7 0.2 0.8 1.0"/>
+    <material name="finish_mat" rgba="0.1 0.85 0.3 1.0"/>
+  </asset>
+
+  <worldbody>
+    <light directional="true" diffuse="0.8 0.8 0.8" specular="0.3 0.3 0.3" pos="0 0 15" dir="0 0 -1"/>
+    <light directional="true" diffuse="0.4 0.4 0.4" pos="15 15 12" dir="-0.5 -0.5 -0.8"/>
+    
+    <!-- Open Flat Floor (50m x 50m Arena) -->
+    <geom name="floor" type="plane" size="30 30 0.1" material="grid_mat"/>
+
+    <!-- Arena Boundary Perimeter Markings -->
+    <geom name="boundary_north" type="box" pos="0 24 0.03" size="24 0.08 0.03" rgba="0.8 0.2 0.2 0.7"/>
+    <geom name="boundary_south" type="box" pos="0 -24 0.03" size="24 0.08 0.03" rgba="0.8 0.2 0.2 0.7"/>
+    <geom name="boundary_east" type="box" pos="24 0 0.03" size="0.08 24 0.03" rgba="0.8 0.2 0.2 0.7"/>
+    <geom name="boundary_west" type="box" pos="-24 0 0.03" size="0.08 24 0.03" rgba="0.8 0.2 0.2 0.7"/>
+    <geom name="origin_marker" type="cylinder" pos="0 0 0.005" size="0.6 0.005" rgba="0.22 0.74 0.97 0.4"/>
+
+    <!-- Cameras for Multi-Angle Streaming -->
+    <camera name="track_cam" mode="trackcom" pos="0 -5.0 2.2" xyaxes="1 0 0 0 0.35 1"/>
+    <camera name="behind_cam" mode="trackcom" pos="-3.8 0 1.9" xyaxes="0 -1 0 0.25 0 1"/>
+    <camera name="front_cam" mode="trackcom" pos="4.2 0 1.9" xyaxes="0 1 0 -0.25 0 1"/>
+    <camera name="reach_cam" mode="trackcom" pos="2.4 0 1.45" xyaxes="0 1 0 -0.15 0 1"/>
+    <camera name="aerial_cam" mode="fixed" pos="0 0 45" fovy="60" xyaxes="1 0 0 0 1 0"/>
+
+    <!-- ═════════════════════════════════════════════════════════════════════════ -->
+    <!-- BIPEDAL HUMANOID AGENT                                                  -->
+    <!-- ═════════════════════════════════════════════════════════════════════════ -->
+    <body name="torso" pos="0 0 1.4">
+      <freejoint name="root"/>
+      <geom name="torso_geom" type="capsule" fromto="0 -0.07 0 0 0.07 0" size="0.11" material="body_mat"/>
+      <geom name="chest_geom" type="capsule" fromto="0 -0.12 0.2 0 0.12 0.2" size="0.13" material="body_mat"/>
+      
+      <!-- Head with forward vision mount -->
+      <body name="head" pos="0 0 0.38">
+        <geom name="head_geom" type="sphere" size="0.11" material="joint_mat"/>
+        <geom name="visor" type="capsule" fromto="0.08 -0.06 0 0.08 0.06 0" size="0.03" rgba="0.1 0.9 0.9 1"/>
+        <camera name="eye_cam" pos="0.15 0 0" xyaxes="0 -1 0 0 0 1" fovy="50"/>
+      </body>
+
+      <!-- Abdomen / Pelvis -->
+      <body name="pelvis" pos="0 0 -0.22">
+        <joint name="abdomen_z" type="hinge" axis="0 0 1" range="-45 45"/>
+        <joint name="abdomen_y" type="hinge" axis="0 1 0" range="-30 30"/>
+        <joint name="abdomen_x" type="hinge" axis="1 0 0" range="-35 35"/>
+        <geom name="pelvis_geom" type="capsule" fromto="0 -0.1 0 0 0.1 0" size="0.12" material="body_mat"/>
+
+        <!-- RIGHT LEG -->
+        <body name="right_thigh" pos="0 -0.12 -0.12">
+          <joint name="right_hip_x" type="hinge" axis="1 0 0" range="-35 25"/>
+          <joint name="right_hip_z" type="hinge" axis="0 0 1" range="-35 35"/>
+          <joint name="right_hip_y" type="hinge" axis="0 1 0" range="-130 35"/>
+          <geom name="right_thigh_geom" type="capsule" fromto="0 0 0 0 0 -0.36" size="0.07" material="body_mat"/>
+
+          <body name="right_shin" pos="0 0 -0.38">
+            <joint name="right_knee" type="hinge" axis="0 1 0" range="0 140"/>
+            <geom name="right_shin_geom" type="capsule" fromto="0 0 0 0 0 -0.34" size="0.055" material="body_mat"/>
+
+            <body name="right_foot" pos="0.04 0 -0.38">
+              <joint name="right_ankle_y" type="hinge" axis="0 1 0" range="-45 45"/>
+              <joint name="right_ankle_x" type="hinge" axis="1 0 0" range="-25 25"/>
+              <!-- Rectangular foot sole for solid contact mechanics -->
+              <geom name="right_foot_geom" type="box" pos="0.04 0 -0.03" size="0.11 0.055 0.03" material="foot_mat"/>
+              <site name="right_foot_site" pos="0.04 0 -0.05" size="0.08 0.04 0.01" type="box"/>
+            </body>
+          </body>
+        </body>
+
+        <!-- LEFT LEG -->
+        <body name="left_thigh" pos="0 0.12 -0.12">
+          <joint name="left_hip_x" type="hinge" axis="1 0 0" range="-25 35"/>
+          <joint name="left_hip_z" type="hinge" axis="0 0 1" range="-35 35"/>
+          <joint name="left_hip_y" type="hinge" axis="0 1 0" range="-130 35"/>
+          <geom name="left_thigh_geom" type="capsule" fromto="0 0 0 0 0 -0.36" size="0.07" material="body_mat"/>
+
+          <body name="left_shin" pos="0 0 -0.38">
+            <joint name="left_knee" type="hinge" axis="0 1 0" range="0 140"/>
+            <geom name="left_shin_geom" type="capsule" fromto="0 0 0 0 0 -0.34" size="0.055" material="body_mat"/>
+
+            <body name="left_foot" pos="0.04 0 -0.38">
+              <joint name="left_ankle_y" type="hinge" axis="0 1 0" range="-45 45"/>
+              <joint name="left_ankle_x" type="hinge" axis="1 0 0" range="-25 25"/>
+              <geom name="left_foot_geom" type="box" pos="0.04 0 -0.03" size="0.11 0.055 0.03" material="foot_mat"/>
+              <site name="left_foot_site" pos="0.04 0 -0.05" size="0.08 0.04 0.01" type="box"/>
+            </body>
+          </body>
+        </body>
+      </body>
+
+      <!-- RIGHT ARM -->
+      <body name="right_upper_arm" pos="0 -0.2 0.2">
+        <joint name="right_shoulder_x" type="hinge" axis="1 0 0" range="-85 60"/>
+        <joint name="right_shoulder_y" type="hinge" axis="0 1 0" range="-90 90"/>
+        <geom name="right_uarm_geom" type="capsule" fromto="0 0 0 0 -0.26 0" size="0.045" material="body_mat"/>
+
+        <body name="right_lower_arm" pos="0 -0.28 0">
+          <joint name="right_elbow" type="hinge" axis="0 0 1" range="-90 50"/>
+          <geom name="right_larm_geom" type="capsule" fromto="0 0 0 0 -0.22 0" size="0.04" material="body_mat"/>
+          <geom name="right_hand" type="sphere" pos="0 -0.25 0" size="0.05" material="joint_mat"/>
+        </body>
+      </body>
+
+      <!-- LEFT ARM -->
+      <body name="left_upper_arm" pos="0 0.2 0.2">
+        <joint name="left_shoulder_x" type="hinge" axis="1 0 0" range="-60 85"/>
+        <joint name="left_shoulder_y" type="hinge" axis="0 1 0" range="-90 90"/>
+        <geom name="left_uarm_geom" type="capsule" fromto="0 0 0 0 0.26 0" size="0.045" material="body_mat"/>
+
+        <body name="left_lower_arm" pos="0 0.28 0">
+          <joint name="left_elbow" type="hinge" axis="0 0 1" range="-50 90"/>
+          <geom name="left_larm_geom" type="capsule" fromto="0 0 0 0 0.22 0" size="0.04" material="body_mat"/>
+          <geom name="left_hand" type="sphere" pos="0 0.25 0" size="0.05" material="joint_mat"/>
+        </body>
+      </body>
+
+    </body>
+  </worldbody>
+
+  <!-- ═════════════════════════════════════════════════════════════════════════ -->
+  <!-- 21 ACTUATORS (TORQUE CONTROL)                                           -->
+  <!-- ═════════════════════════════════════════════════════════════════════════ -->
+  <actuator>
+    <!-- Abdomen (Core Stabilization: 160 Nm authority for 46.75 kg upper body) -->
+    <motor name="act_abdomen_z" joint="abdomen_z" gear="120"/>
+    <motor name="act_abdomen_y" joint="abdomen_y" gear="160"/>
+    <motor name="act_abdomen_x" joint="abdomen_x" gear="160"/>
+    
+    <!-- Right Leg -->
+    <motor name="act_right_hip_x" joint="right_hip_x" gear="160"/>
+    <motor name="act_right_hip_z" joint="right_hip_z" gear="160"/>
+    <motor name="act_right_hip_y" joint="right_hip_y" gear="260"/>
+    <motor name="act_right_knee" joint="right_knee" gear="260"/>
+    <motor name="act_right_ankle_y" joint="right_ankle_y" gear="100"/>
+    <motor name="act_right_ankle_x" joint="right_ankle_x" gear="100"/>
+    
+    <!-- Left Leg -->
+    <motor name="act_left_hip_x" joint="left_hip_x" gear="160"/>
+    <motor name="act_left_hip_z" joint="left_hip_z" gear="160"/>
+    <motor name="act_left_hip_y" joint="left_hip_y" gear="260"/>
+    <motor name="act_left_knee" joint="left_knee" gear="260"/>
+    <motor name="act_left_ankle_y" joint="left_ankle_y" gear="100"/>
+    <motor name="act_left_ankle_x" joint="left_ankle_x" gear="100"/>
+
+    <!-- Arms -->
+    <motor name="act_right_shoulder_x" joint="right_shoulder_x" gear="50"/>
+    <motor name="act_right_shoulder_y" joint="right_shoulder_y" gear="50"/>
+    <motor name="act_right_elbow" joint="right_elbow" gear="50"/>
+    
+    <motor name="act_left_shoulder_x" joint="left_shoulder_x" gear="50"/>
+    <motor name="act_left_shoulder_y" joint="left_shoulder_y" gear="50"/>
+    <motor name="act_left_elbow" joint="left_elbow" gear="50"/>
+  </actuator>
+
+  <!-- Ground contact sensors on feet -->
+  <sensor>
+    <touch name="sensor_right_foot" site="right_foot_site"/>
+    <touch name="sensor_left_foot" site="left_foot_site"/>
+  </sensor>
+</mujoco>
