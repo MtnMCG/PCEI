@@ -15,6 +15,10 @@ class PCEITokenizer:
         self.pad_id = 0
         self.eos_id = 50256
     
+    def encode_raw(self, text: str) -> list:
+        raw_ids = self.enc.encode(text, allowed_special={"<|endoftext|>"})
+        return [tok_id if tok_id != 0 else (self.vocab_size - 1) for tok_id in raw_ids]
+
     def encode(self, text: str, pad: bool = False, max_len: int = 512) -> torch.Tensor:
         raw_ids = self.enc.encode(text, allowed_special={"<|endoftext|>"})
         ids = [tok_id if tok_id != 0 else (self.vocab_size - 1) for tok_id in raw_ids]
