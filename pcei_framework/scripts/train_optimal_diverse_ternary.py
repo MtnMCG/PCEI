@@ -173,17 +173,17 @@ class DiverseMultiStreamPacker:
             data_dir / "wikitext_valid.txt"
         ]
 
-        # 2. Reasoning & CoT (30%)
+        # 2. Reasoning & CoT (35%)
         reasoning_files = [
             data_dir / "synthetic" / "anthropic_claude.jsonl",
-            data_dir / "curriculum" / "pcei_reasoning_exemplars.jsonl",
+            data_dir / "synthetic" / "smoltalk_dialogues.jsonl",
             data_dir / "high_quality" / "sharegpt_logic.jsonl",
             data_dir / "high_quality" / "python_structure.jsonl",
             data_dir / "synthetic" / "beast_reasoning.jsonl",
             data_dir / "synthetic" / "instruction_tuning.jsonl"
         ]
 
-        # 3. Philosophy & Literature (20%)
+        # 3. Philosophy & Literature (15%)
         phil_files = [
             data_dir / "raw" / "text" / "mass_reasoning" / "Plato_The_Republic.txt",
             data_dir / "raw" / "text" / "mass_reasoning" / "Aristotle_Nicomachean_Ethics.txt",
@@ -193,11 +193,13 @@ class DiverseMultiStreamPacker:
             data_dir / "raw" / "text" / "mass_reasoning" / "Nietzsche_Thus_Spake_Zarathustra.txt",
             data_dir / "raw" / "text" / "mass_reasoning" / "Sun_Tzu_The_Art_Of_War.txt"
         ]
-        # Include books 1-98
+        # Include modern books (Dune, Infinite Jest, Blood Meridian, Gravity's Rainbow) and books 1-98
+        phil_files.extend(list((data_dir / "raw" / "text" / "modern_books").glob("*.txt")))
         phil_files.extend(list((data_dir / "raw" / "text" / "mass_reasoning").glob("book_*.txt")))
 
-        # 4. Fluency & Grounding (15%)
+        # 4. Conversational Fluency & Grounding (25%)
         fluency_files = [
+            data_dir / "synthetic" / "ultrachat_conversations.jsonl",
             data_dir / "raw" / "text" / "mass_reasoning" / "tinystories_bulk.txt",
             data_dir / "synthetic" / "congruent_concepts.jsonl",
             data_dir / "curriculum" / "council_teacher.jsonl",
