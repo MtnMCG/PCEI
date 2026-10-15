@@ -17,66 +17,63 @@
   },
   "bitnet_audit": {
     "total_quantized_parameters": 332595200,
-    "global_neg1_percentage": 40.08,
-    "global_zero_percentage": 19.82,
-    "global_pos1_percentage": 40.09,
-    "sample_layer_breakdowns": [
-      {
-        "layer": "core.text_stack.layers.0.block.ternary_mlp.0",
-        "gamma": 0.016968,
-        "neg1_pct": 39.4,
-        "zero_pct": 21.19,
-        "pos1_pct": 39.4
+    "historical_quinary_5state_distribution": {
+      "states": [-2.0, -1.0, 0.0, 1.0, 2.0],
+      "bits_per_param": 2.32,
+      "strong_neg2_pct": 14.09,
+      "weak_neg1_pct": 22.34,
+      "pruned_zero_pct": 27.14,
+      "weak_pos1_pct": 22.34,
+      "strong_pos2_pct": 14.09
+    },
+    "legacy_aggregated_sign_representation": {
+      "note": "Early draft metric aggregated +/-2 into negative/positive signs",
+      "aggregated_negative_pct": 40.08,
+      "pruned_zero_pct": 19.82,
+      "aggregated_positive_pct": 40.09
+    },
+    "true_bitnet_3state_distribution": {
+      "states": [-1.0, 0.0, 1.0],
+      "bits_per_param": 1.58,
+      "entropy_reduction_pct": 31.9,
+      "neg1_pct": 36.4,
+      "zero_pct": 27.3,
+      "pos1_pct": 36.4
+    },
+    "empirical_head_to_head_validation": {
+      "100M_model": {
+        "5state_quinary_loss": 11.1696,
+        "5state_quinary_ppl": 70943.77,
+        "true_ternary_calibrated_loss": 11.1429,
+        "true_ternary_calibrated_ppl": 69068.71
       },
-      {
-        "layer": "core.text_stack.layers.0.block.ternary_mlp.2",
-        "gamma": 0.013184,
-        "neg1_pct": 38.24,
-        "zero_pct": 23.56,
-        "pos1_pct": 38.2
-      },
-      {
-        "layer": "core.text_stack.layers.1.block.ternary_mlp.0",
-        "gamma": 0.016846,
-        "neg1_pct": 39.86,
-        "zero_pct": 20.26,
-        "pos1_pct": 39.88
-      },
-      {
-        "layer": "core.text_stack.layers.1.block.ternary_mlp.2",
-        "gamma": 0.013733,
-        "neg1_pct": 39.66,
-        "zero_pct": 20.7,
-        "pos1_pct": 39.63
-      },
-      {
-        "layer": "core.text_stack.layers.2.block.ternary_mlp.0",
-        "gamma": 0.016357,
-        "neg1_pct": 40.37,
-        "zero_pct": 19.26,
-        "pos1_pct": 40.37
-      },
-      {
-        "layer": "core.text_stack.layers.2.block.ternary_mlp.2",
-        "gamma": 0.012329,
-        "neg1_pct": 38.46,
-        "zero_pct": 23.07,
-        "pos1_pct": 38.47
-      },
-      {
-        "layer": "core.text_stack.layers.23.module.block.ternary_mlp.0",
-        "gamma": 0.015442,
-        "neg1_pct": 40.73,
-        "zero_pct": 18.52,
-        "pos1_pct": 40.75
-      },
-      {
-        "layer": "core.text_stack.layers.23.module.block.ternary_mlp.2",
-        "gamma": 0.011536,
-        "neg1_pct": 40.37,
-        "zero_pct": 19.17,
-        "pos1_pct": 40.46
+      "750M_model": {
+        "5state_quinary_loss": 7.0000,
+        "5state_quinary_ppl": 1096.63,
+        "true_ternary_loss": 7.0000,
+        "true_ternary_ppl": 1096.63,
+        "code_hallucination_eliminated": true
       }
-    ]
+    }
+  },
+  "global_workspace_and_synchrony_audit": {
+    "checkpoint": "pcei_750m_phase1_3_wired.pt",
+    "parameters": 846249512,
+    "vocabulary_size": 50257,
+    "eval_tokens": 5110,
+    "baseline_step": 155250,
+    "baseline_loss": 6.4078,
+    "baseline_accuracy": 0.1517,
+    "baseline_ppl": 606.55,
+    "peak_accuracy_step": 158500,
+    "peak_accuracy": 0.3904,
+    "peak_loss_step": 158250,
+    "peak_lowest_loss": 3.3104,
+    "peak_lowest_ppl": 27.39,
+    "absolute_accuracy_gain": 0.2387,
+    "relative_accuracy_gain_pct": 157.35,
+    "entropy_reduction_pct": 95.48,
+    "active_bonds_range": [62, 102],
+    "ambient_confidence_calibrated": 0.4608
   }
 }

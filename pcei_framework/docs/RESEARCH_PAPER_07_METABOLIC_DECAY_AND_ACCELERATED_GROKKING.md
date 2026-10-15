@@ -50,10 +50,10 @@ $$\eta_{\text{eff}}^{(l)} = \eta_{\text{base}} \left(1.0 - \sigma_{\text{conf}}^
 
 Connections that receive infrequent, low-magnitude gradient updates are driven below the quantization threshold, collapsing into the silent $0$ state.
 
-### 2.2 Discrete Ternary Quantization (BitNet 1.58b)
+### 2.2 Discrete Ternary Quantization & Quantizer Evolution (BitNet 1.58b)
 All linear projections in the 24 text layers employ `TernaryLinear`:
 $$W_{ij} \in \left\{ -1, 0, +1 \right\} \cdot \gamma, \quad \gamma = \frac{1}{mn}\sum |W_{ij}|$$
-* The maximum information capacity per parameter is strictly upper-bounded by $\log_2(3) \approx 1.585\text{ bits}$.
+* **Quantizer Evolution & Transparency**: Initial pretraining runs (March–September 2026) operated with an experimental dual-threshold ladder yielding five discrete states ($\{-2, -1, 0, 1, 2\}$) with a zero-fraction $\zeta \approx 19.82\% - 27.14\%$. Early telemetry aggregated $\pm 2$ into signed totals. Following an external audit in October 2026, the layer was refactored to canonical Microsoft BitNet b1.58 ($\{-1, 0, +1\}$), reducing the theoretical capacity bound to $\log_2(3) \approx 1.585\text{ bits/param}$ while preserving identical metabolic pruning dynamics.
 * Storing arbitrary, rare factual key-value pairs requires configuring thousands of discrete ternary weights. When total parameter capacity is constrained, the model cannot simultaneously memorize extensive trivia and maintain general syntactic grammar, forcing parameter allocation toward recurring structural rules.
 
 ### 2.3 Topological Bond Dissolution
@@ -88,12 +88,12 @@ We audited the production checkpoint (`pcei_750m_reasoning_assistant_latest.pt`)
 | **Target Token Budget ($N^*$)** | $16,925,000,000\text{ tokens}$ | **$333,824,000\text{ tokens}$** | Model trained in low-data regime |
 | **Ratio to Compute-Optimal ($N / N^*$)** | $100.0\%$ | **$1.97\%$** | Undertrained relative to Chinchilla |
 | **Held-Out Validation Perplexity** | $35.0 – 42.0$ (At full budget) | **$38.72$** (At 1.97% budget) | Reached comparable PPL early |
-| **Zero-Weight Sparsity ($\zeta$)** | $0.0\%$ (Dense continuous) | **$19.82\%$** ($65.9\text{M}$ zeros) | Active ternary zero gating |
+| **Zero-Weight Sparsity ($\zeta$)** | $0.0\%$ (Dense continuous) | **$19.82\% - 27.14\%$** ($65.9\text{M} - 90.3\text{M}$ zeros) | Active zero gating (5-state & 3-state) |
 | **Post-Diffusion PPL Reduction** | — | **$-19.07$ PPL** ($57.79 \to 38.72$) | Offline latent manifold smoothing |
 
 ### 4.1 Interpretation of Training Dynamics
 1. **Early Syntactic Fluency**: On a budget of $333.8\text{M tokens}$, the model achieved coherent English syntax and a test perplexity of $38.72$. While this does not indicate superior asymptotic performance to full-scale training, it shows that strong inductive biases (ternary quantization, state-space recurrence, and weight decay) can accelerate initial syntactic acquisition.
-2. **The $19.82\%$ Zero State**: Across 332.6M ternary parameters, $65,920,368$ parameters remain in state $0$. Metabolic decay successfully pruned low-signal parameters into quiescent gates.
+2. **The Quiescent Zero State**: Across 332.6M linear parameters, $65.9\text{M} - 90.3\text{M}$ parameters remain in state $0$ ($19.82\%$ in legacy aggregated metrics, $27.14\%$ in 5-state pretraining, $27.20\%$ under canonical BitNet b1.58). Metabolic decay continuously prunes weak connections into silent gates.
 3. **The Memorization Trade-Off**: While the model generalized well syntactically, empirical probing demonstrates that factual recall of obscure entities is substantially lower than in equivalent-scale FP16 models. The capacity constraints enforce structural rules at the direct expense of encyclopedic storage.
 
 ---

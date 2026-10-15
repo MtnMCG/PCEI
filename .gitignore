@@ -92,6 +92,7 @@ data/synthetic/anthropic_claude.jsonl
 *.7z
 *.MOV
 *.mp4
+!assets/*.mp4
 *.mp3
 *.wav
 *.avi

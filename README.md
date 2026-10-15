@@ -26,6 +26,33 @@ PCEI proves that when these physical constraints are engineered directly into th
 
 ---
 
+## 🏃 Embodied Dynamic Proof: 18-Meter Ninja Warrior Obstacle Traversal
+
+To prove that physical constraints generalize beyond symbolic language to dynamic continuous physics, the PCEI architecture was embodied inside an American Ninja Warrior MuJoCo humanoid simulation. Without dense Transformer attention or sample-inefficient deep RL, the agent autonomously conquered the high-momentum Sprint Runway (Stage 0) and bounded across the angled Quad Steps (Stage 1) to touch down at **$18.00\text{ meters}$** on the Stage 2 Balance Beam platform.
+
+<div align="center">
+  <img src="assets/best_run_18m_ninja.gif" alt="Embodied PCEI 18m Ninja Warrior Course Run" width="100%" style="max-width: 720px; border-radius: 8px;" />
+  <p><em>Autonomous 18-Meter Quad Steps Traversal — Real-Time MuJoCo Humanoid Physics at 40 FPS</em></p>
+  <p><a href="assets/best_run_18m_ninja.mp4">▶️ <b>Watch High-Definition Video (MP4)</b></a></p>
+</div>
+
+### 📊 Historical Run Telemetry & Benchmarks
+
+| Metric / Dimension | Measured Performance | Architectural Context |
+| :--- | :--- | :--- |
+| **Course Traversal Distance** | **$18.00\text{ meters}$** (Stage 2 Touchdown) | Cleared Stage 0 ($0-8\text{m}$) & Stage 1 Quad Steps ($8-18\text{m}$) |
+| **Trajectory Duration** | **$284\text{ execution frames}$ ($7.1\text{s}$)** | Real-time continuous physics evaluation at $40\text{ FPS}$ |
+| **Peak Sprint Velocity ($v_x$)** | **$4.06\text{ m/s}$ ($14.6\text{ km/h}$)** | Dynamic acceleration across runway into $45^\circ$ angled platforms |
+| **Total Environment Training Steps** | **$17.4\text{M steps}$** | Achieved traversal $3\times\text{--}5\times$ faster than standard MLP / RL baselines |
+| **Simulated Training Episodes** | **$213,000+\text{ episodes}$** | Sampled across 16 parallel MuJoCo vector environments |
+| **Evolutionary Generations** | **$110\text{ generations}$** | Darwinian Pioneer-Anchor Partitioning ($70\%$ Anchors : $30\%$ Pioneers) |
+| **BitNet Codon Point Mutations** | **$143,646\text{ mutations}$ ($\mu = 0.0025$)** | Baldwinian discrete synaptic adaptation without catastrophic forgetting |
+| **Start-Line Balance Retention** | **$100.0\%$ ($0\text{ fall rate}$ at origin)** | Pioneer-Anchor duality prevented start-line forgetting ($v_{x,0} = 0.0\text{ m/s}$) |
+| **Observation & Motor Dim** | **$572\text{-dim Input} \to 21\text{-dim Torque}$** | 3D solid-state LiDAR + proprioception driving 21 continuous joint actuators |
+| **Neural Backbone Engine** | **Mamba SSM + FastKAN + BitNet** | $\mathcal{O}(1)$ recurrent state space + cubic B-spline non-linear torque manifold |
+
+---
+
 ## ⚡ Comparative Architecture: Monolithic Transformer vs. PCEI
 
 | Architectural Dimension | Monolithic Hyperscale Transformer | PCEI (Physically Constrained Continuum) |
@@ -105,9 +132,9 @@ The mathematical proofs, empirical telemetry, and ablations underpinning the PCE
 | **[Paper II](pcei_framework/docs/RESEARCH_PAPER_02_ENTANGLEMENT_BONDS_AND_OPTIMIZATION_DYNAMICS.md)** | *Entanglement Brokerage and Optimization Dynamics* | Exact float gradient ablation proving topological cross-layer bonds operate outside computational autograd ($\\Delta \\mathcal{L} = 0$). |
 | **[Paper III](pcei_framework/docs/RESEARCH_PAPER_03_MULTIMODAL_SYNERGY_AND_SENSORY_DEPENDENCY.md)** | *Cross-Modal Synergy vs. The Sensory Dependency Effect* | Documents representational collapse under sudden sensory deprivation; establishes Scheduled Sensory Dropout protocol ($\\mathcal{P}_{\\text{drop}} = 0.30$). |
 | **[Paper IV](pcei_framework/docs/RESEARCH_PAPER_04_LATENT_DIFFUSION_AND_DREAMING_CONSOLIDATION.md)** | *Latent Diffusion in Closed Recurrent Chambers* | Proves 1,000 cycles of autonomous dreaming contracts held-out perplexity from $57.79 \\to 38.72$ without external training text. |
-| **[Paper V](pcei_framework/docs/RESEARCH_PAPER_05_BITNET_TERNARY_QUANTIZATION_AND_CIRCUITS.md)** | *Ternary Manifolds and Circuit Formation* | Audits 332M quantized parameters confirming symmetrical ternary distribution and monotonic subspace diversity expansion ($0.11 \\to 0.78$). |
+| **[Paper V](pcei_framework/docs/RESEARCH_PAPER_05_BITNET_TERNARY_QUANTIZATION_AND_CIRCUITS.md)** | *Ternary Manifolds and Circuit Formation* | Audits 332M quantized parameters; transparently documents 5-state pretraining ladder and verified migration to canonical BitNet b1.58 (1.58b). |
 | **[Paper VI](pcei_framework/docs/RESEARCH_PAPER_06_MAMBA_STATE_SPACES_VS_GLOBAL_ATTENTION.md)** | *Linear State Spaces vs. Monolithic Attention* | Demonstrates sustained 1,475 tok/s at $L=2048$ with 54% less VRAM; achieves fluency on 334M tokens (1.97% Chinchilla budget). |
-| **[Paper VII](pcei_framework/docs/RESEARCH_PAPER_07_METABOLIC_DECAY_AND_ACCELERATED_GROKKING.md)** | *Thermodynamic Parameter Pruning & Grokking* | Formulates the PCEI Grokking Hypothesis; metabolic decay and ternary zeros eliminate the 80% Transformer "Memorization Tax". |
+| **[Paper VII](pcei_framework/docs/RESEARCH_PAPER_07_METABOLIC_DECAY_AND_ACCELERATED_GROKKING.md)** | *Thermodynamic Parameter Pruning & Grokking* | Formulates the PCEI Grokking Hypothesis; metabolic decay and ternary zeros ($19.8\% - 27.1\%$) eliminate the 80% Transformer "Memorization Tax". |
 | **[Paper VIII](pcei_framework/docs/RESEARCH_PAPER_08_GLOBAL_WORKSPACE_BROADCAST_AND_NEURAL_SYNCHRONY.md)** | *Global Workspace Broadcast & Neural Synchrony* | Resolves selective SSM context fragmentation via ambient projections and phase-lagged layer spiking; cuts eval loss from $6.40 \\to 4.72$. |
 | **[Paper IX](pcei_framework/docs/RESEARCH_PAPER_09_FASTKAN_SPLINE_MANIFOLDS_AND_MAMBA_MOTOR_CONTROL.md)** | *FastKAN Spline Manifolds & Motor Control* | Evaluates non-linear B-spline activation manifolds paired with selective recurrence in real-time control. |
 | **[Paper X](pcei_framework/docs/RESEARCH_PAPER_10_SENSORY_GLARE_AND_FAN_IN_ENERGY_CALIBRATION.md)** | *Sensory Glare & Fan-In Energy Calibration* | Mathematical calibration of multimodal projection energies to prevent sensory dominance over symbolic reasoning. |

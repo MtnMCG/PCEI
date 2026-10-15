@@ -58,9 +58,7 @@ To evaluate $\mathcal{H}_1$ and $\mathcal{H}_2$, we implemented a deterministic 
 3. **Information Bottleneck Audit**: Evaluated scalar storage requirements between ground-truth sequences and pooled state:
    $$\mathcal{C}_{\text{raw}} = L \times D, \quad \mathcal{C}_{\text{ambient}} = 1 \times D$$
 4. **Token-to-State Vector Alignment**: Measured cosine similarity across every sequence timestep:
-   $$
-ho_i = \frac{\langle \mathbf{Z}_{:, i, :}, \mathbf{s}_{\text{slow}} 
-angle}{\|\mathbf{Z}_{:, i, :}\| \|\mathbf{s}_{\text{slow}}\|}$$
+   $$\rho_i = \frac{\langle \mathbf{Z}_{:, i, :}, \mathbf{s}_{\text{slow}} \rangle}{\|\mathbf{Z}_{:, i, :}\| \|\mathbf{s}_{\text{slow}}\|}$$
 5. **Logit Inversion Divergence**: Evaluated the language modeling head outputs using unpooled latents $\mathbf{Z}$ versus the state-broadcast latent $\tilde{\mathbf{Z}} = \mathbf{1}_{L} \otimes \mathbf{z}_{\text{comp}}$:
    $$\hat{\mathbf{Y}}_{\text{token}} = \mathbf{W}_{\text{lm}} \mathrm{LayerNorm}(\mathbf{Z})$$
    $$\hat{\mathbf{Y}}_{\text{ambient}} = \mathbf{W}_{\text{lm}} \mathrm{LayerNorm}(\tilde{\mathbf{Z}})$$
