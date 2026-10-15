@@ -44,18 +44,15 @@ This paper evaluates the empirical training trajectory and representation struct
 
 ### 2.1 Continuous Metabolic Decay
 In `src/modules/plasticity.py`, continuous shadow weights are subjected to metabolic decay:
-$$\frac{\partial \mathbf{W}_{\text{shadow}}}{\partial t} = -\lambda_{\text{met}} \mathbf{W}_{\text{shadow}} + \eta_{\text{eff}} 
-abla_{\mathbf{W}} \mathcal{L}$$
+$$\frac{\partial \mathbf{W}_{\text{shadow}}}{\partial t} = -\lambda_{\text{met}} \mathbf{W}_{\text{shadow}} + \eta_{\text{eff}} \nabla_{\mathbf{W}} \mathcal{L}$$
 where the effective learning rate $\eta_{\text{eff}}$ is modulated by slow-field confidence:
-$$\eta_{\text{eff}}^{(l)} = \eta_{\text{base}} \left(1.0 - \sigma_{\text{conf}}^{(l)}
-ight)$$
+$$\eta_{\text{eff}}^{(l)} = \eta_{\text{base}} \left(1.0 - \sigma_{\text{conf}}^{(l)} \right)$$
 
 Connections that receive infrequent, low-magnitude gradient updates are driven below the quantization threshold, collapsing into the silent $0$ state.
 
 ### 2.2 Discrete Ternary Quantization (BitNet 1.58b)
 All linear projections in the 24 text layers employ `TernaryLinear`:
-$$W_{ij} \in \left\{ -1, 0, +1 
-ight\} \cdot \gamma, \quad \gamma = \frac{1}{mn}\sum |W_{ij}|$$
+$$W_{ij} \in \left\{ -1, 0, +1 \right\} \cdot \gamma, \quad \gamma = \frac{1}{mn}\sum |W_{ij}|$$
 * The maximum information capacity per parameter is strictly upper-bounded by $\log_2(3) \approx 1.585\text{ bits}$.
 * Storing arbitrary, rare factual key-value pairs requires configuring thousands of discrete ternary weights. When total parameter capacity is constrained, the model cannot simultaneously memorize extensive trivia and maintain general syntactic grammar, forcing parameter allocation toward recurring structural rules.
 
@@ -69,8 +66,7 @@ Connections without persistent activation co-firing dissolve, preventing stale c
 ## 3. Information-Theoretic Capacity Analysis
 
 Under the Information Bottleneck Principle (Tishby & Zaslavsky, 2015), neural learning optimizes the trade-off between compressing input representation $\mathbf{X}$ and preserving predictive mutual information with target $\mathbf{Y}$:
-$$\min_{\mathbf{T}} \left[ I(\mathbf{X}; \mathbf{T}) - eta I(\mathbf{T}; \mathbf{Y}) 
-ight]$$
+$$\min_{\mathbf{T}} \left[ I(\mathbf{X}; \mathbf{T}) - \beta I(\mathbf{T}; \mathbf{Y}) \right]$$
 
 ### 3.1 Parameter Space Contraction
 In an unconstrained continuous network with $P$ parameters in FP16, the configuration space possesses volume bounded by $2^{16 P}$.
@@ -93,7 +89,7 @@ We audited the production checkpoint (`pcei_750m_reasoning_assistant_latest.pt`)
 | **Ratio to Compute-Optimal ($N / N^*$)** | $100.0\%$ | **$1.97\%$** | Undertrained relative to Chinchilla |
 | **Held-Out Validation Perplexity** | $35.0 – 42.0$ (At full budget) | **$38.72$** (At 1.97% budget) | Reached comparable PPL early |
 | **Zero-Weight Sparsity ($\zeta$)** | $0.0\%$ (Dense continuous) | **$19.82\%$** ($65.9\text{M}$ zeros) | Active ternary zero gating |
-| **Post-Diffusion PPL Reduction** | — | **$-19.07$ PPL** ($57.79 	o 38.72$) | Offline latent manifold smoothing |
+| **Post-Diffusion PPL Reduction** | — | **$-19.07$ PPL** ($57.79 \to 38.72$) | Offline latent manifold smoothing |
 
 ### 4.1 Interpretation of Training Dynamics
 1. **Early Syntactic Fluency**: On a budget of $333.8\text{M tokens}$, the model achieved coherent English syntax and a test perplexity of $38.72$. While this does not indicate superior asymptotic performance to full-scale training, it shows that strong inductive biases (ternary quantization, state-space recurrence, and weight decay) can accelerate initial syntactic acquisition.

@@ -14,7 +14,7 @@ import json
 import random
 from pathlib import Path
 
-OUTPUT_PATH = Path("/Users/emerson/Desktop/PCEI /pcei_framework/data/curriculum/pcei_reasoning_exemplars.jsonl")
+OUTPUT_PATH = Path(__file__).resolve().parent.parent / "data" / "curriculum" / "pcei_reasoning_exemplars.jsonl"
 
 def create_sample(prompt: str, response: str) -> dict:
     return {

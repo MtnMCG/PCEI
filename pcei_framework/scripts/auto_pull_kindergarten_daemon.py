@@ -19,7 +19,7 @@ import sys
 import re
 from pathlib import Path
 
-PROJECT_ROOT = Path("/Users/emerson/Desktop/PCEI /pcei_framework")
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
 CHECKPOINT_DIR = PROJECT_ROOT / "checkpoints"
 TARGET_CKPT = CHECKPOINT_DIR / "pcei_750m_kindergarten_v1.pt"
 TARGET_LOG = PROJECT_ROOT / "cloud_kindergarten_training.log"

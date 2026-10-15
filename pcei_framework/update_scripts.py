@@ -10,7 +10,7 @@ files_to_update = [
 ]
 
 for file_path in files_to_update:
-    path = Path("/Users/emerson/Desktop/PCEI /pcei_framework") / file_path
+    path = Path(__file__).resolve().parent / file_path
     if not path.exists(): continue
     
     with open(path, 'r') as f:

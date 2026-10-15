@@ -8,7 +8,7 @@ This document maps all execution setups, scripts, and flags updated for the **Ca
 
 Navigate to your workspace and activate the environment:
 ```bash
-cd "/Users/emerson/Desktop/PCEI /pcei_framework"
+cd pcei_framework
 source venv/bin/activate
 ```
 

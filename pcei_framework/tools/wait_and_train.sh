@@ -2,10 +2,12 @@
 # wait_and_train.sh
 # Polls until the dataset download finishes, then launches training
 
-LOGDIR="/Users/emerson/Desktop/PCEI /pcei_framework/logs"
-DATAFILE="/Users/emerson/Desktop/PCEI /pcei_framework/data/synthetic/anthropic_claude.jsonl"
-VENV="/Users/emerson/Desktop/PCEI /pcei_framework/venv/bin/python"
-SCRIPT="/Users/emerson/Desktop/PCEI /pcei_framework/tools/instruction_tuner.py"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+FRAMEWORK_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+LOGDIR="$FRAMEWORK_DIR/logs"
+DATAFILE="$FRAMEWORK_DIR/data/synthetic/anthropic_claude.jsonl"
+VENV="$FRAMEWORK_DIR/venv/bin/python"
+SCRIPT="$SCRIPT_DIR/instruction_tuner.py"
 
 echo "[launcher] Waiting for dataset download to complete..."
 

@@ -19,7 +19,7 @@ All scripts automatically call `caffeinate` on macOS — your machine will stay 
 ## Setup
 
 ```bash
-cd "/Users/emerson/Desktop/PCEI /pcei_framework"
+cd pcei_framework
 source venv/bin/activate
 ```
 

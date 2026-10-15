@@ -12,9 +12,7 @@
 
 The Physically Constrained Emergent Intelligence (PCEI) architecture introduces dynamic inter-layer and cross-modal *Entanglement Bonds* tracked via an extrinsic 3D coordinate registry (`EntanglementBroker` and `PhysicsShifter`). Unlike static monolithic sequence models, PCEI assigns spatial coordinates $\mathbf{p}_i \in \mathbb{R}^3$ to each layer and computes pairwise spring forces based on activation correlation. In this paper, we evaluate whether dynamic coordinate tracking and inter-layer bonding introduce optimization drag or gradient distortion during stochastic gradient descent. We report on a controlled, float-exact gradient ablation on the 846M-parameter foundation model comparing loss values and element-wise gradient vectors under two boundary conditions: (A) a bonded state with $N_{\text{bonds}} = 176$ active inter-layer links, and (B) an unbonded control with $N_{\text{bonds}} = 0$. Our measurements establish that the cross-entropy loss delta is identically zero:
 $$\Delta \mathcal{L} = |\mathcal{L}_{\text{bonded}} - \mathcal{L}_{\text{unbonded}}| = 0.0000000000$$
-Furthermore, the maximum element-wise gradient divergence across all 846,249,512 parameters satisfies $\|
-abla_{\theta} \mathcal{L}_{\text{bonded}} - 
-abla_{\theta} \mathcal{L}_{\text{unbonded}}\|_{\infty} = 0.0000000000$. We show analytically that because coordinate integration and bond registries operate as extrinsic tracking structures outside the PyTorch autograd computation graph $\mathcal{G}$, topological bonds exert zero mathematical interference on backpropagation. We delineate the functional utility and limitations of this decoupling: while extrinsic registries guarantee zero gradient distortion, they also exert zero direct optimization pressure on core language modeling weights.
+Furthermore, the maximum element-wise gradient divergence across all 846,249,512 parameters satisfies $\|\nabla_{\theta} \mathcal{L}_{\text{bonded}} - \nabla_{\theta} \mathcal{L}_{\text{unbonded}}\|_{\infty} = 0.0000000000$. We show analytically that because coordinate integration and bond registries operate as extrinsic tracking structures outside the PyTorch autograd computation graph $\mathcal{G}$, topological bonds exert zero mathematical interference on backpropagation. We delineate the functional utility and limitations of this decoupling: while extrinsic registries guarantee zero gradient distortion, they also exert zero direct optimization pressure on core language modeling weights.
 
 ---
 
@@ -63,18 +61,15 @@ To evaluate $\mathcal{H}_{\text{drag}}$, an empirical ablation was conducted on 
 ASSISTANT: General relativity describes gravity as spacetime curvature."`
 * **Diffusion Denoising Schedule**: Timesteps $T_{\text{max}} = 12$, sampled timestep $t = 0$, cross-entropy target weight $w_{\text{ce}} = 0.30$.
 * **Conditions**:
-  * **Condition A (Bonded)**: Broker populated with $N_{\text{bonds}} = 176$ active cross-layer bonds (mean bond strength $ar{S} = 0.814$).
+  * **Condition A (Bonded)**: Broker populated with $N_{\text{bonds}} = 176$ active cross-layer bonds (mean bond strength $\bar{S} = 0.814$).
   * **Condition B (Unbonded Control)**: Broker completely cleared (`active_bonds.clear()`), $N_{\text{bonds}} = 0$.
 
 ### 3.2 Monitored Metrics
 1. Instantaneous cross-entropy loss $\mathcal{L}_{\text{CE}}$
 2. Latent diffusion MSE loss $\mathcal{L}_{\text{diffusion}}$
 3. Composite loss $\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{diffusion}} + 0.3 \mathcal{L}_{\text{CE}}$
-4. Full gradient norm $\|
-abla_{\theta} \mathcal{L}\|_2$ across all 846M parameters
-5. Maximum element-wise gradient difference: $\max_{\theta} |
-abla_{\theta} \mathcal{L}_A - 
-abla_{\theta} \mathcal{L}_B|$
+4. Full gradient norm $\|\nabla_{\theta} \mathcal{L}\|_2$ across all 846M parameters
+5. Maximum element-wise gradient difference: $\max_{\theta} |\nabla_{\theta} \mathcal{L}_A - \nabla_{\theta} \mathcal{L}_B|$
 
 ---
 
@@ -89,12 +84,11 @@ abla_{\theta} \mathcal{L}_B|$
 | **Layer 0 Embedding Grad** | `1.428912e-04` | `1.428912e-04` | `0.000000e+00` | Identical |
 | **Mid-Stack Mamba $A_{\text{log}}$ Grad**| `3.910245e-03` | `3.910245e-03` | `0.000000e+00` | Identical |
 | **Layer 23 Output Head Grad**| `2.081734e-02` | `2.081734e-02` | `0.000000e+00` | Identical |
-| **Max Element-wise \$\|\Delta 
-abla_{\theta}\|_{\infty}\*| — | — | **`0.0000000000`** | Zero Divergence |
-| **Global Gradient Norm \$\|\mathbf{g}\|_2\*| `1.849201` | `1.849201` | `0.0000000000` | Invariant |
+| **Max Element-wise $\|\Delta \nabla_{\theta}\|_{\infty}$** | — | — | **`0.0000000000`** | Zero Divergence |
+| **Global Gradient Norm $\|\mathbf{g}\|_2$** | `1.849201` | `1.849201` | `0.0000000000` | Invariant |
 
 ### Table 2: Throughput and Loss Convergence Telemetry
-During training on an NVIDIA RTX 4090 running `blended_instruction_tuner.py`, throughput and loss convergence were logged as active bonds varied from $22 	o 97$:
+During training on an NVIDIA RTX 4090 running `blended_instruction_tuner.py`, throughput and loss convergence were logged as active bonds varied from $22 \to 97$:
 
 | Training Step Range | Mean Active Bonds | Mean Throughput | Mean Step Loss | Optimization Interference |
 | :--- | :--- | :--- | :--- | :--- |
@@ -114,16 +108,12 @@ Let $\theta = \{\mathbf{W}_1, \dots, \mathbf{W}_N\}$ denote the learnable networ
 The forward computation graph evaluates:
 $$\mathbf{y} = f_N(\dots f_2(f_1(\mathbf{x}; \mathbf{W}_1); \mathbf{W}_2) \dots; \mathbf{W}_N)$$
 Under reverse-mode automatic differentiation:
-$$
-abla_{\theta} \mathcal{L} = \frac{\partial \mathcal{L}}{\partial \mathbf{y}} \prod_{i=1}^N \frac{\partial f_i}{\partial \mathbf{W}_i}$$
+$$\nabla_{\theta} \mathcal{L} = \frac{\partial \mathcal{L}}{\partial \mathbf{y}} \prod_{i=1}^N \frac{\partial f_i}{\partial \mathbf{W}_i}$$
 
 Because layer coordinate tensors $\mathbf{p}_i$ and bond registry entries $\mathcal{B}$ are not operands in any layer transformation function $f_i(\mathbf{z})$:
 $$\frac{\partial f_i(\mathbf{z}; \mathbf{W}_i)}{\partial \mathbf{P}} \equiv \mathbf{0}, \quad \frac{\partial f_i(\mathbf{z}; \mathbf{W}_i)}{\partial \mathcal{B}} \equiv \mathbf{0}$$
 
-Therefore, the backward pass gradient is independent of $\mathcal{B}$:
-$$
-abla_{\theta} \mathcal{L} ig|_{\mathcal{B} = \mathcal{B}_{\text{active}}} - 
-abla_{\theta} \mathcal{L} ig|_{\mathcal{B} = \emptyset} \equiv \mathbf{0}$$
+$$\nabla_{\theta} \mathcal{L} \big|_{\mathcal{B} = \mathcal{B}_{\text{active}}} - \nabla_{\theta} \mathcal{L} \big|_{\mathcal{B} = \emptyset} \equiv \mathbf{0}$$
 
 ---
 
@@ -142,8 +132,7 @@ Because the spatial coordinate framework does not modify backpropagation, its va
 
 ## 7. Conclusion
 
-Hypothesis $\mathcal{H}_{\text{drag}}$ is disproven: dynamic entanglement bonds do not introduce optimization drag or alter parameter gradients ($\Delta 
-abla_{\theta} = 0.0000000000$). The coordinate framework operates strictly as an extrinsic topological registry. While this guarantees complete gradient stability, it also means topological bonds do not directly optimize text representations unless explicitly coupled into the forward activation path.
+Hypothesis $\mathcal{H}_{\text{drag}}$ is disproven: dynamic entanglement bonds do not introduce optimization drag or alter parameter gradients ($\|\Delta \nabla_{\theta}\| = 0.0000000000$). The coordinate framework operates strictly as an extrinsic topological registry. While this guarantees complete gradient stability, it also means topological bonds do not directly optimize text representations unless explicitly coupled into the forward activation path.
 
 ---
 

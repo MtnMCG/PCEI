@@ -10,6 +10,7 @@ import sys
 import time
 import glob
 from datetime import datetime
+from pathlib import Path
 
 # ANSI Colors
 C_RESET = "\033[0m"
@@ -22,7 +23,7 @@ C_BLUE = "\033[94m"
 C_MAGENTA = "\033[95m"
 C_DIM = "\033[2m"
 
-LOGS_BASE = "/Users/emerson/Desktop/PCEI /pcei_framework/src/logs"
+LOGS_BASE = str(Path(__file__).resolve().parent / "src" / "logs")
 
 def get_latest_csv():
     csv_files = glob.glob(f"{LOGS_BASE}/*/loss_summary.csv")

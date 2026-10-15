@@ -15,14 +15,14 @@ A known operational characteristic of continuous Selective State-Space Models (S
    $$\mathbf{z}_{\text{out}} = \mathbf{z}_{\text{core}} + \tanh(\alpha) \cdot \mathbf{W}_{\text{ambient}} \mathbf{s}_{\text{slow}}$$
    where $\mathbf{s}_{\text{slow}}$ represents the consolidated slow-moving state of prior activations. Initializing $\alpha = 0$ guarantees exact invariance to pretrained base weights at step zero.
 2. **Phase-Lagged Cross-Layer Residual Spikes**: Dynamic cross-layer correlation spikes computed at timestep $t$ are cached and injected at timestep $t+1$, providing inter-layer communication without violating autoregressive causality.
-3. **Empirical Validation**: Over 3,300 fine-tuning steps on held-out text sequences, held-out cross-entropy loss dropped from $6.4078 	o 3.3104$, perplexity decreased from $606.55 	o 27.39$, and top-1 token accuracy advanced from $15.17\%$ to $39.04\%$. We analyze the convergence profile, noting that the elevated initial perplexity reflected early adapter recalibration, and discuss the trade-offs of global latent broadcast in recurrent architectures.
+3. **Empirical Validation**: Over 3,300 fine-tuning steps on held-out text sequences, held-out cross-entropy loss dropped from $6.4078 \to 3.3104$, perplexity decreased from $606.55 \to 27.39$, and top-1 token accuracy advanced from $15.17\%$ to $39.04\%$. We analyze the convergence profile, noting that the elevated initial perplexity reflected early adapter recalibration, and discuss the trade-offs of global latent broadcast in recurrent architectures.
 
 ---
 
 ## 1. Introduction: State-Space Drift in Selective SSMs
 
 Selective State Space Models (Gu & Dao, 2023) achieve linear computational scaling $\mathcal{O}(L)$ and constant inference memory $\mathcal{O}(1)$ by computing input-dependent continuous recurrences:
-$$\mathbf{h}_t = ar{\mathbf{A}}_t \mathbf{h}_{t-1} + ar{\mathbf{B}}_t \mathbf{x}_t, \quad \mathbf{y}_t = \mathbf{C}_t \mathbf{h}_t + \mathbf{D} \mathbf{x}_t$$
+$$\mathbf{h}_t = \bar{\mathbf{A}}_t \mathbf{h}_{t-1} + \bar{\mathbf{B}}_t \mathbf{x}_t, \quad \mathbf{y}_t = \mathbf{C}_t \mathbf{h}_t + \mathbf{D} \mathbf{x}_t$$
 
 ### 1.1 The Absence of Explicit Associative Addressing
 Unlike standard Transformers, which maintain explicit key-value inner products $\operatorname{Softmax}(\mathbf{Q}\mathbf{K}^\top / \sqrt{d})\mathbf{V}$, an SSM compresses past information into the recurrent state $\mathbf{h}_t$. Because $\mathbf{A}$ acts as a decay transition matrix, historical token bindings can diffuse over extended contexts. Autoregressive decoding can drift away from initial premise constraints into generic high-frequency sequence completions.
@@ -48,29 +48,23 @@ When a sub-billion parameter SSM is exposed to high-variance multi-turn dialogue
 
 ### 2.1 Zero-Gated Residual Adapter
 To inject global context into the text layers without corrupting pretrained representations, each `DiffusionBlock` $l \in \{1, \dots, 24\}$ incorporates a gated adapter:
-$$\mathbf{z}_{\text{ambient}}^{(l)} = \mathbf{W}_{\text{ambient}}^{(l)} \left( \frac{\mathbf{s}_{\text{slow}}}{\|\mathbf{s}_{\text{slow}}\|_2 + \epsilon} 
-ight)$$
+$$\mathbf{z}_{\text{ambient}}^{(l)} = \mathbf{W}_{\text{ambient}}^{(l)} \left( \frac{\mathbf{s}_{\text{slow}}}{\|\mathbf{s}_{\text{slow}}\|_2 + \epsilon} \right)$$
 $$\mathbf{z}_{\text{out}}^{(l)} = \mathbf{z}_{\text{Mamba+MLP}}^{(l)} + \tanh(\alpha_{\text{ambient}}^{(l)}) \cdot \mathbf{z}_{\text{ambient}}^{(l)}$$
 
 #### Proposition 1 (Initialization Invariance)
 Let $\mathcal{M}_0$ be a model checkpoint evaluated under loss $\mathcal{L}$. If $\alpha_{\text{ambient}}^{(l)} = 0$ and $\mathbf{W}_{\text{ambient}}^{(l)} = \mathbf{0}$ for all layers $l$, then for any input sequence $\mathbf{X}$:
-$$\mathcal{M}_{\text{wired}}(\mathbf{X}) \equiv \mathcal{M}_0(\mathbf{X}) \quad \text{and} \quad \|
-abla_{\mathbf{W}_{\text{base}}} \mathcal{L}(\mathcal{M}_{\text{wired}}) - 
-abla_{\mathbf{W}_{\text{base}}} \mathcal{L}(\mathcal{M}_0)\|_2 = 0$$
+$$\mathcal{M}_{\text{wired}}(\mathbf{X}) \equiv \mathcal{M}_0(\mathbf{X}) \quad \text{and} \quad \|\nabla_{\mathbf{W}_{\text{base}}} \mathcal{L}(\mathcal{M}_{\text{wired}}) - \nabla_{\mathbf{W}_{\text{base}}} \mathcal{L}(\mathcal{M}_0)\|_2 = 0$$
 
-*Proof*: Because $\tanh(0) = 0$ and $\mathbf{W}_{\text{ambient}} = \mathbf{0}$, the forward pass reduces to $\mathbf{z}_{\text{out}} = \mathbf{z}_{\text{Mamba+MLP}}$. By the chain rule, $\frac{\partial \mathcal{L}}{\partial \mathbf{z}_{\text{out}}} \frac{\partial \mathbf{z}_{\text{out}}}{\partial \mathbf{W}_{\text{base}}} = \frac{\partial \mathcal{L}}{\partial \mathbf{z}_{\text{Mamba+MLP}}} \frac{\partial \mathbf{z}_{\text{Mamba+MLP}}}{\partial \mathbf{W}_{\text{base}}}$. Parameter gradients through base weights are unchanged at step zero. $lacksquare$
+*Proof*: Because $\tanh(0) = 0$ and $\mathbf{W}_{\text{ambient}} = \mathbf{0}$, the forward pass reduces to $\mathbf{z}_{\text{out}} = \mathbf{z}_{\text{Mamba+MLP}}$. By the chain rule, $\frac{\partial \mathcal{L}}{\partial \mathbf{z}_{\text{out}}} \frac{\partial \mathbf{z}_{\text{out}}}{\partial \mathbf{W}_{\text{base}}} = \frac{\partial \mathcal{L}}{\partial \mathbf{z}_{\text{Mamba+MLP}}} \frac{\partial \mathbf{z}_{\text{Mamba+MLP}}}{\partial \mathbf{W}_{\text{base}}}$. Parameter gradients through base weights are unchanged at step zero. $\blacksquare$
 
 ### 2.2 Phase-Lagged Cross-Layer Residual Injection
 To enable communication between non-adjacent layers without violating autoregressive order:
 1. At token step $t$, the correlation broker evaluates activation covariance across layer buffers $\mathbf{a}_i, \mathbf{a}_j \in \mathbb{R}^{K \times D}$:
-   $$
-ho_{ij}(t) = \frac{\operatorname{Cov}(\mathbf{a}_i, \mathbf{a}_j)}{\sigma(\mathbf{a}_i) \sigma(\mathbf{a}_j)}$$
-2. For pairs where $
-ho_{ij} > \theta_{\text{threshold}}$, an injection vector is computed:
-   $$\mathbf{s}_{i 	o j}(t) = \kappa_{ij} \cdot \mathbf{a}_i(t) \cdot \left( \frac{\|\mathbf{a}_j(t)\|_2}{\|\mathbf{a}_j(t)\|_2 + \epsilon} 
-ight)$$
+   $$\rho_{ij}(t) = \frac{\operatorname{Cov}(\mathbf{a}_i, \mathbf{a}_j)}{\sigma(\mathbf{a}_i) \sigma(\mathbf{a}_j)}$$
+2. For pairs where $\rho_{ij} > \theta_{\text{threshold}}$, an injection vector is computed:
+   $$\mathbf{s}_{i \to j}(t) = \kappa_{ij} \cdot \mathbf{a}_i(t) \cdot \left( \frac{\|\mathbf{a}_j(t)\|_2}{\|\mathbf{a}_j(t)\|_2 + \epsilon} \right)$$
 3. **Temporal Buffering**: Rather than injecting within the same forward pass, vectors are cached and added at timestep $t+1$:
-   $$\mathbf{z}_j(t+1) \leftarrow \mathbf{z}_j(t+1) + \mathbf{s}_{i 	o j}(t)$$
+   $$\mathbf{z}_j(t+1) \leftarrow \mathbf{z}_j(t+1) + \mathbf{s}_{i \to j}(t)$$
 
 ---
 
@@ -100,9 +94,9 @@ The continuous evaluation trajectory was measured on held-out validation sequenc
 
 ## 4. Quantitative Analysis
 
-1. **Perplexity Convergence ($606.55 	o 27.39$)**:  
+1. **Perplexity Convergence ($606.55 \to 27.39$)**:  
    Held-out perplexity contracted to $\text{PPL} = e^{3.3104} \approx 27.39$. For comparison, dense Transformers of comparable parameter scale (e.g., GPT-2 Large 774M) exhibit test perplexity around $22.0\text{--}26.5$ on WikiText. This demonstrates that a selective SSM with residual state-buffer adapters achieves performance comparable to dense attention on continuous text modeling.
-2. **Top-1 Token Prediction Accuracy ($15.17\% 	o 39.04\%$)**:  
+2. **Top-1 Token Prediction Accuracy ($15.17\% \to 39.04\%$)**:  
    Top-1 accuracy increased by $+23.87\%$ over the adaptation trajectory. In an open BPE vocabulary of 50,257 tokens, top-1 accuracy near $40\%$ reflects solid acquisition of local syntactic dependencies and standard phrase collocations.
 3. **Context on Baseline Perplexity**:  
    The initial loss of $6.4078$ (PPL $606.55$) recorded at step 155,250 reflected the initial disturbance introduced by newly added adapter projections prior to backpropagation alignment. Within 250 steps, gradients stabilized the gating parameters, returning the model to expected nominal perplexity.

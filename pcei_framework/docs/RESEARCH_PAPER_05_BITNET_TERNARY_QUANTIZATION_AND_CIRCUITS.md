@@ -39,9 +39,7 @@ $$\gamma = \frac{1}{m \cdot n} \sum_{i=1}^m \sum_{j=1}^n |W_{ij}|$$
 
 ### 2.2 Discrete Quantization Mapping
 Continuous latent shadow weights $\mathbf{W} \in \mathbb{R}^{m \times n}$ are projected onto the discrete ternary lattice $\tilde{\mathbf{W}} \in \{-1, 0, +1\}^{m \times n}$:
-$$\tilde{W}_{ij} = \operatorname{clip}\left(\operatorname{round}\left(\frac{W_{ij}}{\gamma + \epsilon}
-ight), -1, 1
-ight)$$
+$$\tilde{W}_{ij} = \operatorname{clip}\left(\operatorname{round}\left(\frac{W_{ij}}{\gamma + \epsilon}\right), -1, 1\right)$$
 where $\epsilon = 10^{-8}$ prevents numerical instability.
 
 ### 2.3 Forward Output Scaling
@@ -50,13 +48,8 @@ $$\mathbf{Y} = \mathbf{X} \tilde{\mathbf{W}}^\top \cdot \gamma + \mathbf{b}$$
 
 ### 2.4 Straight-Through Estimator (STE) Formulation
 Because the rounding function has zero derivative almost everywhere, continuous shadow weights are updated using a clipped straight-through estimator with density re-weighting:
-$$\frac{\partial \mathcal{L}}{\partial W_{ij}} = \frac{\partial \mathcal{L}}{\partial \tilde{W}_{ij}} \cdot \mathbb{I}\left(\left|\frac{W_{ij}}{\gamma}
-ight| \le \lambda_{\text{clip}}
-ight) \cdot 
-ho(W_{ij})$$
-where $\lambda_{\text{clip}} = 1.0$, and $
-ho(w) = \exp\left(-\frac{w^2}{2\gamma^2}
-ight)$ provides smooth weighting near quantization thresholds.
+$$\frac{\partial \mathcal{L}}{\partial W_{ij}} = \frac{\partial \mathcal{L}}{\partial \tilde{W}_{ij}} \cdot \mathbb{I}\left(\left|\frac{W_{ij}}{\gamma}\right| \le \lambda_{\text{clip}}\right) \cdot \rho(W_{ij})$$
+where $\lambda_{\text{clip}} = 1.0$, and $\rho(w) = \exp\left(-\frac{w^2}{2\gamma^2}\right)$ provides smooth weighting near quantization thresholds.
 
 ---
 
@@ -93,13 +86,10 @@ The observed ratio is **$40.08 : 19.82 : 40.09$**, demonstrating sign symmetry a
 ## 4. Representational Subspace Diversity
 
 To evaluate whether ternary constraints induce subspace collapse ($\mathcal{H}_{\text{collapse}}$), we measured mean pairwise distance from collinearity $(1 - \operatorname{CosSim})$ across token activations at various layer depths:
-$$\mathcal{D}(l) = 1 - \frac{1}{N^2} \sum_{i=1}^N \sum_{j=1}^N \frac{\langle \mathbf{h}_i^{(l)}, \mathbf{h}_j^{(l)} 
-angle}{\|\mathbf{h}_i^{(l)}\| \|\mathbf{h}_j^{(l)}\|}$$
+$$\mathcal{D}(l) = 1 - \frac{1}{N^2} \sum_{i=1}^N \sum_{j=1}^N \frac{\langle \mathbf{h}_i^{(l)}, \mathbf{h}_j^{(l)} \rangle}{\|\mathbf{h}_i^{(l)}\| \|\mathbf{h}_j^{(l)}\|}$$
 
 ### Table 3: Activation Diversity Across Network Depth
-| Layer Depth | Cosine Similarity ($ar{
-ho}$) | Diversity ($1 - ar{
-ho}$) | Interpretation |
+| Layer Depth | Cosine Similarity ($\bar{\rho}$) | Diversity ($1 - \bar{\rho}$) | Interpretation |
 | :--- | :--- | :--- | :--- |
 | **Layer 0 (Input)** | `0.8877` | **`0.1123`** | Tightly clustered input embeddings |
 | **Layer 4** | `0.7852` | **`0.2148`** | Low-level feature composition |
@@ -109,7 +99,7 @@ ho}$) | Interpretation |
 | **Layer 20** | `0.2812` | **`0.7188`** | High-order feature expansion |
 | **Layer 23 (Output)**| `0.2188` | **`0.7812`** | High representation diversity prior to LM head |
 
-**Finding**: Subspace diversity expands monotonically from $0.1123 	o 0.7812$. Deep layers maintain directional variance rather than collapsing into low-rank representations, refuting $\mathcal{H}_{\text{collapse}}$.
+**Finding**: Subspace diversity expands monotonically from $0.1123 \to 0.7812$. Deep layers maintain directional variance rather than collapsing into low-rank representations, refuting $\mathcal{H}_{\text{collapse}}$.
 
 ---
 

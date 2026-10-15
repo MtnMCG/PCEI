@@ -8,7 +8,8 @@ from PIL import Image
 import numpy as np
 
 # Add src to path
-sys.path.append(str(Path("/Users/emerson/Desktop/PCEI /pcei_framework")))
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.append(str(ROOT))
 
 from src.pcei import PCEINexus
 from src.core.ingestors import PCEIDataset, ImageIngestor
@@ -49,7 +50,7 @@ def run_test():
     nexus = PCEINexus(vocab_size=VOCAB_SIZE).to(device)
     
     # Load checkpoint
-    ckpt_path = Path("/Users/emerson/Desktop/PCEI /pcei_framework/checkpoints/pcei_micro.pt")
+    ckpt_path = ROOT / "checkpoints" / "pcei_micro.pt"
     if not ckpt_path.exists():
         print(f"Checkpoint {ckpt_path} not found!")
         return
@@ -67,14 +68,14 @@ def run_test():
     print(" TEST 1: IMAGE LABELING (Grounding)")
     print("="*40)
     
-    db_path = Path("/Users/emerson/Desktop/PCEI /pcei_framework/data/processed/training_database.jsonl")
+    db_path = ROOT / "data" / "processed" / "training_database.jsonl"
     dataset = PCEIDataset(db_path, vocab_size=VOCAB_SIZE, max_seq_len=MAX_SEQ_LEN, tokenizer=tokenizer)
     
     image_records = [r for r in dataset.records if r.get('image_path')]
     if not image_records:
         print("No image records found!")
     else:
-        root_path = Path("/Users/emerson/Desktop/PCEI /pcei_framework")
+        root_path = ROOT
         image_ingestor = ImageIngestor()
         samples = random.sample(image_records, min(2, len(image_records)))
         

@@ -17,8 +17,7 @@ Standard multi-head self-attention Transformers exhibit quadratic computational 
 ## 1. Introduction & Theoretical Motivation
 
 In standard Transformer architectures, self-attention scales with sequence length $L$:
-$$\operatorname{Attention}(\mathbf{Q}, \mathbf{K}, \mathbf{V}) = \operatorname{softmax}\left(\frac{\mathbf{Q} \mathbf{K}^\top}{\sqrt{d_k}}
-ight) \mathbf{V}$$
+$$\operatorname{Attention}(\mathbf{Q}, \mathbf{K}, \mathbf{V}) = \operatorname{softmax}\left(\frac{\mathbf{Q} \mathbf{K}^\top}{\sqrt{d_k}}\right) \mathbf{V}$$
 The pairwise inner product $\mathbf{Q} \mathbf{K}^\top$ scales quadratically $\mathcal{O}(L^2)$ in compute and activation storage during training. During autoregressive decoding, past keys and values must be retained in memory, causing the KV-cache to grow linearly with context length.
 
 The PCEI architecture evaluates an alternative sequence modeling backbone based on selective state-space models (Gu & Dao, 2023):
@@ -41,7 +40,7 @@ For a 24-layer Transformer with sequence length $L$ and model dimension $D=1280$
 Each state-space layer discretizes continuous state equations via dynamic step size $\Delta$:
 $$h'(t) = \mathbf{A} h(t) + \mathbf{B} x(t), \quad y(t) = \mathbf{C} h(t) + \mathbf{D} x(t)$$
 Discretization via Zero-Order Hold (ZOH) yields:
-$$ar{\mathbf{A}} = \exp(\Delta \mathbf{A}), \quad ar{\mathbf{B}} = (\Delta \mathbf{A})^{-1} (\exp(\Delta \mathbf{A}) - \mathbf{I}) \cdot \Delta \mathbf{B} \approx \Delta \mathbf{B}$$
+$$\bar{\mathbf{A}} = \exp(\Delta \mathbf{A}), \quad \bar{\mathbf{B}} = (\Delta \mathbf{A})^{-1} (\exp(\Delta \mathbf{A}) - \mathbf{I}) \cdot \Delta \mathbf{B} \approx \Delta \mathbf{B}$$
 where $\Delta = \operatorname{softplus}(\operatorname{Parameter} + \mathbf{W}_\Delta \mathbf{x})$.
 
 During training, the recurrence is computed across the sequence via a parallel associative scan:
@@ -63,7 +62,7 @@ Performance was measured across two hardware targets:
 | **Training VRAM at $L=2048$** | `~21,450 MiB` | **`9,781 MiB`** | **$-54.4\%$ Memory** |
 | **Training Throughput (RTX 4090)** | `780 – 950 tok/s` | **`1,475 tok/s`** | **$+55.2\%$ Throughput** |
 | **Tokens Processed / Hour** | `~3.1 Million` | **`~5.31 Million`** | $+2.2\text{M tok/hr}$ |
-| **Inference Latency (Token 1 vs 2000)**| $12\text{ ms} 	o 48\text{ ms}$ (Degrading) | **$11.8\text{ ms} 	o 12.1\text{ ms}$ (Flat)** | Constant latency |
+| **Inference Latency (Token 1 vs 2000)**| $12\text{ ms} \to 48\text{ ms}$ (Degrading) | **$11.8\text{ ms} \to 12.1\text{ ms}$ (Flat)** | Constant latency |
 | **Memory Footprint (Apple Silicon)** | `~8.4 GB` | **`3.8 GB`** | Fits within 16GB/24GB unified RAM |
 
 ---

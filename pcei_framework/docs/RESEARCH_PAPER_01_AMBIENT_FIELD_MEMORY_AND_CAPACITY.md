@@ -10,8 +10,7 @@
 
 ## Abstract
 
-A core design component in the Physically Constrained Emergent Intelligence (PCEI) architecture is the *Ambient Field*—a slow-updating, low-dimensional continuous state vector intended to maintain contextual continuity across autoregressive sequences via exponential moving averages (EMA). In this paper, we evaluate two specific operational hypotheses: (1) that a continuous temporal-pooled latent state can serve as an autonomous working memory, eliminating the need to preserve discrete token history in multi-turn dialogues; and (2) that this latent buffer expands representational capacity beyond the parametric embedding basis. Using deterministic reconstruction probes and logit inversion telemetry on an 846M-parameter BitNet 1.58b / Mamba model, we demonstrate that 1D temporal mean-pooling ($\mathbb{R}^{B \times L \times D} 	o \mathbb{R}^{B \times D}$) induces an irrecoverable Shannon information loss of factor $L$ ($19.0\times$ at $L=19$, $1024.0\times$ at $L=1024$), yielding a reconstruction mean squared error of $\mathrm{MSE} = 42.50$ and a token-to-buffer cosine alignment of $
-ho = 0.2471$. Consequently, while the slow-moving buffer functions as a global latent regularizer and learning rate stabilizer, it cannot preserve sequential token order or grammatical syntax. We conclude that explicit causal token-history concatenation remains mandatory for multi-turn autoregressive coherence.
+A core design component in the Physically Constrained Emergent Intelligence (PCEI) architecture is the *Ambient Field*—a slow-updating, low-dimensional continuous state vector intended to maintain contextual continuity across autoregressive sequences via exponential moving averages (EMA). In this paper, we evaluate two specific operational hypotheses: (1) that a continuous temporal-pooled latent state can serve as an autonomous working memory, eliminating the need to preserve discrete token history in multi-turn dialogues; and (2) that this latent buffer expands representational capacity beyond the parametric embedding basis. Using deterministic reconstruction probes and logit inversion telemetry on an 846M-parameter BitNet 1.58b / Mamba model, we demonstrate that 1D temporal mean-pooling ($\mathbb{R}^{B \times L \times D} \to \mathbb{R}^{B \times D}$) induces an irrecoverable Shannon information loss of factor $L$ ($19.0\times$ at $L=19$, $1024.0\times$ at $L=1024$), yielding a reconstruction mean squared error of $\mathrm{MSE} = 42.50$ and a token-to-buffer cosine alignment of $\rho = 0.2471$. Consequently, while the slow-moving buffer functions as a global latent regularizer and learning rate stabilizer, it cannot preserve sequential token order or grammatical syntax. We conclude that explicit causal token-history concatenation remains mandatory for multi-turn autoregressive coherence.
 
 ---
 
@@ -80,8 +79,7 @@ angle}{\|\mathbf{Z}_{:, i, :}\| \|\mathbf{s}_{\text{slow}}\|}$$
 | **Pooled State Footprint** | $\mathcal{C}_{\text{ambient}}$ | `1,280 scalars` | Information preserved in state |
 | **Information Compression Factor** | $\kappa = L$ | **`19.0×`** | 94.74% scalar elimination |
 | **At Full Context Window ($L=1024$)** | $\kappa_{1024}$ | **`1024.0×`** | 99.90% scalar elimination |
-| **Token-to-Buffer Cosine Similarity** | $ar{
-ho}$ | **`0.2471`** | Weak alignment with token sequence |
+| **Token-to-Buffer Cosine Similarity** | $\bar{\rho}$ | **0.2471** | Weak alignment with token sequence |
 | **Logit Reconstruction MSE** | $\mathcal{L}_{\text{divergence}}$ | **`42.5000`** | Complete disruption of token order |
 
 ### Table 2: Multi-Turn Dialogue Retention Probe Under Pure State Condition
@@ -102,8 +100,7 @@ Multi-turn conversational retention in `resonance_chat.py` was evaluated under t
 The mean-pooling operator $\frac{1}{L} \sum_{i=1}^L \mathbf{z}_i$ is strictly permutation-invariant. For any non-trivial permutation $\pi$ of sequence tokens $\{x_{\pi(1)}, \dots, x_{\pi(L)}\}$, the pooled representation satisfies:
 $$\operatorname{Pool}(\mathbf{Z}_{\pi}) \equiv \operatorname{Pool}(\mathbf{Z})$$
 
-Consequently, a mean-pooled latent vector cannot differentiate between syntactically distinct permutations (e.g., `"A implies B"` vs. `"B implies A"`). Furthermore, because mean cosine alignment $ar{
-ho} = 0.2471$ is low, the pooled state preserves only coarse distributional centroid information while erasing positional tokens and grammatical dependencies.
+Consequently, a mean-pooled latent vector cannot differentiate between syntactically distinct permutations (e.g., `"A implies B"` vs. `"B implies A"`). Furthermore, because mean cosine alignment $\bar{\rho} = 0.2471$ is low, the pooled state preserves only coarse distributional centroid information while erasing positional tokens and grammatical dependencies.
 
 **Result**: $\mathcal{H}_1$ is refuted. Explicit token sequence concatenation remains necessary for autoregressive multi-turn dialogue.
 

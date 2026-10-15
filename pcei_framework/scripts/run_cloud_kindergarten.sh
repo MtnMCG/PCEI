@@ -44,8 +44,8 @@ echo "[Pipeline] Credit guard running (PID $GUARD_PID)"
 # MAC_IP auto-detected from SSH_CLIENT
 MAC_IP=$(echo $SSH_CLIENT | awk '{print $1}')
 echo "[Sync] Mac IP detected: $MAC_IP"
-MAC_CKPT_DIR="/Users/emerson/Desktop/PCEI /pcei_framework/checkpoints"
-MAC_LOG_DIR="/Users/emerson/Desktop/PCEI /pcei_framework"
+MAC_CKPT_DIR="${MAC_CKPT_DIR:-~/pcei_framework/checkpoints}"
+MAC_LOG_DIR="${MAC_LOG_DIR:-~/pcei_framework}"
 
 # Background sync daemon — runs every 10 minutes, copies kindergarten checkpoints only
 (while true; do

@@ -6,8 +6,10 @@
 
 set -e
 
-LOG="/Users/emerson/Desktop/PCEI /pcei_framework/cloud_kindergarten_training.log"
-CKPT_DIR="/Users/emerson/Desktop/PCEI /pcei_framework/checkpoints"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+FRAMEWORK_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+LOG="${LOG:-$FRAMEWORK_DIR/cloud_kindergarten_training.log}"
+CKPT_DIR="${CKPT_DIR:-$FRAMEWORK_DIR/checkpoints}"
 INSTANCE_ID="52154175"
 TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
 

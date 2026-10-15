@@ -4,7 +4,7 @@
 ================================================================================
 
 ENVIRONMENT SETUP (run once per terminal session):
-  cd "/Users/emerson/Desktop/PCEI /pcei_framework"
+  cd pcei_framework
   source venv/bin/activate
   export PYTHONPATH=$PYTHONPATH:.
 

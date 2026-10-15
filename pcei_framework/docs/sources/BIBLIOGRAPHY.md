@@ -1,7 +1,7 @@
 # PCEI Scientific Research: Master Annotated Bibliography
 
-**Repository Location**: [`pcei_framework/docs/sources/BIBLIOGRAPHY.md`](file:///Users/emerson/Desktop/PCEI%20/pcei_framework/docs/sources/BIBLIOGRAPHY.md)  
-**BibTeX Source File**: [`pcei_framework/docs/sources/BIBLIOGRAPHY.bib`](file:///Users/emerson/Desktop/PCEI%20/pcei_framework/docs/sources/BIBLIOGRAPHY.bib)  
+**Repository Location**: [`pcei_framework/docs/sources/BIBLIOGRAPHY.md`](BIBLIOGRAPHY.md)  
+**BibTeX Source File**: [`pcei_framework/docs/sources/BIBLIOGRAPHY.bib`](BIBLIOGRAPHY.bib)  
 **Format**: Harvard Reference System & IEEE Academic Standard  
 **Date**: September 2026  
 

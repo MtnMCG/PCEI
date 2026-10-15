@@ -60,6 +60,22 @@ if 'queue_idx' not in st.session_state:
 
 
 # ——— HELPERS ———
+def get_cache_key(filepath: Path) -> str:
+    """Get relative or string key for label cache lookup."""
+    try:
+        return str(filepath.resolve().relative_to(PROJECT_ROOT.resolve()))
+    except Exception:
+        return str(filepath)
+
+def get_cached_label(filepath: Path):
+    """Lookup label from cache supporting both relative and absolute keys."""
+    key = get_cache_key(filepath)
+    if key in st.session_state.label_cache:
+        return st.session_state.label_cache[key]
+    if str(filepath) in st.session_state.label_cache:
+        return st.session_state.label_cache[str(filepath)]
+    return None
+
 def get_all_raw_files():
     """Scan all raw data subdirectories for supported files."""
     files = []
@@ -72,7 +88,7 @@ def get_all_raw_files():
 def get_unlabeled_files():
     """Return only files that haven't been labeled yet."""
     all_files = get_all_raw_files()
-    return [(f, m) for f, m in all_files if str(f) not in st.session_state.label_cache]
+    return [(f, m) for f, m in all_files if get_cached_label(f) is None]
 
 def get_labeled_files():
     """Return files that have been labeled but not yet sent to training DB."""
@@ -90,11 +106,12 @@ def get_labeled_files():
                         pass
     
     return [(f, m) for f, m in all_files 
-            if str(f) in st.session_state.label_cache and str(f) not in sent_files]
+            if get_cached_label(f) is not None and str(f) not in sent_files and get_cache_key(f) not in sent_files]
 
 def save_label(filepath: str, label: str, tags: list, modality: str):
     """Save label to cache (not yet to training DB)."""
-    st.session_state.label_cache[filepath] = {
+    key = get_cache_key(Path(filepath))
+    st.session_state.label_cache[key] = {
         "label": label,
         "tags": tags,
         "modality": modality,
@@ -106,7 +123,7 @@ def save_label(filepath: str, label: str, tags: list, modality: str):
 def send_to_training(filepath: str, label_data: dict):
     """Append a labeled item to the training database JSONL."""
     record = {
-        "filepath": filepath,
+        "filepath": get_cache_key(Path(filepath)),
         "label": label_data["label"],
         "tags": label_data["tags"],
         "modality": label_data["modality"],
@@ -266,7 +283,7 @@ with tab_review:
         
         # Show a preview table
         for filepath, modality in ready:
-            label_data = st.session_state.label_cache.get(str(filepath), {})
+            label_data = get_cached_label(filepath) or {}
             with st.expander(f"📄 {filepath.name} ({modality})"):
                 st.write(f"**Label:** {label_data.get('label', 'N/A')}")
                 st.write(f"**Tags:** {', '.join(label_data.get('tags', []))}")
@@ -275,7 +292,7 @@ with tab_review:
         if st.button("🚀 Send ALL to Training Database", type="primary", use_container_width=True):
             count = 0
             for filepath, modality in ready:
-                label_data = st.session_state.label_cache.get(str(filepath))
+                label_data = get_cached_label(filepath)
                 if label_data:
                     send_to_training(str(filepath), label_data)
                     count += 1

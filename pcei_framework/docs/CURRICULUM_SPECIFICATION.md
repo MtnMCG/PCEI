@@ -114,7 +114,7 @@ Pretraining spanned **163,000 optimization steps** at context length $L = 512$ w
 
 ## Part II: Autonomous Dreaming Consolidation (Phase 2)
 
-Before proceeding to instruction tuning, the model underwent **Phase 2: The Dreaming Chamber** ([`tools/dreaming_chamber.py`](file:///Users/emerson/Desktop/PCEI%20/pcei_framework/tools/dreaming_chamber.py)):
+Before proceeding to instruction tuning, the model underwent **Phase 2: The Dreaming Chamber** ([`tools/dreaming_chamber.py`](../tools/dreaming_chamber.py)):
 * **Input Tokens**: **Zero external tokens**.
 * **Duration**: 1,000 autonomous closed-loop cycles.
 * **Mechanism**: Continuous latent diffusion in embedding space using `DreamSeeder` directed noise.
@@ -173,7 +173,7 @@ The `BlendedDatasetStreamer` concurrently streams from high-density instruction 
 * **Function**: Broadens everyday lexical fluency, idioms, and casual dialogue handling.
 
 #### 2.5 Council-Ultima Synthetic Teacher — 10.0%
-* **Source**: Automated local teacher pipeline querying `MtnMCG/Council-Ultima:latest` on Ollama via [`tools/teacher_generator.py`](file:///Users/emerson/Desktop/PCEI%20/pcei_framework/tools/teacher_generator.py).
+* **Source**: Automated local teacher pipeline querying `MtnMCG/Council-Ultima:latest` on Ollama via [`tools/teacher_generator.py`](../tools/teacher_generator.py).
 * **Function**: Continuously feeds customized, high-density reasoning, logic puzzles, algorithmic coding, and math demonstrations into `data/curriculum/council_teacher.jsonl`.
 
 #### 2.6 FineWeb-Edu (Factual Foundation Anchor) — 10.0%
@@ -189,7 +189,7 @@ $$\text{Standard: } [\mathbf{x}_1, \dots, \mathbf{x}_{600}, \underbrace{0, 0, \d
 * This wastes $35-50\%$ of GPU memory and compute on non-informative null tokens.
 
 ### The Token-Maxx Continuous Packing Solution
-PCEI implements continuous sequence packing in both [`scripts/train.py`](file:///Users/emerson/Desktop/PCEI%20/pcei_framework/scripts/train.py) and [`tools/blended_instruction_tuner.py`](file:///Users/emerson/Desktop/PCEI%20/pcei_framework/tools/blended_instruction_tuner.py):
+PCEI implements continuous sequence packing in both [`scripts/train.py`](../scripts/train.py) and [`tools/blended_instruction_tuner.py`](../tools/blended_instruction_tuner.py):
 1. Documents from all active curriculum streams are tokenized into BPE IDs.
 2. An `<|endoftext|>` token (ID `50256`) is appended to the conclusion of each document.
 3. The streamer fills an active FIFO token queue:
@@ -216,7 +216,6 @@ pcei_framework/data/
 │   ├── anthropic_claude.jsonl         # Claude Chain-of-Thought dataset (53.4MB)
 │   ├── beast_reasoning.jsonl          # High-difficulty deductive logic syllogisms
 │   ├── congruent_concepts.jsonl       # Semantic hierarchy & ontological trees
-│   ├── hk_expanded.jsonl              # Domain reasoning & system knowledge
 │   ├── instruction_tuning.jsonl       # Instruction-response dialogue pairs
 │   ├── modular_arithmetic.jsonl       # Mathematical group operations (Z/pZ)
 │   ├── prompt_formatting.jsonl        # ChatML & dialogue formatting

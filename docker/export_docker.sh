@@ -1,8 +1,9 @@
 #!/bin/bash
 set -e
 
-SOURCE_DIR="/Users/emerson/Desktop/PCEI /pcei_framework"
-TARGET_DIR="/Users/emerson/Desktop/PCEI /docker/PCEI_Docker/pcei_framework"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SOURCE_DIR="$(cd "$SCRIPT_DIR/../pcei_framework" && pwd)"
+TARGET_DIR="$SCRIPT_DIR/PCEI_Docker/pcei_framework"
 
 echo "Creating pristine export directory..."
 rm -rf "$TARGET_DIR"

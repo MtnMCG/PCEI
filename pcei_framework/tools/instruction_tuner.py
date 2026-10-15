@@ -449,15 +449,13 @@ def launch_prompt() -> str:
         "      Use this to teach ASSISTANT how to speak like a human.[/dim]\n\n"
         "  [bold yellow][3] Chat Mode[/bold yellow]\n"
         "      [dim]Interactive RLHF session — you provide prompts live.[/dim]\n\n"
-        "  [bold blue][4] HK Mode[/bold blue]\n"
-        "      [dim]Trains exclusively on the hk_lora_chatml_cleaned dataset for trading behaviors.[/dim]\n\n"
-        "  [bold cyan][5] Anthropic Mode[/bold cyan]\n"
+        "  [bold cyan][4] Anthropic Mode[/bold cyan]\n"
         "      [dim]Trains on The-Claude-Dataset streaming from HuggingFace.[/dim]",
         title="[bold]Mode Selection[/bold]",
         border_style="magenta"
     ))
     while True:
-        choice = console.input("\n[bold]Select mode (1/2/3/4/5): [/bold]").strip()
+        choice = console.input("\n[bold]Select mode (1/2/3/4): [/bold]").strip()
         if choice == "1":
             return "auto"
         elif choice == "2":
@@ -465,11 +463,9 @@ def launch_prompt() -> str:
         elif choice == "3":
             return "chat"
         elif choice == "4":
-            return "hk"
-        elif choice == "5":
             return "anthropic"
         else:
-            console.print("[red]Invalid choice. Enter 1, 2, 3, 4, or 5.[/red]")
+            console.print("[red]Invalid choice. Enter 1, 2, 3, or 4.[/red]")
 
 
 def sft_automated_mode(nexus, optimizer, tokenizer, args, device, telem, producer_class=None, mode="auto", offline=False):
@@ -477,22 +473,7 @@ def sft_automated_mode(nexus, optimizer, tokenizer, args, device, telem, produce
     
     unused_records = []
     all_records = []  # Full corpus kept for eval mirror — always defined
-    if mode == "hk":
-        hk_path = Path(__file__).parent.parent / "data" / "synthetic" / "hk_expanded.jsonl"
-        if hk_path.exists():
-            with open(hk_path, 'r') as f:
-                for line in f:
-                    try:
-                        data = json.loads(line)
-                        if "prompt" in data and "response" in data:
-                            all_records.append(data)
-                            unused_records.append(data)
-                    except:
-                        continue
-            console.print(f"[bold green]Loaded {len(unused_records)} records from HK dataset.[/bold green]")
-        else:
-            console.print(f"[bold red]HK dataset not found at {hk_path}[/bold red]")
-    elif mode == "anthropic":
+    if mode == "anthropic":
         local_path = Path(__file__).parent.parent / "data" / "synthetic" / "anthropic_claude.jsonl"
         if local_path.exists():
             console.print(f"[bold green]Loading anthropic dataset from local file: {local_path.name}[/bold green]")
@@ -547,21 +528,14 @@ def sft_automated_mode(nexus, optimizer, tokenizer, args, device, telem, produce
             if r.get('used', False):
                 continue
 
-            is_hk = "SYSTEM:" in r.get("prompt", "") or "<thought>" in r.get("response", "")
             is_basic = 'category' in r  # BasicOllamaProducer stamps a 'category' field
 
             if mode == "basic":
                 # Basic mode: ONLY load conversational records
                 if is_basic:
                     unused_records.append(r)
-            elif mode == "auto":
-                # Auto mode: load standard + basic, skip HK trading data
-                if not is_hk:
-                    unused_records.append(r)
             else:
-                # Fallback: load everything except HK
-                if not is_hk:
-                    unused_records.append(r)
+                unused_records.append(r)
                     
         # Add Claude records to unused pool for Auto mode
         if mode == "auto" and claude_records:
@@ -577,7 +551,7 @@ def sft_automated_mode(nexus, optimizer, tokenizer, args, device, telem, produce
     stop_event = threading.Event()
     
     target_needed = args.num_ollama - len(unused_records)
-    can_produce = (not offline) and (producer_class is not None) and (mode != "hk")
+    can_produce = (not offline) and (producer_class is not None)
     if can_produce and (target_needed > 0 or args.force_generate):
         producer = producer_class(max(target_needed, 0), args.ollama_model, data_queue, stop_event)
         producer.start()
@@ -869,16 +843,12 @@ def main(args):
 
     if args.mode == "auto":
         console.print("[bold cyan]--- Automated Academic Mode ---[/bold cyan]")
-        console.print("[dim]Training on math, history, philosophy, science. HK trading data excluded.[/dim]")
+        console.print("[dim]Training on math, history, philosophy, science.[/dim]")
         sft_automated_mode(nexus, optimizer, tokenizer, args, device, telem, producer_class=OllamaProducer, mode="auto")
     elif args.mode == "basic":
         console.print("[bold green]--- Basic Conversational Mode ---[/bold green]")
         console.print("[dim]Strictly training on greetings, small talk, and human exchanges.[/dim]")
         sft_automated_mode(nexus, optimizer, tokenizer, args, device, telem, producer_class=BasicOllamaProducer, mode="basic")
-    elif args.mode == "hk":
-        console.print("[bold blue]--- HK Trading Mode ---[/bold blue]")
-        console.print("[dim]Strictly training on the hk_lora_chatml_cleaned_2026-06-05.jsonl dataset.[/dim]")
-        sft_automated_mode(nexus, optimizer, tokenizer, args, device, telem, producer_class=None, mode="hk")
     elif args.mode == "anthropic":
         console.print("[bold cyan]--- Anthropic Mode ---[/bold cyan]")
         console.print("[dim]Streaming The-Claude-Dataset from HuggingFace.[/dim]")
@@ -892,7 +862,7 @@ if __name__ == "__main__":
     import subprocess, os, platform
     _caff = subprocess.Popen(["caffeinate", "-i", "-w", str(os.getpid())]) if platform.system() == "Darwin" else None
     parser = argparse.ArgumentParser()
-    parser.add_argument("--mode", type=str, choices=["auto", "basic", "chat", "hk", "anthropic"], default=None,
+    parser.add_argument("--mode", type=str, choices=["auto", "basic", "chat", "anthropic"], default=None,
                         help="Training mode. If omitted, an interactive menu is shown.")
     parser.add_argument("--checkpoint-name", type=str, default="pcei_100m.pt")
     parser.add_argument("--ollama-model", type=str, default="gpt-oss:120b-cloud")

@@ -41,7 +41,7 @@ To bypass this redundant compute burn without altering the novel physical contin
 
 ## 2. Text Stack Grafting: GPT-2 Large Token Manifold
 
-* **Implementation Tool**: [`scripts/graft_weights.py`](file:///Users/emerson/Desktop/PCEI%20/pcei_framework/scripts/graft_weights.py)
+* **Implementation Tool**: [`scripts/graft_weights.py`](../scripts/graft_weights.py)
 * **Target Checkpoint**: Produced `checkpoints/pcei_750m_grafted.pt`
 
 ### 2.1 Dimensional Alignment
@@ -65,7 +65,7 @@ $$\operatorname{CosSim}\left(\mathbf{W}_{\text{pcei}}[\text{"apple"}], \mathbf{W
 
 ## 3. Visual Stack Grafting: CLIP ViT-B/16 Patch Projection
 
-* **Implementation Tool**: [`scripts/graft_sensory_weights.py`](file:///Users/emerson/Desktop/PCEI%20/pcei_framework/scripts/graft_sensory_weights.py)
+* **Implementation Tool**: [`scripts/graft_sensory_weights.py`](../scripts/graft_sensory_weights.py)
 * **Target Checkpoint**: Produced `checkpoints/pcei_750m_supercharged.pt`
 
 ### 3.1 Dimensional Alignment
@@ -91,7 +91,7 @@ The synthesized matrix $\mathbf{W}_{\text{proj}}$ was cast to `torch.bfloat16` a
 
 ## 4. Audio Stack Grafting: Whisper Acoustic Mel Filterbank
 
-* **Implementation Tool**: [`scripts/graft_sensory_weights.py`](file:///Users/emerson/Desktop/PCEI%20/pcei_framework/scripts/graft_sensory_weights.py)
+* **Implementation Tool**: [`scripts/graft_sensory_weights.py`](../scripts/graft_sensory_weights.py)
 * **Target Checkpoint**: Included in `checkpoints/pcei_750m_supercharged.pt`
 
 ### 4.1 Dimensional Alignment

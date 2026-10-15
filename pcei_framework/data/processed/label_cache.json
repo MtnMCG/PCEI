@@ -1,5 +1,5 @@
 {
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/text/cognitivebooks.txt": {
+  "data/raw/text/cognitivebooks.txt": {
     "label": "the following is a description on how to make a mind, and what a mind is",
     "tags": [
       "concept",
@@ -9,7 +9,7 @@
     "modality": "text",
     "labeled_at": "2026-03-08T22:46:55.063050"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/text/determinsim.txt": {
+  "data/raw/text/determinsim.txt": {
     "label": "this is an example of human covorsation",
     "tags": [
       "concept",
@@ -18,7 +18,7 @@
     "modality": "text",
     "labeled_at": "2026-03-08T22:47:53.899373"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/text/goodandbad.txt": {
+  "data/raw/text/goodandbad.txt": {
     "label": "this is a book written by friedrick nietszche on the phliosophy of good and evil",
     "tags": [
       "instruction",
@@ -28,7 +28,7 @@
     "modality": "text",
     "labeled_at": "2026-03-08T22:48:49.792421"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/text/on_ai.txt": {
+  "data/raw/text/on_ai.txt": {
     "label": "this is an explanation of the ethics behind artificial intelligence",
     "tags": [
       "instruction",
@@ -38,7 +38,7 @@
     "modality": "text",
     "labeled_at": "2026-03-08T22:49:23.721799"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/text/platosrepublic.txt": {
+  "data/raw/text/platosrepublic.txt": {
     "label": "this is a book containing various convorsations between the freek philosopher plato and his friends and colleagues, focussing on a broad range of philosophies",
     "tags": [
       "abstract",
@@ -47,7 +47,7 @@
     "modality": "text",
     "labeled_at": "2026-03-08T22:49:57.862839"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/text/starterpack.txt": {
+  "data/raw/text/starterpack.txt": {
     "label": "this is an example of convorsation",
     "tags": [
       "conversation"
@@ -55,7 +55,7 @@
     "modality": "text",
     "labeled_at": "2026-03-08T22:50:13.262761"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/text/words.txt": {
+  "data/raw/text/words.txt": {
     "label": "this is an example of words in the english language",
     "tags": [
       "instruction",
@@ -64,7 +64,7 @@
     "modality": "text",
     "labeled_at": "2026-03-08T22:50:40.682939"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/audio/Death Grips - Exmilitary - 1 - Beware.mp3": {
+  "data/raw/audio/Death Grips - Exmilitary - 1 - Beware.mp3": {
     "label": "\"Beware\" is the intense opening track from Death Grips' 2011 mixtape Exmilitary, featuring a cult-like atmosphere, raw production, and a prominent sample from a Charles Manson interview. The song serves as an aggressive manifesto for frontman Stefan Burnett (\"Ride\"), exploring themes of nihilism, deification of the self (\"I am the beast I worship\"), and abandonment of humanity.",
     "tags": [
       "music",
@@ -74,7 +74,7 @@
     "modality": "audio",
     "labeled_at": "2026-03-08T22:52:34.729376"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/audio/Death Grips - Exmilitary - 10 - Thru the Walls.mp3": {
+  "data/raw/audio/Death Grips - Exmilitary - 10 - Thru the Walls.mp3": {
     "label": "Death Grips \u2013 \"Thru the Walls\" (2011):\nA standout track from their debut mixtape Exmilitary, this song is described as an abrasive, high-energy experience. It features chaotic percussion, aggressive vocals from MC Ride, and notable samples\u2014including a Combine Soldier from Half-Life 2 and a \"delusional\" voice prompt. Fans often describe its instrumental as one of the more \"upbeat\" yet frantic moments on the album.",
     "tags": [
       "music",
@@ -84,7 +84,7 @@
     "modality": "audio",
     "labeled_at": "2026-03-08T22:53:01.347988"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/audio/Death Grips - Exmilitary - 11 - Known for it.mp3": {
+  "data/raw/audio/Death Grips - Exmilitary - 11 - Known for it.mp3": {
     "label": "\"Known for It\" is a track from Death Grips' 2011 mixtape Exmilitary, characterized by a driving, industrial hip-hop beat, sparse synth leads, and intense, manic vocal delivery from Stefan \"Ride\" Burnett. The song features repetitive lyrics exploring themes of nihilism, the futility of life, and uncompromising dedication to artistic creation",
     "tags": [
       "music",
@@ -94,7 +94,7 @@
     "modality": "audio",
     "labeled_at": "2026-03-08T22:53:20.364777"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/audio/Death Grips - Exmilitary - 12 - I Want it I need it (Death Heated).mp3": {
+  "data/raw/audio/Death Grips - Exmilitary - 12 - I Want it I need it (Death Heated).mp3": {
     "label": "\"I Want It I Need It (Death Heated)\" from Death Grips' Exmilitary (2011) is an aggressive, industrial hip-hop track sampling Pink Floyd\u2019s \"Interstellar Overdrive\". It explores raw, animalistic lust, addiction, and hedonistic partying through frantic, dark lyrics. The song features a heavy bassline, intense, pounding drums, and distorted, obsessive vocals.",
     "tags": [
       "music",
@@ -104,7 +104,7 @@
     "modality": "audio",
     "labeled_at": "2026-03-08T22:53:39.372590"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/audio/Death Grips - Exmilitary - 13 - Blood Creepin.mp3": {
+  "data/raw/audio/Death Grips - Exmilitary - 13 - Blood Creepin.mp3": {
     "label": "\"Blood Creepin\" is the intense, chaotic closing track on Death Grips' 2011 mixtape Exmilitary. The song features, harsh industrial production with haunting electronics and a looped vocal sample, creating an anxious, frantic atmosphere. Lyrically, it portrays a violent, drug-fueled high-speed police chase and morbid imagery like digging grave",
     "tags": [
       "music",
@@ -114,7 +114,7 @@
     "modality": "audio",
     "labeled_at": "2026-03-08T22:53:56.154581"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/audio/Death Grips - Exmilitary - 2 - Guillotine.mp3": {
+  "data/raw/audio/Death Grips - Exmilitary - 2 - Guillotine.mp3": {
     "label": "Guillotine\" by Death Grips is an anxiety-fueled, claustrophobic 2011 track from Exmilitary, characterized by a minimalistic, bass-heavy beat and frontman MC Ride\u2019s aggressive, cryptic rapping. Often considered their most iconic song, it features a relentless, hypnotic hook (\"It goes, it goes...\") over a dark, industrial, and \"witch-tongue\" sonic landscape.",
     "tags": [
       "music",
@@ -124,7 +124,7 @@
     "modality": "audio",
     "labeled_at": "2026-03-08T22:54:41.098120"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/audio/Death Grips - Exmilitary - 3 - Spread Eagle Cross the Block.mp3": {
+  "data/raw/audio/Death Grips - Exmilitary - 3 - Spread Eagle Cross the Block.mp3": {
     "label": "Spread Eagle Cross the Block\" by Death Grips is a high-energy, industrial hip-hop track from their Exmilitary mixtape, featuring intense, aggressive vocals from MC Ride and chaotic, fast-paced drumming by Zach Hill. The song heavily samples the 1958 instrumental rock song \"Rumble\" by Link Wray",
     "tags": [
       "music",
@@ -134,7 +134,7 @@
     "modality": "audio",
     "labeled_at": "2026-03-08T22:55:01.300898"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/audio/Death Grips - Exmilitary - 4 - Lord of the Game (ft. Mexican Girl).mp3": {
+  "data/raw/audio/Death Grips - Exmilitary - 4 - Lord of the Game (ft. Mexican Girl).mp3": {
     "label": "\"Lord of the Game\" by Death Grips, featured on their 2011 mixtape Exmilitary, is a chaotic, experimental hip-hop track driven by aggressive vocals from MC Ride and a sample-heavy, lo-fi beat. The song features vocal contributions from Mexican Girl and showcases intense, dark lyrical themes about control and destruction.",
     "tags": [
       "music",
@@ -144,7 +144,7 @@
     "modality": "audio",
     "labeled_at": "2026-03-08T22:55:16.866477"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/audio/Death Grips - Exmilitary - 5 - Takyon (Death Yon).mp3": {
+  "data/raw/audio/Death Grips - Exmilitary - 5 - Takyon (Death Yon).mp3": {
     "label": "\"Takyon (Death Yon)\" is a high-energy experimental hip-hop track by Death Grips, released in 2011 as part of their debut mixtape, Exmilitary. It is widely considered one of the group's most iconic and aggressive songs",
     "tags": [
       "music",
@@ -154,7 +154,7 @@
     "modality": "audio",
     "labeled_at": "2026-03-08T22:55:37.131558"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/audio/Death Grips - Exmilitary - 6 - Cut Throat (Instrumental).mp3": {
+  "data/raw/audio/Death Grips - Exmilitary - 6 - Cut Throat (Instrumental).mp3": {
     "label": "\"Cut Throat (Instrumental)\" from Death Grips' Exmilitary is a short, high-energy, and aggressive track. It acts as a transitional piece following \"Takyon,\" often featuring a loud \"DEATH!\" scream from MC Ride. The track is heavily instrumental, characterized by frantic, repetitive, and noisy production.",
     "tags": [
       "music",
@@ -164,7 +164,7 @@
     "modality": "audio",
     "labeled_at": "2026-03-08T22:55:54.376678"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/audio/Death Grips - Exmilitary - 7 - Klink.mp3": {
+  "data/raw/audio/Death Grips - Exmilitary - 7 - Klink.mp3": {
     "label": "\"Klink\" by Death Grips, featured on their 2011 mixtape Exmilitary, is an aggressive, punk-rap track detailing paranoia, police harassment, and the constant threat of incarceration (\"klink\" meaning jail). The song features a distinct sample of Black Flag's \"Rise Above\" guitar riff and showcases intense, shouted vocals from MC Ride.",
     "tags": [
       "music",
@@ -174,7 +174,7 @@
     "modality": "audio",
     "labeled_at": "2026-03-08T22:56:10.500636"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/audio/Death Grips - Exmilitary - 8 - Culture Shock.mp3": {
+  "data/raw/audio/Death Grips - Exmilitary - 8 - Culture Shock.mp3": {
     "label": "\"Culture Shock\" by Death Grips, featured on their 2011 debut mixtape Exmilitary, is a chaotic industrial hip-hop track exploring technology's dehumanizing effect and the rapid, overwhelming evolution of modern society. It features a heavily sampled, glitchy beat, raw vocal delivery from MC Ride, and lyrics focusing on information overload",
     "tags": [
       "music",
@@ -184,7 +184,7 @@
     "modality": "audio",
     "labeled_at": "2026-03-08T22:56:23.762546"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/audio/Death Grips - Exmilitary - 9 - 5D.mp3": {
+  "data/raw/audio/Death Grips - Exmilitary - 9 - 5D.mp3": {
     "label": "\"5D\" by Death Grips, featured on their Exmilitary mixtape, is a brief (43-second) experimental electronic interlude characterized by a distorted sample of The Pet Shop Boys' \"West End Girls\". It acts as a psychedelic, relatively \"chill\" bridge between louder tracks, featuring a calm, text-to-speech sample about vibrating higher to enter a 5th dimension.",
     "tags": [
       "music",
@@ -194,7 +194,7 @@
     "modality": "audio",
     "labeled_at": "2026-03-08T22:56:36.194442"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/audio/Death Grips - Exmilitary Mixtape.mp3": {
+  "data/raw/audio/Death Grips - Exmilitary Mixtape.mp3": {
     "label": "this is a mix tape combining all songs in the album \"exmilitary\" by the band deathgrips into one file",
     "tags": [
       "music",
@@ -204,7 +204,7 @@
     "modality": "audio",
     "labeled_at": "2026-03-08T22:56:56.154214"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/images/Death-Grips-Exmilitary.jpg": {
+  "data/raw/images/Death-Grips-Exmilitary.jpg": {
     "label": "The album cover for Death Grips' 2011 mixtape Exmilitary features a striking, weathered photograph of an Aboriginal Australian man. \n\nOrigin and Identity\nSubject: The man in the photograph was identified as an Aboriginal man from Gunbalanya (formerly Oenpelli), Northern Territory, Australia.\nOriginal Source: The photo, titled \"Bearded Man at Oenpelli,\" was taken by Douglass Baglin in 1968. It appeared in the book The Dark Australians (also published as People of the Dreamtime) by Baglin and David R. Moore.\nCommon Misconception: Fans often mistake the man on the cover for the band's frontman, MC Ride (Stefan Burnett), due to his similar intense expression and beard. \nThe \"Power Object\" Story\nAccording to band member Andy Morin (Flatlander), the choice was deeply personal and symbolic: \nA Decadelong Artifact: One of the band members allegedly carried the physical photograph in their wallet for approximately 10 years before the mixtape's release.\nSymbolism: The band refers to the image as a \"power object\". Its inclusion on the cover represents a defining artifact they identified with, rather than a personal connection to the man himself. \n\nVisual Aesthetics\nPhysical Texture: The cover art is a scan of the actual physical photograph carried by the band. You can see distinct fold lines, creases, and wear, indicating it was folded into quarters to fit in a wallet.\nThemes: The raw, intense, and \"primal\" look of the man aligns with the mixtape's themes of survival, mental instability, and raw aggression.",
     "tags": [
       "emotion",
@@ -216,7 +216,7 @@
     "modality": "image",
     "labeled_at": "2026-03-08T22:57:56.667179"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/images/IMG_4139.jpg": {
+  "data/raw/images/IMG_4139.jpg": {
     "label": "This is an image of a Caucasian or white-race human holding a bagel sandwich wrapped in tinfoil. The human is in the passenger seat of a Mercedes car with a blurry view of cars and  various foliage above in the car's front window",
     "tags": [
       "scene"
@@ -224,7 +224,7 @@
     "modality": "image",
     "labeled_at": "2026-03-08T23:01:24.306824"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/images/IMG_4142.jpg": {
+  "data/raw/images/IMG_4142.jpg": {
     "label": "this is an image of the view outside a car windshield looking forward at a road. to the sides of the road are various pine trees, and in the distance a small green metal sign is visible",
     "tags": [
       "scene"
@@ -232,7 +232,7 @@
     "modality": "image",
     "labeled_at": "2026-03-08T23:01:59.642094"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/images/IMG_4146.jpg": {
+  "data/raw/images/IMG_4146.jpg": {
     "label": "this is a view outside the side window of a car, looking out at a lake, you can see various trees, rocks, and foilage in the scene. the location of this photo is emerald bay in south lake tahoe california",
     "tags": [
       "scene"
@@ -240,7 +240,7 @@
     "modality": "image",
     "labeled_at": "2026-03-08T23:02:32.789955"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/images/IMG_4149.jpg": {
+  "data/raw/images/IMG_4149.jpg": {
     "label": "this is a view outside the side window of a car, looking out at a lake, you can see various trees, rocks, and foilage in the scene. the location of this photo is  south lake tahoe california",
     "tags": [
       "scene"
@@ -248,7 +248,7 @@
     "modality": "image",
     "labeled_at": "2026-03-08T23:02:43.458769"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/images/IMG_4153.jpg": {
+  "data/raw/images/IMG_4153.jpg": {
     "label": "this is a view outside the side window of a car, looking out at a lake, you can see various trees, rocks, and foilage in the scene. the location of this photo is  south lake tahoe california",
     "tags": [
       "scene"
@@ -256,7 +256,7 @@
     "modality": "image",
     "labeled_at": "2026-03-08T23:02:47.931561"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/images/IMG_4154.jpg": {
+  "data/raw/images/IMG_4154.jpg": {
     "label": "this is a view outside the side window of a car, looking out at a lake, you can see various trees, rocks, and foilage in the scene. the location of this photo is  south lake tahoe california",
     "tags": [
       "scene"
@@ -264,7 +264,7 @@
     "modality": "image",
     "labeled_at": "2026-03-08T23:02:50.737546"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/images/IMG_4155.jpg": {
+  "data/raw/images/IMG_4155.jpg": {
     "label": "this is a view outside the side window of a car, looking out at a lake, you can see various trees, rocks, and foilage in the scene. the location of this photo is  south lake tahoe california",
     "tags": [
       "scene"
@@ -272,7 +272,7 @@
     "modality": "image",
     "labeled_at": "2026-03-08T23:02:52.733278"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/images/IMG_4192.jpg": {
+  "data/raw/images/IMG_4192.jpg": {
     "label": "This is a photo of a waterfall in a foresty region, the waterfall is cutting through granite rockfaces",
     "tags": [
       "scene"
@@ -280,7 +280,7 @@
     "modality": "image",
     "labeled_at": "2026-03-08T23:03:10.882777"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/images/IMG_4193.jpg": {
+  "data/raw/images/IMG_4193.jpg": {
     "label": "This is a photo of a waterfall in a foresty region, the waterfall is cutting through granite rockfaces",
     "tags": [
       "scene"
@@ -288,7 +288,7 @@
     "modality": "image",
     "labeled_at": "2026-03-08T23:03:13.094614"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/images/IMG_4194.jpg": {
+  "data/raw/images/IMG_4194.jpg": {
     "label": "This is a photo of a waterfall in a foresty region, the waterfall is cutting through granite rockfaces",
     "tags": [
       "scene"
@@ -296,7 +296,7 @@
     "modality": "image",
     "labeled_at": "2026-03-08T23:03:14.761617"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/images/IMG_4195.jpg": {
+  "data/raw/images/IMG_4195.jpg": {
     "label": "This is a photo of a waterfall in a foresty region, the waterfall is cutting through granite rockfaces",
     "tags": [
       "scene"
@@ -304,7 +304,7 @@
     "modality": "image",
     "labeled_at": "2026-03-08T23:03:17.121893"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/images/IMG_4196.jpg": {
+  "data/raw/images/IMG_4196.jpg": {
     "label": "This is a photo of a waterfall in a foresty region, the waterfall is cutting through granite rockfaces",
     "tags": [
       "scene"
@@ -312,7 +312,7 @@
     "modality": "image",
     "labeled_at": "2026-03-08T23:03:19.098317"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/images/IMG_4197.jpg": {
+  "data/raw/images/IMG_4197.jpg": {
     "label": "this is a photo of a caucassian human male standing idle in a forest trail. He is surrounded by various trees and grass",
     "tags": [
       "scene"
@@ -320,7 +320,7 @@
     "modality": "image",
     "labeled_at": "2026-03-08T23:03:41.335758"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/images/IMG_4198.jpg": {
+  "data/raw/images/IMG_4198.jpg": {
     "label": "this is a photo of a bridge going over a river",
     "tags": [
       "scene"
@@ -328,7 +328,7 @@
     "modality": "image",
     "labeled_at": "2026-03-08T23:03:50.815220"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/images/IMG_4199.jpg": {
+  "data/raw/images/IMG_4199.jpg": {
     "label": "this is a photo of a bridge going over a river",
     "tags": [
       "scene"
@@ -336,7 +336,7 @@
     "modality": "image",
     "labeled_at": "2026-03-08T23:03:53.398309"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/images/IMG_4200.jpg": {
+  "data/raw/images/IMG_4200.jpg": {
     "label": "this is a black and white or monochromatic image of a lake",
     "tags": [
       "scene"
@@ -344,7 +344,7 @@
     "modality": "image",
     "labeled_at": "2026-03-08T23:04:06.252906"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/images/IMG_4201.jpg": {
+  "data/raw/images/IMG_4201.jpg": {
     "label": "this is an image of a lake",
     "tags": [
       "scene"
@@ -352,7 +352,7 @@
     "modality": "image",
     "labeled_at": "2026-03-08T23:04:14.886447"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/images/IMG_4202.jpg": {
+  "data/raw/images/IMG_4202.jpg": {
     "label": "this is an image of a lake",
     "tags": [
       "scene"
@@ -360,7 +360,7 @@
     "modality": "image",
     "labeled_at": "2026-03-08T23:04:16.757351"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/video/1596861-uhd_3840_2160_30fps.mp4": {
+  "data/raw/video/1596861-uhd_3840_2160_30fps.mp4": {
     "label": "This is a video of various humans walking on treadmills.",
     "tags": [
       "scene"
@@ -368,7 +368,7 @@
     "modality": "video",
     "labeled_at": "2026-03-08T23:05:43.519635"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/video/4088836-sd_640_360_25fps.mp4": {
+  "data/raw/video/4088836-sd_640_360_25fps.mp4": {
     "label": "acoustic guitar strumming",
     "tags": [
       "object"
@@ -376,7 +376,7 @@
     "modality": "video",
     "labeled_at": "2026-03-09T02:59:08.520660"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/video/5479436-sd_426_240_25fps.mp4": {
+  "data/raw/video/5479436-sd_426_240_25fps.mp4": {
     "label": "apple",
     "tags": [
       "object"
@@ -384,7 +384,7 @@
     "modality": "video",
     "labeled_at": "2026-03-09T02:59:13.288536"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/video/852360-sd_640_360_30fps.mp4": {
+  "data/raw/video/852360-sd_640_360_30fps.mp4": {
     "label": "acoustic guitar strumming",
     "tags": [
       "object"
@@ -392,7 +392,7 @@
     "modality": "video",
     "labeled_at": "2026-03-09T02:59:19.224317"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/audio/The pain of becoming yourself.mp3": {
+  "data/raw/audio/The pain of becoming yourself.mp3": {
     "label": "motivational speech by Steve Jobs discussing his life and three lessons he learned",
     "tags": [
       "speech"
@@ -400,7 +400,7 @@
     "modality": "audio",
     "labeled_at": "2026-03-09T02:59:49.729459"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/images/046_Capybara_by_the_river_in_Encontro_das_\u00c1guas_State_Park_Photo_by_Giles_Laurent.jpg": {
+  "data/raw/images/046_Capybara_by_the_river_in_Encontro_das_\u00c1guas_State_Park_Photo_by_Giles_Laurent.jpg": {
     "label": "capybara",
     "tags": [
       "object"
@@ -408,7 +408,7 @@
     "modality": "image",
     "labeled_at": "2026-03-09T03:01:36.235862"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/images/Hydrochoeris_hydrochaeris_in_Brazil_in_Petr\u00f3polis,_Rio_de_Janeiro,_Brazil_09.jpg": {
+  "data/raw/images/Hydrochoeris_hydrochaeris_in_Brazil_in_Petr\u00f3polis,_Rio_de_Janeiro,_Brazil_09.jpg": {
     "label": "capybara",
     "tags": [
       "object"
@@ -416,7 +416,7 @@
     "modality": "image",
     "labeled_at": "2026-03-09T03:01:37.827482"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/images/capy-encounter.jpg": {
+  "data/raw/images/capy-encounter.jpg": {
     "label": "capybara",
     "tags": [
       "object"
@@ -424,7 +424,7 @@
     "modality": "image",
     "labeled_at": "2026-03-09T03:01:39.112200"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/images/gettyimages-2224319510-capybara.webp": {
+  "data/raw/images/gettyimages-2224319510-capybara.webp": {
     "label": "capybara",
     "tags": [
       "object"
@@ -432,7 +432,7 @@
     "modality": "image",
     "labeled_at": "2026-03-09T03:01:42.312812"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/images/images-2.jpeg": {
+  "data/raw/images/images-2.jpeg": {
     "label": "capybara",
     "tags": [
       "object"
@@ -440,7 +440,7 @@
     "modality": "image",
     "labeled_at": "2026-03-09T03:01:43.627218"
   },
-  "/Users/emerson/Desktop/PCEI /pcei_framework/data/raw/images/iStock-1356534972-1024x768.jpg": {
+  "data/raw/images/iStock-1356534972-1024x768.jpg": {
     "label": "capybara swimming with its cubs",
     "tags": [
       "object"

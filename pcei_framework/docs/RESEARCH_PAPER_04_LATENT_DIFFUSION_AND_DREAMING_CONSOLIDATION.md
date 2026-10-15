@@ -10,7 +10,7 @@
 
 ## Abstract
 
-Iterative self-conditioning without external token supervision has been explored as a mechanism for regularizing latent manifolds and preventing representation drift. In this paper, we evaluate the mathematical dynamics and empirical performance of closed-loop latent diffusion denoising implemented in the Physically Constrained Emergent Intelligence (PCEI) architecture. Rather than operating on raw pixel spaces or discrete token graphs, this training phase executes Gaussian diffusion denoising in continuous latent sequence space ($\mathbb{R}^{B \times L \times D}$), seeded by a persistent exponential moving average (EMA) state buffer without external input tokens. Quantitative telemetry from a 1,000-cycle run on an 846M-parameter model shows that unconditioned latent diffusion contracts held-out validation perplexity on in-domain text from $57.79 	o 38.72$ (loss dropping from $4.05 	o 3.65$ nats). Concurrently, layer-wise plastic confidence values plateaued at $ar{\sigma}_{\text{conf}} 	o 0.2500$. However, our analysis reveals that internal denoising loss reached an exact minimum of $\mathcal{L}_{\text{denoise}} = 0.000000$ by cycle 895, indicating convergence to a low-entropy fixed-point attractor. We conclude that while unconditioned latent diffusion effectively minimizes latent energy and sharpens in-distribution manifold density, unconstrained iteration risks latent mode collapse and must be bounded to preserve generative diversity.
+Iterative self-conditioning without external token supervision has been explored as a mechanism for regularizing latent manifolds and preventing representation drift. In this paper, we evaluate the mathematical dynamics and empirical performance of closed-loop latent diffusion denoising implemented in the Physically Constrained Emergent Intelligence (PCEI) architecture. Rather than operating on raw pixel spaces or discrete token graphs, this training phase executes Gaussian diffusion denoising in continuous latent sequence space ($\mathbb{R}^{B \times L \times D}$), seeded by a persistent exponential moving average (EMA) state buffer without external input tokens. Quantitative telemetry from a 1,000-cycle run on an 846M-parameter model shows that unconditioned latent diffusion contracts held-out validation perplexity on in-domain text from $57.79 \to 38.72$ (loss dropping from $4.05 \to 3.65$ nats). Concurrently, layer-wise plastic confidence values plateaued at $\bar{\sigma}_{\text{conf}} \to 0.2500$. However, our analysis reveals that internal denoising loss reached an exact minimum of $\mathcal{L}_{\text{denoise}} = 0.000000$ by cycle 895, indicating convergence to a low-entropy fixed-point attractor. We conclude that while unconditioned latent diffusion effectively minimizes latent energy and sharpens in-distribution manifold density, unconstrained iteration risks latent mode collapse and must be bounded to preserve generative diversity.
 
 ---
 
@@ -31,27 +31,25 @@ This paper provides a formal analysis of the dynamics, convergence properties, a
 
 ### 2.1 Forward Diffusion Schedule in Continuous Embedding Space
 Let $\mathbf{Z}_0 \in \mathbb{R}^{B \times L \times D}$ denote the clean latent embedding sequence produced by `integrate_input(tokens)`. The forward Markov chain perturbs $\mathbf{Z}_0$ across timesteps $t \in \{1, \dots, T_{\text{max}}\}$:
-$$q(\mathbf{Z}_t | \mathbf{Z}_{t-1}) = \mathcal{N}\left(\mathbf{Z}_t; \sqrt{1 - eta_t} \mathbf{Z}_{t-1}, eta_t \mathbf{I}
-ight)$$
-Using standard notation $\alpha_t = 1 - eta_t$ and $ar{\alpha}_t = \prod_{s=1}^t \alpha_s$:
-$$\mathbf{Z}_t = \sqrt{ar{\alpha}_t} \mathbf{Z}_0 + \sqrt{1 - ar{\alpha}_t} oldsymbol{\epsilon}, \quad oldsymbol{\epsilon} \sim \mathcal{N}(\mathbf{0}, \mathbf{I})$$
+$$q(\mathbf{Z}_t | \mathbf{Z}_{t-1}) = \mathcal{N}\left(\mathbf{Z}_t; \sqrt{1 - \beta_t} \mathbf{Z}_{t-1}, \beta_t \mathbf{I} \right)$$
+Using standard notation $\alpha_t = 1 - \beta_t$ and $\bar{\alpha}_t = \prod_{s=1}^t \alpha_s$:
+$$\mathbf{Z}_t = \sqrt{\bar{\alpha}_t} \mathbf{Z}_0 + \sqrt{1 - \bar{\alpha}_t} \boldsymbol{\epsilon}, \quad \boldsymbol{\epsilon} \sim \mathcal{N}(\mathbf{0}, \mathbf{I})$$
 A linear variance schedule was employed:
-$$eta_t = eta_{\text{start}} + \frac{t}{T_{\text{max}}} (eta_{\text{end}} - eta_{\text{start}}), \quad eta_{\text{start}} = 10^{-4}, \ eta_{\text{end}} = 0.02, \ T_{\text{max}} = 12$$
+$$\beta_t = \beta_{\text{start}} + \frac{t}{T_{\text{max}}} (\beta_{\text{end}} - \beta_{\text{start}}), \quad \beta_{\text{start}} = 10^{-4}, \ \beta_{\text{end}} = 0.02, \ T_{\text{max}} = 12$$
 
 ### 2.2 Reverse Denoising Dynamics
 The neural backbone predicts the denoised latent state $\hat{\mathbf{Z}}_0 = f_\theta(\mathbf{Z}_t, t, \mathbf{s}_{\text{slow}})$. The reverse step computes:
-$$\mathbf{Z}_{t-1} = \frac{\sqrt{\alpha_t}(1 - ar{\alpha}_{t-1})}{1 - ar{\alpha}_t} \mathbf{Z}_t + \frac{\sqrt{ar{\alpha}_{t-1}}eta_t}{1 - ar{\alpha}_t} \hat{\mathbf{Z}}_0 + \tilde{\sigma}_t \mathbf{z}$$
-where $\tilde{\sigma}_t = \sqrt{\frac{1 - ar{\alpha}_{t-1}}{1 - ar{\alpha}_t} eta_t}$.
+$$\mathbf{Z}_{t-1} = \frac{\sqrt{\alpha_t}(1 - \bar{\alpha}_{t-1})}{1 - \bar{\alpha}_t} \mathbf{Z}_t + \frac{\sqrt{\bar{\alpha}_{t-1}}\beta_t}{1 - \bar{\alpha}_t} \hat{\mathbf{Z}}_0 + \tilde{\sigma}_t \mathbf{z}$$
+where $\tilde{\sigma}_t = \sqrt{\frac{1 - \bar{\alpha}_{t-1}}{1 - \bar{\alpha}_t} \beta_t}$.
 
 ### 2.3 Unprompted Latent Generation
 During unprompted cycles, external token inputs $\mathbf{x}$ are omitted. The initial latent state $\mathbf{Z}_T$ is initialized from Gaussian noise combined with the persistent EMA buffer:
 $$\mathbf{Z}_T \sim \mathcal{N}(\mathbf{0}, \mathbf{I}) + \tanh(\mathbf{W}_{\text{seed}} \mathbf{s}_{\text{slow}})$$
-The network executes $T_{\text{max}} 	o 0$ reverse steps, yielding a synthesized latent trajectory $\mathbf{Z}_0^{\text{synth}}$.
+The network executes $T_{\text{max}} \to 0$ reverse steps, yielding a synthesized latent trajectory $\mathbf{Z}_0^{\text{synth}}$.
 
 ### 2.4 Confidence Scaling
 For each layer $l$, the directional consistency of updates accumulates into a structural confidence score $\sigma_{\text{conf}}^{(l)} \in [0, 1]$:
-$$\sigma_{\text{conf}}^{(l)} \leftarrow \sigma_{\text{conf}}^{(l)} + \eta_{\text{conf}} \cdot \exp\left(-\|\mathcal{L}_{\text{denoise}}\|_2
-ight)$$
+$$\sigma_{\text{conf}}^{(l)} \leftarrow \sigma_{\text{conf}}^{(l)} + \eta_{\text{conf}} \cdot \exp\left(-\|\mathcal{L}_{\text{denoise}}\|_2 \right)$$
 which scales the effective layer learning rate during subsequent steps:
 $$\mathrm{LR}_{\text{eff}}^{(l)} = \mathrm{LR}_{\text{base}} \cdot (1 - \sigma_{\text{conf}}^{(l)})$$
 
@@ -62,7 +60,7 @@ $$\mathrm{LR}_{\text{eff}}^{(l)} = \mathrm{LR}_{\text{base}} \cdot (1 - \sigma_{
 Telemetry was recorded across 1,000 continuous latent diffusion cycles on an NVIDIA RTX 4090:
 
 ### Table 1: Telemetry Across the 1,000-Cycle Latent Diffusion Trajectory
-| Iteration Cycle | Denoising Loss ($\mathcal{L}_{\text{denoise}}$) | Held-Out Loss (nats) | Held-Out Perplexity (PPL) | Active Bonds | Mean Plastic Confidence ($ar{\sigma}$) |
+| Iteration Cycle | Denoising Loss ($\mathcal{L}_{\text{denoise}}$) | Held-Out Loss (nats) | Held-Out Perplexity (PPL) | Active Bonds | Mean Plastic Confidence ($\bar{\sigma}$) |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Cycle 0001 (Init)** | `0.428912` | `4.0568` | `57.79` | `24` | `0.0000` |
 | **Cycle 0150** | `0.110245` | `3.9120` | `50.00` | `68` | `0.0520` |
@@ -90,7 +88,7 @@ often used to expose the rhythm of nature and their innate abilities to sufferin
 ## 4. Quantitative Analysis & Attractor Dynamics
 
 ### 4.1 Perplexity Reduction Mechanism
-Held-out validation perplexity on in-domain evaluation text decreased from $57.79 	o 38.72$ without ingesting additional external training tokens.
+Held-out validation perplexity on in-domain evaluation text decreased from $57.79 \to 38.72$ without ingesting additional external training tokens.
 * **Interpretation**: In the absence of high-frequency token gradients, reverse diffusion acts as an energy-minimization step over the continuous manifold. It smooths out high-frequency parameter perturbations, pulling weights closer to dominant principal component directions learned during pretraining.
 
 ### 4.2 Attractor Collapse at $\mathcal{L}_{\text{denoise}} = 0.000000$

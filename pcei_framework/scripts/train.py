@@ -152,7 +152,7 @@ def extract_text_from_record(record: dict) -> str:
     """
     Extracts text from diverse JSONL record formats:
     - { "text": ... }
-    - { "prompt": ..., "response": ... } (e.g. Anthropic Claude, hk_expanded, instruction_tuning)
+    - { "prompt": ..., "response": ... } (e.g. Anthropic Claude, instruction_tuning)
     - { "instruction": ..., "output": ... } (with optional "input")
     - { "messages": [ {"role": ..., "content": ...}, ... ] }
     - { "conversations": [ {"from": ..., "value": ...}, ... ] }
@@ -165,7 +165,7 @@ def extract_text_from_record(record: dict) -> str:
     if isinstance(text, str) and text.strip():
         return text.strip()
     
-    # 2. Prompt / Response schema (e.g. anthropic_claude.jsonl, hk_expanded.jsonl, instruction_tuning.jsonl)
+    # 2. Prompt / Response schema (e.g. anthropic_claude.jsonl, instruction_tuning.jsonl)
     prompt = record.get('prompt')
     response = record.get('response')
     if prompt is not None or response is not None:

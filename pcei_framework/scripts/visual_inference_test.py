@@ -10,7 +10,8 @@ import numpy as np
 import textwrap
 
 # Add src to path
-sys.path.append(str(Path("/Users/emerson/Desktop/PCEI /pcei_framework")))
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.append(str(ROOT))
 
 from src.pcei import PCEINexus
 from src.core.ingestors import PCEIDataset, ImageIngestor
@@ -52,7 +53,7 @@ def run_visual_inference():
     nexus = PCEINexus(vocab_size=VOCAB_SIZE).to(device)
     
     # Load checkpoint
-    ckpt_path = Path("/Users/emerson/Desktop/PCEI /pcei_framework/checkpoints/pcei_100m.pt")
+    ckpt_path = ROOT / "checkpoints" / "pcei_100m.pt"
     if not ckpt_path.exists():
         print(f"Checkpoint {ckpt_path} not found!")
         return
@@ -64,7 +65,7 @@ def run_visual_inference():
     nexus.eval()
     
     # Load dataset
-    db_path = Path("/Users/emerson/Desktop/PCEI /pcei_framework/data/processed/training_database.jsonl")
+    db_path = ROOT / "data" / "processed" / "training_database.jsonl"
     dataset = PCEIDataset(db_path, vocab_size=VOCAB_SIZE, max_seq_len=MAX_SEQ_LEN, tokenizer=tokenizer)
     
     # Filter for image records
@@ -79,7 +80,7 @@ def run_visual_inference():
     fig, axes = plt.subplots(len(samples), 2, figsize=(15, 6 * len(samples)))
     if len(samples) == 1: axes = [axes]
     
-    root_path = Path("/Users/emerson/Desktop/PCEI /pcei_framework")
+    root_path = ROOT
     image_ingestor = ImageIngestor()
 
 
@@ -168,7 +169,7 @@ def run_visual_inference():
     plt.suptitle("PCEI 'Unleashed Beast v2' - Multimodal Labeling Test", fontsize=16)
     plt.tight_layout(rect=[0, 0, 1, 0.96])
     
-    output_path = Path("/Users/emerson/Desktop/PCEI /pcei_framework/src/logs/visual_inference_comparison.png")
+    output_path = ROOT / "src" / "logs" / "visual_inference_comparison.png"
     plt.savefig(output_path, bbox_inches='tight', dpi=150)
     print(f"Saved inference comparison to {output_path}")
 

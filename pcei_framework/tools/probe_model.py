@@ -3,7 +3,7 @@ import sys
 from pathlib import Path
 
 def probe_checkpoint():
-    ckpt_path = Path("/Users/emerson/Desktop/PCEI /pcei_framework/checkpoints/pcei_100m.pt")
+    ckpt_path = Path(__file__).resolve().parent.parent / "checkpoints" / "pcei_100m.pt"
     if not ckpt_path.exists():
         print("Checkpoint not found.")
         return

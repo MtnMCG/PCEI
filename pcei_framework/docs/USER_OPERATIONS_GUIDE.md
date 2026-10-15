@@ -12,7 +12,7 @@
 Open a terminal on your Mac and navigate to the project directory:
 
 ```bash
-cd "/Users/emerson/Desktop/PCEI /pcei_framework"
+cd "pcei_framework"
 source venv/bin/activate
 ```
 

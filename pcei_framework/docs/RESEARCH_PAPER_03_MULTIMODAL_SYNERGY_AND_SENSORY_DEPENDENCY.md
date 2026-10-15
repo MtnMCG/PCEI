@@ -41,9 +41,8 @@ $$\mathbf{Z}_{\text{audio}} = \mathbf{W}_{\text{proj}}^{\text{audio}} \mathrm{Me
 
 ### 2.2 Boundary Transfer Projections
 Sensory representations are injected into text layer representations via gated linear transformations:
-$$\mathbf{H}_{\mathcal{S} 	o \text{text}} = \mathrm{LayerNorm}\left(\mathbf{W}_{\text{transfer}} \mathbf{Z}_{\mathcal{S}} \mathbf{W}_{\text{gate}}^\top
-ight)$$
-$$\mathbf{Z}_{\text{text}}^{(l)} \leftarrow \mathbf{Z}_{\text{text}}^{(l)} + \alpha_{\text{boundary}} \cdot \mathbf{H}_{\mathcal{S} 	o \text{text}}$$
+$$\mathbf{H}_{\mathcal{S} \to \text{text}} = \mathrm{LayerNorm}\left(\mathbf{W}_{\text{transfer}} \mathbf{Z}_{\mathcal{S}} \mathbf{W}_{\text{gate}}^\top \right)$$
+$$\mathbf{Z}_{\text{text}}^{(l)} \leftarrow \mathbf{Z}_{\text{text}}^{(l)} + \alpha_{\text{boundary}} \cdot \mathbf{H}_{\mathcal{S} \to \text{text}}$$
 where $\alpha_{\text{boundary}} = 0.15$ controls coupling gain.
 
 ---
@@ -106,9 +105,9 @@ PHASE 2 OUTPUT: "moderation suitable food for almost everybody and when"
 
 ### 5.1 Activation Shift Under Zero Sensory Vectors
 During joint multimodal training, sensory projections provided consistent non-zero latent offsets:
-$$\mathbf{z}_{\text{text}} \leftarrow \mathbf{z}_{\text{text}} + \mathbf{H}_{\text{img} 	o \text{text}} + \mathbf{H}_{\text{audio} 	o \text{text}}$$
+$$\mathbf{z}_{\text{text}} \leftarrow \mathbf{z}_{\text{text}} + \mathbf{H}_{\text{img} \to \text{text}} + \mathbf{H}_{\text{audio} \to \text{text}}$$
 Because pretrained CLIP and Whisper embeddings carry high directional magnitude, the recurrent Mamba state transitions adjusted to rely on these persistent input biases:
-$$\mathbf{h}_t = ar{\mathbf{A}}_t \mathbf{h}_{t-1} + ar{\mathbf{B}}_t (\mathbf{x}_t + \mathbf{H}_{\text{sensory}})$$
+$$\mathbf{h}_t = \bar{\mathbf{A}}_t \mathbf{h}_{t-1} + \bar{\mathbf{B}}_t (\mathbf{x}_t + \mathbf{H}_{\text{sensory}})$$
 
 When sensory inputs are zeroed at test time, $\mathbf{H}_{\text{sensory}} = \mathbf{0}$. The recurrent hidden state trajectory shifts away from the nominal mean and variance expected by subsequent layer normalizations and the output unembedding matrix. Consequently, token generation falls into high-frequency corpus n-gram attractors (predominantly image-caption fragments such as *"moderation suitable food"*).
 
@@ -121,7 +120,7 @@ $\mathcal{H}_{\text{synergy}}$ is **supported conditionally**: multimodal condit
 
 To prevent co-dependency and preserve unimodal language capabilities, multimodal fine-tuning requires stochastic masking of the transfer projections:
 
-$$\tilde{\mathbf{H}}_{\mathcal{S} 	o \text{text}} = m_{\mathcal{S}} \cdot \mathbf{H}_{\mathcal{S} 	o \text{text}}, \quad m_{\mathcal{S}} \sim \operatorname{Bernoulli}(1 - \mathcal{P}_{\text{drop}})$$
+$$\tilde{\mathbf{H}}_{\mathcal{S} \to \text{text}} = m_{\mathcal{S}} \cdot \mathbf{H}_{\mathcal{S} \to \text{text}}, \quad m_{\mathcal{S}} \sim \operatorname{Bernoulli}(1 - \mathcal{P}_{\text{drop}})$$
 where $\mathcal{P}_{\text{drop}} = 0.30$.
 
 By ensuring that the text backbone processes the objective with null sensory inputs in 30% of training steps, the model maintains calibrated hidden states in both multimodal and unimodal evaluation modes.
