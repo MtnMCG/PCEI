@@ -256,29 +256,31 @@ def probe_generation(nexus: PCEINexus, tokenizer: PCEITokenizer, device: torch.d
 
         with torch.no_grad():
             for _ in range(max_new):
-                logits, *_ = nexus.core(text_input=curr)
-                next_logits = logits[0, -1, :].clone()
-                # Mask pad_id (0) and eos_id (50256) to ensure continuous generation
-                next_logits[0] = -float("inf")
-                next_logits[50256] = -float("inf")
+                logits, *_ = nexus.core(text_input=curr, diffusion_timesteps=1, override_timestep=0)
+                next_logits = logits[0, -1, :].clone().float()
+                # Mask pad_id (0) and eos_id (50256)
+                next_logits[0] = -1e4
+                next_logits[50256] = -1e4
 
-                # Repetition penalty on recent tokens
+                # Additive repetition penalty on recent tokens
                 if generated:
-                    for tok in set(generated[-16:]):
-                        next_logits[tok] /= 1.2
+                    for tok in set(generated[-20:]):
+                        next_logits[tok] -= 2.5
 
-                # Temperature sample
-                probs = F.softmax(next_logits / 0.7, dim=-1)
-                next_tok = torch.multinomial(probs, 1).item()
+                # Top-k (k=15) temperature sampling
+                topk_vals, topk_idx = torch.topk(next_logits, k=15)
+                probs = F.softmax(topk_vals / 0.5, dim=-1)
+                sel = torch.multinomial(probs, 1).item()
+                next_tok = topk_idx[sel].item()
                 generated.append(next_tok)
                 curr = torch.cat([curr, torch.tensor([[next_tok]], device=device)], dim=1)
                 if curr.shape[1] > 256:
                     curr = curr[:, -256:]
 
         text_out = tokenizer.decode(torch.tensor(generated))
-        print(f"\n[Prompt] {p.splitlines()[0]}")
-        print(f"[Model]  {text_out.strip()}")
-    print("─" * 60 + "\n")
+        print(f"\n[Prompt] {p.splitlines()[0]}", flush=True)
+        print(f"[Model]  {text_out.strip()}", flush=True)
+    print("─" * 60 + "\n", flush=True)
     nexus.train()
 
 
@@ -302,12 +304,14 @@ def main():
     device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
     print(f"[Device] Running on: {device}")
 
-    # Checkpoint resolution: prefer true ternary checkpoint, fallback to 100m.pt
-    ckpt_path = PROJECT_ROOT / "checkpoints" / "pcei_100m_true_ternary.pt"
+    # Checkpoint resolution: prefer latest diverse ternary checkpoint, fallback to 100m.pt, then true_ternary.pt
+    ckpt_path = PROJECT_ROOT / "checkpoints" / "pcei_100m_diverse_ternary.pt"
     if not ckpt_path.exists():
         ckpt_path = PROJECT_ROOT / "checkpoints" / "pcei_100m.pt"
     if not ckpt_path.exists():
-        print(f"Error: No checkpoint found at {ckpt_path}")
+        ckpt_path = PROJECT_ROOT / "checkpoints" / "pcei_100m_true_ternary.pt"
+    if not ckpt_path.exists():
+        print(f"Error: No checkpoint found in checkpoints directory.")
         sys.exit(1)
 
     print(f"[Checkpoint] Loading weights from: {ckpt_path.name}")
@@ -356,25 +360,28 @@ def main():
 
     start_step = ckpt.get("global_step", 0)
     current_step = start_step
-    target_end_step = start_step + args.steps
+    target_end_step = (start_step + args.steps) if args.steps > 0 else float('inf')
     start_time = time.time()
     should_exit = False
 
     def handle_signal(sig, frame):
         nonlocal should_exit
-        print("\n[Exit Signal] Shutdown requested. Calcifying weights atomically before exit...")
+        print("\n[Exit Signal] Shutdown requested. Calcifying weights atomically before exit...", flush=True)
         should_exit = True
 
     signal.signal(signal.SIGINT, handle_signal)
     signal.signal(signal.SIGTERM, handle_signal)
 
     print("\n" + "─" * 70)
-    print(f"  TRAINING ACTIVE: Steps {start_step:,} → {target_end_step:,}")
-    print("─" * 70)
+    mode_str = f"Steps {start_step:,} → {target_end_step:,}" if args.steps > 0 else f"CONTINUOUS DAEMON MODE (from Step {start_step:,})"
+    print(f"  TRAINING ACTIVE: {mode_str}")
+    print("─" * 70, flush=True)
 
     step_loss_history = []
     log_every = 25
     out_ckpt = PROJECT_ROOT / "checkpoints" / "pcei_100m_diverse_ternary.pt"
+    telemetry_file = PROJECT_ROOT / "logs" / "training_telemetry.jsonl"
+    telemetry_file.parent.mkdir(parents=True, exist_ok=True)
 
     while current_step < target_end_step and not should_exit:
         current_step += 1
@@ -415,7 +422,20 @@ def main():
             tok_per_sec = (args.batch_size * args.seq_len) / max(step_duration, 1e-4)
             elapsed = time.time() - start_time
             print(f"  Step {current_step:,} | Loss: {avg_loss:.4f} | PPL: {ppl:8.2f} | "
-                  f"Speed: {tok_per_sec:6.1f} tok/s | Elapsed: {elapsed/60:.1f}m")
+                  f"Speed: {tok_per_sec:6.1f} tok/s | Elapsed: {elapsed/60:.1f}m", flush=True)
+
+            try:
+                with open(telemetry_file, "a") as tf:
+                    tf.write(json.dumps({
+                        "step": current_step,
+                        "loss": round(avg_loss, 4),
+                        "ppl": round(ppl, 2),
+                        "tok_per_sec": round(tok_per_sec, 1),
+                        "elapsed_seconds": round(elapsed, 1),
+                        "timestamp": time.time()
+                    }) + "\n")
+            except Exception:
+                pass
 
         # Periodic Live Probing
         if current_step % args.probe_every == 0:

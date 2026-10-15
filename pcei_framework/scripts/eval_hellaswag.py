@@ -32,24 +32,20 @@ def ensure_dataset(limit: int = 100) -> list:
     samples = []
     
     if not LOCAL_HELLASWAG_CACHE.exists():
-        print(f"[Benchmark] Downloading HellaSwag validation slice ({limit} samples)...")
+        print(f"[Benchmark] Downloading HellaSwag validation slice ({limit} samples) via HuggingFace API...")
         try:
-            req = urllib.request.Request(HELLASWAG_VAL_URL, headers={"User-Agent": "Mozilla/5.0"})
-            with urllib.request.urlopen(req, timeout=15) as response:
-                count = 0
-                lines = []
-                for line in response:
-                    decoded = line.decode("utf-8").strip()
-                    if decoded:
-                        lines.append(decoded)
-                        count += 1
-                        if count >= limit:
-                            break
-                with open(LOCAL_HELLASWAG_CACHE, "w", encoding="utf-8") as f:
-                    f.write("\n".join(lines) + "\n")
-            print(f"[Benchmark] Cached {len(lines)} samples to {LOCAL_HELLASWAG_CACHE.name}.")
+            hf_url = f"https://datasets-server.huggingface.co/rows?dataset=Rowan%2Fhellaswag&config=default&split=validation&offset=0&limit={limit}"
+            req = urllib.request.Request(hf_url, headers={"User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(req, timeout=20) as response:
+                payload = json.loads(response.read().decode("utf-8"))
+                rows = [item["row"] for item in payload.get("rows", [])]
+                
+            lines = [json.dumps(r) for r in rows]
+            with open(LOCAL_HELLASWAG_CACHE, "w", encoding="utf-8") as f:
+                f.write("\n".join(lines) + "\n")
+            print(f"[Benchmark] Cached {len(lines)} official HellaSwag validation samples to {LOCAL_HELLASWAG_CACHE.name}.")
         except Exception as e:
-            print(f"[Warning] Failed to download remote HellaSwag: {e}. Using synthetic fallback slice.")
+            print(f"[Warning] Failed to download HellaSwag from HF API: {e}. Using synthetic fallback slice.")
             return get_fallback_hellaswag_samples()
 
     # Load from cache
