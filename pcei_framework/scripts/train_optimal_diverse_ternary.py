@@ -145,17 +145,66 @@ class MemoryEfficientStream:
                                 buf = ""
                         if buf.strip():
                             yield buf.strip()
+                elif path.suffix == ".parquet":
+                    import pyarrow.parquet as pq
+                    try:
+                        pfile = pq.ParquetFile(path)
+                        for batch in pfile.iter_batches(batch_size=512):
+                            cols = batch.schema.names
+                            if "title" in cols and "body" in cols:
+                                # Reddit corpus
+                                titles = batch.column("title").to_pylist()
+                                bodies = batch.column("body").to_pylist()
+                                for t, b in zip(titles, bodies):
+                                    t_str = str(t or "").strip()
+                                    b_str = str(b or "").strip()
+                                    if b_str and len(b_str) > 20:
+                                        if t_str and t_str not in b_str:
+                                            yield f"{t_str}\n\n{b_str}"
+                                        else:
+                                            yield b_str
+                            elif "instruction" in cols and "response" in cols:
+                                # Dolly 15k
+                                insts = batch.column("instruction").to_pylist()
+                                resps = batch.column("response").to_pylist()
+                                ctxs = batch.column("context").to_pylist() if "context" in cols else [None] * len(insts)
+                                for inst, resp, ctx in zip(insts, resps, ctxs):
+                                    inst_str = str(inst or "").strip()
+                                    resp_str = str(resp or "").strip()
+                                    ctx_str = str(ctx or "").strip()
+                                    if inst_str and resp_str:
+                                        if ctx_str:
+                                            yield f"USER: {inst_str}\nContext: {ctx_str}\nASSISTANT: {resp_str}"
+                                        else:
+                                            yield f"USER: {inst_str}\nASSISTANT: {resp_str}"
+                            elif "text" in cols and "role" in cols:
+                                # OASST1
+                                texts = batch.column("text").to_pylist()
+                                roles = batch.column("role").to_pylist()
+                                langs = batch.column("lang").to_pylist() if "lang" in cols else ["en"] * len(texts)
+                                for text, role, lang in zip(texts, roles, langs):
+                                    if (lang == "en" or not lang) and text:
+                                        r = "USER" if role in ["prompter", "user"] else "ASSISTANT"
+                                        yield f"{r}: {str(text).strip()}"
+                            elif "text" in cols:
+                                for text in batch.column("text").to_pylist():
+                                    t = str(text or "").strip()
+                                    if len(t) > 20:
+                                        yield t
+                    except Exception:
+                        continue
             except Exception:
                 continue
 
 
 class DiverseMultiStreamPacker:
     """
-    Packs continuous token sequences drawing from 4 stratified domains:
-      - Stream 1 (35%): Advanced STEM & Textbooks
-      - Stream 2 (30%): High-Order Reasoning & Claude CoT
-      - Stream 3 (20%): Philosophy & Classic Literature
-      - Stream 4 (15%): Grammatical Fluency & Concept Grounding
+    Packs continuous token sequences drawing from 5 stratified domains:
+      - Stream 1 (30%): Natural Human Dialogue & Reddit Corpus (3.18 GB Reddit + Dolly 15k + OASST1 + UltraChat + SmolTalk)
+      - Stream 2 (25%): High-Order Reasoning & Claude CoT
+      - Stream 3 (20%): Advanced STEM & Textbooks (Cosmopedia)
+      - Stream 4 (15%): Philosophy & Classic/Modern Literature
+      - Stream 5 (10%): Syntactic Grounding & Foundation Concepts (TinyStories capped at 10%)
     """
     def __init__(self, tokenizer: PCEITokenizer, max_seq_len: int = 128):
         self.tokenizer = tokenizer
@@ -164,26 +213,34 @@ class DiverseMultiStreamPacker:
 
         data_dir = PROJECT_ROOT / "data"
 
-        # 1. STEM & Textbooks (35%)
+        # 1. Natural Human Dialogue & Reddit Corpus (30%)
+        conversational_files = [
+            data_dir / "conversational" / "dolly_15k.parquet",
+            data_dir / "conversational" / "oasst1_train.parquet",
+            data_dir / "conversational" / "oasst1_val.parquet",
+            data_dir / "synthetic" / "ultrachat_conversations.jsonl",
+            data_dir / "synthetic" / "smoltalk_dialogues.jsonl",
+        ]
+        reddit_files = sorted(list((data_dir / "conversational" / "reddit").glob("*.parquet")))
+        conversational_files.extend(reddit_files)
+
+        # 2. Reasoning & CoT (25%)
+        reasoning_files = [
+            data_dir / "synthetic" / "anthropic_claude.jsonl",
+            data_dir / "high_quality" / "sharegpt_logic.jsonl",
+            data_dir / "synthetic" / "beast_reasoning.jsonl",
+            data_dir / "synthetic" / "instruction_tuning.jsonl",
+            data_dir / "curriculum" / "pcei_foundation_teacher.jsonl",
+            data_dir / "curriculum" / "council_teacher.jsonl"
+        ]
+
+        # 3. STEM & Textbooks (20%)
         stem_files = [
             data_dir / "raw" / "text" / "mass_reasoning" / "cosmopedia_textbooks.txt",
-            data_dir / "raw" / "text" / "massive_wiki.txt",
-            data_dir / "raw" / "text" / "wiki_train.txt",
-            data_dir / "raw" / "text" / "mass_reasoning" / "simple_wikipedia.txt",
             data_dir / "wikitext_valid.txt"
         ]
 
-        # 2. Reasoning & CoT (35%)
-        reasoning_files = [
-            data_dir / "synthetic" / "anthropic_claude.jsonl",
-            data_dir / "synthetic" / "smoltalk_dialogues.jsonl",
-            data_dir / "high_quality" / "sharegpt_logic.jsonl",
-            data_dir / "high_quality" / "python_structure.jsonl",
-            data_dir / "synthetic" / "beast_reasoning.jsonl",
-            data_dir / "synthetic" / "instruction_tuning.jsonl"
-        ]
-
-        # 3. Philosophy & Literature (15%)
+        # 4. Philosophy & Modern Literature (15%)
         phil_files = [
             data_dir / "raw" / "text" / "mass_reasoning" / "Plato_The_Republic.txt",
             data_dir / "raw" / "text" / "mass_reasoning" / "Aristotle_Nicomachean_Ethics.txt",
@@ -193,24 +250,21 @@ class DiverseMultiStreamPacker:
             data_dir / "raw" / "text" / "mass_reasoning" / "Nietzsche_Thus_Spake_Zarathustra.txt",
             data_dir / "raw" / "text" / "mass_reasoning" / "Sun_Tzu_The_Art_Of_War.txt"
         ]
-        # Include modern books (Dune, Infinite Jest, Blood Meridian, Gravity's Rainbow) and books 1-98
         phil_files.extend(list((data_dir / "raw" / "text" / "modern_books").glob("*.txt")))
         phil_files.extend(list((data_dir / "raw" / "text" / "mass_reasoning").glob("book_*.txt")))
 
-        # 4. Conversational Fluency & Grounding (25%)
-        fluency_files = [
-            data_dir / "synthetic" / "ultrachat_conversations.jsonl",
+        # 5. Syntactic Grounding & Foundation Concepts (10%)
+        grounding_files = [
             data_dir / "raw" / "text" / "mass_reasoning" / "tinystories_bulk.txt",
-            data_dir / "synthetic" / "congruent_concepts.jsonl",
-            data_dir / "curriculum" / "council_teacher.jsonl",
-            data_dir / "curriculum" / "pcei_foundation_teacher.jsonl"
+            data_dir / "synthetic" / "congruent_concepts.jsonl"
         ]
 
         self.streams = [
-            ("Claude CoT/Reasoning", MemoryEfficientStream(reasoning_files), 0.35),
-            ("STEM/Textbooks", MemoryEfficientStream(stem_files), 0.25),
-            ("Fluency/Grounding", MemoryEfficientStream(fluency_files), 0.25),
-            ("Philosophy/Lit", MemoryEfficientStream(phil_files), 0.15)
+            ("Conversational/Reddit", MemoryEfficientStream(conversational_files), 0.30),
+            ("Claude CoT/Reasoning", MemoryEfficientStream(reasoning_files), 0.25),
+            ("STEM/Textbooks", MemoryEfficientStream(stem_files), 0.20),
+            ("Philosophy/Lit", MemoryEfficientStream(phil_files), 0.15),
+            ("Syntactic/Grounding", MemoryEfficientStream(grounding_files), 0.10)
         ]
         self.stream_iters = [s[1].doc_generator() for s in self.streams]
         self.weights = [s[2] for s in self.streams]

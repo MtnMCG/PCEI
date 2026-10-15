@@ -85,6 +85,9 @@ cloud_multimodal_bundle/
 **/cloud_multimodal_bundle/
 data/synthetic/anthropic_claude.jsonl
 **/data/synthetic/anthropic_claude.jsonl
+data/conversational/
+**/data/conversational/
+*.parquet
 *.tar
 *.tar.gz
 *.tgz
