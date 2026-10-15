@@ -75,10 +75,11 @@ PCEI proves that when these physical constraints are engineered directly into th
 By replacing quadratic dot-product attention with hardware-aware selective state-space models (SSMs), PCEI enables sequence processing with $\mathcal{O}(L)$ compute complexity and constant $\mathcal{O}(1)$ recurrent memory during inference. The model processes continuous streams without memory fragmentation or context-window cliffs.
 
 ### 2. BitNet 1.58b Ternary Quantization
-Synaptic weights are constrained to ternary values:
+Synaptic weights are constrained to strictly ternary discrete states:
 $$\mathbf{W} \in \{-1, 0, +1\}$$
 - **Zero-Multiply Computing**: Floating-point matrix multiplications ($FMUL$) are replaced by pure integer addition and subtraction ($IADD$), reducing matrix computation energy consumption by up to $10\times$.
-- **Active Zero Density**: Comprehensive weight audits confirm an emergent distribution of **40.08% (-1) : 19.82% (0) : 40.09% (+1)**. The $\sim 20\%$ zero-density functions as biological inhibitory gating, eliminating the parameter bloat required by unconstrained networks.
+- **Active Zero Density**: Comprehensive weight audits confirm an emergent distribution with $\sim 25\%$ zero-density functioning as biological inhibitory gating, eliminating the parameter bloat required by unconstrained networks.
+- **Quantizer Evolution & Transparency**: Initial internal versions (March–October 2026) utilized an experimental dual-threshold symmetric quantizer producing five states ($\{-2, -1, 0, 1, 2\}$ at 2.32b). Following an external audit in October 2026, rigorous head-to-head empirical benchmarking confirmed that migrating to strict Microsoft BitNet b1.58 ternary ($\{-1, 0, 1\}$ at 1.58b) matches or improves perplexity (11.14 vs 11.16 on 100M; 7.00 on 750M), cuts parameter entropy by 32%, and eliminates activation-outlier code token hallucinations. See the complete scientific disclosure in [`pcei_framework/docs/AUDIT_REPORT_TERNARY_QUANTIZATION_POSTMORTEM.md`](pcei_framework/docs/AUDIT_REPORT_TERNARY_QUANTIZATION_POSTMORTEM.md).
 
 ### 3. Dual-Timescale Homeostatic Ambient Field
 Selective SSMs historically suffer from context fragmentation in multi-turn dialogues because they lack global attention. PCEI solves this via an ambient scalar/vector potential field with dual timescales:

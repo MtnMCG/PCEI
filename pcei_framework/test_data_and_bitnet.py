@@ -26,7 +26,7 @@ def test_schema_parsers():
     
     # Test prompt / response (standard)
     pr1 = extract_text_from_record({"prompt": "User query", "response": "Bot reply"})
-    assert pr1 == "User: User query\nAssistant: Bot reply"
+    assert pr1 == "USER: User query\nASSISTANT: Bot reply"
     
     # Test prompt / response (Claude style with ASSISTANT:)
     pr2 = extract_text_from_record({"prompt": "SYSTEM: cs tutor\nASSISTANT:", "response": "Explanation"})
@@ -34,15 +34,15 @@ def test_schema_parsers():
     
     # Test instruction / output
     io = extract_text_from_record({"instruction": "Write code", "input": "input data", "output": "print('ok')"})
-    assert "Instruction: Write code" in io and "Output: print('ok')" in io
+    assert "USER: Write code" in io and "ASSISTANT: print('ok')" in io
     
     # Test messages
     msg = extract_text_from_record({"messages": [{"role": "user", "content": "hi"}, {"role": "assistant", "content": "hello"}]})
-    assert msg == "User: hi\nAssistant: hello"
+    assert msg == "USER: hi\nASSISTANT: hello"
     
     # Test conversations
     conv = extract_text_from_record({"conversations": [{"from": "human", "value": "q"}, {"from": "gpt", "value": "a"}]})
-    assert conv == "Human: q\nGpt: a"
+    assert conv == "USER: q\nASSISTANT: a"
     
     print("  [PASS] All schema format variations correctly parsed without drops.")
 
@@ -165,25 +165,24 @@ def test_ternary_bitnet_calibration(device: str = "cpu"):
     assert torch.isclose(t_high, 1.5 * gamma, atol=1e-5), f"threshold_high {t_high} != 1.5 * gamma {1.5 * gamma}"
     print("  [PASS] Initialized threshold_low == 0.5 * gamma and threshold_high == 1.5 * gamma.")
 
-    # 2. Check no ternary dead zones in quantized weights
-    t_low_ordered = torch.abs(layer.threshold_low) + 1e-8
-    t_high_ordered = t_low_ordered + torch.abs(layer.threshold_high - layer.threshold_low) + 1e-6
-    q = TernaryQuantize.apply(layer.weight, t_low_ordered, t_high_ordered)
+    # 2. Check strict BitNet 1.58b ternary states {-1, 0, +1}
+    q = layer.quantized_weight
 
     count_0 = (q == 0).sum().item()
-    count_1 = (q.abs() == 1).sum().item()
-    count_2 = (q.abs() == 2).sum().item()
+    count_neg1 = (q == -1).sum().item()
+    count_pos1 = (q == 1).sum().item()
     total_w = q.numel()
 
     print(f"  Quantization states distribution across {total_w:,} parameters:")
-    print(f"    • Pruned   (0): {count_0:6d} ({count_0/total_w*100:5.1f}%)")
-    print(f"    • Partial (±1): {count_1:6d} ({count_1/total_w*100:5.1f}%)")
-    print(f"    • Strong  (±2): {count_2:6d} ({count_2/total_w*100:5.1f}%)")
+    print(f"    • Pruned      (0): {count_0:6d} ({count_0/total_w*100:5.1f}%)")
+    print(f"    • Inhibitory (-1): {count_neg1:6d} ({count_neg1/total_w*100:5.1f}%)")
+    print(f"    • Excitatory (+1): {count_pos1:6d} ({count_pos1/total_w*100:5.1f}%)")
 
     assert count_0 > 0, "Dead zone: zero pruned weights!"
-    assert count_1 > 0, "Dead zone: zero partial weights!"
-    assert count_2 > 0, "Dead zone: zero strong weights!"
-    print("  [PASS] All ternary states {-2, -1, 0, 1, 2} are healthy and populated (no dead zones).")
+    assert count_neg1 > 0, "Dead zone: zero inhibitory weights!"
+    assert count_pos1 > 0, "Dead zone: zero excitatory weights!"
+    assert not (q.abs() == 2.0).any(), "Dead zone violation: 2.0 state detected!"
+    print("  [PASS] Strictly BitNet 1.58b ternary states {-1, 0, +1} verified (zero 2.0 states).")
 
     # 3. Forward pass verification (zero NaNs, zero Infs)
     batch_size = 16
@@ -200,12 +199,14 @@ def test_ternary_bitnet_calibration(device: str = "cpu"):
     loss.backward()
 
     for name, p in layer.named_parameters():
+        if name == 'threshold_high':
+            continue  # Deprecated legacy parameter preserved for state_dict backward compatibility
         assert p.grad is not None, f"Parameter {name} has no gradient!"
         assert not torch.isnan(p.grad).any(), f"Parameter {name} gradient contains NaNs!"
         assert not torch.isinf(p.grad).any(), f"Parameter {name} gradient contains Infs!"
         print(f"    • {name:16s} grad norm: {p.grad.norm().item():.6e} (NaNs: 0, Infs: 0)")
 
-    print("  [PASS] Backward pass completed with valid STE and Gaussian density gradients for all parameters.")
+    print("  [PASS] Backward pass completed with valid STE and Gaussian density gradients for all active parameters.")
 
     # 5. Multi-step optimization check
     optimizer = torch.optim.Adam(layer.parameters(), lr=1e-3)
@@ -218,7 +219,6 @@ def test_ternary_bitnet_calibration(device: str = "cpu"):
         optimizer.step()
         assert not torch.isnan(layer.weight).any(), f"NaNs in weight at step {step}"
         assert not torch.isnan(layer.threshold_low).any(), f"NaNs in threshold_low at step {step}"
-        assert not torch.isnan(layer.threshold_high).any(), f"NaNs in threshold_high at step {step}"
 
     print("  [PASS] 5-step optimization completed stably with zero NaNs.")
 

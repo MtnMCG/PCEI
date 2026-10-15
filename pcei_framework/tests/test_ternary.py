@@ -2,33 +2,34 @@ import torch
 import pytest
 from src.modules.ternary import TernaryQuantize, TernaryLinear
 
-def test_ternary_quantize_forward_012():
+def test_ternary_quantize_forward_three_state():
     # Create weights with clear magnitude separation
     w = torch.tensor([-0.8, -0.1, 0.0, 0.1, 0.8, 0.5, -0.5, 0.02, -0.02, 0.3])
     
     t_low = torch.tensor(0.1)
-    t_high = torch.tensor(0.5)
-    quantized = TernaryQuantize.apply(w, t_low, t_high)
+    quantized = TernaryQuantize.apply(w, t_low)
     
-    # All magnitude values must be exactly 0.0, 1.0, or 2.0
-    unique_vals = torch.unique(quantized.abs())
+    # All values must be strictly -1.0, 0.0, or 1.0 (True BitNet 1.58b)
+    unique_vals = torch.unique(quantized)
     for val in unique_vals:
-        assert val.item() in [0.0, 1.0, 2.0], f"Found non-metabolic value {val} in quantized weights"
+        assert val.item() in [-1.0, 0.0, 1.0], f"Found non-ternary value {val} in quantized weights"
 
-    count_0 = (quantized.abs() == 0).sum().item()
-    count_1 = (quantized.abs() == 1).sum().item()
-    count_2 = (quantized.abs() == 2).sum().item()
+    # Magnitude must only be 0.0 or 1.0
+    assert not (quantized.abs() == 2.0).any(), "Found forbidden 2.0 state in weights!"
+
+    count_0 = (quantized == 0).sum().item()
+    count_neg1 = (quantized == -1).sum().item()
+    count_pos1 = (quantized == 1).sum().item()
     assert count_0 > 0, "No pruned (0) weights found"
-    assert count_1 > 0, "No partial (1) weights found"
-    assert count_2 > 0, "No strong (2) weights found"
+    assert count_neg1 > 0, "No inhibitory (-1) weights found"
+    assert count_pos1 > 0, "No excitatory (+1) weights found"
 
 def test_ternary_quantize_backward_ste():
     # Test Straight-Through Estimator (STE)
     w = torch.tensor([-0.8, -0.1, 0.0, 0.1, 0.8], requires_grad=True)
     t_low = torch.tensor(0.1)
-    t_high = torch.tensor(0.5)
     
-    quantized = TernaryQuantize.apply(w, t_low, t_high)
+    quantized = TernaryQuantize.apply(w, t_low)
     
     loss = quantized.sum()
     loss.backward()
@@ -49,14 +50,13 @@ def test_ternary_linear_weights_are_metabolic():
     out = layer(x)
     
     # Manually quantize to check
-    t_low = torch.abs(layer.threshold_low) + 1e-8
-    t_high = t_low + torch.abs(layer.threshold_high - layer.threshold_low) + 1e-6
-    quantized = TernaryQuantize.apply(layer.weight, t_low, t_high)
+    quantized = layer.quantized_weight
     
-    unique_vals = torch.unique(quantized.abs())
-    allowed_vals = [0.0, 1.0, 2.0]
+    unique_vals = torch.unique(quantized)
+    allowed_vals = [-1.0, 0.0, 1.0]
     for val in unique_vals:
-        assert val.item() in allowed_vals, f"Found non-metabolic value {val}"
+        assert val.item() in allowed_vals, f"Found non-ternary value {val}"
+    assert not (quantized.abs() == 2.0).any(), "Found forbidden 2.0 state in TernaryLinear!"
 
 def test_ternary_linear_inhibition_via_sign():
     """Verify that negative weight values preserve negative signs for inhibition."""

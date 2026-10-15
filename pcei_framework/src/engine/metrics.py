@@ -108,22 +108,22 @@ class PCEIMetrics:
     # TERNARY WEIGHT DISTRIBUTIONS
     # ═══════════════════════════════════════
     def log_ternary_distributions(self, model: nn.Module):
-        """Counts {0, 1, 2} values across all TernaryLinear layers."""
+        """Counts {-1, 0, +1} values across all TernaryLinear layers."""
         snapshot = {"step": self.global_step, "session_step": self.session_step, "layers": {}}
         
         for name, module in model.named_modules():
             if isinstance(module, TernaryLinear):
                 with torch.no_grad():
-                    q = TernaryQuantize.apply(module.weight, module.threshold_low, module.threshold_high)
+                    q = module.quantized_weight
                     total = q.numel()
                     count_0 = (q == 0).sum().item()
-                    count_1 = (q == 1).sum().item()
-                    count_2 = (q == 2).sum().item()
+                    count_neg1 = (q == -1).sum().item()
+                    count_pos1 = (q == 1).sum().item()
                     
                     snapshot["layers"][name] = {
                         "pruned_0": count_0 / total,
-                        "partial_1": count_1 / total,
-                        "strong_2": count_2 / total,
+                        "inhibitory_neg1": count_neg1 / total,
+                        "excitatory_pos1": count_pos1 / total,
                         "total_params": total
                     }
         
