@@ -111,39 +111,36 @@ python3 tools/resonance_chat.py \
 
 ```python
 import torch
-from transformers import GPT2Tokenizer
-from src.mamba_text import MambaConfig, MambaTextStack
+from src.pcei import PCEINexus
+from src.config import PCEIConfig
+from src.tokenizer import PCEITokenizer
 
-device = "mps" if torch.backends.mps.is_available() else ("cuda" if torch.cuda.is_available() else "cpu")
-
-# Initialize architecture
-config = MambaConfig(
-    d_model=768,
-    d_inner=512,
-    n_layer=12,
-    vocab_size=50257,
-    use_bitnet=True,
-    use_fastkan=True
-)
-model = MambaTextStack(config).to(device)
+device = torch.device("mps" if torch.backends.mps.is_available() else ("cuda" if torch.cuda.is_available() else "cpu"))
 
 # Load checkpoint
 checkpoint = torch.load("checkpoints/pcei_100m_bitnet_ternary.pt", map_location=device)
-model.load_state_dict(checkpoint["model_state_dict"] if "model_state_dict" in checkpoint else checkpoint)
-model.eval()
+cfg_obj = checkpoint.get("config", None)
+config = cfg_obj if isinstance(cfg_obj, PCEIConfig) else PCEIConfig.load()
 
-# Encode prompt
-tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
-tokens = tokenizer.encode("The fundamental principle of energy efficiency in neural computation", return_tensors="pt").to(device)
+# Initialize model
+nexus = PCEINexus(config=config).to(device)
+nexus.load_state_dict(checkpoint["model_state_dict"], strict=False)
+nexus.eval()
 
-# Autoregressive inference
+# Tokenize prompt
+tokenizer = PCEITokenizer(vocab_size=config.vocab_size)
+prompt = "USER: Explain why ice floats on water.\nASSISTANT:"
+input_ids = torch.tensor(tokenizer.encode_raw(prompt), dtype=torch.long).unsqueeze(0).to(device)
+
+# Autoregressive generation
 with torch.no_grad():
     for _ in range(64):
-        logits, _ = model(tokens)
+        outputs = nexus({"text": input_ids})
+        logits = outputs["logits"] if isinstance(outputs, dict) else outputs
         next_token = torch.argmax(logits[:, -1, :], dim=-1, keepdim=True)
-        tokens = torch.cat([tokens, next_token], dim=-1)
+        input_ids = torch.cat([input_ids, next_token], dim=-1)
 
-print(tokenizer.decode(tokens[0]))
+print(tokenizer.decode(input_ids[0].tolist()))
 ```
 
 ---
