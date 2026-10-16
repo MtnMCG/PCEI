@@ -4,11 +4,11 @@ import torch.nn.functional as F
 import math
 
 class MambaConfig:
-    def __init__(self, d_model=256, d_inner=512, d_state=16, dt_rank="auto", 
+    def __init__(self, d_model=256, d_inner=None, d_state=16, dt_rank="auto", 
                  d_conv=4, expand=2, bias=False, conv_bias=True, bidirectional=True):
         self.d_model = d_model
         self.expand = expand
-        self.d_inner = d_inner if d_inner != "auto" else d_model * expand
+        self.d_inner = d_model * expand if d_inner in (None, "auto") else d_inner
         self.d_state = d_state
         self.dt_rank = dt_rank if dt_rank != "auto" else math.ceil(d_model / 16)
         self.d_conv = d_conv
