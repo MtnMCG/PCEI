@@ -271,6 +271,15 @@ For commercial licensing, enterprise partnerships, or inquiries, please open an 
 
 ---
 
+## 🔬 AI Assistance & Research Disclosure
+
+In accordance with COPE and machine learning conference publication ethics (ICLR, NeurIPS, ICML):
+
+- **Sole Author**: Emerson Ramirez (conception, architectural design, physical hypothesis formulation, mathematical derivations, empirical validation, and code verification).
+- **AI Tooling & Code Assistance**: Google Gemini and Anthropic Claude were utilized as intelligent software instruments for automated telemetry monitoring, code scaffolding, LaTeX formatting, and typographical refinement. All research claims, empirical observations, and codebase implementations were directed, reviewed, and approved by the author.
+
+---
+
 ## 🖋️ Citation
 
 If you use the PCEI architecture, theoretical papers, or empirical methodologies in your research, please cite:
@@ -278,7 +287,7 @@ If you use the PCEI architecture, theoretical papers, or empirical methodologies
 ```bibtex
 @article{ramirez2026pcei,
   title   = {Physically Constrained Emergent Intelligence: Subverting Transformer Hyperscaling via Linear State Spaces, Ternary Synaptic Gating, and Latent Generative Replay},
-  author  = {Ramirez, Emerson and Antigravity Assistant},
+  author  = {Ramirez, Emerson},
   journal = {PCEI Theoretical Research Compendium},
   year    = {2026},
   url     = {https://github.com/MtnMCG/PCEI}
