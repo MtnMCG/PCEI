@@ -224,23 +224,24 @@ class DiverseMultiStreamPacker:
         reddit_files = sorted(list((data_dir / "conversational" / "reddit").glob("*.parquet")))
         conversational_files.extend(reddit_files)
 
-        # 2. Reasoning & CoT (25%)
+        # 2. Reasoning & CoT (15% - personality grounding disabled to prevent sycophancy)
         reasoning_files = [
             data_dir / "synthetic" / "anthropic_claude.jsonl",
             data_dir / "high_quality" / "sharegpt_logic.jsonl",
             data_dir / "synthetic" / "beast_reasoning.jsonl",
             data_dir / "synthetic" / "instruction_tuning.jsonl",
-            data_dir / "curriculum" / "pcei_foundation_teacher.jsonl",
-            data_dir / "curriculum" / "council_teacher.jsonl"
+            # Disabled personality/identity grounding to eliminate memorization loops:
+            # data_dir / "curriculum" / "pcei_foundation_teacher.jsonl",
+            # data_dir / "curriculum" / "council_teacher.jsonl"
         ]
 
-        # 3. STEM & Textbooks (20%)
+        # 3. STEM & Textbooks (12%)
         stem_files = [
             data_dir / "raw" / "text" / "mass_reasoning" / "cosmopedia_textbooks.txt",
             data_dir / "wikitext_valid.txt"
         ]
 
-        # 4. Philosophy & Modern Literature (15%)
+        # 4. Philosophy & Modern Literature (8%)
         phil_files = [
             data_dir / "raw" / "text" / "mass_reasoning" / "Plato_The_Republic.txt",
             data_dir / "raw" / "text" / "mass_reasoning" / "Aristotle_Nicomachean_Ethics.txt",
@@ -253,18 +254,18 @@ class DiverseMultiStreamPacker:
         phil_files.extend(list((data_dir / "raw" / "text" / "modern_books").glob("*.txt")))
         phil_files.extend(list((data_dir / "raw" / "text" / "mass_reasoning").glob("book_*.txt")))
 
-        # 5. Syntactic Grounding & Foundation Concepts (10%)
+        # 5. Syntactic Grounding & Foundation Concepts (5%)
         grounding_files = [
             data_dir / "raw" / "text" / "mass_reasoning" / "tinystories_bulk.txt",
             data_dir / "synthetic" / "congruent_concepts.jsonl"
         ]
 
         self.streams = [
-            ("Conversational/Reddit", MemoryEfficientStream(conversational_files), 0.30),
-            ("Claude CoT/Reasoning", MemoryEfficientStream(reasoning_files), 0.25),
-            ("STEM/Textbooks", MemoryEfficientStream(stem_files), 0.20),
-            ("Philosophy/Lit", MemoryEfficientStream(phil_files), 0.15),
-            ("Syntactic/Grounding", MemoryEfficientStream(grounding_files), 0.10)
+            ("Conversational/Reddit", MemoryEfficientStream(conversational_files), 0.60),
+            ("Claude CoT/Reasoning", MemoryEfficientStream(reasoning_files), 0.15),
+            ("STEM/Textbooks", MemoryEfficientStream(stem_files), 0.12),
+            ("Philosophy/Lit", MemoryEfficientStream(phil_files), 0.08),
+            ("Syntactic/Grounding", MemoryEfficientStream(grounding_files), 0.05)
         ]
         self.stream_iters = [s[1].doc_generator() for s in self.streams]
         self.weights = [s[2] for s in self.streams]
@@ -348,11 +349,12 @@ def main():
     parser.add_argument("--lr", type=float, default=2.5e-5, help="Learning rate (default: 2.5e-5)")
     parser.add_argument("--save-every", type=int, default=250, help="Checkpoint interval (default: 250 steps)")
     parser.add_argument("--probe-every", type=int, default=500, help="Generation probe interval (default: 500 steps)")
+    parser.add_argument("--reset-optimizer", action="store_true", help="Reset optimizer momentum states and re-initialize LR schedule")
     args = parser.parse_args()
 
     print("=" * 70)
     print("  PCEI 100M — OPTIMAL HIGH-DIVERSITY TRUE TERNARY TRAINING")
-    print(f"  Domain Allocation: 35% STEM | 30% Claude CoT | 20% Phil/Lit | 15% Fluency")
+    print(f"  Domain Allocation: 60% Conversational | 15% Reasoning | 12% STEM | 8% Lit | 5% Grounding")
     print(f"  Target Steps: {args.steps:,} | Batch: {args.batch_size} | SeqLen: {args.seq_len}")
     print(f"  Quantization: Strict True BitNet {{-1.0, 0.0, +1.0}}")
     print("=" * 70)
@@ -407,12 +409,14 @@ def main():
 
     # Optimizer & Scheduler
     optimizer = PCEINexus.build_physics_optimizer(nexus, base_lr=args.lr, weight_decay=0.01)
-    if "optimizer_state_dict" in ckpt:
+    if "optimizer_state_dict" in ckpt and not args.reset_optimizer:
         try:
             optimizer.load_state_dict(ckpt["optimizer_state_dict"])
             print("[Optimizer] Restored optimizer state from checkpoint.")
         except Exception:
             print("[Optimizer] Initialized fresh optimizer state.")
+    else:
+        print("[Optimizer] Reset fresh optimizer state (cleared momentum/history).")
 
     # Explicitly enforce target LR and attach Cosine Annealing to eliminate ternary dithering
     for param_group in optimizer.param_groups:
