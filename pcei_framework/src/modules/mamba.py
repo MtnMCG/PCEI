@@ -4,7 +4,7 @@ import torch.nn.functional as F
 import math
 
 class MambaConfig:
-    def __init__(self, d_model=256, d_inner=None, d_state=16, dt_rank="auto", 
+    def __init__(self, d_model=256, d_inner=512, d_state=16, dt_rank="auto", 
                  d_conv=4, expand=2, bias=False, conv_bias=True, bidirectional=True):
         self.d_model = d_model
         self.expand = expand

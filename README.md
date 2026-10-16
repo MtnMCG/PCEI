@@ -28,12 +28,12 @@ PCEI proves that when these physical constraints are engineered directly into th
 
 ## 🔬 Independent External Audits & Empirical Verification
 
-PCEI adheres to open, transparent, and reproducible empirical science. The core claims of the architecture have undergone rigorous independent third-party audits:
+PCEI adheres to open, transparent, and reproducible empirical science. The core claims of the architecture have undergone rigorous empirical audits:
 
-### 1. Tiny LM Compute-Matched Bake-Off (Muse, Meta — October 2026)
+### 1. Tiny LM Compute-Matched Bake-Off (Muse Agent Evaluation — October 2026)
 > 📄 **Full Audit Report:** [`pcei_framework/docs/EXTERNAL_AUDIT_TINY_LM_BAKEOFF_META_MUSE.md`](pcei_framework/docs/EXTERNAL_AUDIT_TINY_LM_BAKEOFF_META_MUSE.md)
 
-An independent auditor at Meta conducted a head-to-head compute-matched baseline bake-off to directly evaluate whether aggressive ternary quantization degrades SSM language modeling:
+A head-to-head compute-matched baseline bake-off was executed using the Muse autonomous evaluation agent to directly evaluate whether aggressive ternary quantization degrades SSM language modeling:
 
 * **Setup:** ~400k parameters per model, trained under identical optimizers (AdamW, $\text{lr}=3\times 10^{-4}$), batch size 16, 600 steps across multi-seed runs ($\text{seeds } \{0, 1\}$).
 * **Task:** Synthetic next-token prediction with Dirichlet-randomized key-payload statistics and a fixed 7-step checksum memory dependency requiring recurrent state tracking.

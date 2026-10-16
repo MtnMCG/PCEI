@@ -1,7 +1,7 @@
 # Matched-Parameter Ablation: FastKANMixer vs. MLP
 
 **Date:** 2026-10-15  
-**Author:** Independent external audit (Muse, Meta)  
+**Author:** Independent evaluation by Emerson Ramirez (using Muse agent)  
 **Code under test:** `pcei_framework/src/modules/adaptation.py` → `FastKANMixer`, at PCEI commit `ce27389` (2026-10-15 13:22 PDT)  
 **Environment:** CPU-only (2 vCPU, 7.7 GB RAM), PyTorch 2.14.1+cpu  
 

@@ -1,7 +1,7 @@
 # Tiny LM Bake-Off: PCEI-tiny vs Transformer vs Dense Mamba
 
 **Date:** 2026-10-15  
-**Author:** Independent external audit (Muse, Meta)  
+**Author:** Independent evaluation by Emerson Ramirez (using Muse agent)  
 **Code under test:** `pcei_framework/src/modules/mamba.py` (`MambaBlock`), `pcei_framework/src/modules/ternary.py` (`TernaryLinear`), `pcei_framework/src/modules/adaptation.py` (`FastKANMixer`), at PCEI commit `efd29f7` (2026-10-15)  
 **Environment:** CPU-only (2 vCPU, 7.7 GB RAM), PyTorch 2.14.1+cpu  
 
