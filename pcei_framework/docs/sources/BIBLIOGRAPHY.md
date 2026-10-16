@@ -42,16 +42,16 @@
 
 ---
 
-### 3. Continuous Latent Diffusion & Cognitive Sleep Dynamics
+### 3. Continuous Latent Diffusion & Generative Memory Consolidation Dynamics
 
 * **[Ho et al., 2020]** Ho, J., Jain, A. and Abbeel, P., 2020. *Denoising Diffusion Probabilistic Models*. Advances in Neural Information Processing Systems, 33, pp.6840-6851.  
   * **DOI / URL**: [https://arxiv.org/abs/2006.11239](https://arxiv.org/abs/2006.11239)
-  * **Role in PCEI**: Formulation of forward variance schedules $\beta_t$ and reverse Gaussian denoising equations operating within the continuous embedding space of Phase 3 Dreaming.
+  * **Role in PCEI**: Formulation of forward variance schedules $\beta_t$ and reverse Gaussian denoising equations operating within continuous latent embedding space during offline generative consolidation.
   * **Cited in**: Paper IV.
 
 * **[Diekelmann & Born, 2010]** Diekelmann, S. and Born, J., 2010. *The memory function of sleep*. Nature Reviews Neuroscience, 11(2), pp.114-126.  
   * **DOI / URL**: [https://doi.org/10.1038/nrn2762](https://doi.org/10.1038/nrn2762)
-  * **Role in PCEI**: Biological neuroscientific justification for off-line memory consolidation and synaptic plasticity calcification during closed-loop dreaming.
+  * **Role in PCEI**: Neuroscientific empirical basis for offline memory consolidation and synaptic plasticity stabilization during closed-loop generative replay.
   * **Cited in**: Paper IV.
 
 * **[Kirkpatrick et al., 2017]** Kirkpatrick, J., et al., 2017. *Overcoming catastrophic forgetting in neural networks*. Proceedings of the National Academy of Sciences, 114(13), pp.3521-3526.  

@@ -2,7 +2,7 @@
 
 **Framework**: Physically Constrained Emergent Intelligence (PCEI) v0.2  
 **Target Checkpoint**: `pcei_750m_reasoning_assistant_latest.pt` (846M Parameters)  
-**Scope**: Complete Cognitive Lifecycle (Phase 1 Pretraining $\to$ Phase 2 Dreaming $\to$ Phase 3 Blended Instruction)  
+**Scope**: Complete Cognitive Lifecycle (Phase 1 Pretraining $\to$ Phase 2 Offline Generative Replay $\to$ Phase 3 Blended Instruction)  
 **Total Tokens Trained**: $333.8\text{M}$ Pretraining Tokens + Active Multi-Turn Instruction Stream at $L=2048$  
 **Date**: September 2026  
 
@@ -22,7 +22,7 @@ The PCEI framework rejects the brute-force monolithic pretraining paradigm. In s
                                        │
                                        ▼
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                 STAGE 2: AUTONOMOUS DREAMING REPLAY (PHASE 2)               │
+│             STAGE 2: OFFLINE GENERATIVE MEMORY REPLAY (PHASE 2)             │
 │  Volume: 1,000 Closed-Loop Denoising Cycles | 0 External Tokens Ingested    │
 │  Objective: Generative replay in continuous latent space, manifold          │
 │             stabilization, PPL contraction (57.79 → 38.72)                  │
@@ -112,9 +112,9 @@ Pretraining spanned **163,000 optimization steps** at context length $L = 512$ w
 
 ---
 
-## Part II: Autonomous Dreaming Consolidation (Phase 2)
+## Part II: Offline Generative Memory Consolidation (Phase 2)
 
-Before proceeding to instruction tuning, the model underwent **Phase 2: The Dreaming Chamber** ([`tools/dreaming_chamber.py`](../tools/dreaming_chamber.py)):
+Before proceeding to instruction tuning, the model underwent **Phase 2: Offline Generative Replay Engine** ([`tools/dreaming_chamber.py`](../tools/dreaming_chamber.py)):
 * **Input Tokens**: **Zero external tokens**.
 * **Duration**: 1,000 autonomous closed-loop cycles.
 * **Mechanism**: Continuous latent diffusion in embedding space using `DreamSeeder` directed noise.

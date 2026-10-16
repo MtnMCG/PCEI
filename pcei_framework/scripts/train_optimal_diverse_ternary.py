@@ -327,6 +327,9 @@ def probe_generation(nexus: PCEINexus, tokenizer: PCEITokenizer, device: torch.d
                 # Top-k (k=15) temperature sampling
                 topk_vals, topk_idx = torch.topk(next_logits, k=15)
                 probs = F.softmax(topk_vals / 0.5, dim=-1)
+                if torch.isnan(probs).any() or torch.isinf(probs).any():
+                    print("[Probe Warning] NaN/Inf in logits during sampling. Terminating prompt probe safely.", flush=True)
+                    break
                 sel = torch.multinomial(probs, 1).item()
                 next_tok = topk_idx[sel].item()
                 generated.append(next_tok)
@@ -418,13 +421,21 @@ def main():
     else:
         print("[Optimizer] Reset fresh optimizer state (cleared momentum/history).")
 
-    # Explicitly enforce target LR and attach Cosine Annealing to eliminate ternary dithering
+    # Explicitly enforce target LR and attach Clamped Cosine Annealing to eliminate ternary dithering
     for param_group in optimizer.param_groups:
         param_group['lr'] = args.lr
         param_group['initial_lr'] = args.lr
 
-    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=25000, eta_min=5e-6)
-    print(f"[Scheduler] Active: CosineAnnealingLR (base_lr={args.lr:.2e} -> eta_min=5e-6)")
+    min_lr = 5e-6
+    ratio = min(1.0, min_lr / args.lr) if args.lr > 0 else 1.0
+
+    def lr_lambda(step):
+        if step >= 25000:
+            return ratio
+        return ratio + 0.5 * (1.0 - ratio) * (1.0 + math.cos(math.pi * step / 25000))
+
+    scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lr_lambda)
+    print(f"[Scheduler] Active: Clamped CosineAnnealing (base_lr={args.lr:.2e} -> eta_min={min_lr:.2e} floor clamped)")
 
     start_step = ckpt.get("global_step", 0)
     current_step = start_step
@@ -470,6 +481,11 @@ def main():
             ce_target=tokens, ce_weight=0.3,
             use_min_snr=False
         )
+
+        if torch.isnan(total_loss) or torch.isinf(total_loss):
+            print(f"\n[Warning] Step {current_step}: NaN/Inf loss encountered. Skipping backprop to protect weights.", flush=True)
+            optimizer.zero_grad()
+            continue
 
         total_loss.backward()
         torch.nn.utils.clip_grad_norm_(nexus.parameters(), max_norm=1.0)

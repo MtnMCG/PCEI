@@ -85,6 +85,8 @@ cloud_multimodal_bundle/
 **/cloud_multimodal_bundle/
 data/synthetic/anthropic_claude.jsonl
 **/data/synthetic/anthropic_claude.jsonl
+**/data/synthetic/smoltalk_dialogues.jsonl
+**/data/synthetic/ultrachat_conversations.jsonl
 data/conversational/
 **/data/conversational/
 *.parquet

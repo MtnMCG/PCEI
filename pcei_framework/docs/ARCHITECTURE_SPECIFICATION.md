@@ -14,9 +14,9 @@
 
 The original PCEI design draft (`v0.1 — Design Draft: "To understand that it understands"`) established a revolutionary philosophical thesis: **biological intelligence, self-consistency, and sample efficiency are emergent consequences of physical locality constraints imposed on a dynamic neural substrate, rather than unconstrained global attention.**
 
-While the philosophical foundation of v0.1 remains the bedrock of the framework, rigorous empirical auditing across 334 million tokens of training and 1,000 cycles of autonomous latent dreaming revealed several mathematical and practical boundaries. In v0.2, these discoveries catalyzed significant architectural breakthroughs:
+While the philosophical foundation of v0.1 remains the bedrock of the framework, rigorous empirical auditing across 334 million tokens of training and 1,000 cycles of offline latent diffusion replay revealed several mathematical and practical boundaries. In v0.2, these discoveries catalyzed significant architectural breakthroughs:
 
-1. **The Causal Autoregressive SSM Pivot**: Discrete language syntax and multi-turn conversational coherence require causal next-token autoregression. The v0.1 concept of continuous text diffusion was superseded by a 24-layer **Selective State-Space Model (Mamba)**, reserving continuous latent diffusion exclusively for the **Phase 2 Dreaming Chamber** (sleep consolidation).
+1. **The Causal Autoregressive SSM Pivot**: Discrete language syntax and multi-turn conversational coherence require causal next-token autoregression. The v0.1 concept of continuous text diffusion was superseded by a 24-layer **Selective State-Space Model (Mamba)**, reserving continuous latent diffusion exclusively for the **Phase 2 Offline Generative Replay Engine** (latent memory consolidation).
 2. **From $\{0, 1, 2\}$ to BitNet 1.58b Ternary Quantization ($\{-1, 0, +1\}$)**: The uncalibrated positive ternary scheme in v0.1 was replaced with calibrated BitNet 1.58b quantization using dynamic scale factors $\gamma = \frac{1}{mn}\sum |W_{ij}|$ and Straight-Through Estimators (STE). Initial pretraining utilized an experimental 5-state ladder ($\{-2, -1, 0, 1, 2\}$, historically aggregated as $40.08\%$ negative, $19.82\%$ zero, $40.09\%$ positive). Following an October 2026 external audit, the quantizer was standardized to canonical Microsoft BitNet b1.58 ($\{-1, 0, +1\}$ at $1.58\text{ bits/param}$), cutting parameter entropy by $31.9\%$ and eliminating code token generation loops.
 3. **Pretrained Manifold Grafting**: Day-1 scratch cold-starts with ternary constraints in sub-billion models suffer from slow vocabulary convergence. v0.2 introduced cross-architectural weight grafting (GPT-2 Large token embeddings, CLIP ViT-B/16 visual patch projections, and Whisper audio filterbanks) to seed semantic manifold coordinates immediately.
 4. **Physical Brokerage Decoupled from Autograd**: Analytical and empirical proofs (Paper II) demonstrated that physical 3D coordinates and Hookean bond relaxation must operate strictly outside the backpropagation computational graph $\mathcal{G}$ ($\Delta \mathcal{L} \equiv 0.0000000000$), preserving mathematical purity and eliminating optimization drag.
@@ -167,7 +167,7 @@ PCEI models do not rely solely on brute-force next-token pretraining. Instead, t
                                        │
                                        ▼
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                    PHASE 2: AUTONOMOUS DREAMING CHAMBER                     │
+│             PHASE 2: OFFLINE GENERATIVE MEMORY CONSOLIDATION                │
 │  Closed-Loop Latent Diffusion | Zero External Tokens                        │
 │  Reconstructs continuous memories into discrete tokens                      │
 │  Perplexity contracts (57.79 → 38.72) | Manifold stabilization              │
@@ -186,7 +186,7 @@ PCEI models do not rely solely on brute-force next-token pretraining. Instead, t
 * Employs **Warmup-Stable-Decay (WSD)** learning rate schedules and continuous sequence packing.
 * Token documents are concatenated end-to-end separated by `<|endoftext|>`, eliminating null padding tokens and ensuring 100% compute efficiency.
 
-### 5.2 Phase 2: Autonomous Dreaming Chamber
+### 5.2 Phase 2: Offline Generative Consolidation (Latent Diffusion Replay)
 * Uses continuous Gaussian forward noise schedules $\beta_t$ in latent space:
   $$\mathbf{z}_t = \sqrt{\bar{\alpha}_t} \mathbf{z}_0 + \sqrt{1 - \bar{\alpha}_t} \boldsymbol{\epsilon}$$
 * A reverse Mamba denoiser predicts the noise $\boldsymbol{\epsilon}_\theta(\mathbf{z}_t, t)$.
@@ -210,5 +210,5 @@ PCEI models do not rely solely on brute-force next-token pretraining. Instead, t
 | **Sequence Packing** | Variable length with zero padding | **Continuous Token-Maxx Sequence Packing (0% pad)** | 100% of GPU compute expended on active tokens; prevents wasteful padding compute. |
 | **Global Attention** | Quadratic Transformer Attention $\mathcal{O}(L^2)$ | **Zero-Gated Ambient Broadcast ($\mathcal{O}(L)$)** | Solves Mamba associative random walks via Global Workspace broadcast; zero-initialization guarantees bit-level checkpoint preservation. |
 | **Neural Synchrony** | Unsynchronized / discarded autoregressive spikes | **Biological Phase-Lag Spike Caching** | Caches cross-layer synchrony spikes on token $t$ and injects on $t+1$, reproducing gamma-band feature binding without temporal leaking. |
-| **Curriculum Pipeline** | Premature blended conversational SFT ($L=2048$) | **Phased Text Pretraining (P1) + Dreaming Chamber (P3)** | Re-centering on packed text and self-resonance dropped eval loss from $6.40 \to 4.94$ and boosted token accuracy from $15.1\% \to 25.6\%$. |
+| **Curriculum Pipeline** | Premature blended conversational SFT ($L=2048$) | **Phased Text Pretraining (P1) + Offline Generative Replay (P2)** | Re-centering on packed text and self-resonance dropped eval loss from $6.40 \to 4.94$ and boosted token accuracy from $15.1\% \to 25.6\%$. |
 | **Training Scale** | Apple Silicon local CPU/MPS background thread | **Hybrid Cloud RTX 4090 + Local M4 Edge Workstation** | Sustains $1,475\text{ tok/s}$ at $L=2048$ with automated credit guard and bidirectional rsync sync. |

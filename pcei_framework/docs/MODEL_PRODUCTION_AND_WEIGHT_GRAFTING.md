@@ -119,7 +119,7 @@ The complete historical lineage of checkpoints in the model production pipeline 
 | `pcei_750m.pt` | $1,712,499,024$ | Base Pretraining | 846M parameters, scratch Mamba + BitNet 1.58b weights. |
 | `pcei_750m_grafted.pt` | $1,712,499,024$ | Text Grafting | GPT-2 Large `wte.weight` grafted into embedding & LM head. |
 | `pcei_750m_supercharged.pt`| $1,712,499,024$ | Sensory Grafting | CLIP ViT-B/16 ($512 \times 768$) and Whisper ($256 \times 80$) grafted. |
-| `pcei_750m_dream_consolidated_155k.pt` | $1,712,499,024$ | Phase 2 Dreaming | 1,000 cycles closed-loop latent diffusion; PPL: $57.79 \to 38.72$. |
+| `pcei_750m_dream_consolidated_155k.pt` | $1,712,499,024$ | Phase 2 Generative Replay | 1,000 cycles closed-loop latent diffusion; PPL: $57.79 \to 38.72$. |
 | `pcei_750m_reasoning_assistant_latest.pt` | $1,712,499,024$ | Phase 3 Instruction| Active cloud run; 42% Claude/RLHF, $L=2048$, 1475 tok/s. |
 
 ### Verification Protocol

@@ -24,9 +24,9 @@ In addition to the theoretical papers, the following comprehensive engineering s
 1. 🏛️ **[Master Architecture Specification (`docs/ARCHITECTURE_SPECIFICATION.md`)](ARCHITECTURE_SPECIFICATION.md)**:
    The definitive hardware and software blueprint of the 846M parameter physical continuum model, detailing the evolutionary progression from the origin v0.1 spec (`PCEI_Framework_Spec (2).txt`) to the current v0.2 production architecture (Mamba TextStack, BitNet 1.58b ternary MLPs, 3D Hookean coordinates outside autograd, and the 3-phase biological lifecycle).
 2. 🛠️ **[User Operations & Testing Runbook (`docs/USER_OPERATIONS_GUIDE.md`)](USER_OPERATIONS_GUIDE.md)**:
-   Step-by-step local testing instructions for Mac Apple Silicon MPS and cloud monitoring, including checkpoint synchronization (`./sync_from_cloud.sh`), interactive chat (`tools/resonance_chat.py`), synthetic teacher generation with Ollama Council-Ultima (`tools/teacher_generator.py`), and dreaming chamber execution.
+   Step-by-step local testing instructions for Mac Apple Silicon MPS and cloud monitoring, including checkpoint synchronization (`./sync_from_cloud.sh`), interactive chat (`tools/resonance_chat.py`), synthetic teacher generation with Ollama Council-Ultima (`tools/teacher_generator.py`), and offline latent diffusion replay consolidation.
 3. 📊 **[Curriculum & Data Pipeline Specification (`docs/CURRICULUM_SPECIFICATION.md`)](CURRICULUM_SPECIFICATION.md)**:
-   Comprehensive specification of the entire data pipeline across all 3 biological stages: **Phase 1 Pretraining** (334M tokens across Project Gutenberg, Wikipedia, modular math/grokking synthetics, modern literature, and multimodal grounding), **Phase 2 Dreaming Consolidation** (closed-loop latent replay), and **Phase 3 Blended Instruction Tuning** (42% combined Claude-CoT and Anthropic-RLHF, 20% ShareGPT, 18% UltraChat, 10% Council-Ultima Teacher, 10% FineWeb-Edu) with Token-Maxx Continuous Sequence Packing (0% padding, 100% active compute at $L=2048$).
+   Comprehensive specification of the entire data pipeline across all 3 biological stages: **Phase 1 Pretraining** (334M tokens across Project Gutenberg, Wikipedia, modular math/grokking synthetics, modern literature, and multimodal grounding), **Phase 2 Offline Generative Consolidation** (closed-loop latent diffusion replay), and **Phase 3 Blended Instruction Tuning** (42% combined Claude-CoT and Anthropic-RLHF, 20% ShareGPT, 18% UltraChat, 10% Council-Ultima Teacher, 10% FineWeb-Edu) with Token-Maxx Continuous Sequence Packing (0% padding, 100% active compute at $L=2048$).
 4. 🧬 **[Model Production & Weight Grafting Specification (`docs/MODEL_PRODUCTION_AND_WEIGHT_GRAFTING.md`)](MODEL_PRODUCTION_AND_WEIGHT_GRAFTING.md)**:
    Rigorous documentation of the cross-architectural weight grafting protocol: injecting OpenAI GPT-2 Large BPE token embeddings (`wte.weight` [50257, 1280]) into `TextStack.embedding` and `lm_head`, OpenAI CLIP ViT-B/16 synthesized projection matrix ($512 \times 768$) into `ImageStack.patch_proj`, and OpenAI Whisper center-kernel mel-spectrogram projection ($256 \times 80$) into `AudioStack.audio_proj`. Includes the complete checkpoint lineage (`pcei_750m.pt` $\to$ `pcei_750m_grafted.pt` $\to$ `pcei_750m_supercharged.pt` $\to$ `pcei_750m_reasoning_assistant_latest.pt`) and non-destructive verification audits.
 
@@ -36,7 +36,7 @@ In addition to the theoretical papers, the following comprehensive engineering s
 
 ### 📄 [Paper I: Ambient Field Dynamics: Information Capacity Limits and Conversational Working Memory in Physically Constrained Architectures](RESEARCH_PAPER_01_AMBIENT_FIELD_MEMORY_AND_CAPACITY.md)
 * **Target Questions**: *Can the continuous ambient field serve as context memory in place of conversation history? Can it hold information outside the model's parametric vector space?*
-* **Core Discovery**: Mean-pooling across sequence length induces an irrecoverable Shannon information loss of factor $L$ ($19.0\times$ at $L=19$, $1024\times$ at $L=1024$), producing a logit inversion divergence of $\mathrm{MSE} = 42.50$ and token cosine similarity of only $0.2471$.
+* **Core Discovery**: Mean-pooling across sequence length induces an irrecoverable loss of mutual information $\mathcal{I}(X; S)$ by a factor of $L$ ($19.0\times$ at $L=19$, $1024\times$ at $L=1024$), producing a logit inversion divergence of $\mathrm{MSE} = 42.50$ and token cosine similarity of only $0.2471$.
 * **Conclusion**: Explicit token-history concatenation is a mathematical requirement for multi-turn dialogue. The ambient field functions as an affective/homeostatic energy regulator and plasticity governor, not a discrete working memory buffer.
 
 ---
@@ -56,10 +56,10 @@ In addition to the theoretical papers, the following comprehensive engineering s
 
 ---
 
-### 📄 [Paper IV: Latent Diffusion in Closed Recurrent Chambers: Manifold Stabilization and Perplexity Dynamics in Autonomous Dreaming](RESEARCH_PAPER_04_LATENT_DIFFUSION_AND_DREAMING_CONSOLIDATION.md)
-* **Target Question**: *Does autonomous closed-loop latent diffusion (The Dreaming Chamber) stabilize representations and improve held-out perplexity without external text?*
-* **Core Discovery**: Over a 1,000-cycle autonomous dreaming run, closed-cycle latent diffusion contracted held-out evaluation perplexity from $57.79 \to 38.72$ (loss $4.05 \to 3.65$ nats), stabilized dynamic entanglement bonds between $136$ and $199$, and calcified plastic confidence scores to $0.2500$.
-* **Conclusion**: Continuous latent diffusion serves as an effective computational analog of biological sleep consolidation, contracting the latent manifold toward its principal eigenvectors.
+### 📄 [Paper IV: Latent Diffusion in Closed Recurrent Chambers: Manifold Stabilization and Perplexity Dynamics in Offline Generative Consolidation](RESEARCH_PAPER_04_LATENT_DIFFUSION_AND_DREAMING_CONSOLIDATION.md)
+* **Target Question**: *Does closed-loop latent diffusion replay stabilize representations and improve held-out perplexity without external text?*
+* **Core Discovery**: Over a 1,000-cycle offline generative replay run, closed-cycle latent diffusion contracted held-out evaluation perplexity from $57.79 \to 38.72$ (loss $4.05 \to 3.65$ nats), stabilized dynamic entanglement bonds between $136$ and $199$, and calcified plastic confidence scores to $0.2500$.
+* **Conclusion**: Continuous latent diffusion operates as a closed-loop generative consolidation mechanism, contracting the latent manifold toward its principal eigenvectors.
 
 ---
 

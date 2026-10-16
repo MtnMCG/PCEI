@@ -108,9 +108,9 @@ nohup python3 tools/teacher_generator.py \
 
 ---
 
-## 5. Phase 2 Autonomous Dreaming Chamber (Local Sleep Consolidation)
+## 5. Phase 2 Offline Generative Replay (Local Latent Diffusion Consolidation)
 
-To run offline latent diffusion sleep consolidation locally, contracting the manifold and stabilizing representations without ingesting any external text:
+To run offline latent diffusion memory consolidation locally, contracting the representational manifold and stabilizing state-space dynamics without ingesting external text:
 
 ```bash
 python3 tools/dreaming_chamber.py \
@@ -121,8 +121,8 @@ python3 tools/dreaming_chamber.py \
   --lr 1.0e-5
 ```
 
-*What happens during dreaming:*
-1. The model creates directed noise in its latent embedding space shaped by `AmbientField`.
+*What happens during offline generative replay:*
+1. The model creates directed noise in its latent embedding space shaped by dynamic state modulation (`AmbientField`).
 2. Reverse diffusion denoises the trajectory, mapping continuous memories into discrete tokens.
 3. Plastic confidence calcifies on recurring attractors, locking in stability.
 
@@ -165,6 +165,6 @@ python3 tools/run_empirical_benchmarks.py \
 ```
 
 This tests:
-1. **Ambient Field Shannon Collapse**: Scalar mean-pooling information loss factor and token CosSim.
+1. **Ambient Field Mutual Information Collapse**: Scalar mean-pooling mutual information loss factor $\mathcal{I}(X; S)$ and token CosSim.
 2. **Entanglement Bonds Gradient Neutrality**: Controlled float-exact backprop ablation ($176$ active bonds vs $0$ bonds).
 3. **BitNet 1.58b Parameter Distribution**: Layer-by-layer audit across all 332.6M ternary weights.

@@ -79,17 +79,17 @@ The multimodal bundle consisted of COCO captions (which heavily emphasize object
 
 ---
 
-## 4. Why This Validates the Architecture of Phase 3 (Dreaming)
+## 4. Why This Validates the Architecture of Offline Generative Consolidation
 
 This empirical probe proves why the 3-phase training schedule of PCEI is theoretically necessary:
 
 ```
-[Phase 1: Text Bootstrap] ──► [Phase 2: Sensory Grounding] ──► [Phase 3: Dreaming & Consolidation]
+[Phase 1: Text Bootstrap] ──► [Phase 2: Sensory Grounding] ──► [Phase 3: Generative Replay & Consolidation]
   Symbolic Foundation          High-Bandwidth Sensory            Internalize Sensory Manifold
   (Abstract Logic/Code)        (Anchors Latent Manifold)         (Denoise on AmbientField slow_state)
 ```
 
-In **Phase 3 (Internal Dialogue / Dreaming)**:
+In **Phase 3 (Internal Generative Replay / Memory Consolidation)**:
 1. External data inputs are turned off (`Data: NONE`).
 2. The model learns to denoise toward its own `AmbientField.slow_state` (the exponential moving average of all layers accumulated across Phase 1 and Phase 2).
 3. This forces the model to synthesize and consolidate its sensory memories internally, allowing it to perform abstract reasoning with the benefits of sensory grounding *even when external sensors are silent*.
@@ -109,7 +109,7 @@ To achieve pure, unconditional synergy where multimodality directly lifts pure t
    ```
    This prevents the text stack from becoming lazily dependent on the visual chamber and forces it to maintain dual-mode competence.
 
-2. **Execute Phase 3 (Dreaming / 3k steps)**:
+2. **Execute Phase 3 (Generative Replay Consolidation / 3k steps)**:
    Allow the model to complete Phase 3 to consolidate the active bonds into the permanent parameter weights.
 
 3. **Multimodal Balance Curricula**:
