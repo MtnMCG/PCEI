@@ -30,6 +30,8 @@ RAW_PROBES = [
 
 def run_raw_probes(nexus, tokenizer, device, step):
     nexus.eval()
+    if hasattr(nexus.core, 'cached_spikes'):
+        nexus.core.cached_spikes = None
     print(f"\n  ═════════════════ Real Neural Probes @ Step {step:,} ═════════════════", flush=True)
     with torch.no_grad():
         for q in RAW_PROBES:
@@ -62,7 +64,9 @@ def main():
     print("  Corpus: 36,125 Structured Pairs (UltraChat + Cosmopedia + Core Entities)")
     print("=" * 80, flush=True)
 
-    base_ckpt = PROJECT_ROOT / "checkpoints" / "pcei_750m_full_brain_best.pt"
+    base_ckpt = PROJECT_ROOT / "checkpoints" / "pcei_750m_full_brain_latest.pt"
+    if not base_ckpt.exists():
+        base_ckpt = PROJECT_ROOT / "checkpoints" / "pcei_750m_full_brain_best.pt"
     if not base_ckpt.exists():
         base_ckpt = PROJECT_ROOT / "checkpoints" / "pcei_750m_product_best.pt"
 

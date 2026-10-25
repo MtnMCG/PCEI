@@ -1,0 +1,10 @@
+{"prompt": "What is 2 + 2?", "target": "4"}
+{"prompt": "Calculate 5 + 7.", "target": "12"}
+{"prompt": "What is 10 - 4?", "target": "6"}
+{"prompt": "What is 3 * 3?", "target": "9"}
+{"prompt": "What is 20 / 4?", "target": "5"}
+{"prompt": "If Alice has 3 apples and buys 2 more, how many apples does she have?", "target": "5"}
+{"prompt": "What is 15 + 15?", "target": "30"}
+{"prompt": "What is half of 50?", "target": "25"}
+{"prompt": "What is 8 + 6?", "target": "14"}
+{"prompt": "If a square has side length 4, what is its perimeter?", "target": "16"}

@@ -1,0 +1,20 @@
+{"prompt": "What is the capital of France?", "expected": ["Paris"]}
+{"prompt": "What is the capital of Italy?", "expected": ["Rome"]}
+{"prompt": "What is the capital of Japan?", "expected": ["Tokyo"]}
+{"prompt": "What is the largest continent on Earth?", "expected": ["Asia"]}
+{"prompt": "What is Africa?", "expected": ["continent"]}
+{"prompt": "What planet is known as the Red Planet?", "expected": ["Mars"]}
+{"prompt": "What is the boiling point of water in Celsius?", "expected": ["100"]}
+{"prompt": "Who painted the Mona Lisa?", "expected": ["Leonardo da Vinci", "da Vinci"]}
+{"prompt": "What gas do plants absorb from the atmosphere?", "expected": ["carbon dioxide", "CO2"]}
+{"prompt": "What is the primary element in the Sun?", "expected": ["hydrogen"]}
+{"prompt": "What force pulls objects toward the center of Earth?", "expected": ["gravity", "gravitational"]}
+{"prompt": "What is the chemical formula for water?", "expected": ["H2O"]}
+{"prompt": "What ocean is between North America and Europe?", "expected": ["Atlantic"]}
+{"prompt": "Who wrote Romeo and Juliet?", "expected": ["Shakespeare"]}
+{"prompt": "What is the speed of light in vacuum approximately in km/s?", "expected": ["300,000", "300000", "3x10"]}
+{"prompt": "What is Rome?", "expected": ["capital", "Italy", "Roman"]}
+{"prompt": "Who created the PCEI framework?", "expected": ["Emerson Ramirez", "Emerson"]}
+{"prompt": "What is the hardest natural mineral on Earth?", "expected": ["diamond"]}
+{"prompt": "How many days are in a leap year?", "expected": ["366"]}
+{"prompt": "What is the closest star to Earth?", "expected": ["Sun"]}

@@ -213,7 +213,7 @@ class PCEIModel(nn.Module):
         # Physics Simulation - Iterative Denoising
         if spikes is not None:
             current_spikes = spikes
-        elif hasattr(self, 'cached_spikes') and self.cached_spikes:
+        elif self.training and hasattr(self, 'cached_spikes') and self.cached_spikes:
             current_spikes = self.cached_spikes
         else:
             current_spikes = None
