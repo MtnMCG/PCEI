@@ -23,10 +23,11 @@ class TernaryQuantize(Function):
     """
     @staticmethod
     def forward(ctx, weight, t_low, t_high=None):
+        t_low_safe = t_low.clamp(min=1e-3)
         abs_weight = weight.abs()
         # Strictly {-1.0, 0.0, +1.0}
-        quantized = torch.sign(weight) * (abs_weight > t_low).to(weight.dtype)
-        ctx.save_for_backward(weight, t_low)
+        quantized = torch.sign(weight) * (abs_weight > t_low_safe).to(weight.dtype)
+        ctx.save_for_backward(weight, t_low_safe)
         ctx.has_t_high = (t_high is not None)
         return quantized
 
@@ -35,13 +36,14 @@ class TernaryQuantize(Function):
         weight, t_low = ctx.saved_tensors
         abs_weight = weight.abs()
 
-        # Weight gradient: standard STE
-        grad_weight = grad_output
+        # Weight gradient: standard STE with NaN/Inf clamp
+        grad_weight = torch.nan_to_num(grad_output, nan=0.0, posinf=1.0, neginf=-1.0)
 
-        # Threshold gradient: Soft Gaussian density at boundary zone
-        bandwidth = t_low.detach().clamp(min=1e-4) * 0.3
+        # Threshold gradient: Soft Gaussian density at boundary zone with numerical floor
+        bandwidth = t_low.detach().clamp(min=1e-3) * 0.3
         density_low = torch.exp(-0.5 * ((abs_weight - t_low) / bandwidth) ** 2)
-        grad_t_low = -(grad_output * density_low).sum()
+        grad_t_low = -(grad_weight * density_low).sum()
+        grad_t_low = torch.nan_to_num(grad_t_low, nan=0.0, posinf=0.0, neginf=0.0).clamp(min=-1.0, max=1.0)
 
         if getattr(ctx, 'has_t_high', False):
             return grad_weight, grad_t_low, torch.zeros_like(t_low)

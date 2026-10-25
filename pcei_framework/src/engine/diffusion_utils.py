@@ -188,7 +188,7 @@ def diffusion_training_step(nexus, clean_latent: torch.Tensor, max_T: int = 12,
     Returns:
         (total_loss, mse_value, sampled_timestep, noise_scale)
     """
-    device = clean_latent.device
+    device = clean_latent.device if clean_latent is not None else (ce_target.device if ce_target is not None else torch.device('cpu'))
     
     # 1. Sample random timestep from the full range (for non-text modalities)
     t = random.randint(0, max_T - 1)
@@ -260,7 +260,7 @@ def diffusion_training_step(nexus, clean_latent: torch.Tensor, max_T: int = 12,
         # Chunking to 128 tokens keeps peak allocation under 12MB.
         chunk_size = 128
         seq_len = shift_logits.size(1)
-        total_ce = 0.0
+        total_ce = shift_logits.sum() * 0.0
         total_tokens = 0
         for c_start in range(0, seq_len, chunk_size):
             c_end = min(c_start + chunk_size, seq_len)

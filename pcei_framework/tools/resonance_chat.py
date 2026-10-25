@@ -82,7 +82,9 @@ def resonance_chat(args):
         # Fallback candidate search
         ckpt_dir = Path(__file__).parent.parent / "checkpoints"
         candidates = [
-            "pcei_750m_aligned_v2.pt",
+            "pcei_100m_conversational.pt",
+            "pcei_100m_sft.pt",
+            "pcei_100m.pt",
         ]
         for cand in candidates:
             cand_p = ckpt_dir / cand
@@ -186,7 +188,7 @@ def resonance_chat(args):
 
             if user_input.lower() in ["exit", "quit", "/exit", "/quit", ":q", "q", "bye", "/bye", "/stop"]:
                 break
-            if not user_input:
+            if not user_input or not user_input.strip():
                 continue
 
             # Special commands
@@ -234,7 +236,6 @@ def resonance_chat(args):
             formatted_prompt = "\n".join(context_blocks)
 
             prompt_ids = tokenizer.enc.encode(formatted_prompt, allowed_special={"<|endoftext|>"})
-            prompt_ids = [tid if tid != 0 else (tokenizer.vocab_size - 1) for tid in prompt_ids]
 
             if len(prompt_ids) <= MAX_PROMPT_TOKENS or not turns_to_use:
                 break
@@ -339,12 +340,9 @@ def resonance_chat(args):
                                         logits_last[t] *= rep_pen
 
                         # Early EOS Suppression (Forces model to formulate complete thoughts instead of bailing on 1 token)
-                        min_toks = getattr(args, 'min_tokens', 8)
+                        min_toks = getattr(args, 'min_tokens', 4)
                         if step < min_toks:
-                            logits_last[0] = -1e4
-                            logits_last[50256] = -1e4
-                            if hasattr(tokenizer, 'pad_id') and tokenizer.pad_id < len(logits_last):
-                                logits_last[tokenizer.pad_id] = -1e4
+                            logits_last[tokenizer.eos_id] = -1e4
 
                         scaled = logits_last / max(1e-4, args.temperature)
 
@@ -361,7 +359,7 @@ def resonance_chat(args):
                         else:
                             next_token_id = sidx[0].item()
 
-                        if next_token_id in (0, 50256, getattr(tokenizer, 'pad_id', 0)):
+                        if next_token_id == tokenizer.eos_id:
                             if step >= min_toks:
                                 break
                             else:
@@ -386,10 +384,12 @@ def resonance_chat(args):
 
             # Extract clean assistant generation and append to multi-turn history
             full_gen_clean = tokenizer.enc.decode(generated_ids)
-            for stop_seq in ["\nUSER:", "\nHuman:", "<|endoftext|>", "USER:", "\nUSER", "<|endoftext|>"]:
+            for stop_seq in ["\nUSER:", "\nHuman:", "<|endoftext|>", "USER:", "\nUSER"]:
                 if stop_seq in full_gen_clean:
                     full_gen_clean = full_gen_clean.split(stop_seq)[0]
             clean_response = full_gen_clean.strip()
+            if not clean_response and grounded_fact:
+                clean_response = grounded_fact
             if clean_response:
                 conversation_history.append((user_input, clean_response))
 
@@ -439,13 +439,13 @@ if __name__ == "__main__":
     try:
         parser = argparse.ArgumentParser()
         parser.add_argument("--ckpt", "--checkpoint", type=str, default=None, help="Path to checkpoint file")
-        parser.add_argument("--checkpoint-name", type=str, default="pcei_750m_aligned_v2.pt",
-                            help="Default checkpoint to load (default: pcei_750m_aligned_v2.pt)")
+        parser.add_argument("--checkpoint-name", type=str, default="pcei_100m_conversational.pt",
+                            help="Default checkpoint to load (default: pcei_100m_conversational.pt)")
         parser.add_argument("--device", type=str, default=None, help="Device to run on (mps, cuda, cpu)")
         parser.add_argument("--depth", type=int, default=12)
         parser.add_argument("--vocab-size", type=int, default=50257)
-        parser.add_argument("--min-tokens", type=int, default=8,
-                            help="Minimum tokens to generate before allowing EOS (default: 8)")
+        parser.add_argument("--min-tokens", type=int, default=4,
+                            help="Minimum tokens to generate before allowing EOS (default: 4)")
         parser.add_argument("--single-turn", action="store_true", default=False,
                             help="Disable multi-turn conversation history; each message is treated independently")
         parser.add_argument("--metabolic-flush", action="store_true", default=False,
@@ -454,16 +454,16 @@ if __name__ == "__main__":
                             help="Skip training backward pass — fast inference, no active learning")
         parser.add_argument("--active-learning", action="store_true", default=False,
                             help="Enable continuous online learning and physics consolidation on each message")
-        parser.add_argument("--temperature", type=float, default=0.4,
-                            help="Sampling temperature (default: 0.4)")
-        parser.add_argument("--top-p", type=float, default=0.85,
-                            help="Top-p nucleus sampling threshold (default: 0.85)")
+        parser.add_argument("--temperature", type=float, default=0.7,
+                            help="Sampling temperature (default: 0.7)")
+        parser.add_argument("--top-p", type=float, default=0.90,
+                            help="Top-p nucleus sampling threshold (default: 0.90)")
         parser.add_argument("--repetition-penalty", type=float, default=1.15,
                             help="Multiplicative repetition penalty on recent 40 tokens (default: 1.15)")
-        parser.add_argument("--freq-penalty", type=float, default=4.0,
-                            help="Additive frequency penalty on repeated content tokens (default: 4.0)")
-        parser.add_argument("--no-repeat-ngram", type=int, default=3,
-                            help="Bans completion of identical N-grams in generation (default: 3)")
+        parser.add_argument("--freq-penalty", type=float, default=0.0,
+                            help="Additive frequency penalty on repeated content tokens (default: 0.0)")
+        parser.add_argument("--no-repeat-ngram", type=int, default=0,
+                            help="Bans completion of identical N-grams in generation (default: 0, disabled)")
         parser.add_argument("--mask-junk", action="store_true", default=True,
                             help="Mask parasitic/scraping/byte tokens from vocabulary logits (default: True)")
         parser.add_argument("--no-mask-junk", dest="mask_junk", action="store_false",

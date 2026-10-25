@@ -112,6 +112,18 @@ In addition to the theoretical papers, the following comprehensive engineering s
 
 ---
 
+### 📄 [Paper XII: The Recurrent Context Horizon: Resolving Entropy Plateaus in 100k-Step True BitNet b1.58 Mamba Models via Long-Sequence Ingestion](RESEARCH_PAPER_12_RECURRENT_CONTEXT_HORIZON_AND_TERNARY_MAMBA_SCALING.md)
+* **Target Questions**: *Why did 512-token context truncation trap the model at a multi-week ~6.20 loss plateau? Can true BitNet b1.58 ternary quantization {-1, 0, +1} train stably over 100,000 steps in a recurrent selective state-space model without weight collapse?*
+* **Core Discovery**: Formulates and proves the **Recurrent Context Horizon Theory**: while Attention models access global tokens pairwise across arbitrary splits, selective SSMs rely on a continuous recurrent attractor state $h_t \in \mathbb{R}^{d \times d_{\text{state}}}$. Truncating multi-turn dialogues and `<think>` reasoning traces into short 512-token windows starved the recurrent memory, enforcing an artificial entropy floor. Expanding the context window to $1,024$ and $2,048$ tokens drove continuous streaming loss down to **$4.81\text{--}5.24\text{ nats}$** (perplexity $123.04$) and dialogue loss to **$2.0609\text{ nats}$** (perplexity $7.85$)—a **$75\%$ reduction in model entropy**. Concurrently demonstrates that $70,057,984$ quantized synapses reached a stable thermodynamic equilibrium ($35.08\%$ inhibitory, $29.83\%$ quiescent, $35.09\%$ excitatory) across $100,000$ steps on Apple Silicon MPS with $\mathcal{O}(1)$ inference footprint.
+* **Conclusion**: Proves that true ternary quantization and linear-time selective state spaces form a mutually stabilizing computational substrate, and establishes the mathematical protocol for long-sequence continuous sequence packing and multi-turn prompt loss masking on edge silicon.
+
+---
+
+### 📄 [Paper XIII: Scaling Ternary Recurrent State-Spaces to 750M Parameters: Overcoming Gradient Density Singularities, Multimodal Latent Integration, and Edge Foundation Alignment](RESEARCH_PAPER_13_SCALING_TERNARY_RECURRENT_STATE_SPACES_TO_750M.md)
+* **Target Questions**: *Can a hybrid near-billion parameter foundation model (886M parameters: 554M continuous + 332M ternary) combining Mamba selective state spaces, Kolmogorov-Arnold spline manifolds, and BitNet 1.58b ternary projection layers be trained and aligned on consumer edge hardware without NaN collapse or catastrophic forgetting? What caused the catastrophic step 2,650 threshold collapse, and how was it solved?*
+* **Core Discovery**: Uncovers the **Straight-Through Estimator (STE) Boundary Density Singularity**: dynamic threshold learning causes the lower threshold $t_{\text{low}} \to 0$, producing division-by-zero overflow in the Gaussian boundary estimator $\exp(-0.5((|W|-t_{\text{low}})/\text{bandwidth})^2)$ that infects recurrent hidden states with NaNs. Solves this via analytical Kaiming normalization ($\gamma = 1/\sqrt{d_{\text{in}}}$), hard threshold bounding ($t_{\text{low}} \ge 10^{-3}$), and gradient sanitization. Documents empirical before-and-after neural logit shifts under pure argmax decoding (Rome shifting from France/Paris to Roman Empire; 2+2 arithmetic grounding from arbitrary multiplication to 4; French capital preservation; and blue sky grounding), reducing rolling perplexity by **$25.2\%$** (loss $< 3.98\text{ nats}$) at **$160\text{--}180\text{ tokens/sec}$** on consumer Apple Silicon MPS allocating under **$3.8\text{ GB}$ of RAM**.
+* **Conclusion**: Validates that ternary quantization and linear-time selective state spaces scale stably to near-billion parameter foundation models on consumer edge hardware.
+
 ---
 
 ## Primary Sources, Bibliographies & Empirical Ledgers
