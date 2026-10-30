@@ -108,16 +108,16 @@ We resolve both forward state washout and backward gate starvation via two domai
 
 ## 4. Bottleneck 3: Long-Context ($L=768$) Multi-Turn Scaling, Proportional `1x` Deduplication, & Entropy Floor
 
-### 4.1 Hardware Scaling Law on 16 GB Apple Silicon (MPS)
-To determine the maximum sequence length $L$ capable of training multi-turn cross-domain dialogues at high throughput on a 16 GB unified-memory Apple Silicon Mac without swap thrashing, we benchmarked full 24-layer `TextStack` forward + backward + AdamW step passes (`B=1`):
+### 4.1 Hardware Scaling Law on 24 GB Apple Silicon (MPS)
+To determine the sequence length $L$ that maximizes training throughput for multi-turn cross-domain dialogue on a 24 GB unified-memory Apple Silicon Mac without swap thrashing, we benchmarked full 24-layer `TextStack` forward + backward + AdamW step passes (`B=1`):
 
 | Sequence Length ($L$) | Step Time (`Fwd + Bwd + Opt`) | Training Throughput ($\text{tok/s}$) | PyTorch Allocated Memory | Metal Driver Resident Footprint | Swap Usage |
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | **$L = 512$** | $1.91\text{ s}$ | $268.3\text{ tok/s}$ | $6.47\text{ GiB}$ | $9.84\text{ GiB}$ | $0\text{ MB}$ |
 | **$L = 768$ (Selected)** | **$2.95\text{ s}$** | **$260.5\text{ tok/s}$** | **$6.47\text{ GiB}$** | **$11.51\text{ GiB}$** | **$0\text{ MB}$** |
-| **$L = 1024$** | $4.14\text{ s}$ | $247.2\text{ tok/s}$ | $6.47\text{ GiB}$ | $14.18\text{ GiB}$ | Near 16 GB ceiling |
+| **$L = 1024$** | $4.14\text{ s}$ | $247.2\text{ tok/s}$ | $6.47\text{ GiB}$ | $14.18\text{ GiB}$ | $0\text{ MB}$ (fits in 24 GB; tighter margin) |
 
-Selecting $L = 768$ provides $97\%$ of peak token throughput ($260.5\text{ tok/s}$) with $4.5\text{ GiB}$ of unified memory headroom while accommodating complete 3–4 turn multi-domain conversations and uncut long-form reasoning explanations.
+Selecting $L = 768$ provides $97\%$ of peak token throughput ($260.5\text{ tok/s}$) while leaving roughly $12.5\text{ GiB}$ of the 24 GB unified memory for the operating system and concurrent processes; $L = 1024$ also fits within 24 GB at $95\%$ of peak throughput ($247.2\text{ tok/s}$) but leaves only $\approx 9.8\text{ GiB}$ of shared headroom. Because Metal draws from the same unified pool as every other application, long unattended runs are sensitive to concurrent memory pressure: in our 15-hour full-library run the training process was terminated by the operating system (exit code 137, SIGKILL) after $\approx 2.8$ hours at $L = 768$, which motivated a crash-restart supervisor with checkpoint-and-resume every 100 optimizer steps. The $L = 768$ setting accommodates complete 3–4 turn multi-domain conversations and the uncut long-form reasoning explanations used in this study.
 
 ### 4.2 Deep Corpus Sanitization, Strict `1x` Proportionality, & Entropy Regularization (`v10`)
 We conducted a character-by-character programmatic audit across all raw corpora on disk (`scratch/deep_inspect_all_data.py` and `scratch/compile_curriculum_v10_deep_clean.py`):

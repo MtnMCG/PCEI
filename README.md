@@ -28,6 +28,36 @@ PCEI proves that when these physical constraints are engineered directly into th
 
 ---
 
+## 🚀 Latest: PCEI 750M — Results & One-Click Desktop Edition
+
+**Model:** 886M physical parameters — 24-layer Mamba selective state space + FastKAN spline manifolds + 332M strict BitNet b1.58 ternary synapses. Trained entirely on a single 24 GB Apple Silicon Mac.
+**Weights:** [`MtnMCG/PCEI-Text` on Hugging Face](https://huggingface.co/MtnMCG/PCEI-Text) (`pcei_750m_competitive_best.pt`, 1.77 GB).
+
+### Held-out benchmark (greedy decoding, zero prompt overlap with training)
+
+| Domain (held-out questions) | Pre-alignment baseline | Full-depth Routing-First (v9) | **Current best (`competitive_best`)** |
+| :--- | :---: | :---: | :---: |
+| Open Factual QA (40) | 22.5% | 82.5% | **97.5%** |
+| Conversational Dialogue (30) | 23.3% | 100.0% | **93.3%** |
+| Arithmetic Reasoning (30) | 3.3% | 20.0% | **83.3%** |
+| **Overall (100)** | 17.0% | 69.0% | **92.0%** |
+
+> **Read this honestly:** this is a small, custom 100-question suite built for this project, not MMLU/HellaSwag — it is a regression and progress gauge, not an industry-standard leaderboard score. The 750M model has seen on the order of 10⁸ tokens versus the 10¹²–10¹³ of commercial LLMs; the interesting result is sample efficiency and hardware cost, not parity with frontier models. Open-world generalization outside the benchmark is still uneven (e.g. it can confuse facts about entities that were thinly covered in training), and a full-library training run over ~14M tokens of history, reference, thesaurus, reasoning, and dialogue data is currently in progress. Methodology, ablations, and failure analysis: [Paper 14](pcei_framework/docs/RESEARCH_PAPER_14_GROKKING_GENERAL_INTELLIGENCE_IN_TERNARY_MAMBA_STATE_SPACES.md).
+
+### Download & run (auto-boots into a terminal chat)
+
+Pre-configured with **temperature 0.5**, top-p 0.9, repetition penalty 1.05, and **multi-turn conversation memory ON**. If the weights are not present, the app downloads them from Hugging Face on first launch. **NVIDIA GPUs are detected automatically** on Windows/Linux (CUDA PyTorch is installed instead of the default CPU wheel); Apple Silicon uses Metal (MPS).
+
+| Platform | Download (see [Releases](https://github.com/MtnMCG/PCEI/releases) or [`packages/releases/`](packages/releases/)) | Launch |
+| :--- | :--- | :--- |
+| **macOS** | `PCEI_750M_Mac.dmg` (or `run_mac.command`) | Double-click `run_mac.command` |
+| **Windows** | `PCEI_750M_Windows.zip` → `PCEI_Chat_Windows.exe` (or `run_windows.bat`) | Double-click the `.exe` |
+| **Linux** | `PCEI_750M_Linux.tar.gz` → `run_linux.sh` | `./run_linux.sh` |
+
+Requires Python 3.10+ on the host (the launcher builds a local virtual environment and installs PyTorch on first run). The binaries are unsigned: on macOS use right-click → Open the first time; on Windows choose "More info → Run anyway" at the SmartScreen prompt. Package source: [`packages/pcei_desktop/`](packages/pcei_desktop/).
+
+---
+
 ## 🔬 Independent External Audits & Empirical Verification
 
 PCEI adheres to open, transparent, and reproducible empirical science. The core claims of the architecture have undergone rigorous empirical audits:
@@ -161,7 +191,7 @@ Monolithic autoregressive architectures suffer from catastrophic forgetting and 
 
 ---
 
-## 📚 Scientific Compendium: 11 Research Papers
+## 📚 Scientific Compendium: 14 Research Papers
 
 The mathematical proofs, empirical telemetry, and ablations underpinning the PCEI architecture are published in full academic form within [`pcei_framework/docs/`](pcei_framework/docs/):
 
@@ -178,6 +208,9 @@ The mathematical proofs, empirical telemetry, and ablations underpinning the PCE
 | **[Paper IX](pcei_framework/docs/RESEARCH_PAPER_09_FASTKAN_SPLINE_MANIFOLDS_AND_MAMBA_MOTOR_CONTROL.md)** | *FastKAN Spline Manifolds & Motor Control* | Evaluates non-linear B-spline activation manifolds paired with selective recurrence in real-time control. |
 | **[Paper X](pcei_framework/docs/RESEARCH_PAPER_10_SENSORY_GLARE_AND_FAN_IN_ENERGY_CALIBRATION.md)** | *Sensory Glare & Fan-In Energy Calibration* | Mathematical calibration of multimodal projection energies to prevent sensory dominance over symbolic reasoning. |
 | **[Paper XI](pcei_framework/docs/RESEARCH_PAPER_11_DARWINIAN_PIONEER_ANCHOR_POPULATION_PARTITIONING.md)** | *Darwinian Pioneer-Anchor Population Partitioning* | Evolutionary population partitioning for exploration/exploitation balance in constrained dynamical spaces. |
+| **[Paper XII](pcei_framework/docs/RESEARCH_PAPER_12_RECURRENT_CONTEXT_HORIZON_AND_TERNARY_MAMBA_SCALING.md)** | *The Recurrent Context Horizon* | Resolves entropy plateaus in long-run true-BitNet b1.58 Mamba training via long-sequence ingestion. |
+| **[Paper XIII](pcei_framework/docs/RESEARCH_PAPER_13_SCALING_TERNARY_RECURRENT_STATE_SPACES_TO_750M.md)** | *Scaling Ternary Recurrent State-Spaces to 750M* | Gradient-density singularities, multimodal latent integration, and edge foundation alignment at 750M parameters. |
+| **[Paper XIV](pcei_framework/docs/RESEARCH_PAPER_14_GROKKING_GENERAL_INTELLIGENCE_IN_TERNARY_MAMBA_STATE_SPACES.md)** | *Grokking General Intelligence in 750M Ternary Mamba State Spaces* | Routing-first optimization, the `d_conv = 4` causal-convolution alignment for arithmetic, long-context ($L=768$) multi-turn training, and the 92.0% held-out benchmark. |
 
 ---
 
@@ -188,28 +221,23 @@ PCEI/
 ├── LICENSE                          # MIT Non-Commercial License (MIT-NC)
 ├── README.md                        # Master architectural thesis & documentation
 ├── .env.example                     # Environment configuration template
+├── packages/
+│   ├── pcei_desktop/                # One-click desktop edition (engine + chat.py + Win/Mac/Linux launchers)
+│   └── releases/                    # PCEI_750M_Mac.dmg · PCEI_750M_Windows.zip · PCEI_750M_Linux.tar.gz
+├── .github/workflows/               # Release & package publishing workflow
 ├── pcei_framework/
-│   ├── docs/                        # Research compendium, audits & specifications
-│   │   ├── EXTERNAL_AUDIT_TINY_LM_BAKEOFF_META_MUSE.md
-│   │   ├── AUDIT_REPORT_TERNARY_QUANTIZATION_POSTMORTEM.md
-│   │   ├── ARCHITECTURE_SPECIFICATION.md
-│   │   ├── CURRICULUM_SPECIFICATION.md
-│   │   ├── MODEL_PRODUCTION_AND_WEIGHT_GRAFTING.md
-│   │   ├── USER_OPERATIONS_GUIDE.md
-│   │   └── RESEARCH_PAPER_01 ... 11.md
+│   ├── docs/                        # Research compendium (Papers 1–14), audits & specifications
 │   ├── src/                         # Core neural engine
-│   │   ├── mamba_text.py            # Selective state-space backbone
-│   │   ├── bitnet.py                # Ternary {-1, 0, +1} quantized linear layers
-│   │   ├── ambient_field.py         # Dual-timescale homeostatic energy regulator
-│   │   ├── dreaming_chamber.py      # Closed-loop latent diffusion consolidation
-│   │   ├── multimodal_cortex.py     # Sensory cross-modal integration
-│   │   └── global_workspace.py      # Phase-lagged neural synchrony broadcast
-│   ├── tools/                       # Operational & diagnostic tools
-│   │   ├── resonance_chat.py        # Interactive CLI inference engine
-│   │   ├── teacher_generator.py     # High-density synthetic curriculum generator
-│   │   └── probe_generation.py      # Live latent probing & diagnostic suite
-│   ├── scripts/                     # Cloud synchronization & telemetry daemons
-│   └── data/                        # Curated reasoning curricula & exemplars
+│   │   ├── pcei.py                  # PCEINexus: topology, checkpoint I/O, ambient field
+│   │   ├── config.py · tokenizer.py # Config + GPT-2 BPE tokenizer wrapper
+│   │   ├── core/                    # TextStack (24-layer backbone), boundary & ingestors
+│   │   ├── modules/                 # mamba.py (selective SSM), ternary.py (BitNet b1.58),
+│   │   │                            #   plasticity.py, diffusion.py, adaptation.py, grounding.py
+│   │   └── engine/                  # ambient.py (dual-timescale field), physics.py, diffusion_utils.py,
+│   │                                #   neurogenesis.py, autonomy.py, topology.py, metrics.py
+│   ├── tools/                       # resonance_chat.py (interactive inference), probes & generators
+│   ├── scripts/                     # Training, evaluation, data-prep & cloud/telemetry scripts
+│   └── data/                        # Benchmarks, curricula & exemplars (large corpora are git-ignored)
 └── docker/                          # Reproducible container environments
 ```
 
@@ -240,23 +268,23 @@ cp ../.env.example .env
 ```
 
 ### 3. Interactive Resonance Chat (Local Inference)
-Run conversational inference utilizing the 24-layer Mamba TextStack with continuous ambient field modulation and latent pondering:
+Download the 750M weights from [Hugging Face](https://huggingface.co/MtnMCG/PCEI-Text) into `pcei_framework/checkpoints/` (or just use the [one-click desktop edition](#-latest-pcei-750m--results--one-click-desktop-edition), which fetches them automatically), then:
 
 ```bash
 python3 tools/resonance_chat.py \
-  --checkpoint checkpoints/pcei_750m_reasoning_assistant_latest.pt \
-  --device mps  # or --device cuda
+  --ckpt checkpoints/pcei_750m_competitive_best.pt \
+  --inference-only \
+  --temperature 0.5 \
+  --top-p 0.9 \
+  --repetition-penalty 1.05 \
+  --no-mask-junk \
+  --min-tokens 1
+# multi-turn memory is ON by default; add --single-turn to disable.
+# device is auto-selected (CUDA → MPS → CPU); override with --device mps|cuda|cpu
 ```
 
-### 4. Offline Latent Diffusion Replay (Generative Memory Consolidation)
-Execute offline generative consolidation to denoise latent trajectories and contract representational manifolds:
-
-```bash
-python3 src/dreaming_chamber.py \
-  --checkpoint checkpoints/pcei_750m_reasoning_assistant_latest.pt \
-  --cycles 500 \
-  --denoise_steps 20
-```
+### 4. Offline Latent Diffusion Replay & Active Learning
+The diffusion-replay machinery lives in `src/engine/diffusion_utils.py` and `src/modules/diffusion.py`. `resonance_chat.py --active-learning` runs the online-learning + consolidation loop on every message (omit `--inference-only`); `scripts/run_dreaming.py` runs offline consolidation cycles.
 
 ---
 
