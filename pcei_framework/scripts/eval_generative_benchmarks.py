@@ -114,9 +114,16 @@ def evaluate_benchmarks(checkpoint_path):
             target = item['target']
             ans = generate_answer(nexus, tokenizer, prompt, device)
             
-            # Look for target number inside generated string
+            # Strict answer extraction: Look for "is X", "= X", or the last number stated as the answer
             nums = re.findall(r'\b\d+\b', ans)
-            match = (target in nums) or (target in ans)
+            match = False
+            if nums:
+                # If explicit "answer is X" or "= X" exists, check that number; otherwise check the final number in the output
+                explicit_matches = re.findall(r'(?:(?:answer is|=|\bis)\s*)(\d+)', ans, re.IGNORECASE)
+                if explicit_matches:
+                    match = (explicit_matches[-1] == target)
+                else:
+                    match = (nums[-1] == target)
             if match: math_correct += 1
             math_total += 1
             print(f'  Q: {prompt}')

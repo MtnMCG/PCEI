@@ -1,0 +1,30 @@
+{"prompt": "What is 2 + 2?", "target": "4"}
+{"prompt": "Calculate 5 + 7.", "target": "12"}
+{"prompt": "What is 10 - 4?", "target": "6"}
+{"prompt": "What is 3 * 3?", "target": "9"}
+{"prompt": "What is 20 / 4?", "target": "5"}
+{"prompt": "If Alice has 3 apples and buys 2 more, how many apples does she have?", "target": "5"}
+{"prompt": "What is 15 + 15?", "target": "30"}
+{"prompt": "What is half of 50?", "target": "25"}
+{"prompt": "What is 8 + 6?", "target": "14"}
+{"prompt": "If a square has side length 4, what is its perimeter?", "target": "16"}
+{"prompt": "What is 7 * 8?", "target": "56"}
+{"prompt": "What is 100 - 37?", "target": "63"}
+{"prompt": "What is 36 divided by 6?", "target": "6"}
+{"prompt": "Calculate 12 * 4.", "target": "48"}
+{"prompt": "What is 9 + 18?", "target": "27"}
+{"prompt": "What is 50 - 18?", "target": "32"}
+{"prompt": "What is 6 * 7?", "target": "42"}
+{"prompt": "What is 81 divided by 9?", "target": "9"}
+{"prompt": "If Bob has 12 marbles and gives 5 to Charlie, how many does Bob have left?", "target": "7"}
+{"prompt": "What is 25 + 75?", "target": "100"}
+{"prompt": "What is 14 - 9?", "target": "5"}
+{"prompt": "What is 8 * 8?", "target": "64"}
+{"prompt": "What is 45 divided by 5?", "target": "9"}
+{"prompt": "A car travels at 60 mph for 2 hours. How many miles does it travel?", "target": "120"}
+{"prompt": "What is 13 + 17?", "target": "30"}
+{"prompt": "What is 70 - 25?", "target": "45"}
+{"prompt": "What is 11 * 5?", "target": "55"}
+{"prompt": "What is 64 divided by 8?", "target": "8"}
+{"prompt": "If you buy 3 books costing 4 dollars each, what is the total cost?", "target": "12"}
+{"prompt": "What is double of 18?", "target": "36"}

@@ -57,7 +57,12 @@ def extract_text(record: dict) -> str:
         p = str(prompt).strip() if prompt else ""
         r = str(response).strip() if response else ""
         if p and r:
-            return f"USER: {p}\nASSISTANT: {r}"
+            if p.endswith("ASSISTANT:"):
+                return f"{p} {r}"
+            elif p.startswith("USER:") or p.startswith("SYSTEM:"):
+                return f"{p}\nASSISTANT: {r}"
+            else:
+                return f"USER: {p}\nASSISTANT: {r}"
         return p or r
         
     # 3. Instruction / Output (Alpaca / ShareGPT)
@@ -199,98 +204,91 @@ class MemoryEfficientStream:
 
 class DiverseMultiStreamPacker:
     """
-    Packs continuous token sequences drawing from 5 stratified domains:
-      - Stream 1 (30%): Natural Human Dialogue & Reddit Corpus (3.18 GB Reddit + Dolly 15k + OASST1 + UltraChat + SmolTalk)
-      - Stream 2 (25%): High-Order Reasoning & Claude CoT
-      - Stream 3 (20%): Advanced STEM & Textbooks (Cosmopedia)
-      - Stream 4 (15%): Philosophy & Classic/Modern Literature
-      - Stream 5 (10%): Syntactic Grounding & Foundation Concepts (TinyStories capped at 10%)
+    Packs continuous token sequences drawing from 4 high-order stratified domains:
+      - Stream 1 (35%): Advanced STEM & Textbooks (Cosmopedia, Wikitext)
+      - Stream 2 (30%): High-Order Reasoning & Claude CoT (Anthropic, ShareGPT Logic, Beast)
+      - Stream 3 (20%): Philosophy & High-Quality Literature (Plato, Aristotle, Descartes, Books)
+      - Stream 4 (15%): Natural Human Dialogue & Curated Discourse (Dolly, OASST1, SmolTalk, Reddit)
     """
-    def __init__(self, tokenizer: PCEITokenizer, max_seq_len: int = 128):
+    def __init__(self, tokenizer: PCEITokenizer, max_seq_len: int = 512):
         self.tokenizer = tokenizer
         self.max_seq_len = max_seq_len
-        self.buffer = []
 
         data_dir = PROJECT_ROOT / "data"
 
-        # 1. Natural Human Dialogue & Reddit Corpus (30%)
-        conversational_files = [
-            data_dir / "conversational" / "dolly_15k.parquet",
-            data_dir / "conversational" / "oasst1_train.parquet",
-            data_dir / "conversational" / "oasst1_val.parquet",
+        # 1. Claude CoT Reasoning (Deep Chain-of-Thought with <think> scratchpads) - 35%
+        claude_files = [
+            data_dir / "synthetic" / "anthropic_claude_unified_cot.jsonl",
+            data_dir / "synthetic" / "beast_reasoning.jsonl",
+        ]
+
+        # 2. Complete Multi-Turn Dialogues (UltraChat, SmolTalk, Curated Conversational Flows) - 35%
+        multiturn_files = [
             data_dir / "synthetic" / "ultrachat_conversations.jsonl",
             data_dir / "synthetic" / "smoltalk_dialogues.jsonl",
-        ]
-        reddit_files = sorted(list((data_dir / "conversational" / "reddit").glob("*.parquet")))
-        conversational_files.extend(reddit_files)
-
-        # 2. Reasoning & CoT (15% - personality grounding disabled to prevent sycophancy)
-        reasoning_files = [
-            data_dir / "synthetic" / "anthropic_claude.jsonl",
-            data_dir / "high_quality" / "sharegpt_logic.jsonl",
-            data_dir / "synthetic" / "beast_reasoning.jsonl",
             data_dir / "synthetic" / "instruction_tuning.jsonl",
-            # Disabled personality/identity grounding to eliminate memorization loops:
-            # data_dir / "curriculum" / "pcei_foundation_teacher.jsonl",
-            # data_dir / "curriculum" / "council_teacher.jsonl"
         ]
 
-        # 3. STEM & Textbooks (12%)
+        # 3. PCEI Foundation Teacher (Identity & Physics Grounding) - 15%
+        teacher_files = [
+            data_dir / "curriculum" / "pcei_foundation_teacher.jsonl",
+        ]
+
+        # 4. STEM & Academic Knowledge (Cosmopedia Textbooks Anchor) - 15%
         stem_files = [
-            data_dir / "raw" / "text" / "mass_reasoning" / "cosmopedia_textbooks.txt",
-            data_dir / "wikitext_valid.txt"
-        ]
-
-        # 4. Philosophy & Modern Literature (8%)
-        phil_files = [
-            data_dir / "raw" / "text" / "mass_reasoning" / "Plato_The_Republic.txt",
-            data_dir / "raw" / "text" / "mass_reasoning" / "Aristotle_Nicomachean_Ethics.txt",
-            data_dir / "raw" / "text" / "mass_reasoning" / "Aristotle_Politics.txt",
-            data_dir / "raw" / "text" / "mass_reasoning" / "Descartes_Discourse_On_Method.txt",
-            data_dir / "raw" / "text" / "mass_reasoning" / "Nietzsche_Beyond_Good_And_Evil.txt",
-            data_dir / "raw" / "text" / "mass_reasoning" / "Nietzsche_Thus_Spake_Zarathustra.txt",
-            data_dir / "raw" / "text" / "mass_reasoning" / "Sun_Tzu_The_Art_Of_War.txt"
-        ]
-        phil_files.extend(list((data_dir / "raw" / "text" / "modern_books").glob("*.txt")))
-        phil_files.extend(list((data_dir / "raw" / "text" / "mass_reasoning").glob("book_*.txt")))
-
-        # 5. Syntactic Grounding & Foundation Concepts (5%)
-        grounding_files = [
-            data_dir / "raw" / "text" / "mass_reasoning" / "tinystories_bulk.txt",
-            data_dir / "synthetic" / "congruent_concepts.jsonl"
+            data_dir / "raw" / "text" / "mass_reasoning" / "cosmopedia_textbooks.txt"
         ]
 
         self.streams = [
-            ("Conversational/Reddit", MemoryEfficientStream(conversational_files), 0.60),
-            ("Claude CoT/Reasoning", MemoryEfficientStream(reasoning_files), 0.15),
-            ("STEM/Textbooks", MemoryEfficientStream(stem_files), 0.12),
-            ("Philosophy/Lit", MemoryEfficientStream(phil_files), 0.08),
-            ("Syntactic/Grounding", MemoryEfficientStream(grounding_files), 0.05)
+            ("Claude CoT Reasoning", MemoryEfficientStream(claude_files), 0.35),
+            ("Multi-Turn Dialogues", MemoryEfficientStream(multiturn_files), 0.35),
+            ("PCEI Teacher Identity", MemoryEfficientStream(teacher_files), 0.15),
+            ("Cosmopedia STEM", MemoryEfficientStream(stem_files), 0.15),
         ]
         self.stream_iters = [s[1].doc_generator() for s in self.streams]
         self.weights = [s[2] for s in self.streams]
+        # Domain-Isolated Buffers: One dedicated buffer per stream to prevent state pollution in Mamba
+        self.buffers = [[] for _ in self.streams]
 
-    def _refill_buffer(self, min_tokens: int):
-        while len(self.buffer) < min_tokens:
-            # Pick a domain stream according to distribution
-            stream_idx = random.choices(range(len(self.streams)), weights=self.weights, k=1)[0]
+    def _refill_stream_buffer(self, stream_idx: int, min_tokens: int):
+        while len(self.buffers[stream_idx]) < min_tokens:
             doc = next(self.stream_iters[stream_idx])
             if doc and doc.strip():
-                tokens = self.tokenizer.encode_raw(doc[:4000])
+                # Allow full un-chopped traces up to ~3,500 tokens
+                tokens = self.tokenizer.encode_raw(doc[:16000])
                 if tokens:
                     if tokens[-1] != self.tokenizer.eos_id:
                         tokens.append(self.tokenizer.eos_id)
-                    self.buffer.extend(tokens)
+                    self.buffers[stream_idx].extend(tokens)
 
     def get_batch(self, batch_size: int, device: str = "cpu") -> dict:
-        total_tokens = batch_size * self.max_seq_len
-        self._refill_buffer(total_tokens)
+        # Perfectly balanced allocation across all 4 streams when batch_size == 4
+        if batch_size == 4:
+            chosen_streams = [0, 1, 2, 3]
+        elif batch_size >= 2:
+            chosen_streams = [0, 1] + random.choices(range(len(self.streams)), weights=self.weights, k=batch_size - 2)
+        else:
+            chosen_streams = random.choices(range(len(self.streams)), weights=self.weights, k=batch_size)
 
-        batch_slice = self.buffer[:total_tokens]
-        self.buffer = self.buffer[total_tokens:]
+        batch_rows = []
+        for s_idx in chosen_streams:
+            self._refill_stream_buffer(s_idx, self.max_seq_len)
+            row = self.buffers[s_idx][:self.max_seq_len]
+            self.buffers[s_idx] = self.buffers[s_idx][self.max_seq_len:]
+            batch_rows.append(row)
 
-        tokens = torch.tensor(batch_slice, dtype=torch.long).view(batch_size, self.max_seq_len).to(device)
-        return {"text": tokens}
+        tokens = torch.tensor(batch_rows, dtype=torch.long, device=device)
+        
+        # Document Boundary Loss Masking:
+        # In causal LM, predicting the start of an unrelated document following <|endoftext|>
+        # has extreme entropy. Mask out target tokens immediately following eos_id.
+        labels = tokens.clone()
+        eos_mask = (tokens == self.tokenizer.eos_id)
+        masked_starts = torch.zeros_like(eos_mask)
+        masked_starts[:, 1:] = eos_mask[:, :-1]
+        labels[masked_starts] = 0  # ignore_index=0 in F.cross_entropy
+
+        return {"text": tokens, "labels": labels}
 
 
 def probe_generation(nexus: PCEINexus, tokenizer: PCEITokenizer, device: torch.device):
@@ -304,6 +302,8 @@ def probe_generation(nexus: PCEINexus, tokenizer: PCEITokenizer, device: torch.d
     print("\n" + "─" * 60)
     print("  LIVE KNOWLEDGE & REASONING PROBE")
     print("─" * 60)
+
+    nexus.eval()
 
     for p in test_prompts:
         ids = tokenizer.encode(p).unsqueeze(0).to(device)
@@ -334,13 +334,28 @@ def probe_generation(nexus: PCEINexus, tokenizer: PCEITokenizer, device: torch.d
                 next_tok = topk_idx[sel].item()
                 generated.append(next_tok)
                 curr = torch.cat([curr, torch.tensor([[next_tok]], device=device)], dim=1)
-                if curr.shape[1] > 256:
-                    curr = curr[:, -256:]
+                if curr.shape[1] > 512:
+                    curr = curr[:, -512:]
 
         text_out = tokenizer.decode(torch.tensor(generated))
         print(f"\n[Prompt] {p.splitlines()[0]}", flush=True)
         print(f"[Model]  {text_out.strip()}", flush=True)
     print("─" * 60 + "\n", flush=True)
+
+    # Clean up detector activations and broker bonds generated during probing
+    if hasattr(nexus, "core"):
+        if hasattr(nexus.core, "detectors"):
+            for d in nexus.core.detectors.values():
+                if hasattr(d, "activation_buffer"):
+                    d.activation_buffer.clear()
+        if hasattr(nexus.core, "cached_spikes") and isinstance(nexus.core.cached_spikes, dict):
+            nexus.core.cached_spikes.clear()
+        if hasattr(nexus.core, "broker") and hasattr(nexus.core.broker, "active_bonds"):
+            nexus.core.broker.active_bonds.clear()
+
+    if "mps" in str(device):
+        torch.mps.empty_cache()
+
     nexus.train()
 
 
@@ -348,16 +363,18 @@ def main():
     parser = argparse.ArgumentParser(description="Optimal High-Diversity Ternary Training for PCEI 100M")
     parser.add_argument("--steps", type=int, default=5000, help="Number of training steps to run (default: 5,000)")
     parser.add_argument("--batch-size", type=int, default=4, help="Batch size (default: 4)")
-    parser.add_argument("--seq-len", type=int, default=128, help="Context sequence length (default: 128)")
-    parser.add_argument("--lr", type=float, default=2.5e-5, help="Learning rate (default: 2.5e-5)")
+    parser.add_argument("--seq-len", type=int, default=512, help="Context sequence length (default: 512)")
+    parser.add_argument("--lr", type=float, default=3.5e-5, help="Learning rate (default: 3.5e-5)")
+    parser.add_argument("--min-lr", type=float, default=1.0e-5, help="Minimum learning rate floor (default: 1.0e-5)")
+    parser.add_argument("--cycle-steps", type=int, default=25000, help="Cosine annealing cycle steps (default: 25,000)")
     parser.add_argument("--save-every", type=int, default=250, help="Checkpoint interval (default: 250 steps)")
     parser.add_argument("--probe-every", type=int, default=500, help="Generation probe interval (default: 500 steps)")
     parser.add_argument("--reset-optimizer", action="store_true", help="Reset optimizer momentum states and re-initialize LR schedule")
     args = parser.parse_args()
 
     print("=" * 70)
-    print("  PCEI 100M — OPTIMAL HIGH-DIVERSITY TRUE TERNARY TRAINING")
-    print(f"  Domain Allocation: 60% Conversational | 15% Reasoning | 12% STEM | 8% Lit | 5% Grounding")
+    print("  PCEI 100M — OPTIMAL 4-WAY BALANCED MULTI-TURN & REASONING TRAINING")
+    print(f"  Curriculum: 35% Claude CoT | 35% Multi-Turn Dialogue | 15% PCEI Teacher | 15% STEM")
     print(f"  Target Steps: {args.steps:,} | Batch: {args.batch_size} | SeqLen: {args.seq_len}")
     print(f"  Quantization: Strict True BitNet {{-1.0, 0.0, +1.0}}")
     print("=" * 70)
@@ -389,6 +406,9 @@ def main():
     nexus.load_state_dict(ckpt["model_state_dict"], strict=False)
     nexus.train()
     nexus.set_mode("WITNESS")
+    if hasattr(nexus.core.text_stack, 'enable_gradient_checkpointing'):
+        nexus.core.text_stack.enable_gradient_checkpointing()
+        print("[Memory] Gradient checkpointing ENABLED on TextStack.")
 
     # Audit initial weights
     total_q, neg1, zero0, pos1 = 0, 0, 0, 0
@@ -426,22 +446,24 @@ def main():
         param_group['lr'] = args.lr
         param_group['initial_lr'] = args.lr
 
-    min_lr = 5e-6
+    min_lr = args.min_lr
+    cycle_steps = args.cycle_steps
     ratio = min(1.0, min_lr / args.lr) if args.lr > 0 else 1.0
 
     def lr_lambda(step):
-        if step >= 25000:
+        if step >= cycle_steps:
             return ratio
-        return ratio + 0.5 * (1.0 - ratio) * (1.0 + math.cos(math.pi * step / 25000))
+        return ratio + 0.5 * (1.0 - ratio) * (1.0 + math.cos(math.pi * step / cycle_steps))
 
     scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lr_lambda)
-    print(f"[Scheduler] Active: Clamped CosineAnnealing (base_lr={args.lr:.2e} -> eta_min={min_lr:.2e} floor clamped)")
+    print(f"[Scheduler] Active: Clamped CosineAnnealing (base_lr={args.lr:.2e} -> eta_min={min_lr:.2e} floor over {cycle_steps:,} steps)")
 
     start_step = ckpt.get("global_step", 0)
     current_step = start_step
     target_end_step = (start_step + args.steps) if args.steps > 0 else float('inf')
     start_time = time.time()
     should_exit = False
+    circuit_breaker_tripped = False
 
     def handle_signal(sig, frame):
         nonlocal should_exit
@@ -457,6 +479,8 @@ def main():
     print("─" * 70, flush=True)
 
     step_loss_history = []
+    consecutive_elevated_checks = 0
+    consecutive_spike_count = 0
     log_every = 25
     out_ckpt = PROJECT_ROOT / "checkpoints" / "pcei_100m_diverse_ternary.pt"
     telemetry_file = PROJECT_ROOT / "logs" / "training_telemetry.jsonl"
@@ -467,18 +491,15 @@ def main():
         t_step_start = time.perf_counter()
         optimizer.zero_grad()
 
-        # Stream batch
+        # Stream batch with document boundary loss masking
         batch = packer.get_batch(args.batch_size, device=device)
         tokens = batch["text"]
+        labels = batch["labels"]
 
-        # Latent Integration
-        with torch.no_grad():
-            clean_latent = nexus.core.text_stack.integrate_input(tokens)
-
-        # Diffusion Step
+        # Autoregressive Cross-Entropy Training Step with Boundary Masking
         total_loss, mse_val, sampled_t, noise_scale = diffusion_training_step(
-            nexus, clean_latent, max_T=3,
-            ce_target=tokens, ce_weight=0.3,
+            nexus, clean_latent=None, max_T=1,
+            ce_target=tokens, labels=labels, ce_weight=1.0,
             use_min_snr=False
         )
 
@@ -486,6 +507,23 @@ def main():
             print(f"\n[Warning] Step {current_step}: NaN/Inf loss encountered. Skipping backprop to protect weights.", flush=True)
             optimizer.zero_grad()
             continue
+
+        loss_val = total_loss.item()
+
+        # Single-Batch Anomaly Filter & Sustained Divergence Circuit Breaker
+        if loss_val > 7.5:
+            consecutive_spike_count += 1
+            if consecutive_spike_count < 3:
+                print(f"\n[Batch Anomaly] Step {current_step}: High-entropy anomaly batch ({loss_val:.2f} > 7.5). Skipping backward pass to protect model weights.", flush=True)
+                optimizer.zero_grad()
+                continue
+            else:
+                print(f"\n[CIRCUIT BREAKER] Step {current_step}: 3 consecutive catastrophic loss spikes ({loss_val:.2f} > 7.5). Halting and locking checkpoint.", flush=True)
+                circuit_breaker_tripped = True
+                should_exit = True
+                break
+        else:
+            consecutive_spike_count = 0
 
         total_loss.backward()
         torch.nn.utils.clip_grad_norm_(nexus.parameters(), max_norm=1.0)
@@ -495,12 +533,11 @@ def main():
         # Ambient Consolidation Tick
         nexus.ambient_field.tick_consolidation()
 
-        loss_val = total_loss.item()
         step_loss_history.append(loss_val)
 
         step_duration = time.perf_counter() - t_step_start
 
-        # Logging
+        # Logging & Multi-Tier Circuit Breaker
         if current_step % log_every == 0:
             avg_loss = sum(step_loss_history[-log_every:]) / log_every
             ppl = math.exp(min(20, avg_loss))
@@ -509,6 +546,25 @@ def main():
             curr_lr = optimizer.param_groups[0]['lr']
             print(f"  Step {current_step:,} | Loss: {avg_loss:.4f} | PPL: {ppl:8.2f} | "
                   f"LR: {curr_lr:.2e} | Speed: {tok_per_sec:6.1f} tok/s | Elapsed: {elapsed/60:.1f}m", flush=True)
+
+            # Tier 1: Severe single-slice divergence spike (>7.10, PPL > 1211)
+            if avg_loss > 7.10:
+                print(f"\n[CIRCUIT BREAKER] Step {current_step}: Severe rolling loss spike ({avg_loss:.2f} > 7.10, PPL={ppl:.1f}). Halting and locking checkpoint.", flush=True)
+                circuit_breaker_tripped = True
+                should_exit = True
+                break
+
+            # Tier 2: Sustained divergence elevation (>6.60, PPL > 735 for 3 consecutive checks / 75 steps)
+            if avg_loss > 6.60:
+                consecutive_elevated_checks += 1
+                print(f"  [Watchdog Warning] Elevated rolling loss ({avg_loss:.2f} > 6.60, check {consecutive_elevated_checks}/3).", flush=True)
+                if consecutive_elevated_checks >= 3:
+                    print(f"\n[CIRCUIT BREAKER] Step {current_step}: Sustained loss elevation across 75 steps ({avg_loss:.2f} > 6.60, PPL={ppl:.1f}). Halting and locking checkpoint.", flush=True)
+                    circuit_breaker_tripped = True
+                    should_exit = True
+                    break
+            else:
+                consecutive_elevated_checks = 0
 
             try:
                 with open(telemetry_file, "a") as tf:
@@ -528,18 +584,22 @@ def main():
         if current_step % args.probe_every == 0:
             probe_generation(nexus, tokenizer, device)
 
-        # Periodic Atomic Checkpointing
-        if current_step % args.save_every == 0:
-            save_dict = {
-                "model_state_dict": nexus.state_dict(),
-                "optimizer_state_dict": optimizer.state_dict(),
-                "global_step": current_step,
-                "config": config,
-                "ternary_spec": "BitNet_1.58b_strict_three_state",
-                "training_domain": "multi_stream_stratified_diversity"
-            }
-            PCEINexus.save_safe_checkpoint(nexus, save_dict, out_ckpt, create_backup=False)
-            PCEINexus.save_safe_checkpoint(nexus, save_dict, PROJECT_ROOT / "checkpoints" / "pcei_100m.pt", create_backup=False)
+        # Periodic Atomic Checkpointing (guarded against divergence)
+        if current_step % args.save_every == 0 and not circuit_breaker_tripped:
+            recent_avg = sum(step_loss_history[-min(len(step_loss_history), log_every):]) / min(len(step_loss_history), log_every)
+            if recent_avg > 6.60:
+                print(f"\n[Safety Skip] Skipping periodic checkpoint at step {current_step}: recent avg loss {recent_avg:.2f} > 6.60.", flush=True)
+            else:
+                save_dict = {
+                    "model_state_dict": nexus.state_dict(),
+                    "optimizer_state_dict": optimizer.state_dict(),
+                    "global_step": current_step,
+                    "config": config,
+                    "ternary_spec": "BitNet_1.58b_strict_three_state",
+                    "training_domain": "multi_stream_stratified_diversity"
+                }
+                PCEINexus.save_safe_checkpoint(nexus, save_dict, out_ckpt, create_backup=False)
+                PCEINexus.save_safe_checkpoint(nexus, save_dict, PROJECT_ROOT / "checkpoints" / "pcei_100m.pt", create_backup=False)
 
         if "mps" in str(device) and current_step % 25 == 0:
             torch.mps.empty_cache()
@@ -549,18 +609,21 @@ def main():
     print(f"\n[Session Finished] Completed in {total_time/60:.2f} minutes.")
     print(f"[Session Finished] Final Global Step: {current_step:,} (+{current_step - start_step:,} new steps).")
 
-    final_save_dict = {
-        "model_state_dict": nexus.state_dict(),
-        "optimizer_state_dict": optimizer.state_dict(),
-        "global_step": current_step,
-        "config": config,
-        "ternary_spec": "BitNet_1.58b_strict_three_state",
-        "training_domain": "multi_stream_stratified_diversity",
-        "training_duration_seconds": total_time
-    }
-    PCEINexus.save_safe_checkpoint(nexus, final_save_dict, out_ckpt, create_backup=True)
-    PCEINexus.save_safe_checkpoint(nexus, final_save_dict, PROJECT_ROOT / "checkpoints" / "pcei_100m.pt", create_backup=False)
-    print(f"[Saved] Checkpoint written to: {out_ckpt.name} and pcei_100m.pt")
+    if circuit_breaker_tripped:
+        print(f"[CIRCUIT BREAKER] Checkpoint overwrite PREVENTED. Retaining existing safe checkpoint on disk without corruption.", flush=True)
+    else:
+        final_save_dict = {
+            "model_state_dict": nexus.state_dict(),
+            "optimizer_state_dict": optimizer.state_dict(),
+            "global_step": current_step,
+            "config": config,
+            "ternary_spec": "BitNet_1.58b_strict_three_state",
+            "training_domain": "multi_stream_stratified_diversity",
+            "training_duration_seconds": total_time
+        }
+        PCEINexus.save_safe_checkpoint(nexus, final_save_dict, out_ckpt, create_backup=True)
+        PCEINexus.save_safe_checkpoint(nexus, final_save_dict, PROJECT_ROOT / "checkpoints" / "pcei_100m.pt", create_backup=False)
+        print(f"[Saved] Checkpoint written to: {out_ckpt.name} and pcei_100m.pt")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,40 @@
+{"prompt": "What is the capital of France?", "expected": ["Paris"]}
+{"prompt": "What is the capital of Italy?", "expected": ["Rome"]}
+{"prompt": "What is the capital of Japan?", "expected": ["Tokyo"]}
+{"prompt": "What is the capital of Germany?", "expected": ["Berlin"]}
+{"prompt": "What is the capital of Spain?", "expected": ["Madrid"]}
+{"prompt": "What is the capital of Canada?", "expected": ["Ottawa"]}
+{"prompt": "What is the capital of Australia?", "expected": ["Canberra"]}
+{"prompt": "What is the capital of Egypt?", "expected": ["Cairo"]}
+{"prompt": "What is the capital of Brazil?", "expected": ["Brasilia", "Bras\u00edlia"]}
+{"prompt": "What is the largest continent on Earth?", "expected": ["Asia"]}
+{"prompt": "What is Africa?", "expected": ["continent"]}
+{"prompt": "What planet is known as the Red Planet?", "expected": ["Mars"]}
+{"prompt": "What is the boiling point of water in Celsius?", "expected": ["100"]}
+{"prompt": "What is the freezing point of water in Celsius?", "expected": ["0", "zero"]}
+{"prompt": "Who painted the Mona Lisa?", "expected": ["Leonardo da Vinci", "da Vinci"]}
+{"prompt": "What gas do plants absorb from the atmosphere?", "expected": ["carbon dioxide", "CO2"]}
+{"prompt": "What gas do humans require to breathe for cellular respiration?", "expected": ["oxygen", "O2"]}
+{"prompt": "What is the primary element found in the Sun?", "expected": ["hydrogen"]}
+{"prompt": "What force pulls objects toward the center of Earth?", "expected": ["gravity", "gravitational"]}
+{"prompt": "What is the chemical formula for water?", "expected": ["H2O"]}
+{"prompt": "What ocean lies between North America and Europe?", "expected": ["Atlantic"]}
+{"prompt": "What is the largest ocean on Earth?", "expected": ["Pacific"]}
+{"prompt": "Who wrote Romeo and Juliet?", "expected": ["Shakespeare"]}
+{"prompt": "What is the speed of light in vacuum approximately in km/s?", "expected": ["300,000", "300000", "3x10"]}
+{"prompt": "What is Rome?", "expected": ["capital", "Italy", "city"]}
+{"prompt": "Who created the PCEI framework?", "expected": ["Emerson Ramirez", "Emerson"]}
+{"prompt": "What is the hardest natural mineral on Earth?", "expected": ["diamond"]}
+{"prompt": "How many days are in a standard leap year?", "expected": ["366"]}
+{"prompt": "How many days are in a regular non-leap year?", "expected": ["365"]}
+{"prompt": "What is the closest star to planet Earth?", "expected": ["Sun"]}
+{"prompt": "What is the process by which green plants make food using sunlight?", "expected": ["photosynthesis"]}
+{"prompt": "What organ in the human body pumps blood?", "expected": ["heart"]}
+{"prompt": "What is the chemical symbol for gold?", "expected": ["Au", "gold"]}
+{"prompt": "What is the largest mammal on Earth?", "expected": ["blue whale", "whale"]}
+{"prompt": "Which country is famous for the Eiffel Tower?", "expected": ["France"]}
+{"prompt": "Which planet is closest to the Sun?", "expected": ["Mercury"]}
+{"prompt": "What natural disaster is measured by the Richter scale?", "expected": ["earthquake", "earthquakes"]}
+{"prompt": "What currency is officially used in the United Kingdom?", "expected": ["pound", "GBP", "sterling"]}
+{"prompt": "What is the main language spoken in Brazil?", "expected": ["Portuguese"]}
+{"prompt": "What is the powerhouse organelle of the biological cell?", "expected": ["mitochondria", "mitochondrion"]}

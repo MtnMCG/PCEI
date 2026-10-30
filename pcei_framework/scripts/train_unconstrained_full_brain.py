@@ -178,18 +178,16 @@ def main():
 
             loss = F.cross_entropy(shift_logits.view(-1, shift_logits.size(-1)), shift_labels.view(-1), ignore_index=-100)
 
-            if torch.isnan(loss) or torch.isinf(loss) or loss.item() > 12.0:
-                step_failed = True
-                break
+            if torch.isnan(loss) or torch.isinf(loss) or loss.item() > 14.0:
+                print(f"  [Warning] Outlier loss ({loss.item():.2f}) at step {step} micro {_}. Skipping microstep.", flush=True)
+                continue
 
             loss_scaled = loss / GRAD_ACCUM
             loss_scaled.backward()
             accum_loss += loss.item() / GRAD_ACCUM
-
-        if step_failed:
-            print(f"  [Warning] Anomaly or NaN/Inf detected in batch at step {step}. Skipping update.", flush=True)
-            optimizer.zero_grad()
-            continue
+            del t_in, t_lab, logits, shift_logits, shift_labels, loss, loss_scaled
+            if device == "mps" and hasattr(torch, "mps"):
+                torch.mps.empty_cache()
 
         # Strict NaN-safe gradient clip
         has_bad_grad = False

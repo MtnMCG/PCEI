@@ -176,6 +176,17 @@ def evaluate_hellaswag(nexus, tokenizer, samples: list, device: str = "cpu") -> 
             if idx <= 10 or idx % 10 == 0:
                 print(f"  Q{idx:3d}: {mark} | Pred: Option {pred} | True: Option {label} | Scores: {[round(s, 2) for s in option_scores]}")
 
+            # Clean up detector activations and broker bonds generated during scoring
+            if hasattr(nexus, "core"):
+                if hasattr(nexus.core, "detectors"):
+                    for d in nexus.core.detectors.values():
+                        if hasattr(d, "activation_buffer"):
+                            d.activation_buffer.clear()
+                if hasattr(nexus.core, "cached_spikes") and isinstance(nexus.core.cached_spikes, dict):
+                    nexus.core.cached_spikes.clear()
+                if hasattr(nexus.core, "broker") and hasattr(nexus.core.broker, "active_bonds"):
+                    nexus.core.broker.active_bonds.clear()
+
     acc = correct / max(total, 1)
     print("─" * 70)
     print(f"  HellaSwag Result: {correct}/{total} Correct ({acc*100:.2f}%) | Random Chance: 25.00%")
