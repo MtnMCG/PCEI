@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=PCEI 750M Resonance Chat
+Comment=Launch PCEI 750M Ternary Mamba Chat in Terminal (Temp 0.5, Multi-Turn History)
+Exec=sh -c "cd \"$(dirname \"%k\")\" && ./run_linux.sh"
+Terminal=true
+Categories=Utility;ArtificialIntelligence;Science;
