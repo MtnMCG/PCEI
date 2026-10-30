@@ -33,15 +33,30 @@ if not exist "venv" (
     echo [*] Initializing local environment (venv)...
     %PY_CMD% -m venv venv
     call venv\Scripts\activate.bat
-    echo [*] Installing runtime dependencies...
     python -m pip install --upgrade pip
-    pip install -r requirements.txt
+    where nvidia-smi >nul 2>nul
+    if %ERRORLEVEL% EQU 0 (
+        echo [*] NVIDIA GPU detected! Installing CUDA-accelerated PyTorch...
+        pip install torch --index-url https://download.pytorch.org/whl/cu124
+    ) else (
+        echo [*] Installing PyTorch...
+        pip install torch
+    )
+    pip install tiktoken huggingface_hub
 ) else (
     call venv\Scripts\activate.bat
+    where nvidia-smi >nul 2>nul
+    if %ERRORLEVEL% EQU 0 (
+        python -c "import sys, torch; sys.exit(0 if torch.cuda.is_available() else 1)" >nul 2>nul
+        if %ERRORLEVEL% NEQ 0 (
+            echo [*] NVIDIA GPU detected but PyTorch is CPU-only. Upgrading to CUDA PyTorch...
+            pip install --upgrade --force-reinstall torch --index-url https://download.pytorch.org/whl/cu124
+        )
+    )
 )
 
-echo [*] Launching PCEI Resonance Chat...
-python chat.py %*
+echo [*] Launching PCEI Resonance Chat (GPU Auto-Accelerated, Temp=0.5, Multi-Turn History)...
+python chat.py --temperature 0.5 --top-p 0.9 --repetition-penalty 1.05 %*
 
 if %ERRORLEVEL% NEQ 0 (
     echo.

@@ -33,12 +33,23 @@ if [ ! -d "venv" ]; then
     echo "[*] Initializing local environment (venv)..."
     python3 -m venv venv
     source venv/bin/activate
-    echo "[*] Installing required runtime dependencies..."
     pip install --upgrade pip
-    pip install -r requirements.txt
+    if command -v nvidia-smi &> /dev/null; then
+        echo "[*] NVIDIA GPU detected! Installing CUDA-accelerated PyTorch..."
+        pip install torch --index-url https://download.pytorch.org/whl/cu124
+    else
+        pip install torch
+    fi
+    pip install tiktoken huggingface_hub
 else
     source venv/bin/activate
+    if command -v nvidia-smi &> /dev/null; then
+        if ! python3 -c "import sys, torch; sys.exit(0 if torch.cuda.is_available() else 1)" 2>/dev/null; then
+            echo "[*] NVIDIA GPU detected! Upgrading to CUDA-accelerated PyTorch..."
+            pip install --upgrade --force-reinstall torch --index-url https://download.pytorch.org/whl/cu124
+        fi
+    fi
 fi
 
-echo "[*] Launching PCEI Resonance Chat..."
-python3 chat.py "$@"
+echo "[*] Launching PCEI Resonance Chat (GPU Auto-Accelerated, Temp=0.5, Multi-Turn History)..."
+python3 chat.py --temperature 0.5 --top-p 0.9 --repetition-penalty 1.05 "$@"

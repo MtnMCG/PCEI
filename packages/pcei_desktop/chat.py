@@ -95,15 +95,25 @@ def main():
     parser.add_argument("--device", type=str, default=None, help="Device (mps, cuda, cpu)")
     args = parser.parse_args()
 
-    # Determine device
+    # Determine fastest available GPU accelerator (CUDA -> MPS -> CPU)
     if args.device:
         device = args.device
     elif torch.cuda.is_available():
         device = "cuda"
-    elif torch.backends.mps.is_available():
+        torch.backends.cuda.matmul.allow_tf32 = True
+        torch.backends.cudnn.allow_tf32 = True
+        torch.backends.cudnn.benchmark = True
+    elif hasattr(torch.backends, "mps") and torch.backends.mps.is_available():
         device = "mps"
     else:
         device = "cpu"
+
+    if device == "cuda":
+        hw_label = f"CUDA GPU ({torch.cuda.get_device_name(0)})"
+    elif device == "mps":
+        hw_label = "MPS GPU (Apple Silicon Unified Metal)"
+    else:
+        hw_label = "CPU (No CUDA/MPS GPU detected)"
 
     # Verify/download weights
     ckpt_path = ensure_checkpoint(Path(args.ckpt))
@@ -111,7 +121,7 @@ def main():
     print("=" * 64)
     print("  PCEI 750M Resonance Chat — Standalone Desktop Edition")
     print("  Architecture: 24-Layer Mamba SSM + FastKAN + BitNet 1.58b Ternary")
-    print(f"  Device: {device.upper()} | Precision: BitNet 1.58b / FP32")
+    print(f"  Accelerator: {hw_label}")
     print(f"  Temperature: {args.temperature} | Top-p: {args.top_p} | Multi-Turn Memory: {'OFF' if args.single_turn else 'ON'}")
     print("=" * 64)
 
