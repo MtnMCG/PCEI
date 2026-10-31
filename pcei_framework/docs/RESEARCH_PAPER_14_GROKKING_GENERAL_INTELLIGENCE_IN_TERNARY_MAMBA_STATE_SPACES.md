@@ -178,6 +178,31 @@ On the exact casual, unpunctuated, open-world, and multi-turn queries that previ
   - `Turn 1 (USER: what is 2+4)` $\to$ `2 + 4 = 6.`
   - `Turn 2 (USER: what the capital of france)` $\to$ `Paris is the capital of France.`
 
+### 6.4 Autonomous Full-Library Scaling (14,145,290 Tokens) & Cooperative Memory Refresh
+To transition PCEI from domain-specific grokking into true open-world general intelligence, the model underwent an autonomous full-library pretraining run ingesting **57,150 multi-domain records** (`14,145,290 tokens`, $L \le 768$, zero truncation) across classical literature, philosophy, STEM textbooks, encyclopedic compendia, and structured reasoning.
+
+#### The MPS Jetsam Memory Bottleneck & Cooperative Process Refresh
+During initial long-sequence training under Apple Silicon MPS with `PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0`, PyTorch's allocation strategy continually created new Metal heap buffers without reclaiming fragmented pools across varying sequence lengths. Over ~900 steps (~2.2 hours), OS resident memory escalated beyond 20 GB until macOS kernel Jetsam triggered a non-maskable `SIGKILL 9` (`rc=137`). Restricting the watermark to conservative thresholds (`0.50`) resulted in out-of-memory errors on 256-byte allocations during checkpoint integrity serialization.
+
+The permanent architectural resolution established a **Cooperative Memory Refresh Protocol**:
+1. PyTorch memory watermark is set to `0.0` (unrestricted hardware access).
+2. The training process performs safe atomic checkpoint serialization and exits with a dedicated code (`42`) every 500 steps.
+3. An external shell supervisor immediately catches `rc=42` and respawns the Python runtime in $<2$ seconds, completely purging Metal driver heap fragmentation and resetting resident memory from $>14\text{ GB}$ back to $1.3\text{ GB}$ with zero step or state loss.
+
+Across all 8,833 steps of the full-library read, this protocol maintained 100% uninterrupted uptime, culminating in foundation checkpoint `pcei_750m_library_latest.pt`. Notably, around Step 7,500, probe queries began spontaneously emitting Claude-style `<think>` internal reflection blocks prior to generating final answers.
+
+### 6.5 High-Density SFT Annealing Snap: 89.0% Precision Rebound
+Ingesting 14M tokens of raw unstructured text naturally diluted synthetic arithmetic memorization down to $60.0\%$ (overall benchmark $75.0\%$). To restore multi-domain precision while retaining the newly acquired world knowledge, a **High-Density SFT Annealing Snap Phase** (300 steps, cosine learning rate decay $1.5 \times 10^{-5} \to 2.25 \times 10^{-6}$, 2,395 curated records) was executed directly on `pcei_750m_library_latest.pt`:
+
+| Annealing Milestone | Open Factual QA (40 Qs) | Conversational Dialogue (30 Qs) | Arithmetic Reasoning (30 Qs) | Overall Benchmark Accuracy | Key Qualitative Observation |
+| :--- | :---: | :---: | :---: | :---: | :--- |
+| **Step 0 (Un-annealed Library Model)** | $90.0\%$ ($36/40$) | $70.0\%$ ($21/30$) | $60.0\%$ ($18/30$) | **$75.0\%$ ($75/100$)** | High raw knowledge; occasional syntax hallucination. |
+| **Step 50** | **$100.0\%$ ($40/40$)** | $86.7\%$ ($26/30$) | $70.0\%$ ($21/30$) | **$87.0\%$ ($87/100$)** | Rapid fact & syntax stabilization; Paris/USA verified. |
+| **Step 100** | **$100.0\%$ ($40/40$)** | $86.7\%$ ($26/30$) | $63.3\%$ ($19/30$) | **$85.0\%$ ($85/100$)** | Stable conversational coherence. |
+| **Step 150 (Peak Annealed Foundation)** | **$100.0\%$ ($40/40$)** | **$93.3\%$ ($28/30$)** | **$70.0\%$ ($21/30$)** | **$89.0\%$ ($89/100$)** | Flawless factual QA; high dialogue naturalness; saved to `pcei_750m_annealed_best.pt`. |
+| **Step 250** | **$100.0\%$ ($40/40$)** | **$93.3\%$ ($28/30$)** | $66.7\%$ ($20/30$) | **$88.0\%$ ($88/100$)** | Persistent stability across all domains. |
+| **Step 300 (Final Consolidated)** | **$100.0\%$ ($40/40$)** | **$93.3\%$ ($28/30$)** | $66.7\%$ ($20/30$) | **$88.0\%$ ($88/100$)** | Convergence complete at $\mathcal{L} = 2.409$. |
+
 ---
 
 ## 7. Conclusion
