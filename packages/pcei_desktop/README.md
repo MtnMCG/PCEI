@@ -1,5 +1,9 @@
 # PCEI 750M Desktop Edition
 
+[![License: MIT-NC](https://img.shields.io/badge/License-MIT--NC-blue.svg)](https://github.com/MtnMCG/PCEI/blob/main/LICENSE)
+[![Architecture: Selective SSM + BitNet 1.58b](https://img.shields.io/badge/Architecture-Mamba%20SSM%20%2B%20BitNet%201.58b-red.svg)]()
+[![Complexity: O(1) Memory](https://img.shields.io/badge/Inference-O(1)%20Memory-green.svg)]()
+
 A standalone, cross-platform distribution of the **Physically Constrained Emergent Intelligence (PCEI) 750M** neural architecture (`886M` physical parameters: 24-layer Mamba Selective State Space + FastKAN Spline Manifolds + BitNet 1.58b Ternary Quantization).
 
 ---
@@ -43,3 +47,10 @@ If you prefer running directly from your own Python environment:
 pip install -r requirements.txt
 python3 chat.py --temperature 0.5 --top-p 0.9
 ```
+
+---
+
+## 📜 License & Intellectual Property
+This distribution and the PCEI architecture are licensed under the **MIT Non-Commercial License (MIT-NC)**.
+- **Academic, Educational & Personal Research**: Freely granted without fee or restriction.
+- **Commercial Use & Monetization**: Strictly prohibited without prior express written permission from the copyright holder.

@@ -1,7 +1,9 @@
 ---
 language:
 - en
-license: mit
+license: other
+license_name: mit-nc
+license_link: https://github.com/MtnMCG/PCEI/blob/main/LICENSE
 tags:
 - pcei
 - bitnet
@@ -19,6 +21,7 @@ pipeline_tag: text-generation
 
 # PCEI-Text: Physically Constrained Emergent Intelligence (100M BitNet Ternary Mamba)
 
+[![License: MIT-NC](https://img.shields.io/badge/License-MIT--NC-blue.svg)](https://github.com/MtnMCG/PCEI/blob/main/LICENSE)
 [![GitHub Repository](https://img.shields.io/badge/GitHub-MtnMCG%2FPCEI-blue.svg)](https://github.com/MtnMCG/PCEI)
 [![Sister Repo: PCEI-Robotics](https://img.shields.io/badge/🤗%20HuggingFace-PCEI--Robotics-blueviolet.svg)](https://huggingface.co/MtnMCG/PCEI-Robotics)
 [![Architecture: Selective SSM + BitNet 1.58b](https://img.shields.io/badge/Architecture-Mamba%20SSM%20%2B%20BitNet%201.58b-red.svg)]()
@@ -155,7 +158,7 @@ PCEI proves that physical constraints generalize across domains:
 
 ## 📜 Citation & License
 
-This model and the PCEI codebase are released under the **MIT License**.
+This model and the PCEI codebase are released under the **MIT Non-Commercial License (MIT-NC)**. Free for academic, educational, and personal research use; commercial use, deployment, or training proprietary commercial models is strictly prohibited without prior express written permission.
 
 ```bibtex
 @article{ramirez2026pcei,
