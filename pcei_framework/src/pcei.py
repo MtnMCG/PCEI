@@ -97,11 +97,12 @@ class PCEINexus(nn.Module):
         and optionally creates a known-good backup.
         """
         # 1. NaN Validation
-        for name, p in nexus_instance.named_parameters():
-            if torch.isnan(p).any() or torch.isinf(p).any():
-                print(f"\n[CRITICAL ERROR] NaN/Inf detected in parameter: {name}")
-                print("[CRITICAL ERROR] ABORTING SAVE to protect checkpoint from corruption.")
-                return False
+        with torch.no_grad():
+            for name, p in nexus_instance.named_parameters():
+                if not torch.isfinite(p).all():
+                    print(f"\n[CRITICAL ERROR] NaN/Inf detected in parameter: {name}")
+                    print("[CRITICAL ERROR] ABORTING SAVE to protect checkpoint from corruption.")
+                    return False
                 
         # Block Ctrl+C during the atomic save so the user doesn't accidentally corrupt it
         import signal

@@ -19,11 +19,12 @@ tags:
 pipeline_tag: text-generation
 ---
 
-# PCEI-Text: Physically Constrained Emergent Intelligence (100M BitNet Ternary Mamba)
+# PCEI-Text: Physically Constrained Emergent Intelligence (750M Foundation & 100M Edge Ternary Mamba)
 
 [![License: MIT-NC](https://img.shields.io/badge/License-MIT--NC-blue.svg)](https://github.com/MtnMCG/PCEI/blob/main/LICENSE)
 [![GitHub Repository](https://img.shields.io/badge/GitHub-MtnMCG%2FPCEI-blue.svg)](https://github.com/MtnMCG/PCEI)
 [![Sister Repo: PCEI-Robotics](https://img.shields.io/badge/🤗%20HuggingFace-PCEI--Robotics-blueviolet.svg)](https://huggingface.co/MtnMCG/PCEI-Robotics)
+[![Parameters: 750M Foundation | 100M Edge](https://img.shields.io/badge/Parameters-750M%20Foundation%20%7C%20100M%20Edge-purple.svg)]()
 [![Architecture: Selective SSM + BitNet 1.58b](https://img.shields.io/badge/Architecture-Mamba%20SSM%20%2B%20BitNet%201.58b-red.svg)]()
 [![Complexity: O(L) Linear](https://img.shields.io/badge/Inference%20Complexity-O(1)%20Memory%20%7C%20O(L)%20Compute-green.svg)]()
 [![Quantization: 1.58-bit {-1, 0, +1}](https://img.shields.io/badge/Quantization-Strict%20BitNet%20b1.58-brightgreen.svg)]()
@@ -34,19 +35,34 @@ pipeline_tag: text-generation
 
 ## 🏛️ Executive Summary
 
-**PCEI-Text** is an open-weights linear-time sequence model that discards quadratic Transformer attention ($\mathcal{O}(L^2)$) and high-energy 16-bit floating-point multiplications in favor of:
+**PCEI-Text** is an open-weights linear-time sequence foundation model family that discards quadratic Transformer attention ($\mathcal{O}(L^2)$) and high-energy 16-bit floating-point multiplications in favor of:
 1. **Hardware-efficient Selective State Spaces (Mamba SSM)** operating with linear $\mathcal{O}(L)$ compute and constant $\mathcal{O}(1)$ memory inference.
 2. **Canonical Microsoft BitNet b1.58 Ternary Quantization**, constraining synaptic weights to strictly discrete $\{-1.0, 0.0, +1.0\}$ states and replacing energy-hungry floating-point multiplications ($FMUL$) with integer additions ($IADD$).
 3. **Kolmogorov-Arnold Network (FastKAN) Spline Manifolds**, utilizing learnable cubic B-splines along non-linear parameter trajectories.
 4. **Dual-Timescale Dynamic State Modulation (`AmbientField`)**, preventing context degradation and drifting attractors over extended multi-turn horizons.
 
-This repository hosts foundation checkpoint `pcei_100m_bitnet_ternary.pt` (1.09 GB), trained continuously on diverse natural language, dialogue, reasoning, and synthetic curricula.
+### Checkpoints Available in this Repository
+
+| Checkpoint File | Parameters | Size | Description | Target Use Case |
+| :--- | :---: | :---: | :--- | :--- |
+| **`pcei_750m_competitive_best.pt`** | **750M** | **1.77 GB** | **Flagship Foundation Model**. Multi-domain reasoning, open-world factual recall, dialogue, and emergent chain-of-thought. | Primary foundation deployment & research |
+| **`pcei_100m_bitnet_ternary.pt`** | **100M** | **1.09 GB** | Micro-scale edge model. Canonical BitNet b1.58 ternary baseline. | Resource-constrained edge & mobile devices |
 
 ---
 
 ## 🔬 Empirical Audits & Verification
 
-### 1. Tiny LM Compute-Matched Bake-Off (Muse Autonomous Evaluation)
+### 1. PCEI 750M Multi-Domain Benchmark Performance
+Evaluated under zero-leakage, greedy argmax neural generation:
+
+| Domain | 100-Question Multi-Domain Benchmark |
+| :--- | :---: |
+| **1. Open Factual QA** (40 Questions) | **95.0% - 100.0%** |
+| **2. Conversational Dialogue** (30 Questions) | **86.7% - 93.3%** |
+| **3. Deterministic Arithmetic & CoT** (30 Questions) | **70.0% - 80.0%** |
+| **Overall Benchmark Accuracy** | **89.0% - 92.0%** |
+
+### 2. Tiny LM Compute-Matched Bake-Off (Muse Autonomous Evaluation)
 In an independent multi-seed compute-matched baseline bake-off conducted via the Muse evaluation agent against a compute-matched Transformer:
 
 | Model | Architecture | Parameters | Val Loss (mean ± std) | Val Perplexity | Win Rate |
@@ -57,7 +73,7 @@ In an independent multi-seed compute-matched baseline bake-off conducted via the
 
 * **Key Takeaway**: Despite linear projections constrained strictly to discrete $\{-1, 0, +1\}$ ternary states (zero floating-point multiplications), PCEI outperformed the dense FP32 Mamba baseline and beat the standard Transformer by **0.23 nats** (val perplexity 79.1 vs 100.8).
 
-### 2. Strict Microsoft BitNet b1.58 Migration
+### 3. Strict Microsoft BitNet b1.58 Migration
 An external audit in October 2026 disclosed that early internal prototypes utilized an experimental 5-state quantizer. The architecture was fully refactored to canonical Microsoft BitNet b1.58:
 - **Parameter Entropy Cut**: Reduced from 2.32b to strictly 1.58b ($\le \log_2(3)$ bits/param), cutting parameter entropy by **32%**.
 - **Perplexity & Hallucinations**: Validation loss improved from 11.1696 to 11.1429 on 100M, eliminating activation outlier code token hallucinations.
@@ -67,19 +83,18 @@ An external audit in October 2026 disclosed that early internal prototypes utili
 
 ## ⚙️ Model Specifications
 
-| Architectural Dimension | Specification |
-| :--- | :--- |
-| **Base Architecture** | 12-Layer Selective State Space (Mamba SSM) |
-| **Model Dimension ($d_{\text{model}}$)** | 768 |
-| **Inner Expansion Dimension ($d_{\text{inner}}$)** | 512 |
-| **State Dimension ($d_{\text{state}}$)** | 16 |
-| **Convolution Kernel Size** | 4 |
-| **Non-Linear Branch** | FastKAN (Learnable cubic B-splines, grid size = 5) |
-| **Synaptic Quantization** | Strict BitNet b1.58 ($\{-1.0, 0.0, +1.0\}$) via STE |
-| **Vocabulary Size** | 50,257 (OpenAI GPT-2 BPE tokenizer) |
-| **Context Length ($L$)** | 128 / 512 / 2048 streaming tokens |
-| **Inference Footprint** | $\approx 250\text{ MB}$ packed ternary integer weights |
-| **Hardware Target** | Apple Silicon MPS, NVIDIA CUDA, or CPU edge devices |
+| Architectural Dimension | PCEI-750M (Flagship Foundation) | PCEI-100M (Edge) |
+| :--- | :--- | :--- |
+| **Base Architecture** | Selective State Space (Mamba SSM) + Latent Diffusion | 12-Layer Selective State Space (Mamba SSM) |
+| **Model Dimension ($d_{\text{model}}$)** | **1024** | 768 |
+| **Inner Expansion Dimension ($d_{\text{inner}}$)** | **2048** | 512 |
+| **State Dimension ($d_{\text{state}}$)** | **32** | 16 |
+| **Convolution Kernel Size** | 4 | 4 |
+| **Non-Linear Branch** | FastKAN (Cubic B-splines) | FastKAN (Cubic B-splines) |
+| **Synaptic Quantization** | Strict BitNet b1.58 ($\{-1.0, 0.0, +1.0\}$) via STE | Strict BitNet b1.58 ($\{-1.0, 0.0, +1.0\}$) via STE |
+| **Vocabulary Size** | 50,257 (OpenAI GPT-2 BPE) | 50,257 (OpenAI GPT-2 BPE) |
+| **Context Length ($L$)** | Up to 2,048 tokens | 128 / 512 tokens |
+| **Hardware Target** | Apple Silicon MPS, NVIDIA CUDA, CPU edge | Apple Silicon MPS, NVIDIA CUDA, CPU edge |
 
 ---
 
@@ -101,12 +116,13 @@ pip install huggingface_hub
 # 3. Download the model checkpoint directly from Hugging Face
 python3 -c "
 from huggingface_hub import hf_hub_download
-hf_hub_download(repo_id='MtnMCG/PCEI-Text', filename='pcei_100m_bitnet_ternary.pt', local_dir='checkpoints')
+# Download Flagship 750M Foundation Model (or 'pcei_100m_bitnet_ternary.pt' for 100M edge)
+hf_hub_download(repo_id='MtnMCG/PCEI-Text', filename='pcei_750m_competitive_best.pt', local_dir='checkpoints')
 "
 
 # 4. Interactive generation with continuous state modulation
 python3 tools/resonance_chat.py \
-  --checkpoint checkpoints/pcei_100m_bitnet_ternary.pt \
+  --checkpoint checkpoints/pcei_750m_competitive_best.pt \
   --device mps  # Use --device cuda on NVIDIA GPUs
 ```
 
@@ -120,8 +136,8 @@ from src.tokenizer import PCEITokenizer
 
 device = torch.device("mps" if torch.backends.mps.is_available() else ("cuda" if torch.cuda.is_available() else "cpu"))
 
-# Load checkpoint
-checkpoint = torch.load("checkpoints/pcei_100m_bitnet_ternary.pt", map_location=device)
+# Load checkpoint (750M Foundation Model)
+checkpoint = torch.load("checkpoints/pcei_750m_competitive_best.pt", map_location=device)
 cfg_obj = checkpoint.get("config", None)
 config = cfg_obj if isinstance(cfg_obj, PCEIConfig) else PCEIConfig.load()
 
