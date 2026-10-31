@@ -169,7 +169,7 @@ def resonance_chat(args):
         print("[Mode] Inference-only (no training, fast responses)", flush=True)
     else:
         print("[Mode] Active Learning (trains & consolidates on every message)", flush=True)
-    print(f"[Sampling] Temperature: {args.temperature} | Top-p: {args.top_p}", flush=True)
+    print(f"[Sampling] Temperature: {args.temperature} | Top-p: {args.top_p} | Top-k: {getattr(args, 'top_k', 50)} | Rep-Penalty: {args.repetition_penalty}", flush=True)
     print("[Context] Multi-turn dialogue memory active (/clear, /history, /bonds, /status)", flush=True)
 
     conversation_history = []  # List of (user_text, asst_text)
@@ -284,7 +284,7 @@ def resonance_chat(args):
 
             with torch.inference_mode():
                 curr_tokens = torch.tensor([prompt_ids], dtype=torch.long).to(device)
-                MAX_NEW_TOKENS = 248
+                MAX_NEW_TOKENS = getattr(args, 'max_tokens', 256)
 
                 nexus.response_gate.reset()
 
@@ -344,20 +344,29 @@ def resonance_chat(args):
                         if step < min_toks:
                             logits_last[tokenizer.eos_id] = -1e4
 
-                        scaled = logits_last / max(1e-4, args.temperature)
-
-                        # Top-p nucleus filtering
-                        probs = F.softmax(scaled, dim=-1)
-                        sprobs, sidx = torch.sort(probs, descending=True)
-                        cum = torch.cumsum(sprobs, dim=-1)
-                        remove_mask = cum - sprobs > args.top_p
-                        probs[sidx[remove_mask]] = 0.0
-                        probs_sum = probs.sum()
-                        if probs_sum > 0:
-                            probs /= probs_sum
-                            next_token_id = torch.multinomial(probs, num_samples=1).item()
+                        if getattr(args, 'temperature', 0.7) <= 0.05:
+                            next_token_id = torch.argmax(logits_last).item()
                         else:
-                            next_token_id = sidx[0].item()
+                            scaled = logits_last / max(1e-4, args.temperature)
+
+                            # Top-k filtering (if enabled)
+                            top_k = getattr(args, 'top_k', 50)
+                            if top_k > 0:
+                                v, _ = torch.topk(scaled, min(top_k, scaled.size(-1)))
+                                scaled[scaled < v[-1]] = -1e4
+
+                            # Top-p nucleus filtering
+                            probs = F.softmax(scaled, dim=-1)
+                            sprobs, sidx = torch.sort(probs, descending=True)
+                            cum = torch.cumsum(sprobs, dim=-1)
+                            remove_mask = cum - sprobs > args.top_p
+                            probs[sidx[remove_mask]] = 0.0
+                            probs_sum = probs.sum()
+                            if probs_sum > 0:
+                                probs /= probs_sum
+                                next_token_id = torch.multinomial(probs, num_samples=1).item()
+                            else:
+                                next_token_id = sidx[0].item()
 
                         if next_token_id == tokenizer.eos_id:
                             if step >= min_toks:
@@ -455,9 +464,13 @@ if __name__ == "__main__":
         parser.add_argument("--active-learning", action="store_true", default=False,
                             help="Enable continuous online learning and physics consolidation on each message")
         parser.add_argument("--temperature", type=float, default=0.7,
-                            help="Sampling temperature (default: 0.7)")
+                            help="Sampling temperature (default: 0.7; use 0.0 or <=0.05 for greedy argmax)")
         parser.add_argument("--top-p", type=float, default=0.90,
                             help="Top-p nucleus sampling threshold (default: 0.90)")
+        parser.add_argument("--top-k", type=int, default=50,
+                            help="Top-k filtering threshold (default: 50, 0 to disable)")
+        parser.add_argument("--max-tokens", type=int, default=256,
+                            help="Maximum new tokens to generate per turn (default: 256)")
         parser.add_argument("--repetition-penalty", type=float, default=1.15,
                             help="Multiplicative repetition penalty on recent 40 tokens (default: 1.15)")
         parser.add_argument("--freq-penalty", type=float, default=0.0,
